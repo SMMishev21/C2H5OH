@@ -142,12 +142,17 @@
     <ClCompile Include="C2H5OH.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="RenderObject.cpp" />
+    <ClCompile Include="Square.cpp" />
     <ClCompile Include="Weapons.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Weapons.h" />
+    <ClInclude Include="Game.hpp" />
+    <ClInclude Include="Player.hpp" />
+    <ClInclude Include="precompile.hpp" />
+    <ClInclude Include="RenderObject.hpp" />
+    <ClInclude Include="Square.hpp" />
+    <ClInclude Include="Weapons.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

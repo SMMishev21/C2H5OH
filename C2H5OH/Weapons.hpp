@@ -1,6 +1,4 @@
-#pragma once
-#include <SFML/Graphics.hpp>
-using namespace sf;
+#include "precompile.hpp"
 
 class Ranged {
 public:

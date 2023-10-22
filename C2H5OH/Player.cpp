@@ -1,4 +1,4 @@
-#include "Player.h"
+#include "Player.hpp"
 
 
 void Player::setPlayerInfo(int health, float speed) {

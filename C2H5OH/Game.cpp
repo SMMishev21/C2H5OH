@@ -1,16 +1,37 @@
-#include "Game.h"
+#include "Game.hpp"
 #include <thread>
 #include <iostream>
+#include <chrono>
+#include <ppl.h>
 
 Game::Game() {
 	this->window.create(VideoMode(1280, 720), "Title");
+	this->window.setFramerateLimit(240);
 	this->shouldClose = false;
+
+	this->plrTexture.loadFromFile("./assets/plr.png");
+	this->plr = new Player;
+	this->plr->init(this->plrTexture, Vector2f(500, 300), 'p');
+
+	this->squareTexture.loadFromFile("./assets/square.png");
+
+	for (int i = 0; i < 100; i++) {
+		Square* square = new Square;
+		square->init(this->squareTexture, Vector2f(64 * i, 0), 'b');
+		this->renderObjects.push_back(square);
+	}
+
+	this->renderObjects.push_back(this->plr);
+
+	this->view.setCenter(this->plr->getPosition());
+	this->view.setSize(Vector2f(1280, 720));
+
 	this->mainLoop();
 }
 
 void Game::mainLoop() {
-	//std::jthread updateThread(&Game::update, this, &this->shouldClose);
-
+	std::jthread updateThread(&Game::update, this);
+	dt = 0.f;
 	while (this->window.isOpen()) {
 		while (this->window.pollEvent(this->ev)) {
 			if (this->ev.type == Event::Closed) {
@@ -19,19 +40,52 @@ void Game::mainLoop() {
 			}
 		}
 
+		this->view.move((this->plr->getPosition() - this->view.getCenter()) * 3.f * this->dt);
+		this->handleInput(this->dt);
 
 		this->draw();
+
+		this->dt = clock.restart().asSeconds();
 	}
 }
 
 void Game::draw() {
+	this->window.setView(this->view);
 	this->window.clear(Color(45, 75, 118, 255));
-	// TODO: vector<RenderObject>
+	
+	for (int i = 0; i < this->renderObjects.size(); ++i) {
+		this->renderObjects[i]->draw(this->window);
+	}
+
 	this->window.display();
 }
 
-void Game::update(bool* shouldClose) {
-	while (!shouldClose) {
-		std::cout << "s\n";
+void Game::handleInput(float dt) {
+	std::cout << dt << "\n";
+	if (Keyboard::isKeyPressed(Keyboard::A)) {
+		this->plr->move(Vector2f(-200, 0) * dt);
+	}
+	else if (Keyboard::isKeyPressed(Keyboard::D)) {
+		this->plr->move(Vector2f(200, 0) * dt);
+	}
+
+	if (Keyboard::isKeyPressed(Keyboard::W)) {
+		this->plr->move(Vector2f(0, -200) * dt);
+	}
+	else if (Keyboard::isKeyPressed(Keyboard::S)) {
+		this->plr->move(Vector2f(0, 200) * dt);
+	}
+}
+
+void Game::update() {
+	Clock clockU;
+	float dtU = 0;
+
+	while (!this->shouldClose) {
+		if (clockU.getElapsedTime().asMilliseconds() < 1) {
+			std::this_thread::sleep_for(std::chrono::milliseconds((int)(1 - clockU.getElapsedTime().asMilliseconds())));
+		}
+
+		dtU = clockU.restart().asSeconds();
 	}
 }
