@@ -24,7 +24,7 @@ Game::Game() {
 	this->renderObjects.push_back(this->plr);
 
 	this->view.setCenter(this->plr->getPosition());
-	this->view.setSize(Vector2f(1280, 720));
+	this->view.setSize(Vector2f(1920, 1080));
 
 	this->mainLoop();
 }
@@ -40,8 +40,11 @@ void Game::mainLoop() {
 			}
 		}
 
-		this->view.move((this->plr->getPosition() - this->view.getCenter()) * 3.f * this->dt);
 		this->handleInput(this->dt);
+
+		this->handleMovement();
+
+		this->view.move((this->plr->getPosition() - this->view.getCenter()) * 3.f * this->dt);
 
 		this->draw();
 
@@ -60,32 +63,62 @@ void Game::draw() {
 	this->window.display();
 }
 
+void Game::handleMovement() {
+	if (this->dash) {
+		this->plr->move((this->plrVelocity * this->dt));
+		
+		this->plrVelocity *= (1.f - this->dt * 0.99f);
+		
+		if (abs(this->plrVelocity.x) < 1300 && abs(this->plrVelocity.y) < 1300) {
+			this->plrVelocity *= 0.f;
+			this->dash = false;
+		}
+	}
+}
+
 void Game::handleInput(float dt) {
-	std::cout << dt << "\n";
 	if (Keyboard::isKeyPressed(Keyboard::A)) {
 		this->plr->move(Vector2f(-200, 0) * dt);
+		this->dir.x = -1;
 	}
 	else if (Keyboard::isKeyPressed(Keyboard::D)) {
 		this->plr->move(Vector2f(200, 0) * dt);
+		this->dir.x = 1;
+	}
+	else {
+		this->dir.x = 0;
 	}
 
 	if (Keyboard::isKeyPressed(Keyboard::W)) {
 		this->plr->move(Vector2f(0, -200) * dt);
+		this->dir.y = -1;
 	}
 	else if (Keyboard::isKeyPressed(Keyboard::S)) {
 		this->plr->move(Vector2f(0, 200) * dt);
+		this->dir.y = 1;
+	}
+	else {
+		this->dir.y = 0;
+	}
+
+	if (Keyboard::isKeyPressed(Keyboard::LShift) && this->dashClock.getElapsedTime().asSeconds() >= 1 && !this->dash) {
+		this->dashClock.restart();
+		this->dash = true;
+		this->plrVelocity = Vector2f(1500 * dir.x, 1500 * dir.y);
 	}
 }
 
 void Game::update() {
 	Clock clockU;
-	float dtU = 0;
+	Time dtU;
 
 	while (!this->shouldClose) {
-		if (clockU.getElapsedTime().asMilliseconds() < 1) {
-			std::this_thread::sleep_for(std::chrono::milliseconds((int)(1 - clockU.getElapsedTime().asMilliseconds())));
+		dtU = clockU.restart();
+
+		if (dtU.asMilliseconds() < 20) {
+			std::this_thread::sleep_for(std::chrono::milliseconds((int)(20 - dtU.asMilliseconds())));
 		}
 
-		dtU = clockU.restart().asSeconds();
+		
 	}
 }

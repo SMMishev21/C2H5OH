@@ -9,6 +9,8 @@ class Game {
 private:
 	float dt;
 	bool shouldClose;
+	bool dash;
+
 	RenderWindow window;
 	Event ev;
 	Player* plr;
@@ -17,6 +19,8 @@ private:
 	View view;
 	Clock clock;
 	Vector2f plrVelocity;
+	Vector2f dir;
+	Clock dashClock;
 
 	std::vector<RenderObject*> renderObjects;
 
@@ -24,6 +28,7 @@ private:
 	void update();
 	void handleInput(float dt);
 	void draw();
+	void handleMovement();
 
 public:
 	Game();
