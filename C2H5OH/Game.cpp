@@ -9,6 +9,7 @@ Game::Game() {
 	this->window.setFramerateLimit(240);
 	this->shouldClose = false;
 
+	this->enemyTexture.loadFromFile("./assets/enemy.png");
 	this->plrTexture.loadFromFile("./assets/plr.png");
 	this->plr = new Player;
 	this->plr->init(this->plrTexture, Vector2f(500, 300), 'p');
@@ -22,6 +23,15 @@ Game::Game() {
 	}
 
 	this->renderObjects.push_back(this->plr);
+
+	for (int i = 0; i < 10; i++) {
+		Enemy* enemy = new Enemy;
+		enemy->init(this->enemyTexture, Vector2f(rand() % 300 + i, rand() % 300 + i), 'e');
+		this->enemies.push_back(enemy);
+		this->renderObjects.push_back(enemy);
+	}
+
+	this->hp = 100;
 
 	this->view.setCenter(this->plr->getPosition());
 	this->view.setSize(Vector2f(1920, 1080));
@@ -115,10 +125,26 @@ void Game::update() {
 	while (!this->shouldClose) {
 		dtU = clockU.restart();
 
-		if (dtU.asMilliseconds() < 20) {
+		/*if (dtU.asMilliseconds() < 20) {
 			std::this_thread::sleep_for(std::chrono::milliseconds((int)(20 - dtU.asMilliseconds())));
-		}
+		}*/
 
-		
+		for (auto enemy : this->enemies) {
+			Vector2f distanceFromPlayer = this->plr->getPosition() - enemy->getPosition();
+			float hypotenuse = sqrt(distanceFromPlayer.x * distanceFromPlayer.x + distanceFromPlayer.y * distanceFromPlayer.y);
+
+			if (hypotenuse < 600) {
+				if (hypotenuse > 47) {
+					enemy->move(distanceFromPlayer / hypotenuse * 155.f, dtU.asSeconds());
+				}
+				else {
+					if (this->iFrames.getElapsedTime().asSeconds() > 0.4 && !this->dash) {
+						this->iFrames.restart();
+						//this->healthBar.setSize(this->healthBar.getSize() - Vector2f(40, 0));
+						this->hp -= 10;
+					}
+				}
+			}
+		}
 	}
 }
