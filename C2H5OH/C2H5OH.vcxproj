@@ -135,7 +135,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)SFML-2.6.0\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>winmm.lib;sfml-system-s-d.lib;opengl32.lib;gdi32.lib;sfml-window-s-d.lib;freetype.lib;sfml-graphics-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>winmm.lib;sfml-system-s.lib;opengl32.lib;gdi32.lib;sfml-window-s.lib;freetype.lib;sfml-graphics-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

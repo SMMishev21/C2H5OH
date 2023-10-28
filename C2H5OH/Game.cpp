@@ -22,14 +22,14 @@ Game::Game() {
 		this->renderObjects.push_back(square);
 	}
 
-	this->renderObjects.push_back(this->plr);
-
 	for (int i = 0; i < 10; i++) {
 		Enemy* enemy = new Enemy;
 		enemy->init(this->enemyTexture, Vector2f(rand() % 300 + i, rand() % 300 + i), 'e');
 		this->enemies.push_back(enemy);
 		this->renderObjects.push_back(enemy);
 	}
+
+	this->renderObjects.push_back(this->plr);
 
 	this->hp = 100;
 
@@ -40,7 +40,7 @@ Game::Game() {
 }
 
 void Game::mainLoop() {
-	std::jthread updateThread(&Game::update, this);
+	std::jthread* updateThread = new std::jthread(&Game::update, this);
 	dt = 0.f;
 	while (this->window.isOpen()) {
 		while (this->window.pollEvent(this->ev)) {
@@ -60,6 +60,13 @@ void Game::mainLoop() {
 
 		this->dt = clock.restart().asSeconds();
 	}
+
+	updateThread->request_stop();
+	delete updateThread;
+
+	Concurrency::parallel_for_each(std::begin(this->renderObjects), std::end(this->renderObjects), [](RenderObject* renderObject) {
+		delete renderObject;
+	});
 }
 
 void Game::draw() {
