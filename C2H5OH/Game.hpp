@@ -2,13 +2,12 @@
 #include "precompile.hpp"
 #include "Player.hpp"
 #include "Square.hpp"
-#include "Enemy.hpp"
+#include "Walker.hpp"
 
 using namespace sf;
 
 class Game {
 private:
-	int hp;
 	float dt;
 	bool shouldClose;
 	bool dash;

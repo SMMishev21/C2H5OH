@@ -1,6 +1,7 @@
 #pragma once
 #include "precompile.hpp"
 #include "RenderObject.hpp"
+#include "Player.hpp"
 
 class Enemy : public RenderObject {
 protected:
@@ -8,8 +9,7 @@ protected:
 	Vector2f pos;
 
 public:
-	void move(Vector2f offset) override;
-	void move(Vector2f offset, float dt);
+	virtual void aiMove(Player* plr, Clock& iFrames, Time& dt, std::vector<Enemy*>& enemies, bool& dash);
 	void takeDamage(float damage);
 	float getHp();
 };

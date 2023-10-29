@@ -23,15 +23,13 @@ Game::Game() {
 	}
 
 	for (int i = 0; i < 10; i++) {
-		Enemy* enemy = new Enemy;
+		Walker* enemy = new Walker;
 		enemy->init(this->enemyTexture, Vector2f(rand() % 300 + i, rand() % 300 + i), 'e');
 		this->enemies.push_back(enemy);
 		this->renderObjects.push_back(enemy);
 	}
 
 	this->renderObjects.push_back(this->plr);
-
-	this->hp = 100;
 
 	this->view.setCenter(this->plr->getPosition());
 	this->view.setSize(Vector2f(1920, 1080));
@@ -136,22 +134,8 @@ void Game::update() {
 			std::this_thread::sleep_for(std::chrono::milliseconds((int)(20 - dtU.asMilliseconds())));
 		}*/
 
-		for (auto enemy : this->enemies) {
-			Vector2f distanceFromPlayer = this->plr->getPosition() - enemy->getPosition();
-			float hypotenuse = sqrt(distanceFromPlayer.x * distanceFromPlayer.x + distanceFromPlayer.y * distanceFromPlayer.y);
-
-			if (hypotenuse < 600) {
-				if (hypotenuse > 47) {
-					enemy->move(distanceFromPlayer / hypotenuse * 155.f, dtU.asSeconds());
-				}
-				else {
-					if (this->iFrames.getElapsedTime().asSeconds() > 0.4 && !this->dash) {
-						this->iFrames.restart();
-						//this->healthBar.setSize(this->healthBar.getSize() - Vector2f(40, 0));
-						this->hp -= 10;
-					}
-				}
-			}
-		}
+		Concurrency::parallel_for_each(std::begin(this->enemies), std::end(this->enemies), [this, &dtU](Enemy* enemy) {
+			enemy->aiMove(this->plr, this->iFrames, dtU, this->enemies, this->dash);
+			});
 	}
 }
