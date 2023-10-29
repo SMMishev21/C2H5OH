@@ -20,6 +20,7 @@ void Walker::aiMove(Player* plr, Clock& iFrames, Time& dt, std::vector<Enemy*>& 
 	}
 
 	Vector2f distanceFromOthers;
+
 	// move by overlap * dt * speed
 	for (Enemy* enemy : enemies) {
 		distanceFromOthers = enemy->getPosition() - this->getPosition();

@@ -1,6 +1,11 @@
 #include "precompile.hpp"
+#include "RenderObject.hpp"
 
-class Ranged {
+class Weapon : public RenderObject {
+
+};
+
+class Ranged : public Weapon {
 public:
 	void setRangedInfo(int damage, int clipSize, float bulletSpread, float maxDistance, float cooldown);
 private:
@@ -11,7 +16,7 @@ private:
 	float cooldown;
 };
 
-class Melee {
+class Melee : public Weapon {
 public:
 	void setMeleeInfo(int damage, float range, float cooldown);
 private:

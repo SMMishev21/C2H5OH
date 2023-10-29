@@ -3,6 +3,7 @@
 #include "Player.hpp"
 #include "Square.hpp"
 #include "Walker.hpp"
+#include "Weapons.hpp"
 
 using namespace sf;
 
@@ -15,10 +16,10 @@ private:
 
 	RenderWindow window;
 	Event ev;
-	Player* plr;
 	Texture plrTexture;
 	Texture squareTexture;
 	Texture enemyTexture;
+	Texture akTexture;
 	View view;
 	Clock clock;
 	Vector2f plrVelocity;
@@ -27,6 +28,9 @@ private:
 	Clock dashClock;
 	Clock iFrames;
 
+	Player* plr;
+	Ranged* ak;
+	
 	std::vector<Enemy*> enemies;
 	std::vector<RenderObject*> renderObjects;
 

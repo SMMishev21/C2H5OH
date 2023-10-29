@@ -11,11 +11,16 @@ Game::Game() {
 
 	this->enemyTexture.loadFromFile("./assets/enemy.png");
 	this->plrTexture.loadFromFile("./assets/plr.png");
+	this->squareTexture.loadFromFile("./assets/square.png");
+	this->akTexture.loadFromFile("./assets/ak.png");
+	
 	this->plr = new Player;
 	this->plr->init(this->plrTexture, Vector2f(0, 0), 'p');
 	this->dashDistance = 1300;
 
-	this->squareTexture.loadFromFile("./assets/square.png");
+	this->ak = new Ranged;
+	this->ak->setRangedInfo(20, 8, 1, 2500, 0.35);
+	this->ak->setTexture(this->akTexture);
 
 	for (int i = 0; i < 100; i++) {
 		Square* square = new Square;
