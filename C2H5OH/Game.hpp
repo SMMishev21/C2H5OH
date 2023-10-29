@@ -11,6 +11,7 @@ private:
 	float dt;
 	bool shouldClose;
 	bool dash;
+	float dashDistance;
 
 	RenderWindow window;
 	Event ev;
@@ -22,6 +23,7 @@ private:
 	Clock clock;
 	Vector2f plrVelocity;
 	Vector2f dir;
+	Vector2f dashed;
 	Clock dashClock;
 	Clock iFrames;
 

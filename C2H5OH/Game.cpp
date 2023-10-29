@@ -12,7 +12,8 @@ Game::Game() {
 	this->enemyTexture.loadFromFile("./assets/enemy.png");
 	this->plrTexture.loadFromFile("./assets/plr.png");
 	this->plr = new Player;
-	this->plr->init(this->plrTexture, Vector2f(500, 300), 'p');
+	this->plr->init(this->plrTexture, Vector2f(0, 0), 'p');
+	this->dashDistance = 1300;
 
 	this->squareTexture.loadFromFile("./assets/square.png");
 
@@ -84,9 +85,12 @@ void Game::handleMovement() {
 		
 		this->plrVelocity *= (1.f - this->dt * 0.99f);
 		
-		if (abs(this->plrVelocity.x) < 1300 && abs(this->plrVelocity.y) < 1300) {
+		if (abs(this->plrVelocity.x) < this->dashDistance && abs(this->plrVelocity.y) < this->dashDistance) {
 			this->plrVelocity *= 0.f;
 			this->dash = false;
+			this->dashDistance = 1300;
+			this->dashed -= this->plr->getPosition();
+			std::cout << sqrt(dashed.x * dashed.x + dashed.y * dashed.y) << '\n';
 		}
 	}
 }
@@ -119,7 +123,12 @@ void Game::handleInput(float dt) {
 	if (Keyboard::isKeyPressed(Keyboard::LShift) && this->dashClock.getElapsedTime().asSeconds() >= 1 && !this->dash) {
 		this->dashClock.restart();
 		this->dash = true;
+
+		if (dir.x != 0 && dir.y != 0) {
+			this->dashDistance = 1358.5;
+		}
 		this->plrVelocity = Vector2f(1500 * dir.x, 1500 * dir.y);
+		this->dashed = this->plr->getPosition();
 	}
 }
 
@@ -136,6 +145,6 @@ void Game::update() {
 
 		Concurrency::parallel_for_each(std::begin(this->enemies), std::end(this->enemies), [this, &dtU](Enemy* enemy) {
 			enemy->aiMove(this->plr, this->iFrames, dtU, this->enemies, this->dash);
-			});
+		});
 	}
 }

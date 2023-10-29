@@ -14,6 +14,18 @@ void Walker::aiMove(Player* plr, Clock& iFrames, Time& dt, std::vector<Enemy*>& 
 				//this->healthBar.setSize(this->healthBar.getSize() - Vector2f(40, 0));
 				plr->health -= 10;
 			}
+
+			this->move(distanceFromPlayer * dt.asSeconds() * -10.f);
+		}
+	}
+
+	Vector2f distanceFromOthers;
+	// move by overlap * dt * speed
+	for (Enemy* enemy : enemies) {
+		distanceFromOthers = enemy->getPosition() - this->getPosition();
+		hypotenuse = sqrt(distanceFromOthers.x * distanceFromOthers.x + distanceFromOthers.y * distanceFromOthers.y);
+		if (hypotenuse < 50) {
+			this->move(distanceFromOthers * dt.asSeconds() * -10.f);
 		}
 	}
 }
