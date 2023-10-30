@@ -6,20 +6,21 @@
 
 Game::Game() {
 	this->window.create(VideoMode(1280, 720), "Title");
-	this->window.setFramerateLimit(120);
+	this->window.setFramerateLimit(240);
 	this->shouldClose = false;
 
 	this->enemyTexture.loadFromFile("./assets/enemy.png");
 	this->plrTexture.loadFromFile("./assets/plr.png");
 	this->squareTexture.loadFromFile("./assets/square.png");
 	this->akTexture.loadFromFile("./assets/ak.png");
+	this->bulletTexture.loadFromFile("./assets/bullet.png");
 	
 	this->plr = new Player;
 	this->plr->init(this->plrTexture, Vector2f(0, 0), 'p');
 	this->dashDistance = 1300;
 
 	this->ak = new Ranged;
-	this->ak->setRangedInfo(20, 8, 1, 2500, 0.35);
+	this->ak->setRangedInfo(20, 8, 1, 2500, 0.1);
 	this->ak->setTexture(this->akTexture);
 
 	for (int i = 0; i < 100; i++) {
@@ -28,7 +29,7 @@ Game::Game() {
 		this->renderObjects.push_back(square);
 	}
 
-	for (int i = 0; i < 2000; i++) {
+	for (int i = 0; i < 2; i++) {
 		Walker* enemy = new Walker;
 		enemy->init(this->enemyTexture, Vector2f(rand() % 300 + i, rand() % 300 + i), 'e');
 		this->enemies.push_back(enemy);
@@ -66,6 +67,7 @@ void Game::mainLoop() {
 #ifndef FLAGS_MULTITHREADING
 		this->update();
 #endif
+
 		this->draw();
 
 		this->dt = this->clock.restart().asSeconds();
@@ -132,6 +134,8 @@ void Game::handleInput(float dt) {
 		this->dir.y = 0;
 	}
 
+	this->ak->setPosition(this->plr->getPosition());
+
 	if (Keyboard::isKeyPressed(Keyboard::LShift) && this->dashClock.getElapsedTime().asSeconds() >= 1 && !this->dash) {
 		this->dashClock.restart();
 		this->dash = true;
@@ -152,9 +156,9 @@ void Game::update() {
 
 	while (!this->shouldClose) {
 		if (clockU.getElapsedTime().asMicroseconds() > 13333) {
-			/*for (Enemy* enemy : this->enemies) {
-				enemy->aiMove(this->plr, this->iFrames, dtU, this->enemies, this->dash);
-			}*/
+			if (Mouse::isButtonPressed(Mouse::Button::Left)) {
+				this->ak->shoot(this->bullets, this->renderObjects, this->window, this->plr, this->bulletTexture, this->attackCD);
+			}
 			
 			for (int i = 0; i < 20; ++i) {
 				Concurrency::parallel_for_each(std::begin(this->enemies), std::end(this->enemies), [this, clockU](Enemy* enemy) {

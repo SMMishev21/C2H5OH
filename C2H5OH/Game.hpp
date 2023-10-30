@@ -6,7 +6,7 @@
 #include "Weapons.hpp"
 #include <thread>
 
-//#define FLAGS_MULTITHREADING
+#define FLAGS_MULTITHREADING
 
 using namespace sf;
 
@@ -23,6 +23,7 @@ private:
 	Texture squareTexture;
 	Texture enemyTexture;
 	Texture akTexture;
+	Texture bulletTexture;
 	View view;
 	Clock clock;
 	Vector2f plrVelocity;
@@ -30,6 +31,7 @@ private:
 	Vector2f dashed;
 	Clock dashClock;
 	Clock iFrames;
+	Clock attackCD;
 
 	Ranged* ak;
 	Player* plr;

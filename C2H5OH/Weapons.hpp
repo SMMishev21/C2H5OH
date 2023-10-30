@@ -1,11 +1,12 @@
 #include "precompile.hpp"
 #include "RenderObject.hpp"
 #include "Bullet.hpp"
+#include "Player.hpp"
 
 class Ranged : public RenderObject {
 public:
 	void setRangedInfo(int damage, int clipSize, float bulletSpread, float maxDistance, float cooldown);
-	void shoot(std::vector<Bullet*> &bullets, Clock& attackCD);
+	void shoot(std::vector<Bullet*>& bullets, std::vector<RenderObject*>& renderObjects, RenderWindow& window, Player* plr, Texture& bulletTexture, Clock& attackCD);
 private:
 	int damage;
 	int clipSize;
