@@ -4,5 +4,5 @@
 
 class Walker : public Enemy {
 public:
-	void aiMove(Player* plr, Clock& iFrames, Time& dt, std::vector<Enemy*>& enemies, bool& dash) override;
+	void aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enemy*>& enemies, bool& dash) override;
 };

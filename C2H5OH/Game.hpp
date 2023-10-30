@@ -4,6 +4,9 @@
 #include "Square.hpp"
 #include "Walker.hpp"
 #include "Weapons.hpp"
+#include <thread>
+
+//#define FLAGS_MULTITHREADING
 
 using namespace sf;
 
@@ -28,20 +31,22 @@ private:
 	Clock dashClock;
 	Clock iFrames;
 
-	Player* plr;
 	Ranged* ak;
+	Player* plr;
 	
+	std::vector<Bullet*> bullets;
 	std::vector<Enemy*> enemies;
 	std::vector<RenderObject*> renderObjects;
 
 	void mainLoop();
-	void update();
 	void handleInput(float dt);
 	void draw();
 	void handleMovement();
+	void handleEnemies();
 
 public:
 	Game();
 	~Game();
+	void update();
 
 };

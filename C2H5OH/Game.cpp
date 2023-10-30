@@ -6,7 +6,7 @@
 
 Game::Game() {
 	this->window.create(VideoMode(1280, 720), "Title");
-	this->window.setFramerateLimit(240);
+	this->window.setFramerateLimit(120);
 	this->shouldClose = false;
 
 	this->enemyTexture.loadFromFile("./assets/enemy.png");
@@ -28,7 +28,7 @@ Game::Game() {
 		this->renderObjects.push_back(square);
 	}
 
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < 2000; i++) {
 		Walker* enemy = new Walker;
 		enemy->init(this->enemyTexture, Vector2f(rand() % 300 + i, rand() % 300 + i), 'e');
 		this->enemies.push_back(enemy);
@@ -44,8 +44,11 @@ Game::Game() {
 }
 
 void Game::mainLoop() {
+#ifdef FLAGS_MULTITHREADING
 	std::jthread* updateThread = new std::jthread(&Game::update, this);
-	dt = 0.f;
+#endif
+
+	this->dt = 0.f;
 	while (this->window.isOpen()) {
 		while (this->window.pollEvent(this->ev)) {
 			if (this->ev.type == Event::Closed) {
@@ -60,13 +63,18 @@ void Game::mainLoop() {
 
 		this->view.move((this->plr->getPosition() - this->view.getCenter()) * 3.f * this->dt);
 
+#ifndef FLAGS_MULTITHREADING
+		this->update();
+#endif
 		this->draw();
 
-		this->dt = clock.restart().asSeconds();
+		this->dt = this->clock.restart().asSeconds();
 	}
 
+#ifdef FLAGS_MULTITHREADING
 	updateThread->request_stop();
 	delete updateThread;
+#endif
 
 	Concurrency::parallel_for_each(std::begin(this->renderObjects), std::end(this->renderObjects), [](RenderObject* renderObject) {
 		delete renderObject;
@@ -95,7 +103,6 @@ void Game::handleMovement() {
 			this->dash = false;
 			this->dashDistance = 1300;
 			this->dashed -= this->plr->getPosition();
-			std::cout << sqrt(dashed.x * dashed.x + dashed.y * dashed.y) << '\n';
 		}
 	}
 }
@@ -138,18 +145,31 @@ void Game::handleInput(float dt) {
 }
 
 void Game::update() {
+
+#ifdef FLAGS_MULTITHREADING
+	this->window.setActive(false);
 	Clock clockU;
-	Time dtU;
 
 	while (!this->shouldClose) {
-		dtU = clockU.restart();
+		if (clockU.getElapsedTime().asMicroseconds() > 13333) {
+			/*for (Enemy* enemy : this->enemies) {
+				enemy->aiMove(this->plr, this->iFrames, dtU, this->enemies, this->dash);
+			}*/
+			
+			for (int i = 0; i < 20; ++i) {
+				Concurrency::parallel_for_each(std::begin(this->enemies), std::end(this->enemies), [this, clockU](Enemy* enemy) {
+					enemy->aiMove(this->plr, this->iFrames, clockU.getElapsedTime().asSeconds(), this->enemies, this->dash);
+				});
+			}
 
-		/*if (dtU.asMilliseconds() < 20) {
-			std::this_thread::sleep_for(std::chrono::milliseconds((int)(20 - dtU.asMilliseconds())));
-		}*/
-
-		Concurrency::parallel_for_each(std::begin(this->enemies), std::end(this->enemies), [this, &dtU](Enemy* enemy) {
-			enemy->aiMove(this->plr, this->iFrames, dtU, this->enemies, this->dash);
+			clockU.restart();
+		}
+	}
+#else
+	for (int i = 0; i < 20; ++i) {
+		Concurrency::parallel_for_each(std::begin(this->enemies), std::end(this->enemies), [this](Enemy* enemy) {
+			enemy->aiMove(this->plr, this->iFrames, this->dt, this->enemies, this->dash);
 		});
 	}
+#endif
 }

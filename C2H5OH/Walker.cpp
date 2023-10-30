@@ -1,12 +1,12 @@
 #include "Walker.hpp"
 
-void Walker::aiMove(Player* plr, Clock& iFrames, Time& dt, std::vector<Enemy*>& enemies, bool& dash) {
+void Walker::aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enemy*>& enemies, bool& dash) {
 	Vector2f distanceFromPlayer = plr->getPosition() - this->getPosition();
 	float hypotenuse = sqrt(distanceFromPlayer.x * distanceFromPlayer.x + distanceFromPlayer.y * distanceFromPlayer.y);
-
-	if (hypotenuse < 600) {
+	
+	if (hypotenuse < 60000) {
 		if (hypotenuse > 47) {
-			this->move((distanceFromPlayer / hypotenuse * 155.f) * dt.asSeconds());
+			this->move(((distanceFromPlayer / hypotenuse * 155.f) * dt) / 20.f);
 		}
 		else {
 			if (iFrames.getElapsedTime().asSeconds() > 0.4 && dash) {
@@ -15,7 +15,7 @@ void Walker::aiMove(Player* plr, Clock& iFrames, Time& dt, std::vector<Enemy*>& 
 				plr->health -= 10;
 			}
 
-			this->move(distanceFromPlayer * dt.asSeconds() * -10.f);
+			this->move((distanceFromPlayer * dt * -100.f) / 20.f);
 		}
 	}
 
@@ -26,7 +26,7 @@ void Walker::aiMove(Player* plr, Clock& iFrames, Time& dt, std::vector<Enemy*>& 
 		distanceFromOthers = enemy->getPosition() - this->getPosition();
 		hypotenuse = sqrt(distanceFromOthers.x * distanceFromOthers.x + distanceFromOthers.y * distanceFromOthers.y);
 		if (hypotenuse < 50) {
-			this->move(distanceFromOthers * dt.asSeconds() * -10.f);
+			this->move((distanceFromOthers * dt * -15.f) / 20.f);
 		}
 	}
 }

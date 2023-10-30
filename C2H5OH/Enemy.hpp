@@ -9,7 +9,7 @@ protected:
 	Vector2f pos;
 
 public:
-	virtual void aiMove(Player* plr, Clock& iFrames, Time& dt, std::vector<Enemy*>& enemies, bool& dash);
+	virtual void aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enemy*>& enemies, bool& dash);
 	void takeDamage(float damage);
 	float getHp();
 };
