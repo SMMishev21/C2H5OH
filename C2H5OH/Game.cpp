@@ -8,6 +8,25 @@ float clamp(float n, float lower, float upper) {
 	return std::max(lower, std::min(n, upper));
 }
 
+template<typename T>
+void deleteObjects(std::vector<T*>& objects, std::vector<RenderObject*> garbage)
+{
+	for (auto it = objects.begin(); it != objects.end(); )
+	{
+		auto obj = *it;
+		auto garbageIt = std::find(garbage.begin(), garbage.end(), obj);
+
+		if (garbageIt != garbage.end())
+		{
+			it = objects.erase(it);
+		}
+		else
+		{
+			++it;
+		}
+	}
+}
+
 Game::Game() {
 	this->window.create(VideoMode(1280, 720), "Title");
 	this->window.setFramerateLimit(240);
@@ -24,7 +43,7 @@ Game::Game() {
 	this->dashDistance = 1300;
 
 	this->ak = new Ranged;
-	this->ak->setRangedInfo(20, 8, 1, 2500, 0.1);
+	this->ak->setRangedInfo(20, 8, 1, 2500, 0.01);
 	this->ak->setTexture(this->akTexture);
 
 	for (int i = 0; i < 100; i++) {
@@ -33,7 +52,7 @@ Game::Game() {
 		this->renderObjects.push_back(square);
 	}
 
-	for (int i = 0; i < 2; i++) {
+	for (int i = 0; i < 200; i++) {
 		Walker* enemy = new Walker;
 		enemy->init(this->enemyTexture, Vector2f(rand() % 300 + i, rand() % 300 + i), 'e');
 		this->enemies.push_back(enemy);
@@ -52,9 +71,11 @@ void Game::mainLoop() {
 #ifdef FLAGS_MULTITHREADING
 	std::jthread* updateThread = new std::jthread(&Game::update, this);
 #endif
+	std::jthread* garbageThread = new std::jthread(&Game::collectGarbage, this);
 
 	this->dt = 0.f;
 	while (this->window.isOpen()) {
+		this->drawReady.acquire();
 		while (this->window.pollEvent(this->ev)) {
 			if (this->ev.type == Event::Closed) {
 				this->window.close();
@@ -74,6 +95,8 @@ void Game::mainLoop() {
 
 		this->draw();
 
+		this->drawReady.release();
+
 		this->dt = this->clock.restart().asSeconds();
 	}
 
@@ -82,9 +105,15 @@ void Game::mainLoop() {
 	delete updateThread;
 #endif
 
+	garbageThread->request_stop();
+	delete garbageThread;
+
 	Concurrency::parallel_for_each(std::begin(this->renderObjects), std::end(this->renderObjects), [](RenderObject* renderObject) {
 		delete renderObject;
 	});
+	this->renderObjects.clear();
+	this->enemies.clear();
+	this->bullets.clear();
 }
 
 void Game::draw() {
@@ -181,6 +210,7 @@ void Game::update() {
 		Clock clockU;
 
 		while (!this->shouldClose) {
+			this->updateReady.acquire();
 			if (clockU.getElapsedTime().asMicroseconds() > 10000) {
 				if (Mouse::isButtonPressed(Mouse::Button::Left)) {
 					this->ak->shoot(this->bullets, this->renderObjects, this->window, this->plr, this->bulletTexture, this->attackCD);
@@ -205,12 +235,14 @@ void Game::update() {
 							if (i < this->bullets.size()) {
 								this->garbage.push_back(this->bullets[i]);
 								this->bullets[i]->shouldDraw = false;
+								std::cout << this->garbage.size() << '\n';
 							}
 						}
 						else if (this->bullets[i]->distance > this->bullets[i]->maxDistance) {
 							if (i < this->bullets.size()) {
 								this->garbage.push_back(this->bullets[i]);
 								this->bullets[i]->shouldDraw = false;
+								std::cout << this->garbage.size() << '\n';
 							}
 						}
 
@@ -220,14 +252,17 @@ void Game::update() {
 								if (this->enemies[indexes[j]]->getHp() <= 0) {
 									this->garbage.push_back(this->enemies[indexes[j]]);
 									this->enemies[indexes[j]]->shouldDraw = false;
+									std::cout << this->garbage.size() << '\n';
 								}
 							}
 						}
 					}
 				}
 
+
 				clockU.restart();
 			}
+			this->updateReady.release();
 		}
 	#else
 		for (int i = 0; i < 20; ++i) {
@@ -236,4 +271,28 @@ void Game::update() {
 			});
 		}
 	#endif
+}
+
+void Game::collectGarbage() {
+	while (!this->shouldClose) {
+		if (this->garbage.size() > 50) {
+
+			this->drawReady.acquire(); // spinlock until free
+			this->updateReady.acquire(); // spinlock until free #2
+			
+			deleteObjects(this->renderObjects, this->garbage);
+			deleteObjects(this->enemies, this->garbage);
+			deleteObjects(this->bullets, this->garbage);
+
+
+			// Delete all objects in the garbage vector and clear the garbage vector
+			for (auto obj : this->garbage) {
+				delete obj;
+			}
+			this->garbage.clear();
+
+			this->drawReady.release();
+			this->updateReady.release();
+		}
+	}
 }

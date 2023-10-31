@@ -5,6 +5,7 @@
 #include "Walker.hpp"
 #include "Weapons.hpp"
 #include <thread>
+#include <semaphore>
 
 #define FLAGS_MULTITHREADING
 
@@ -16,6 +17,9 @@ private:
 	bool shouldClose;
 	bool dash;
 	float dashDistance;
+
+	std::counting_semaphore<1> drawReady{1};
+	std::counting_semaphore<1> updateReady{1};
 
 	RenderWindow window;
 	Event ev;
@@ -46,6 +50,7 @@ private:
 	void draw();
 	void handleMovement();
 	void handleEnemies();
+	void collectGarbage();
 	std::vector<int> resolveCollisionsEnemy(Bullet& bullet, float size);
 
 public:

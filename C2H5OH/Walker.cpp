@@ -23,10 +23,12 @@ void Walker::aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enemy*>& 
 
 	// move by overlap * dt * speed
 	for (Enemy* enemy : enemies) {
-		distanceFromOthers = enemy->getPosition() - this->getPosition();
-		hypotenuse = sqrt(distanceFromOthers.x * distanceFromOthers.x + distanceFromOthers.y * distanceFromOthers.y);
-		if (hypotenuse < 50) {
-			this->move((distanceFromOthers * dt * -15.f) / 20.f);
+		if (enemy->shouldDraw) {
+			distanceFromOthers = enemy->getPosition() - this->getPosition();
+			hypotenuse = sqrt(distanceFromOthers.x * distanceFromOthers.x + distanceFromOthers.y * distanceFromOthers.y);
+			if (hypotenuse < 50) {
+				this->move((distanceFromOthers * dt * -15.f) / 20.f);
+			}
 		}
 	}
 }
