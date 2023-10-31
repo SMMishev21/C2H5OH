@@ -144,6 +144,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="RangedEnemy.cpp" />
     <ClCompile Include="RenderObject.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="Walker.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="precompile.hpp" />
+    <ClInclude Include="RangedEnemy.hpp" />
     <ClInclude Include="RenderObject.hpp" />
     <ClInclude Include="Square.hpp" />
     <ClInclude Include="Walker.hpp" />

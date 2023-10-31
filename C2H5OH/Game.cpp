@@ -43,7 +43,7 @@ Game::Game() {
 	this->dashDistance = 1300;
 
 	this->ak = new Ranged;
-	this->ak->setRangedInfo(20, 8, 1, 2500, 0.01);
+	this->ak->setRangedInfo(20, 8, 1, 2500, 0.0001);
 	this->ak->setTexture(this->akTexture);
 
 	for (int i = 0; i < 100; i++) {
@@ -52,8 +52,8 @@ Game::Game() {
 		this->renderObjects.push_back(square);
 	}
 
-	for (int i = 0; i < 200; i++) {
-		Walker* enemy = new Walker;
+	for (int i = 0; i < 2; i++) {
+		RangedEnemy* enemy = new RangedEnemy;
 		enemy->init(this->enemyTexture, Vector2f(rand() % 300 + i, rand() % 300 + i), 'e');
 		this->enemies.push_back(enemy);
 		this->renderObjects.push_back(enemy);
@@ -89,9 +89,9 @@ void Game::mainLoop() {
 
 		this->view.move((this->plr->getPosition() - this->view.getCenter()) * 3.f * this->dt);
 
-#ifndef FLAGS_MULTITHREADING
-		this->update();
-#endif
+		#ifndef FLAGS_MULTITHREADING
+				this->update();
+		#endif
 
 		this->draw();
 
@@ -111,6 +111,7 @@ void Game::mainLoop() {
 	Concurrency::parallel_for_each(std::begin(this->renderObjects), std::end(this->renderObjects), [](RenderObject* renderObject) {
 		delete renderObject;
 	});
+	
 	this->renderObjects.clear();
 	this->enemies.clear();
 	this->bullets.clear();
@@ -121,8 +122,8 @@ void Game::draw() {
 	this->window.clear(Color(45, 75, 118, 255));
 
 	for (int i = 0; i < this->renderObjects.size(); ++i) {
-		if (this->renderObjects[i]->shouldDraw) {
-			this->renderObjects[i]->draw(this->window);
+		if (this->renderObjects.at(i)->shouldDraw) {
+			this->renderObjects.at(i)->draw(this->window);
 		}
 	}
 
@@ -181,6 +182,10 @@ void Game::handleInput(float dt) {
 		this->plrVelocity = Vector2f(1500 * dir.x, 1500 * dir.y);
 		this->dashed = this->plr->getPosition();
 	}
+
+	if (Mouse::isButtonPressed(Mouse::Button::Left)) {
+		this->ak->shoot(this->bullets, this->renderObjects, this->window, this->plr, this->bulletTexture, this->attackCD);
+	}
 }
 
 std::vector<int> Game::resolveCollisionsEnemy(Bullet& bullet, float size) {
@@ -204,6 +209,21 @@ std::vector<int> Game::resolveCollisionsEnemy(Bullet& bullet, float size) {
 	return hitIndexes;
 }
 
+// return true if bullet hit player
+bool Game::resolveCollisionsPlr(Bullet& bullet, float size) {
+	Vector2f pointOnRect;
+
+	pointOnRect.x = clamp(bullet.getPosition().x, this->plr->getPosition().x - 32, this->plr->getPosition().x + 32);
+	pointOnRect.y = clamp(bullet.getPosition().y, this->plr->getPosition().y - 32, this->plr->getPosition().y + 32);
+
+	float length = sqrt((pointOnRect - bullet.getPosition()).x * (pointOnRect - bullet.getPosition()).x + (pointOnRect - bullet.getPosition()).y * (pointOnRect - bullet.getPosition()).y);
+
+	if (length < size) {
+		return true;
+	}
+	return false;
+}
+
 void Game::update() {
 	#ifdef FLAGS_MULTITHREADING
 		this->window.setActive(false);
@@ -211,15 +231,12 @@ void Game::update() {
 
 		while (!this->shouldClose) {
 			this->updateReady.acquire();
-			if (clockU.getElapsedTime().asMicroseconds() > 10000) {
-				if (Mouse::isButtonPressed(Mouse::Button::Left)) {
-					this->ak->shoot(this->bullets, this->renderObjects, this->window, this->plr, this->bulletTexture, this->attackCD);
-				}
 
+			if (clockU.getElapsedTime().asMicroseconds() > 1000) {
 				for (int i = 0; i < 20; ++i) {
 					Concurrency::parallel_for_each(std::begin(this->enemies), std::end(this->enemies), [this, clockU](Enemy* enemy) {
 						if (enemy->shouldDraw) {
-							enemy->aiMove(this->plr, this->iFrames, clockU.getElapsedTime().asSeconds(), this->enemies, this->dash);
+							enemy->aiMove(this->plr, this->iFrames, clockU.getElapsedTime().asSeconds(), this->enemies, this->dash, this->renderObjects, this->bullets);
 						}
 					});
 				}
@@ -229,32 +246,60 @@ void Game::update() {
 						this->bullets[i]->move(this->bullets[i]->direction * -600.f * clockU.getElapsedTime().asSeconds());
 						this->bullets[i]->distance += hypotf((this->bullets[i]->direction * -600.f * clockU.getElapsedTime().asSeconds()).x, (this->bullets[i]->direction * -600.f * clockU.getElapsedTime().asSeconds()).y);
 
-						std::vector<int> indexes = this->resolveCollisionsEnemy(*this->bullets[i], 2);
+						if (this->bullets[i]->owner == 'p') {
+							std::vector<int> indexes = this->resolveCollisionsEnemy(*this->bullets[i], 2);
 
-						if (!indexes.empty()) {
-							if (i < this->bullets.size()) {
-								this->garbage.push_back(this->bullets[i]);
-								this->bullets[i]->shouldDraw = false;
-								std::cout << this->garbage.size() << '\n';
-							}
-						}
-						else if (this->bullets[i]->distance > this->bullets[i]->maxDistance) {
-							if (i < this->bullets.size()) {
-								this->garbage.push_back(this->bullets[i]);
-								this->bullets[i]->shouldDraw = false;
-								std::cout << this->garbage.size() << '\n';
-							}
-						}
-
-						if (!indexes.empty()) {
-							for (int j = 0; j < indexes.size(); j++) {
-								this->enemies[indexes[j]]->takeDamage(this->bullets[i]->damage);
-								if (this->enemies[indexes[j]]->getHp() <= 0) {
-									this->garbage.push_back(this->enemies[indexes[j]]);
-									this->enemies[indexes[j]]->shouldDraw = false;
+							if (!indexes.empty()) {
+								if (i < this->bullets.size()) {
+									this->garbage.push_back(this->bullets[i]);
+									this->bullets[i]->shouldDraw = false;
 									std::cout << this->garbage.size() << '\n';
 								}
 							}
+							else if (this->bullets[i]->distance > this->bullets[i]->maxDistance) {
+								if (i < this->bullets.size()) {
+									this->garbage.push_back(this->bullets[i]);
+									this->bullets[i]->shouldDraw = false;
+									std::cout << this->garbage.size() << '\n';
+								}
+							}
+
+							if (!indexes.empty()) {
+								for (int j = 0; j < indexes.size(); j++) {
+									this->enemies[indexes[j]]->takeDamage(this->bullets[i]->damage);
+									if (this->enemies[indexes[j]]->getHp() <= 0) {
+										this->garbage.push_back(this->enemies[indexes[j]]);
+										this->enemies[indexes[j]]->shouldDraw = false;
+										std::cout << this->garbage.size() << '\n';
+									}
+								}
+							}
+						}
+						else {
+							bool hit = this->resolveCollisionsPlr(*this->bullets[i], 2);
+							if (hit) {
+								if (i < this->bullets.size()) {
+									this->garbage.push_back(this->bullets[i]);
+									this->bullets[i]->shouldDraw = false;
+									std::cout << this->garbage.size() << '\n';
+								}
+							}
+							else if (this->bullets[i]->distance > this->bullets[i]->maxDistance) {
+								if (i < this->bullets.size()) {
+									this->garbage.push_back(this->bullets[i]);
+									this->bullets[i]->shouldDraw = false;
+									std::cout << this->garbage.size() << '\n';
+								}
+							}
+
+							if (hit) {
+								this->plr->takeDamage(this->bullets[i]->damage);
+								if (this->plr->health <= 0) {
+									this->window.close();
+									this->shouldClose = true;
+								}
+							}
+
 						}
 					}
 				}
@@ -279,7 +324,9 @@ void Game::collectGarbage() {
 
 			this->drawReady.acquire(); // spinlock until free
 			this->updateReady.acquire(); // spinlock until free #2
-			
+
+
+			// delete all objects found in garbage
 			deleteObjects(this->renderObjects, this->garbage);
 			deleteObjects(this->enemies, this->garbage);
 			deleteObjects(this->bullets, this->garbage);
@@ -291,8 +338,8 @@ void Game::collectGarbage() {
 			}
 			this->garbage.clear();
 
-			this->drawReady.release();
 			this->updateReady.release();
+			this->drawReady.release();
 		}
 	}
 }
