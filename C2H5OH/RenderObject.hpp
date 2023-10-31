@@ -16,4 +16,5 @@ public:
 	void setTexture(Texture& texture);
 
 	char type;
+	bool shouldDraw{ true };
 };

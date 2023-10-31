@@ -4,6 +4,10 @@
 #include <chrono>
 #include <ppl.h>
 
+float clamp(float n, float lower, float upper) {
+	return std::max(lower, std::min(n, upper));
+}
+
 Game::Game() {
 	this->window.create(VideoMode(1280, 720), "Title");
 	this->window.setFramerateLimit(240);
@@ -86,9 +90,11 @@ void Game::mainLoop() {
 void Game::draw() {
 	this->window.setView(this->view);
 	this->window.clear(Color(45, 75, 118, 255));
-	
+
 	for (int i = 0; i < this->renderObjects.size(); ++i) {
-		this->renderObjects[i]->draw(this->window);
+		if (this->renderObjects[i]->shouldDraw) {
+			this->renderObjects[i]->draw(this->window);
+		}
 	}
 
 	this->window.display();
@@ -148,32 +154,86 @@ void Game::handleInput(float dt) {
 	}
 }
 
-void Game::update() {
+std::vector<int> Game::resolveCollisionsEnemy(Bullet& bullet, float size) {
+	std::vector<int> hitIndexes;
 
-#ifdef FLAGS_MULTITHREADING
-	this->window.setActive(false);
-	Clock clockU;
+	for (size_t i = 0; i < this->enemies.size(); i++) {
+		if (this->enemies[i]->shouldDraw) {
+			Vector2f pointOnRect;
 
-	while (!this->shouldClose) {
-		if (clockU.getElapsedTime().asMicroseconds() > 13333) {
-			if (Mouse::isButtonPressed(Mouse::Button::Left)) {
-				this->ak->shoot(this->bullets, this->renderObjects, this->window, this->plr, this->bulletTexture, this->attackCD);
+			pointOnRect.x = clamp(bullet.getPosition().x, this->enemies[i]->getPosition().x - 32, this->enemies[i]->getPosition().x + 32);
+			pointOnRect.y = clamp(bullet.getPosition().y, this->enemies[i]->getPosition().y - 32, this->enemies[i]->getPosition().y + 32);
+
+			float length = sqrt((pointOnRect - bullet.getPosition()).x * (pointOnRect - bullet.getPosition()).x + (pointOnRect - bullet.getPosition()).y * (pointOnRect - bullet.getPosition()).y);
+
+			if (length < size) {
+				hitIndexes.push_back(i);
 			}
-			
-			for (int i = 0; i < 20; ++i) {
-				Concurrency::parallel_for_each(std::begin(this->enemies), std::end(this->enemies), [this, clockU](Enemy* enemy) {
-					enemy->aiMove(this->plr, this->iFrames, clockU.getElapsedTime().asSeconds(), this->enemies, this->dash);
-				});
-			}
-
-			clockU.restart();
 		}
 	}
-#else
-	for (int i = 0; i < 20; ++i) {
-		Concurrency::parallel_for_each(std::begin(this->enemies), std::end(this->enemies), [this](Enemy* enemy) {
-			enemy->aiMove(this->plr, this->iFrames, this->dt, this->enemies, this->dash);
-		});
-	}
-#endif
+
+	return hitIndexes;
+}
+
+void Game::update() {
+	#ifdef FLAGS_MULTITHREADING
+		this->window.setActive(false);
+		Clock clockU;
+
+		while (!this->shouldClose) {
+			if (clockU.getElapsedTime().asMicroseconds() > 10000) {
+				if (Mouse::isButtonPressed(Mouse::Button::Left)) {
+					this->ak->shoot(this->bullets, this->renderObjects, this->window, this->plr, this->bulletTexture, this->attackCD);
+				}
+
+				for (int i = 0; i < 20; ++i) {
+					Concurrency::parallel_for_each(std::begin(this->enemies), std::end(this->enemies), [this, clockU](Enemy* enemy) {
+						if (enemy->shouldDraw) {
+							enemy->aiMove(this->plr, this->iFrames, clockU.getElapsedTime().asSeconds(), this->enemies, this->dash);
+						}
+					});
+				}
+
+				for (int i = this->bullets.size() - 1; i >= 0; i--) {
+					if (bullets[i]->shouldDraw) {
+						this->bullets[i]->move(this->bullets[i]->direction * -600.f * clockU.getElapsedTime().asSeconds());
+						this->bullets[i]->distance += hypotf((this->bullets[i]->direction * -600.f * clockU.getElapsedTime().asSeconds()).x, (this->bullets[i]->direction * -600.f * clockU.getElapsedTime().asSeconds()).y);
+
+						std::vector<int> indexes = this->resolveCollisionsEnemy(*this->bullets[i], 2);
+
+						if (!indexes.empty()) {
+							if (i < this->bullets.size()) {
+								this->garbage.push_back(this->bullets[i]);
+								this->bullets[i]->shouldDraw = false;
+							}
+						}
+						else if (this->bullets[i]->distance > this->bullets[i]->maxDistance) {
+							if (i < this->bullets.size()) {
+								this->garbage.push_back(this->bullets[i]);
+								this->bullets[i]->shouldDraw = false;
+							}
+						}
+
+						if (!indexes.empty()) {
+							for (int j = 0; j < indexes.size(); j++) {
+								this->enemies[indexes[j]]->takeDamage(this->bullets[i]->damage);
+								if (this->enemies[indexes[j]]->getHp() <= 0) {
+									this->garbage.push_back(this->enemies[indexes[j]]);
+									this->enemies[indexes[j]]->shouldDraw = false;
+								}
+							}
+						}
+					}
+				}
+
+				clockU.restart();
+			}
+		}
+	#else
+		for (int i = 0; i < 20; ++i) {
+			Concurrency::parallel_for_each(std::begin(this->enemies), std::end(this->enemies), [this](Enemy* enemy) {
+				enemy->aiMove(this->plr, this->iFrames, this->dt, this->enemies, this->dash);
+			});
+		}
+	#endif
 }

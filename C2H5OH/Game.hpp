@@ -39,12 +39,14 @@ private:
 	std::vector<Bullet*> bullets;
 	std::vector<Enemy*> enemies;
 	std::vector<RenderObject*> renderObjects;
+	std::vector<RenderObject*> garbage;
 
 	void mainLoop();
 	void handleInput(float dt);
 	void draw();
 	void handleMovement();
 	void handleEnemies();
+	std::vector<int> resolveCollisionsEnemy(Bullet& bullet, float size);
 
 public:
 	Game();
