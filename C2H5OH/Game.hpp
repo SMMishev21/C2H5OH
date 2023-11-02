@@ -6,6 +6,7 @@
 #include "RangedEnemy.hpp"
 #include "Weapons.hpp"
 #include "Enemy.hpp"
+#include "Chest.hpp"
 #include <thread>
 #include <semaphore>
 
@@ -25,11 +26,15 @@ private:
 
     RenderWindow window;
     Event ev;
+    
     Texture plrTexture;
     Texture squareTexture;
     Texture bulletTexture;
     Texture enemyTexture;
     Texture akTexture;
+    Texture chestTexture;
+    Texture keyTexture;
+
     View view;
     Clock clock;
     Vector2f plrVelocity;
@@ -41,6 +46,8 @@ private:
 
     Ranged* ak;
     Player* plr;
+    Chest* chest;
+    RenderObject* key;
 
     std::vector<Bullet*> bullets;
     std::vector<Enemy*> enemies;

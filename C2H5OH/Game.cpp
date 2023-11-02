@@ -37,7 +37,16 @@ Game::Game() {
 	this->squareTexture.loadFromFile("./assets/square.png");
 	this->akTexture.loadFromFile("./assets/ak.png");
 	this->bulletTexture.loadFromFile("./assets/bullet.png");
+	this->chestTexture.loadFromFile("./assets/chest.png");
+	this->keyTexture.loadFromFile("./assets/key.png");
 	
+	this->enemyTexture.setSmooth(true);
+	this->plrTexture.setSmooth(true);
+	this->squareTexture.setSmooth(true);
+	this->bulletTexture.setSmooth(true);
+	this->chestTexture.setSmooth(true);
+	this->keyTexture.setSmooth(true);
+
 	this->plr = new Player;
 	this->plr->init(this->plrTexture, Vector2f(0, 0), 'p');
 	this->dashDistance = 1300;
@@ -45,6 +54,14 @@ Game::Game() {
 	this->ak = new Ranged;
 	this->ak->setRangedInfo(20, 8, 1, 2500, 0.0001);
 	this->ak->setTexture(this->akTexture);
+
+	this->chest = new Chest;
+	this->chest->setTexture(this->chestTexture);
+	this->chest->setOrigin(Vector2f(48, 37.5));
+	this->chest->setPosition(Vector2f(-100, 100));
+
+	this->key = new RenderObject;
+	this->key->setTexture(this->keyTexture);
 
 	for (int i = 0; i < 100; i++) {
 		Square* square = new Square;
@@ -59,7 +76,10 @@ Game::Game() {
 		this->renderObjects.push_back(enemy);
 	}
 
+	this->renderObjects.push_back(this->chest);
 	this->renderObjects.push_back(this->plr);
+	this->renderObjects.push_back(this->key);
+
 
 	this->view.setCenter(this->plr->getPosition());
 	this->view.setSize(Vector2f(1920, 1080));
@@ -133,14 +153,26 @@ void Game::draw() {
 void Game::handleMovement() {
 	if (this->dash) {
 		this->plr->move((this->plrVelocity * this->dt));
-		
+
 		this->plrVelocity *= (1.f - this->dt * 0.99f);
-		
+
 		if (abs(this->plrVelocity.x) < this->dashDistance && abs(this->plrVelocity.y) < this->dashDistance) {
 			this->plrVelocity *= 0.f;
 			this->dash = false;
 			this->dashDistance = 1300;
 			this->dashed -= this->plr->getPosition();
+		}
+	}
+
+	if (hypotf((this->plr->getPosition() - this->chest->getPosition()).x, (this->plr->getPosition() - this->chest->getPosition()).y) <= 65) {
+		if (!this->key->shouldDraw) {
+			this->key->setPosition(this->chest->getPosition() - Vector2f(48, 76));
+			this->key->shouldDraw = true;
+		}
+	}
+	else {
+		if (this->key->shouldDraw) {
+			this->key->shouldDraw = false;
 		}
 	}
 }
@@ -232,7 +264,7 @@ void Game::update() {
 		while (!this->shouldClose) {
 			this->updateReady.acquire();
 
-			if (clockU.getElapsedTime().asMicroseconds() > 1000) {
+			if (clockU.getElapsedTime().asMicroseconds() > 10000) {
 				for (int i = 0; i < 20; ++i) {
 					Concurrency::parallel_for_each(std::begin(this->enemies), std::end(this->enemies), [this, clockU](Enemy* enemy) {
 						if (enemy->shouldDraw) {
@@ -299,7 +331,6 @@ void Game::update() {
 									this->shouldClose = true;
 								}
 							}
-
 						}
 					}
 				}
@@ -320,7 +351,7 @@ void Game::update() {
 
 void Game::collectGarbage() {
 	while (!this->shouldClose) {
-		if (this->garbage.size() > 50) {
+		if (this->garbage.size() > 2000) {
 
 			this->drawReady.acquire(); // spinlock until free
 			this->updateReady.acquire(); // spinlock until free #2
