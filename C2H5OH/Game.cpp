@@ -374,3 +374,9 @@ void Game::collectGarbage() {
 		}
 	}
 }
+
+int Game::randomLevel() {
+	srand((unsigned)time(NULL));
+	int random = rand() % 4;
+	return random;
+}

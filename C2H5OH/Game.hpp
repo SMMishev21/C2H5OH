@@ -66,6 +66,7 @@ private:
     void update();
     bool resolveCollisionsPlr(Bullet& bullet, float size);
     std::vector<int> resolveCollisionsEnemy(Bullet& bullet, float size);
+    int randomLevel();
 
 public:
     Game();
