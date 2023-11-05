@@ -2,5 +2,6 @@
 
 int main()
 {
+	srand(std::time(nullptr));
 	Game* game = new Game();
 }

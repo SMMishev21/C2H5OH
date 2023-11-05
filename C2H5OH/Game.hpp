@@ -7,8 +7,10 @@
 #include "Weapons.hpp"
 #include "Enemy.hpp"
 #include "Chest.hpp"
+#include "Item.hpp"
 #include <thread>
 #include <semaphore>
+#include <unordered_map>
 
 #define FLAGS_MULTITHREADING
 
@@ -34,6 +36,10 @@ private:
     Texture akTexture;
     Texture chestTexture;
     Texture keyTexture;
+    Texture carbonTexture;
+    Texture oxygenTexture;
+    Texture hydrogenTexture;
+    Texture nitrogenTexture;
 
     View view;
     Clock clock;
@@ -48,12 +54,17 @@ private:
     Player* plr;
     Chest* chest;
     RenderObject* key;
+    Chest* selected;
 
     std::vector<Bullet*> bullets;
     std::vector<Enemy*> enemies;
     std::vector<RenderObject*> renderObjects;
-
+    std::vector<Chest*> chests;
+    std::vector<Element*> elements;
+    std::vector<Element*> elementsToSpawn;
     std::vector<RenderObject*> garbage;
+
+    std::unordered_map<std::string, Texture> elementTextureMap;
 
     friend class RangedEnemy;
 
@@ -64,6 +75,7 @@ private:
     void handleEnemies();
     void collectGarbage();
     void update();
+    void spawnElements();
     bool resolveCollisionsPlr(Bullet& bullet, float size);
     std::vector<int> resolveCollisionsEnemy(Bullet& bullet, float size);
     int randomLevel();

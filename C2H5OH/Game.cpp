@@ -39,6 +39,10 @@ Game::Game() {
 	this->bulletTexture.loadFromFile("./assets/bullet.png");
 	this->chestTexture.loadFromFile("./assets/chest.png");
 	this->keyTexture.loadFromFile("./assets/key.png");
+	this->carbonTexture.loadFromFile("./assets/carbon.png");
+	this->oxygenTexture.loadFromFile("./assets/oxygen.png");
+	this->nitrogenTexture.loadFromFile("./assets/nitrogen.png");
+	this->hydrogenTexture.loadFromFile("./assets/hydrogen.png");
 	
 	this->enemyTexture.setSmooth(true);
 	this->plrTexture.setSmooth(true);
@@ -46,6 +50,17 @@ Game::Game() {
 	this->bulletTexture.setSmooth(true);
 	this->chestTexture.setSmooth(true);
 	this->keyTexture.setSmooth(true);
+	this->carbonTexture.setSmooth(true);
+	this->oxygenTexture.setSmooth(true);
+	this->nitrogenTexture.setSmooth(true);
+	this->hydrogenTexture.setSmooth(true);
+
+	this->elementTextureMap = {
+		{"carbon", this->carbonTexture},
+		{"hydrogen", this->oxygenTexture},
+		{"nitrogen", this->nitrogenTexture},
+		{"oxygen", this->oxygenTexture}
+	};
 
 	this->plr = new Player;
 	this->plr->init(this->plrTexture, Vector2f(0, 0), 'p');
@@ -77,9 +92,9 @@ Game::Game() {
 	}
 
 	this->renderObjects.push_back(this->chest);
-	this->renderObjects.push_back(this->plr);
 	this->renderObjects.push_back(this->key);
 
+	this->chests.push_back(this->chest);
 
 	this->view.setCenter(this->plr->getPosition());
 	this->view.setSize(Vector2f(1920, 1080));
@@ -106,6 +121,8 @@ void Game::mainLoop() {
 		this->handleInput(this->dt);
 
 		this->handleMovement();
+
+		this->spawnElements();
 
 		this->view.move((this->plr->getPosition() - this->view.getCenter()) * 3.f * this->dt);
 
@@ -147,6 +164,8 @@ void Game::draw() {
 		}
 	}
 
+	this->plr->draw(this->window);
+
 	this->window.display();
 }
 
@@ -164,15 +183,20 @@ void Game::handleMovement() {
 		}
 	}
 
-	if (hypotf((this->plr->getPosition() - this->chest->getPosition()).x, (this->plr->getPosition() - this->chest->getPosition()).y) <= 65) {
-		if (!this->key->shouldDraw) {
-			this->key->setPosition(this->chest->getPosition() - Vector2f(48, 76));
-			this->key->shouldDraw = true;
+	for (Chest* chest : this->chests) {
+		if (hypotf((this->plr->getPosition() - chest->getPosition()).x, (this->plr->getPosition() - chest->getPosition()).y) <= 65 && !chest->opened) {
+			if (!this->key->shouldDraw) {
+				this->key->setPosition(chest->getPosition() - Vector2f(48, 76));
+				this->key->shouldDraw = true;
+				this->selected = chest;
+				break;
+			}
 		}
-	}
-	else {
-		if (this->key->shouldDraw) {
-			this->key->shouldDraw = false;
+		else {
+			if (this->key->shouldDraw) {
+				this->key->shouldDraw = false;
+				this->selected = nullptr;
+			}
 		}
 	}
 }
@@ -217,6 +241,25 @@ void Game::handleInput(float dt) {
 
 	if (Mouse::isButtonPressed(Mouse::Button::Left)) {
 		this->ak->shoot(this->bullets, this->renderObjects, this->window, this->plr, this->bulletTexture, this->attackCD);
+	}
+
+	if (Keyboard::isKeyPressed(Keyboard::E)) {
+		if (this->selected != nullptr && !this->selected->opened) {
+			std::pair<std::string, int> elementPair = this->selected->getRandomElement();
+			for (int i = 0; i < elementPair.second; ++i) {
+				float angle = rand() % 180;
+				Element* element = new Element;
+				element->shouldDraw = false;
+				element->spawnTime = float(i) / 10;
+				Vector2f direction(cos(angle * 3.14159265359 / 180), sin(angle * 3.14159265359 / 180));
+				element->direction = direction / hypotf(direction.x, direction.y);
+				element->element = elementPair.first;
+				element->setPosition(this->selected->getPosition());
+				element->setTexture(this->elementTextureMap[elementPair.first]);
+				this->elementsToSpawn.push_back(element);
+				this->renderObjects.push_back(element);
+			}
+		}
 	}
 }
 
@@ -335,6 +378,19 @@ void Game::update() {
 					}
 				}
 
+				for (Element* element : this->elements) {
+					if (element->shouldDraw) {
+						Vector2f elementToPlayer = element->getPosition() - this->plr->getPosition();
+						if (hypotf(elementToPlayer.x, elementToPlayer.y) <= 57 && element->timeAlive.getElapsedTime().asSeconds() >= 0.2) {
+							this->garbage.push_back(element);
+							element->shouldDraw = false;
+							continue;
+						}
+						element->direction += clamp(hypotf(elementToPlayer.x, elementToPlayer.y), 0, 100) * (elementToPlayer / hypotf(elementToPlayer.x, elementToPlayer.y) * clockU.getElapsedTime().asSeconds() * clamp(element->timeAlive.getElapsedTime().asSeconds(), 0, 2));
+
+						element->move(element->direction * -300.f * clockU.getElapsedTime().asSeconds());
+					}
+				}
 
 				clockU.restart();
 			}
@@ -349,6 +405,18 @@ void Game::update() {
 	#endif
 }
 
+void Game::spawnElements() {
+	for (int i = 0; i < this->elementsToSpawn.size(); ++i) {
+		if (this->elementsToSpawn.at(i)->spawnClock.getElapsedTime().asSeconds() >= this->elementsToSpawn.at(i)->spawnTime) {
+			this->elementsToSpawn.at(i)->shouldDraw = true;
+			this->elementsToSpawn.at(i)->timeAlive.restart();
+			this->elements.push_back(this->elementsToSpawn.at(i));
+			this->elementsToSpawn.erase(std::begin(this->elementsToSpawn));
+			break;
+		}
+	}
+}
+
 void Game::collectGarbage() {
 	while (!this->shouldClose) {
 		if (this->garbage.size() > 2000) {
@@ -361,6 +429,7 @@ void Game::collectGarbage() {
 			deleteObjects(this->renderObjects, this->garbage);
 			deleteObjects(this->enemies, this->garbage);
 			deleteObjects(this->bullets, this->garbage);
+			deleteObjects(this->elements, this->garbage);
 
 
 			// Delete all objects in the garbage vector and clear the garbage vector
