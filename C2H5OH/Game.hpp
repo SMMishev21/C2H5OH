@@ -10,7 +10,6 @@
 #include "Item.hpp"
 #include <thread>
 #include <semaphore>
-#include <unordered_map>
 
 #define FLAGS_MULTITHREADING
 
