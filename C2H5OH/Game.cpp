@@ -384,6 +384,7 @@ void Game::update() {
 						if (hypotf(elementToPlayer.x, elementToPlayer.y) <= 57 && element->timeAlive.getElapsedTime().asSeconds() >= 0.2) {
 							this->garbage.push_back(element);
 							element->shouldDraw = false;
+							this->plr->inventory[element->element]++;
 							continue;
 						}
 						element->direction += clamp(hypotf(elementToPlayer.x, elementToPlayer.y), 0, 100) * (elementToPlayer / hypotf(elementToPlayer.x, elementToPlayer.y) * clockU.getElapsedTime().asSeconds() * clamp(element->timeAlive.getElapsedTime().asSeconds(), 0, 2));
