@@ -142,11 +142,13 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="C2H5OH.cpp" />
     <ClCompile Include="Chest.cpp" />
+    <ClCompile Include="CircleHitbox.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RangedEnemy.cpp" />
+    <ClCompile Include="RectangleHitbox.cpp" />
     <ClCompile Include="RenderObject.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="Walker.cpp" />
@@ -155,12 +157,14 @@
   <ItemGroup>
     <ClInclude Include="Bullet.hpp" />
     <ClInclude Include="Chest.hpp" />
+    <ClInclude Include="CircleHitbox.hpp" />
     <ClInclude Include="Enemy.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="Item.hpp" />
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="precompile.hpp" />
     <ClInclude Include="RangedEnemy.hpp" />
+    <ClInclude Include="RectangleHitbox.hpp" />
     <ClInclude Include="RenderObject.hpp" />
     <ClInclude Include="Square.hpp" />
     <ClInclude Include="Walker.hpp" />

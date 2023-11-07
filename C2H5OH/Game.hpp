@@ -8,6 +8,7 @@
 #include "Enemy.hpp"
 #include "Chest.hpp"
 #include "Item.hpp"
+#include "RectangleHitbox.hpp"
 #include <thread>
 #include <semaphore>
 
@@ -39,6 +40,9 @@ private:
     Texture oxygenTexture;
     Texture hydrogenTexture;
     Texture nitrogenTexture;
+    Texture roomTexture;
+
+    RenderObject* room;
 
     View view;
     Clock clock;
@@ -62,6 +66,7 @@ private:
     std::vector<Element*> elements;
     std::vector<Element*> elementsToSpawn;
     std::vector<RenderObject*> garbage;
+    std::vector<RectangleHitbox*> hitboxes;
 
     std::unordered_map<std::string, Texture> elementTextureMap;
 
@@ -75,7 +80,10 @@ private:
     void collectGarbage();
     void update();
     void spawnElements();
+    void openLab();
+    void drawLab();
     bool resolveCollisionsPlr(Bullet& bullet, float size);
+    bool resolveCollisions(RenderObject& obj, float radius);
     std::vector<int> resolveCollisionsEnemy(Bullet& bullet, float size);
     int randomLevel();
 

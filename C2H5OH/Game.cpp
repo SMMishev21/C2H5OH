@@ -27,13 +27,32 @@ void deleteObjects(std::vector<T*>& objects, std::vector<RenderObject*> garbage)
 	}
 }
 
+bool Game::resolveCollisions(RenderObject& obj, float radius) {
+	for (int i = 0; i < 10; i++) {
+		for (auto& i : this->hitboxes) {
+			Vector2f pointOnRect;
+
+			pointOnRect.x = clamp(obj.getPosition().x, i->getPosition().x - 40, i->getPosition().x + 32);
+			pointOnRect.y = clamp(obj.getPosition().y, i->getPosition().y - 32, i->getPosition().y + 32);
+
+			float length = sqrt((pointOnRect - obj.getPosition()).x * (pointOnRect - obj.getPosition()).x + (pointOnRect - obj.getPosition()).y * (pointOnRect - obj.getPosition()).y);
+
+			if (length < radius) {
+				obj.move(Vector2f((obj.getPosition() - pointOnRect).x / radius, (obj.getPosition() - pointOnRect).y / radius));
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
 Game::Game() {
 	this->window.create(VideoMode(1280, 720), "Title");
 	this->window.setFramerateLimit(240);
 	this->shouldClose = false;
 
 	this->enemyTexture.loadFromFile("./assets/enemy.png");
-	this->plrTexture.loadFromFile("./assets/plr.png");
+	this->plrTexture.loadFromFile("./assets/plrPistol 1.png");
 	this->squareTexture.loadFromFile("./assets/square.png");
 	this->akTexture.loadFromFile("./assets/ak.png");
 	this->bulletTexture.loadFromFile("./assets/bullet.png");
@@ -43,6 +62,7 @@ Game::Game() {
 	this->oxygenTexture.loadFromFile("./assets/oxygen.png");
 	this->nitrogenTexture.loadFromFile("./assets/nitrogen.png");
 	this->hydrogenTexture.loadFromFile("./assets/hydrogen.png");
+	this->roomTexture.loadFromFile("./assets/L room 2.png");
 	
 	this->enemyTexture.setSmooth(true);
 	this->plrTexture.setSmooth(true);
@@ -54,6 +74,15 @@ Game::Game() {
 	this->oxygenTexture.setSmooth(true);
 	this->nitrogenTexture.setSmooth(true);
 	this->hydrogenTexture.setSmooth(true);
+	this->roomTexture.setSmooth(true);
+
+	this->room = new RenderObject;
+	this->room->setTexture(this->roomTexture);
+	this->room->setOrigin(Vector2f(640, 360));
+	this->room->setPosition(Vector2f(0, 0));
+
+	this->renderObjects.push_back(this->room);
+
 
 	this->elementTextureMap = {
 		{"carbon", this->carbonTexture},
@@ -64,6 +93,7 @@ Game::Game() {
 
 	this->plr = new Player;
 	this->plr->init(this->plrTexture, Vector2f(0, 0), 'p');
+	this->plr->circleHitbox.setRadius(25);
 	this->dashDistance = 1300;
 
 	this->ak = new Ranged;
@@ -97,7 +127,7 @@ Game::Game() {
 	this->chests.push_back(this->chest);
 
 	this->view.setCenter(this->plr->getPosition());
-	this->view.setSize(Vector2f(1920, 1080));
+	this->view.setSize(Vector2f(1280, 720));
 
 	this->mainLoop();
 }
@@ -109,7 +139,7 @@ void Game::mainLoop() {
 	std::jthread* garbageThread = new std::jthread(&Game::collectGarbage, this);
 
 	this->dt = 0.f;
-	while (this->window.isOpen()) {
+	while (this->window.isOpen() && !this->shouldClose) {
 		this->drawReady.acquire();
 		while (this->window.pollEvent(this->ev)) {
 			if (this->ev.type == Event::Closed) {
@@ -259,6 +289,9 @@ void Game::handleInput(float dt) {
 				this->elementsToSpawn.push_back(element);
 				this->renderObjects.push_back(element);
 			}
+		}
+		else {
+			this->openLab();
 		}
 	}
 }
@@ -449,4 +482,27 @@ int Game::randomLevel() {
 	srand((unsigned)time(NULL));
 	int random = rand() % 4;
 	return random;
+}
+
+void Game::openLab() {
+	while (this->window.isOpen()) {
+		while (this->window.pollEvent(this->ev)) {
+			if (ev.type == Event::Closed) {
+				this->shouldClose = true;
+				return;
+			}
+			if (ev.type == Event::KeyPressed) {
+				if (Keyboard::isKeyPressed(Keyboard::E)) {
+					return;
+				}
+			}
+		}
+		// lab code here
+
+		this->drawLab();
+	}
+}
+
+void Game::drawLab() {
+	// draw lab stuff here
 }
