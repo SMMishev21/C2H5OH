@@ -485,6 +485,71 @@ int Game::randomLevel() {
 }
 
 void Game::openLab() {
+
+	Text coffee;
+	sf::Font font;
+	font.loadFromFile("./assets/font.ttf");
+	coffee.setFont(font);
+	coffee.setCharacterSize(20);
+	//coffee.setFillColor(sf::Color::Black);
+	coffee.setString("C8H10N4O2");
+	coffee.setPosition(100, 100);
+
+	sf::Font font;
+	font.loadFromFile("./assets/font.ttf");
+
+	int carbon = 100;
+	int oxygen = 100;
+	int nitro = 400;
+	int hydrogen = 110;
+
+	// Create square shapes
+
+	sf::RectangleShape square4(sf::Vector2f(100, 100));
+	square4.setFillColor(sf::Color::Yellow);
+	square4.setPosition(200, 400);
+
+	sf::RectangleShape square1(sf::Vector2f(100, 100));
+	square1.setFillColor(sf::Color::Red);
+	square1.setPosition(350, 400);
+
+	sf::RectangleShape square2(sf::Vector2f(100, 100));
+	square2.setFillColor(sf::Color::Green);
+	square2.setPosition(475, 400);
+
+	sf::RectangleShape square3(sf::Vector2f(100, 100));
+	square3.setFillColor(sf::Color::Blue);
+	square3.setPosition(600, 400);
+
+	// Create text objects for each square
+	sf::Text zeroText1;
+	zeroText1.setFont(font);
+	zeroText1.setCharacterSize(20);
+	zeroText1.setFillColor(sf::Color::Black);
+	zeroText1.setString(std::to_string(carbon));
+	zeroText1.setPosition(385, 370);
+
+	sf::Text zeroText2;
+	zeroText2.setFont(font);
+	zeroText2.setCharacterSize(20);
+	zeroText2.setFillColor(sf::Color::Black);
+	zeroText2.setString(std::to_string(oxygen));
+	zeroText2.setPosition(510, 370);
+
+	sf::Text zeroText3;
+	zeroText3.setFont(font);
+	zeroText3.setCharacterSize(20);
+	zeroText3.setFillColor(sf::Color::Black);
+	zeroText3.setString(std::to_string(nitro));
+	zeroText3.setPosition(635, 370);
+
+	sf::Text zeroText4;
+	zeroText4.setFont(font);
+	zeroText4.setCharacterSize(20);
+	zeroText4.setFillColor(sf::Color::Black);
+	zeroText4.setString(std::to_string(hydrogen));
+	zeroText4.setPosition(300, 370);
+
 	while (this->window.isOpen()) {
 		while (this->window.pollEvent(this->ev)) {
 			if (ev.type == Event::Closed) {
@@ -498,11 +563,25 @@ void Game::openLab() {
 			}
 		}
 		// lab code here
-
+		if (carbon >= 8 && hydrogen >= 10 && nitro >= 4 && oxygen >= 2) {
+			coffee.setFillColor(sf::Color::Green);
+		}
+		else {
+			coffee.setFillColor(sf::Color::Red);
+		}
 		this->drawLab();
 	}
 }
 
 void Game::drawLab() {
 	// draw lab stuff here
+	window.draw(coffee);
+	window.draw(square1);
+	window.draw(square2);
+	window.draw(square3);
+	window.draw(zeroText1);
+	window.draw(zeroText2);
+	window.draw(zeroText3);
+	window.draw(zeroText4);
+	window.draw(square4);
 }
