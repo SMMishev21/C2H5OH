@@ -1,7 +1,7 @@
 #pragma once
 #include "precompile.hpp"
 #include "RenderObject.hpp"
-#include "CircleHitbox.hpp"
+#include "EllipseHitbox.hpp"
 #include "RectangleHitbox.hpp"
 #include <unordered_map>
 
@@ -10,7 +10,7 @@ private:
 public:
 	
 	RectangleHitbox rectangleHitbox;
-	CircleHitbox circleHitbox;
+	EllipseHitbox ellipseHitbox;
 
 	void setPlayerInfo(int health, float speed);
 	void takeDamage(int damage);

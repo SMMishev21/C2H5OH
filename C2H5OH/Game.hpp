@@ -19,9 +19,10 @@ using namespace sf;
 class Game {
 private:
     float dt;
+    float dashDistance;
     bool shouldClose;
     bool dash;
-    float dashDistance;
+    bool lab;
 
     std::counting_semaphore<1> drawReady{ 1 };
     std::counting_semaphore<1> updateReady{ 1 };
@@ -42,6 +43,17 @@ private:
     Texture nitrogenTexture;
     Texture roomTexture;
 
+    Font font;
+
+    Text carbonText;
+    Text oxygenText;
+    Text hydrogenText;
+    Text nitrogenText;
+
+    Text compound;
+
+    RectangleShape square4, square1, square2, square3;
+
     RenderObject* room;
 
     View view;
@@ -52,6 +64,7 @@ private:
     Clock dashClock;
     Clock iFrames;
     Clock attackCD;
+    Clock labCD;
 
     Ranged* ak;
     Player* plr;

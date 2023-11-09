@@ -4,10 +4,6 @@
 #include <chrono>
 #include <ppl.h>
 
-float clamp(float n, float lower, float upper) {
-	return std::max(lower, std::min(n, upper));
-}
-
 template<typename T>
 void deleteObjects(std::vector<T*>& objects, std::vector<RenderObject*> garbage)
 {
@@ -32,8 +28,8 @@ bool Game::resolveCollisions(RenderObject& obj, float radius) {
 		for (auto& i : this->hitboxes) {
 			Vector2f pointOnRect;
 
-			pointOnRect.x = clamp(obj.getPosition().x, i->getPosition().x - 40, i->getPosition().x + 32);
-			pointOnRect.y = clamp(obj.getPosition().y, i->getPosition().y - 32, i->getPosition().y + 32);
+			pointOnRect.x = clampMax(obj.getPosition().x, i->getPosition().x - 40, i->getPosition().x + 32);
+			pointOnRect.y = clampMax(obj.getPosition().y, i->getPosition().y - 32, i->getPosition().y + 32);
 
 			float length = sqrt((pointOnRect - obj.getPosition()).x * (pointOnRect - obj.getPosition()).x + (pointOnRect - obj.getPosition()).y * (pointOnRect - obj.getPosition()).y);
 
@@ -93,7 +89,7 @@ Game::Game() {
 
 	this->plr = new Player;
 	this->plr->init(this->plrTexture, Vector2f(0, 0), 'p');
-	this->plr->circleHitbox.setRadius(25);
+	this->plr->ellipseHitbox.setRadius(Vector2f(25,25));
 	this->dashDistance = 1300;
 
 	this->ak = new Ranged;
@@ -303,8 +299,8 @@ std::vector<int> Game::resolveCollisionsEnemy(Bullet& bullet, float size) {
 		if (this->enemies[i]->shouldDraw) {
 			Vector2f pointOnRect;
 
-			pointOnRect.x = clamp(bullet.getPosition().x, this->enemies[i]->getPosition().x - 32, this->enemies[i]->getPosition().x + 32);
-			pointOnRect.y = clamp(bullet.getPosition().y, this->enemies[i]->getPosition().y - 32, this->enemies[i]->getPosition().y + 32);
+			pointOnRect.x = clampMax(bullet.getPosition().x, this->enemies[i]->getPosition().x - 32, this->enemies[i]->getPosition().x + 32);
+			pointOnRect.y = clampMax(bullet.getPosition().y, this->enemies[i]->getPosition().y - 32, this->enemies[i]->getPosition().y + 32);
 
 			float length = sqrt((pointOnRect - bullet.getPosition()).x * (pointOnRect - bullet.getPosition()).x + (pointOnRect - bullet.getPosition()).y * (pointOnRect - bullet.getPosition()).y);
 
@@ -321,8 +317,8 @@ std::vector<int> Game::resolveCollisionsEnemy(Bullet& bullet, float size) {
 bool Game::resolveCollisionsPlr(Bullet& bullet, float size) {
 	Vector2f pointOnRect;
 
-	pointOnRect.x = clamp(bullet.getPosition().x, this->plr->getPosition().x - 32, this->plr->getPosition().x + 32);
-	pointOnRect.y = clamp(bullet.getPosition().y, this->plr->getPosition().y - 32, this->plr->getPosition().y + 32);
+	pointOnRect.x = clampMax(bullet.getPosition().x, this->plr->getPosition().x - 32, this->plr->getPosition().x + 32);
+	pointOnRect.y = clampMax(bullet.getPosition().y, this->plr->getPosition().y - 32, this->plr->getPosition().y + 32);
 
 	float length = sqrt((pointOnRect - bullet.getPosition()).x * (pointOnRect - bullet.getPosition()).x + (pointOnRect - bullet.getPosition()).y * (pointOnRect - bullet.getPosition()).y);
 
@@ -420,7 +416,7 @@ void Game::update() {
 							this->plr->inventory[element->element]++;
 							continue;
 						}
-						element->direction += clamp(hypotf(elementToPlayer.x, elementToPlayer.y), 0, 100) * (elementToPlayer / hypotf(elementToPlayer.x, elementToPlayer.y) * clockU.getElapsedTime().asSeconds() * clamp(element->timeAlive.getElapsedTime().asSeconds(), 0, 2));
+						element->direction += clampMax(hypotf(elementToPlayer.x, elementToPlayer.y), 0, 100) * (elementToPlayer / hypotf(elementToPlayer.x, elementToPlayer.y) * clockU.getElapsedTime().asSeconds() * clampMax(element->timeAlive.getElapsedTime().asSeconds(), 0, 2));
 
 						element->move(element->direction * -300.f * clockU.getElapsedTime().asSeconds());
 					}
@@ -485,70 +481,55 @@ int Game::randomLevel() {
 }
 
 void Game::openLab() {
-
-	Text coffee;
-	sf::Font font;
-	font.loadFromFile("./assets/font.ttf");
-	coffee.setFont(font);
-	coffee.setCharacterSize(20);
-	//coffee.setFillColor(sf::Color::Black);
-	coffee.setString("C8H10N4O2");
-	coffee.setPosition(100, 100);
-
-	sf::Font font;
-	font.loadFromFile("./assets/font.ttf");
-
-	int carbon = 100;
-	int oxygen = 100;
-	int nitro = 400;
-	int hydrogen = 110;
+	this->font.loadFromFile("./assets/font.ttf");
+	this->compound.setFont(this->font);
+	this->compound.setCharacterSize(20);
+	//this->compound.setFillColor(sf::Color::Black);
+	this->compound.setString("C8H10N4O2");
+	this->compound.setPosition(100, 100);
 
 	// Create square shapes
 
-	sf::RectangleShape square4(sf::Vector2f(100, 100));
-	square4.setFillColor(sf::Color::Yellow);
-	square4.setPosition(200, 400);
+	this->square4 = RectangleShape(sf::Vector2f(100, 100));
+	this->square4.setFillColor(sf::Color::Yellow);
+	this->square4.setPosition(200, 400);
 
-	sf::RectangleShape square1(sf::Vector2f(100, 100));
-	square1.setFillColor(sf::Color::Red);
-	square1.setPosition(350, 400);
+	this->square1 = RectangleShape(sf::Vector2f(100, 100));
+	this->square1.setFillColor(sf::Color::Red);
+	this->square1.setPosition(350, 400);
 
-	sf::RectangleShape square2(sf::Vector2f(100, 100));
-	square2.setFillColor(sf::Color::Green);
-	square2.setPosition(475, 400);
+	this->square2 = RectangleShape(sf::Vector2f(100, 100));
+	this->square2.setFillColor(sf::Color::Green);
+	this->square2.setPosition(475, 400);
 
-	sf::RectangleShape square3(sf::Vector2f(100, 100));
-	square3.setFillColor(sf::Color::Blue);
-	square3.setPosition(600, 400);
+	this->square3 = RectangleShape(sf::Vector2f(100, 100));
+	this->square3.setFillColor(sf::Color::Blue);
+	this->square3.setPosition(600, 400);
 
 	// Create text objects for each square
-	sf::Text zeroText1;
-	zeroText1.setFont(font);
-	zeroText1.setCharacterSize(20);
-	zeroText1.setFillColor(sf::Color::Black);
-	zeroText1.setString(std::to_string(carbon));
-	zeroText1.setPosition(385, 370);
+	this->carbonText.setFont(font);
+	this->carbonText.setCharacterSize(20);
+	this->carbonText.setFillColor(sf::Color::Black);
+	this->carbonText.setString(std::to_string(this->plr->inventory["carbon"]));
+	this->carbonText.setPosition(385, 370);
 
-	sf::Text zeroText2;
-	zeroText2.setFont(font);
-	zeroText2.setCharacterSize(20);
-	zeroText2.setFillColor(sf::Color::Black);
-	zeroText2.setString(std::to_string(oxygen));
-	zeroText2.setPosition(510, 370);
+	this->oxygenText.setFont(font);
+	this->oxygenText.setCharacterSize(20);
+	this->oxygenText.setFillColor(sf::Color::Black);
+	this->oxygenText.setString(std::to_string(this->plr->inventory["oxygen"]));
+	this->oxygenText.setPosition(510, 370);
 
-	sf::Text zeroText3;
-	zeroText3.setFont(font);
-	zeroText3.setCharacterSize(20);
-	zeroText3.setFillColor(sf::Color::Black);
-	zeroText3.setString(std::to_string(nitro));
-	zeroText3.setPosition(635, 370);
+	this->nitrogenText.setFont(font);
+	this->nitrogenText.setCharacterSize(20);
+	this->nitrogenText.setFillColor(sf::Color::Black);
+	this->nitrogenText.setString(std::to_string(this->plr->inventory["nitrogen"]));
+	this->nitrogenText.setPosition(635, 370);
 
-	sf::Text zeroText4;
-	zeroText4.setFont(font);
-	zeroText4.setCharacterSize(20);
-	zeroText4.setFillColor(sf::Color::Black);
-	zeroText4.setString(std::to_string(hydrogen));
-	zeroText4.setPosition(300, 370);
+	this->hydrogenText.setFont(font);
+	this->hydrogenText.setCharacterSize(20);
+	this->hydrogenText.setFillColor(sf::Color::Black);
+	this->hydrogenText.setString(std::to_string(this->plr->inventory["hydrogen"]));
+	this->hydrogenText.setPosition(300, 370);
 
 	while (this->window.isOpen()) {
 		while (this->window.pollEvent(this->ev)) {
@@ -556,32 +537,36 @@ void Game::openLab() {
 				this->shouldClose = true;
 				return;
 			}
-			if (ev.type == Event::KeyPressed) {
+			else if (ev.type == Event::KeyPressed) {
 				if (Keyboard::isKeyPressed(Keyboard::E)) {
 					return;
 				}
 			}
 		}
 		// lab code here
-		if (carbon >= 8 && hydrogen >= 10 && nitro >= 4 && oxygen >= 2) {
-			coffee.setFillColor(sf::Color::Green);
+		if (this->plr->inventory["carbon"] >= 8 && this->plr->inventory["hydrogen"] >= 10 && this->plr->inventory["nitro"] >= 4 && this->plr->inventory["oxygen"] >= 2) {
+			this->compound.setFillColor(sf::Color::Green);
 		}
 		else {
-			coffee.setFillColor(sf::Color::Red);
+			this->compound.setFillColor(sf::Color::Red);
 		}
 		this->drawLab();
 	}
 }
 
 void Game::drawLab() {
+	this->window.clear(Color::White);
 	// draw lab stuff here
-	window.draw(coffee);
-	window.draw(square1);
-	window.draw(square2);
-	window.draw(square3);
-	window.draw(zeroText1);
-	window.draw(zeroText2);
-	window.draw(zeroText3);
-	window.draw(zeroText4);
-	window.draw(square4);
+	this->window.setView(this->window.getDefaultView());
+	this->window.draw(this->compound);
+	this->window.draw(this->square1);
+	this->window.draw(this->square2);
+	this->window.draw(this->square3);
+	this->window.draw(this->carbonText);
+	this->window.draw(this->oxygenText);
+	this->window.draw(this->nitrogenText);
+	this->window.draw(this->hydrogenText);
+	this->window.draw(this->square4);
+
+	this->window.display();
 }

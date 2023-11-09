@@ -1,3 +1,4 @@
+#pragma once
 #include "precompile.hpp"
 
 class RectangleHitbox {

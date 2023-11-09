@@ -54,7 +54,13 @@
     <ClCompile Include="RectangleHitbox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CircleHitbox.cpp">
+    <ClCompile Include="EllipseHitbox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="clamp.hpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="clamp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -98,7 +104,7 @@
     <ClInclude Include="RectangleHitbox.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CircleHitbox.hpp">
+    <ClInclude Include="EllipseHitbox.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
