@@ -10,8 +10,9 @@ private:
 public:
 	
 	RectangleHitbox rectangleHitbox;
-	EllipseHitbox ellipseHitbox;
+	EllipseHitbox* ellipseHitbox;
 
+	void init(Texture& texture, Vector2f position, char type) override;
 	void setPlayerInfo(int health, float speed);
 	void takeDamage(int damage);
 	void move(Vector2f offset) override;

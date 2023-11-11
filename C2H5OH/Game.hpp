@@ -42,6 +42,8 @@ private:
     Texture hydrogenTexture;
     Texture nitrogenTexture;
     Texture roomTexture;
+    Texture squareHitboxTexture;
+    Texture ellipseHitboxTexture;
 
     Font font;
 

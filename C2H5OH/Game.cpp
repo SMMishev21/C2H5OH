@@ -59,6 +59,8 @@ Game::Game() {
 	this->nitrogenTexture.loadFromFile("./assets/nitrogen.png");
 	this->hydrogenTexture.loadFromFile("./assets/hydrogen.png");
 	this->roomTexture.loadFromFile("./assets/L room 2.png");
+	this->squareHitboxTexture.loadFromFile("./assets/square hitbox.png");
+	this->ellipseHitboxTexture.loadFromFile("./assets/ellipse hitbox.png");
 	
 	this->enemyTexture.setSmooth(true);
 	this->plrTexture.setSmooth(true);
@@ -71,6 +73,8 @@ Game::Game() {
 	this->nitrogenTexture.setSmooth(true);
 	this->hydrogenTexture.setSmooth(true);
 	this->roomTexture.setSmooth(true);
+	this->squareHitboxTexture.setSmooth(true);
+	this->ellipseHitboxTexture.setSmooth(true);
 
 	this->room = new RenderObject;
 	this->room->setTexture(this->roomTexture);
@@ -88,8 +92,10 @@ Game::Game() {
 	};
 
 	this->plr = new Player;
-	this->plr->init(this->plrTexture, Vector2f(0, 0), 'p');
-	this->plr->ellipseHitbox.setRadius(Vector2f(25,25));
+	this->plr->init(this->plrTexture, Vector2f(100, 100), 'p');
+	this->plr->ellipseHitbox->setRadius(Vector2f(25,25));
+	this->plr->ellipseHitbox->setTexture(this->ellipseHitboxTexture);
+	this->renderObjects.push_back(this->plr->ellipseHitbox);
 	this->dashDistance = 1300;
 
 	this->ak = new Ranged;
@@ -107,6 +113,15 @@ Game::Game() {
 	for (int i = 0; i < 100; i++) {
 		Square* square = new Square;
 		square->init(this->squareTexture, Vector2f(64 * i, 0), 'b');
+
+		RectangleHitbox* hitbox = new RectangleHitbox;
+		hitbox->setSize(Vector2f(64,64));
+		hitbox->setPosition(Vector2f(64 * i - 32, 0));
+		hitbox->setOrigin(hitbox->getSize() / 2.f);
+		hitbox->setTexture(this->squareHitboxTexture);
+
+		this->hitboxes.push_back(hitbox);
+		this->renderObjects.push_back(hitbox);
 		this->renderObjects.push_back(square);
 	}
 
@@ -192,6 +207,8 @@ void Game::draw() {
 
 	this->plr->draw(this->window);
 
+	this->plr->ellipseHitbox->draw(this->window);
+
 	this->window.display();
 }
 
@@ -228,28 +245,30 @@ void Game::handleMovement() {
 }
 
 void Game::handleInput(float dt) {
-	if (Keyboard::isKeyPressed(Keyboard::A)) {
-		this->plr->move(Vector2f(-200, 0) * dt);
-		this->dir.x = -1;
-	}
-	else if (Keyboard::isKeyPressed(Keyboard::D)) {
-		this->plr->move(Vector2f(200, 0) * dt);
-		this->dir.x = 1;
-	}
-	else {
-		this->dir.x = 0;
-	}
+	for (int i = 0; i < 5; ++i) {
+		if (Keyboard::isKeyPressed(Keyboard::A)) {
+			this->plr->move(Vector2f(-200, 0) * dt / 5.f);
+			this->dir.x = -1;
+		}
+		else if (Keyboard::isKeyPressed(Keyboard::D)) {
+			this->plr->move(Vector2f(200, 0) * dt / 5.f);
+			this->dir.x = 1;
+		}
+		else {
+			this->dir.x = 0;
+		}
 
-	if (Keyboard::isKeyPressed(Keyboard::W)) {
-		this->plr->move(Vector2f(0, -200) * dt);
-		this->dir.y = -1;
-	}
-	else if (Keyboard::isKeyPressed(Keyboard::S)) {
-		this->plr->move(Vector2f(0, 200) * dt);
-		this->dir.y = 1;
-	}
-	else {
-		this->dir.y = 0;
+		if (Keyboard::isKeyPressed(Keyboard::W)) {
+			this->plr->move(Vector2f(0, -200) * dt / 5.f);
+			this->dir.y = -1;
+		}
+		else if (Keyboard::isKeyPressed(Keyboard::S)) {
+			this->plr->move(Vector2f(0, 200) * dt / 5.f);
+			this->dir.y = 1;
+		}
+		else {
+			this->dir.y = 0;
+		}
 	}
 
 	this->ak->setPosition(this->plr->getPosition());
@@ -287,7 +306,10 @@ void Game::handleInput(float dt) {
 			}
 		}
 		else {
-			this->openLab();
+			if (this->labCD.getElapsedTime().asSeconds() > 0.1f) {
+				this->labCD.restart();
+				this->openLab();
+			}
 		}
 	}
 }
@@ -422,6 +444,12 @@ void Game::update() {
 					}
 				}
 
+				for (RectangleHitbox* hitbox : this->hitboxes) {
+					for (int i = 0; i < 5; ++i) {
+						this->plr->move(-this->plr->ellipseHitbox->checkOverlapRectangle(Vector2f(hitbox->getPosition().x, hitbox->getPosition().y - hitbox->getSize().y), hitbox->getSize()) / 5.f);
+					}
+				}
+
 				clockU.restart();
 			}
 			this->updateReady.release();
@@ -538,7 +566,8 @@ void Game::openLab() {
 				return;
 			}
 			else if (ev.type == Event::KeyPressed) {
-				if (Keyboard::isKeyPressed(Keyboard::E)) {
+				if (Keyboard::isKeyPressed(Keyboard::E) && this->labCD.getElapsedTime().asSeconds() > 0.1f) {
+					this->labCD.restart();
 					return;
 				}
 			}

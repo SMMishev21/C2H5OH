@@ -1,7 +1,8 @@
 #include "precompile.hpp"
 #include "clamp.hpp"
+#include "RenderObject.hpp"
 
-class EllipseHitbox {
+class EllipseHitbox : public RenderObject {
 private:
 	Vector2f position;
 	Vector2f radius;

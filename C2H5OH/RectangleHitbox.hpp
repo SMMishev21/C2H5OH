@@ -1,7 +1,8 @@
 #pragma once
 #include "precompile.hpp"
+#include "RenderObject.hpp"
 
-class RectangleHitbox {
+class RectangleHitbox : public RenderObject {
 private:
 	Vector2f position;
 	Vector2f size;
