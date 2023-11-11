@@ -58,10 +58,10 @@ Game::Game() {
 	this->oxygenTexture.loadFromFile("./assets/oxygen.png");
 	this->nitrogenTexture.loadFromFile("./assets/nitrogen.png");
 	this->hydrogenTexture.loadFromFile("./assets/hydrogen.png");
-	this->roomTexture.loadFromFile("./assets/L room 2.png");
+	this->roomTexture.loadFromFile("./assets/L room.png");
 	this->squareHitboxTexture.loadFromFile("./assets/square hitbox.png");
 	this->ellipseHitboxTexture.loadFromFile("./assets/ellipse hitbox.png");
-	
+
 	this->enemyTexture.setSmooth(true);
 	this->plrTexture.setSmooth(true);
 	this->squareTexture.setSmooth(true);
@@ -78,7 +78,7 @@ Game::Game() {
 
 	this->room = new RenderObject;
 	this->room->setTexture(this->roomTexture);
-	this->room->setOrigin(Vector2f(640, 360));
+	this->room->setOrigin(Vector2f(0, 0));
 	this->room->setPosition(Vector2f(0, 0));
 
 	this->renderObjects.push_back(this->room);
@@ -91,11 +91,26 @@ Game::Game() {
 		{"oxygen", this->oxygenTexture}
 	};
 
+	this->roomCollisions = {
+		{"L room", {
+				new RectangleHitbox(Vector2f(820,    34.5),   Vector2f(274, 68)), 
+				new RectangleHitbox(Vector2f(1153,   34.5),   Vector2f(254, 68)),
+				new RectangleHitbox(Vector2f(717,    204),      Vector2f(68,  409)),
+				new RectangleHitbox(Vector2f(1246,   360),      Vector2f(68,  719)),
+				new RectangleHitbox(Vector2f(640,    685),    Vector2f(1280, 68)),
+				new RectangleHitbox(Vector2f(34,     416),    Vector2f(68,   150)),
+				new RectangleHitbox(Vector2f(34,     640),    Vector2f(68,   158)),
+				new RectangleHitbox(Vector2f(375,    375),    Vector2f(751,  68))
+			}
+		}
+	};
+
 	this->plr = new Player;
 	this->plr->init(this->plrTexture, Vector2f(100, 100), 'p');
-	this->plr->ellipseHitbox->setRadius(Vector2f(25,25));
-	this->plr->ellipseHitbox->setTexture(this->ellipseHitboxTexture);
-	this->renderObjects.push_back(this->plr->ellipseHitbox);
+	this->plr->collisionHitbox->setRadius(Vector2f(25,25));
+	this->plr->collisionHitbox->setTexture(this->ellipseHitboxTexture);
+	this->plr->hitbox->setRadius(Vector2f(124/2, 354/2));
+	this->renderObjects.push_back(this->plr->collisionHitbox);
 	this->dashDistance = 1300;
 
 	this->ak = new Ranged;
@@ -114,16 +129,17 @@ Game::Game() {
 		Square* square = new Square;
 		square->init(this->squareTexture, Vector2f(64 * i, 0), 'b');
 
-		RectangleHitbox* hitbox = new RectangleHitbox;
-		hitbox->setSize(Vector2f(64,64));
-		hitbox->setPosition(Vector2f(64 * i - 32, 0));
-		hitbox->setOrigin(hitbox->getSize() / 2.f);
-		hitbox->setTexture(this->squareHitboxTexture);
 
-		this->hitboxes.push_back(hitbox);
-		this->renderObjects.push_back(hitbox);
 		this->renderObjects.push_back(square);
 	}
+
+	RectangleHitbox* hitbox = new RectangleHitbox;
+	hitbox->setSize(Vector2f(6400,64));
+	hitbox->setPosition(Vector2f(0 - 32, 0));
+	hitbox->setOrigin(hitbox->getSize() / 2.f);
+	hitbox->setTexture(this->squareHitboxTexture);
+	this->hitboxes.push_back(hitbox);
+	this->renderObjects.push_back(hitbox);
 
 	for (int i = 0; i < 2; i++) {
 		RangedEnemy* enemy = new RangedEnemy;
@@ -205,9 +221,15 @@ void Game::draw() {
 		}
 	}
 
+#ifdef FLAGS_DEBUGGING
+	for (int i = 0; i < this->roomCollisions["L room"].size(); ++i) {
+		this->roomCollisions["L room"].at(i)->draw(this->window);
+	}
+#endif
+
 	this->plr->draw(this->window);
 
-	this->plr->ellipseHitbox->draw(this->window);
+	this->plr->collisionHitbox->draw(this->window);
 
 	this->window.display();
 }
@@ -245,13 +267,13 @@ void Game::handleMovement() {
 }
 
 void Game::handleInput(float dt) {
-	for (int i = 0; i < 5; ++i) {
+	for (int i = 0; i < 10; ++i) {
 		if (Keyboard::isKeyPressed(Keyboard::A)) {
-			this->plr->move(Vector2f(-200, 0) * dt / 5.f);
+			this->plr->move(Vector2f(-200, 0) * dt / 10.f);
 			this->dir.x = -1;
 		}
 		else if (Keyboard::isKeyPressed(Keyboard::D)) {
-			this->plr->move(Vector2f(200, 0) * dt / 5.f);
+			this->plr->move(Vector2f(200, 0) * dt / 10.f);
 			this->dir.x = 1;
 		}
 		else {
@@ -259,17 +281,24 @@ void Game::handleInput(float dt) {
 		}
 
 		if (Keyboard::isKeyPressed(Keyboard::W)) {
-			this->plr->move(Vector2f(0, -200) * dt / 5.f);
+			this->plr->move(Vector2f(0, -200) * dt / 10.f);
 			this->dir.y = -1;
 		}
 		else if (Keyboard::isKeyPressed(Keyboard::S)) {
-			this->plr->move(Vector2f(0, 200) * dt / 5.f);
+			this->plr->move(Vector2f(0, 200) * dt / 10.f);
 			this->dir.y = 1;
 		}
 		else {
 			this->dir.y = 0;
 		}
+
+		for (RectangleHitbox* hitbox : this->roomCollisions["L room"]) {
+			for (int i = 0; i < 10; ++i) {
+				this->plr->move(-this->plr->collisionHitbox->checkOverlapRectangle(Vector2f(hitbox->getPosition().x - hitbox->getSize().x / 2, hitbox->getPosition().y - hitbox->getSize().y / 2), hitbox->getSize()) / 10.f);
+			}
+		}
 	}
+
 
 	this->ak->setPosition(this->plr->getPosition());
 
@@ -305,11 +334,12 @@ void Game::handleInput(float dt) {
 				this->renderObjects.push_back(element);
 			}
 		}
-		else {
-			if (this->labCD.getElapsedTime().asSeconds() > 0.1f) {
-				this->labCD.restart();
-				this->openLab();
-			}
+	}
+
+	if (Keyboard::isKeyPressed(Keyboard::I)) {
+		if (this->labCD.getElapsedTime().asSeconds() > 0.1f) {
+			this->labCD.restart();
+			this->openLab();
 		}
 	}
 }
@@ -444,12 +474,6 @@ void Game::update() {
 					}
 				}
 
-				for (RectangleHitbox* hitbox : this->hitboxes) {
-					for (int i = 0; i < 5; ++i) {
-						this->plr->move(-this->plr->ellipseHitbox->checkOverlapRectangle(Vector2f(hitbox->getPosition().x, hitbox->getPosition().y - hitbox->getSize().y), hitbox->getSize()) / 5.f);
-					}
-				}
-
 				clockU.restart();
 			}
 			this->updateReady.release();
@@ -509,29 +533,40 @@ int Game::randomLevel() {
 }
 
 void Game::openLab() {
+
+	//Load Texture
+	this->invCarbon.loadFromFile("./assets/carbon.png");
+	this->invHydrogen.loadFromFile("./assets/hydrogen.png");
+	this->invOxygen.loadFromFile("./assets/oxygen.png");
+	this->invNitro.loadFromFile("./assets/nitrogen.png");
+
+	//Load Text Specification
 	this->font.loadFromFile("./assets/font.ttf");
-	this->compound.setFont(this->font);
-	this->compound.setCharacterSize(20);
-	//this->compound.setFillColor(sf::Color::Black);
-	this->compound.setString("C8H10N4O2");
-	this->compound.setPosition(100, 100);
+	this->coffee.setFont(this->font);
+	this->coffee.setCharacterSize(50);
+	this->coffee.setString("C8H10N4O2");
+	this->coffee.setPosition(50, 50);
+
+	this->tren.setFont(this->font);
+	this->tren.setCharacterSize(50);
+	this->tren.setString("C20H24O3");
+	this->tren.setPosition(50, 150);
 
 	// Create square shapes
-
 	this->square4 = RectangleShape(sf::Vector2f(100, 100));
-	this->square4.setFillColor(sf::Color::Yellow);
+	this->square4.setTexture(&invCarbon);
 	this->square4.setPosition(200, 400);
 
 	this->square1 = RectangleShape(sf::Vector2f(100, 100));
-	this->square1.setFillColor(sf::Color::Red);
+	this->square1.setTexture(&invOxygen);
 	this->square1.setPosition(350, 400);
 
 	this->square2 = RectangleShape(sf::Vector2f(100, 100));
-	this->square2.setFillColor(sf::Color::Green);
+	this->square2.setTexture(&invNitro);
 	this->square2.setPosition(475, 400);
 
 	this->square3 = RectangleShape(sf::Vector2f(100, 100));
-	this->square3.setFillColor(sf::Color::Blue);
+	this->square3.setTexture(&invHydrogen);
 	this->square3.setPosition(600, 400);
 
 	// Create text objects for each square
@@ -539,25 +574,25 @@ void Game::openLab() {
 	this->carbonText.setCharacterSize(20);
 	this->carbonText.setFillColor(sf::Color::Black);
 	this->carbonText.setString(std::to_string(this->plr->inventory["carbon"]));
-	this->carbonText.setPosition(385, 370);
+	this->carbonText.setPosition(250, 370);
 
 	this->oxygenText.setFont(font);
 	this->oxygenText.setCharacterSize(20);
 	this->oxygenText.setFillColor(sf::Color::Black);
 	this->oxygenText.setString(std::to_string(this->plr->inventory["oxygen"]));
-	this->oxygenText.setPosition(510, 370);
+	this->oxygenText.setPosition(640, 370);
 
 	this->nitrogenText.setFont(font);
 	this->nitrogenText.setCharacterSize(20);
 	this->nitrogenText.setFillColor(sf::Color::Black);
 	this->nitrogenText.setString(std::to_string(this->plr->inventory["nitrogen"]));
-	this->nitrogenText.setPosition(635, 370);
+	this->nitrogenText.setPosition(520, 370);
 
 	this->hydrogenText.setFont(font);
 	this->hydrogenText.setCharacterSize(20);
 	this->hydrogenText.setFillColor(sf::Color::Black);
 	this->hydrogenText.setString(std::to_string(this->plr->inventory["hydrogen"]));
-	this->hydrogenText.setPosition(300, 370);
+	this->hydrogenText.setPosition(400, 370);
 
 	while (this->window.isOpen()) {
 		while (this->window.pollEvent(this->ev)) {
@@ -566,7 +601,7 @@ void Game::openLab() {
 				return;
 			}
 			else if (ev.type == Event::KeyPressed) {
-				if (Keyboard::isKeyPressed(Keyboard::E) && this->labCD.getElapsedTime().asSeconds() > 0.1f) {
+				if (Keyboard::isKeyPressed(Keyboard::I) && this->labCD.getElapsedTime().asSeconds() > 0.1f) {
 					this->labCD.restart();
 					return;
 				}
@@ -574,10 +609,16 @@ void Game::openLab() {
 		}
 		// lab code here
 		if (this->plr->inventory["carbon"] >= 8 && this->plr->inventory["hydrogen"] >= 10 && this->plr->inventory["nitro"] >= 4 && this->plr->inventory["oxygen"] >= 2) {
-			this->compound.setFillColor(sf::Color::Green);
+			this->coffee.setFillColor(sf::Color::Green);
 		}
 		else {
-			this->compound.setFillColor(sf::Color::Red);
+			this->coffee.setFillColor(sf::Color::Red);
+		}
+		if (this->plr->inventory["carbon"] >= 20 && this->plr->inventory["hydrogen"] >= 24 && this->plr->inventory["nitro"] >= 0 && this->plr->inventory["oxygen"] >= 3) {
+			this->tren.setFillColor(sf::Color::Green);
+		}
+		else {
+			this->tren.setFillColor(sf::Color::Red);
 		}
 		this->drawLab();
 	}
@@ -587,7 +628,8 @@ void Game::drawLab() {
 	this->window.clear(Color::White);
 	// draw lab stuff here
 	this->window.setView(this->window.getDefaultView());
-	this->window.draw(this->compound);
+	this->window.draw(this->coffee);
+	this->window.draw(this->tren);
 	this->window.draw(this->square1);
 	this->window.draw(this->square2);
 	this->window.draw(this->square3);

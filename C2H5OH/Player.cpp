@@ -1,12 +1,13 @@
 #include "Player.hpp"
 
 void Player::init(Texture& texture, Vector2f position, char type) {
-	this->rectangleHitbox.setPosition(position + Vector2f(20, 5));
-	this->rectangleHitbox.setSize(Vector2f(128, 355));
-	this->ellipseHitbox = new EllipseHitbox;
-	this->ellipseHitbox->setRadius(Vector2f(48, 22));
-	this->ellipseHitbox->setOrigin(Vector2f(48/2, 0));
-	this->ellipseHitbox->setPosition(position + Vector2f(0, 20));
+	this->hitbox = new EllipseHitbox;
+	this->hitbox->setPosition(position + Vector2f(20, 5));
+	this->hitbox->setRadius(Vector2f(124 / 2, 354 / 2));
+	this->collisionHitbox = new EllipseHitbox;
+	this->collisionHitbox->setRadius(Vector2f(48, 22));
+	this->collisionHitbox->setOrigin(Vector2f(48/2, 0));
+	this->collisionHitbox->setPosition(position + Vector2f(0, 50));
 	this->sprite.setTexture(texture);
 	this->sprite.setOrigin(Vector2f((float)(texture.getSize().x) / 2, (float)(texture.getSize().y) / 2));
 	this->sprite.setPosition(position);
@@ -24,6 +25,6 @@ void Player::takeDamage(int damage) {
 
 void Player::move(Vector2f offset) {
 	this->sprite.move(offset);
-	this->rectangleHitbox.setPosition(this->ellipseHitbox->getPosition() + offset);
-	this->ellipseHitbox->setPosition(this->ellipseHitbox->getPosition() + offset);
+	this->hitbox->setPosition(this->hitbox->getPosition() + offset);
+	this->collisionHitbox->setPosition(this->collisionHitbox->getPosition() + offset);
 }

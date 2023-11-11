@@ -13,6 +13,7 @@
 #include <semaphore>
 
 #define FLAGS_MULTITHREADING
+#define FLAGS_DEBUGGING
 
 using namespace sf;
 
@@ -44,6 +45,11 @@ private:
     Texture roomTexture;
     Texture squareHitboxTexture;
     Texture ellipseHitboxTexture;
+    Texture invCarbon;
+    Texture invNitro;
+    Texture invHydrogen;
+    Texture invOxygen;
+
 
     Font font;
 
@@ -52,7 +58,8 @@ private:
     Text hydrogenText;
     Text nitrogenText;
 
-    Text compound;
+    Text coffee;
+    Text tren;
 
     RectangleShape square4, square1, square2, square3;
 
@@ -84,6 +91,7 @@ private:
     std::vector<RectangleHitbox*> hitboxes;
 
     std::unordered_map<std::string, Texture> elementTextureMap;
+    std::unordered_map<std::string, std::vector<RectangleHitbox*>> roomCollisions;
 
     friend class RangedEnemy;
 

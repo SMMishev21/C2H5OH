@@ -9,8 +9,8 @@ class Player : public RenderObject {
 private:
 public:
 	
-	RectangleHitbox rectangleHitbox;
-	EllipseHitbox* ellipseHitbox;
+	EllipseHitbox* hitbox;
+	EllipseHitbox* collisionHitbox;
 
 	void init(Texture& texture, Vector2f position, char type) override;
 	void setPlayerInfo(int health, float speed);

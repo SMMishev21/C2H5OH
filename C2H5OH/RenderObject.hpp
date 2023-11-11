@@ -10,6 +10,7 @@ public:
 	virtual void setPosition(Vector2f position);
 	virtual void setOrigin(Vector2f origin);
 	virtual void draw(RenderWindow& window);
+	virtual void setScale(Vector2f scale);
 	virtual void move(Vector2f offset);
 	virtual Vector2f getPosition();
 
