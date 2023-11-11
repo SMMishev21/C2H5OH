@@ -58,7 +58,8 @@ private:
     Text hydrogenText;
     Text nitrogenText;
 
-    Text compound;
+    Text coffee;
+    Text tren;
 
     RectangleShape square4, square1, square2, square3;
 

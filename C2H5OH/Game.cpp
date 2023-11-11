@@ -542,10 +542,15 @@ void Game::openLab() {
 
 	//Load Text Specification
 	this->font.loadFromFile("./assets/font.ttf");
-	this->compound.setFont(this->font);
-	this->compound.setCharacterSize(50);
-	this->compound.setString("C8H10N4O2");
-	this->compound.setPosition(100, 100);
+	this->coffee.setFont(this->font);
+	this->coffee.setCharacterSize(50);
+	this->coffee.setString("C8H10N4O2");
+	this->coffee.setPosition(50, 50);
+
+	this->tren.setFont(this->font);
+	this->tren.setCharacterSize(50);
+	this->tren.setString("C20H24O3");
+	this->tren.setPosition(50, 150);
 
 	// Create square shapes
 	this->square4 = RectangleShape(sf::Vector2f(100, 100));
@@ -604,10 +609,16 @@ void Game::openLab() {
 		}
 		// lab code here
 		if (this->plr->inventory["carbon"] >= 8 && this->plr->inventory["hydrogen"] >= 10 && this->plr->inventory["nitro"] >= 4 && this->plr->inventory["oxygen"] >= 2) {
-			this->compound.setFillColor(sf::Color::Green);
+			this->coffee.setFillColor(sf::Color::Green);
 		}
 		else {
-			this->compound.setFillColor(sf::Color::Red);
+			this->coffee.setFillColor(sf::Color::Red);
+		}
+		if (this->plr->inventory["carbon"] >= 20 && this->plr->inventory["hydrogen"] >= 24 && this->plr->inventory["nitro"] >= 0 && this->plr->inventory["oxygen"] >= 3) {
+			this->tren.setFillColor(sf::Color::Green);
+		}
+		else {
+			this->tren.setFillColor(sf::Color::Red);
 		}
 		this->drawLab();
 	}
@@ -617,7 +628,8 @@ void Game::drawLab() {
 	this->window.clear(Color::White);
 	// draw lab stuff here
 	this->window.setView(this->window.getDefaultView());
-	this->window.draw(this->compound);
+	this->window.draw(this->coffee);
+	this->window.draw(this->tren);
 	this->window.draw(this->square1);
 	this->window.draw(this->square2);
 	this->window.draw(this->square3);
