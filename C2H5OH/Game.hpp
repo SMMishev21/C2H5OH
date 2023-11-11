@@ -21,6 +21,10 @@ class Game {
 private:
     float dt;
     float dashDistance;
+    float speedBuff;
+    float attackSpeedBuff;
+    float healthBuff;
+    float damageBuff;
     bool shouldClose;
     bool dash;
     bool lab;

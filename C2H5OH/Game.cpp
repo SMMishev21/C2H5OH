@@ -58,7 +58,7 @@ Game::Game() {
 	this->oxygenTexture.loadFromFile("./assets/oxygen.png");
 	this->nitrogenTexture.loadFromFile("./assets/nitrogen.png");
 	this->hydrogenTexture.loadFromFile("./assets/hydrogen.png");
-	this->roomTexture.loadFromFile("./assets/L room.png");
+	this->roomTexture.loadFromFile("./assets/Boss room.png");
 	this->squareHitboxTexture.loadFromFile("./assets/square hitbox.png");
 	this->ellipseHitboxTexture.loadFromFile("./assets/ellipse hitbox.png");
 
@@ -93,17 +93,41 @@ Game::Game() {
 
 	this->roomCollisions = {
 		{"L room", {
-				new RectangleHitbox(Vector2f(820,    34.5),   Vector2f(274, 68)), 
-				new RectangleHitbox(Vector2f(1153,   34.5),   Vector2f(254, 68)),
-				new RectangleHitbox(Vector2f(717,    204),      Vector2f(68,  409)),
-				new RectangleHitbox(Vector2f(1246,   360),      Vector2f(68,  719)),
+				new RectangleHitbox(Vector2f(820,    34.5),   Vector2f(274,  68)),
+				new RectangleHitbox(Vector2f(1153,   34.5),   Vector2f(254,  68)),
+				new RectangleHitbox(Vector2f(717,    204),    Vector2f(68,   409)),
+				new RectangleHitbox(Vector2f(1246,   360),    Vector2f(68,   719)),
 				new RectangleHitbox(Vector2f(640,    685),    Vector2f(1280, 68)),
 				new RectangleHitbox(Vector2f(34,     416),    Vector2f(68,   150)),
 				new RectangleHitbox(Vector2f(34,     640),    Vector2f(68,   158)),
 				new RectangleHitbox(Vector2f(375,    375),    Vector2f(751,  68))
 			}
+		},
+
+		{"Normal room", {
+				new RectangleHitbox(Vector2f(640,  34),  Vector2f(1280, 68)),
+				new RectangleHitbox(Vector2f(34,   163), Vector2f(68,   327)),
+				new RectangleHitbox(Vector2f(34,   562), Vector2f(68,   315)),
+				new RectangleHitbox(Vector2f(640,  685), Vector2f(1280, 68)),
+				new RectangleHitbox(Vector2f(1246, 157), Vector2f(68,   315)),
+				new RectangleHitbox(Vector2f(1246, 556), Vector2f(68,   327))
+			}
+		},
+
+		{"Boss room", {
+				new RectangleHitbox(Vector2f(1280, 34),   Vector2f(2560, 68)),
+				new RectangleHitbox(Vector2f(34,   372),  Vector2f(68,   744)),
+				new RectangleHitbox(Vector2f(34,   1133), Vector2f(68,   614)),
+				new RectangleHitbox(Vector2f(1280, 1406), Vector2f(2560, 68)),
+				new RectangleHitbox(Vector2f(2526, 720),  Vector2f(68,   1440)),
+			}
 		}
 	};
+
+	this->damageBuff = 0.f;
+	this->attackSpeedBuff = 0.f;
+	this->speedBuff = 0.f;
+	this->healthBuff = 0.f;
 
 	this->plr = new Player;
 	this->plr->init(this->plrTexture, Vector2f(100, 100), 'p');
@@ -222,8 +246,8 @@ void Game::draw() {
 	}
 
 #ifdef FLAGS_DEBUGGING
-	for (int i = 0; i < this->roomCollisions["L room"].size(); ++i) {
-		this->roomCollisions["L room"].at(i)->draw(this->window);
+	for (int i = 0; i < this->roomCollisions["Boss room"].size(); ++i) {
+		this->roomCollisions["Boss room"].at(i)->draw(this->window);
 	}
 #endif
 
@@ -292,7 +316,7 @@ void Game::handleInput(float dt) {
 			this->dir.y = 0;
 		}
 
-		for (RectangleHitbox* hitbox : this->roomCollisions["L room"]) {
+		for (RectangleHitbox* hitbox : this->roomCollisions["Boss room"]) {
 			for (int i = 0; i < 10; ++i) {
 				this->plr->move(-this->plr->collisionHitbox->checkOverlapRectangle(Vector2f(hitbox->getPosition().x - hitbox->getSize().x / 2, hitbox->getPosition().y - hitbox->getSize().y / 2), hitbox->getSize()) / 10.f);
 			}
