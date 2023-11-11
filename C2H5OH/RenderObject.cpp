@@ -30,3 +30,7 @@ Vector2f RenderObject::getPosition() {
 void RenderObject::setTexture(Texture& texture) {
 	this->sprite.setTexture(texture);
 }
+
+void RenderObject::setScale(Vector2f scale) {
+	this->sprite.setScale(scale);
+}

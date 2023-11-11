@@ -13,6 +13,7 @@
 #include <semaphore>
 
 #define FLAGS_MULTITHREADING
+#define FLAGS_DEBUGGING
 
 using namespace sf;
 
@@ -84,6 +85,7 @@ private:
     std::vector<RectangleHitbox*> hitboxes;
 
     std::unordered_map<std::string, Texture> elementTextureMap;
+    std::unordered_map<std::string, std::vector<RectangleHitbox*>> roomCollisions;
 
     friend class RangedEnemy;
 
