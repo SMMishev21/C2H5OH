@@ -45,6 +45,11 @@ private:
     Texture roomTexture;
     Texture squareHitboxTexture;
     Texture ellipseHitboxTexture;
+    Texture invCarbon;
+    Texture invNitro;
+    Texture invHydrogen;
+    Texture invOxygen;
+
 
     Font font;
 

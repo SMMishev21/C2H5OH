@@ -533,29 +533,35 @@ int Game::randomLevel() {
 }
 
 void Game::openLab() {
+
+	//Load Texture
+	this->invCarbon.loadFromFile("./assets/carbon.png");
+	this->invHydrogen.loadFromFile("./assets/hydrogen.png");
+	this->invOxygen.loadFromFile("./assets/oxygen.png");
+	this->invNitro.loadFromFile("./assets/nitrogen.png");
+
+	//Load Text Specification
 	this->font.loadFromFile("./assets/font.ttf");
 	this->compound.setFont(this->font);
-	this->compound.setCharacterSize(20);
-	//this->compound.setFillColor(sf::Color::Black);
+	this->compound.setCharacterSize(50);
 	this->compound.setString("C8H10N4O2");
 	this->compound.setPosition(100, 100);
 
 	// Create square shapes
-
 	this->square4 = RectangleShape(sf::Vector2f(100, 100));
-	this->square4.setFillColor(sf::Color::Yellow);
+	this->square4.setTexture(&invCarbon);
 	this->square4.setPosition(200, 400);
 
 	this->square1 = RectangleShape(sf::Vector2f(100, 100));
-	this->square1.setFillColor(sf::Color::Red);
+	this->square1.setTexture(&invOxygen);
 	this->square1.setPosition(350, 400);
 
 	this->square2 = RectangleShape(sf::Vector2f(100, 100));
-	this->square2.setFillColor(sf::Color::Green);
+	this->square2.setTexture(&invNitro);
 	this->square2.setPosition(475, 400);
 
 	this->square3 = RectangleShape(sf::Vector2f(100, 100));
-	this->square3.setFillColor(sf::Color::Blue);
+	this->square3.setTexture(&invHydrogen);
 	this->square3.setPosition(600, 400);
 
 	// Create text objects for each square
@@ -563,25 +569,25 @@ void Game::openLab() {
 	this->carbonText.setCharacterSize(20);
 	this->carbonText.setFillColor(sf::Color::Black);
 	this->carbonText.setString(std::to_string(this->plr->inventory["carbon"]));
-	this->carbonText.setPosition(385, 370);
+	this->carbonText.setPosition(250, 370);
 
 	this->oxygenText.setFont(font);
 	this->oxygenText.setCharacterSize(20);
 	this->oxygenText.setFillColor(sf::Color::Black);
 	this->oxygenText.setString(std::to_string(this->plr->inventory["oxygen"]));
-	this->oxygenText.setPosition(510, 370);
+	this->oxygenText.setPosition(640, 370);
 
 	this->nitrogenText.setFont(font);
 	this->nitrogenText.setCharacterSize(20);
 	this->nitrogenText.setFillColor(sf::Color::Black);
 	this->nitrogenText.setString(std::to_string(this->plr->inventory["nitrogen"]));
-	this->nitrogenText.setPosition(635, 370);
+	this->nitrogenText.setPosition(520, 370);
 
 	this->hydrogenText.setFont(font);
 	this->hydrogenText.setCharacterSize(20);
 	this->hydrogenText.setFillColor(sf::Color::Black);
 	this->hydrogenText.setString(std::to_string(this->plr->inventory["hydrogen"]));
-	this->hydrogenText.setPosition(300, 370);
+	this->hydrogenText.setPosition(400, 370);
 
 	while (this->window.isOpen()) {
 		while (this->window.pollEvent(this->ev)) {
