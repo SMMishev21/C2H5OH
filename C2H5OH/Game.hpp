@@ -13,7 +13,7 @@
 #include <semaphore>
 
 #define FLAGS_MULTITHREADING
-#define FLAGS_DEBUGGING
+//#define FLAGS_DEBUGGING
 
 using namespace sf;
 
@@ -53,7 +53,6 @@ private:
     Texture invNitro;
     Texture invHydrogen;
     Texture invOxygen;
-
 
     Font font;
 

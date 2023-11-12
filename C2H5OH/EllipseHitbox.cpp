@@ -1,3 +1,4 @@
+#include "precompile.hpp"
 #include "EllipseHitbox.hpp"
 
 Vector2f EllipseHitbox::getPosition() {

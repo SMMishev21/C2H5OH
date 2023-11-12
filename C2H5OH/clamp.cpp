@@ -1,3 +1,4 @@
+#include "precompile.hpp"
 #include "clamp.hpp"
 
 float clampMax(float n, float lower, float upper) {

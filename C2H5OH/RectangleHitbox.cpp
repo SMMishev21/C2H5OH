@@ -1,3 +1,4 @@
+#include "precompile.hpp"
 #include "RectangleHitbox.hpp"
 
 RectangleHitbox::RectangleHitbox() {

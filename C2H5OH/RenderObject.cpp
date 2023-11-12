@@ -1,3 +1,4 @@
+#include "precompile.hpp"
 #include "RenderObject.hpp"
 
 void RenderObject::init(Texture& texture, Vector2f position, char type) {
@@ -33,4 +34,8 @@ void RenderObject::setTexture(Texture& texture) {
 
 void RenderObject::setScale(Vector2f scale) {
 	this->sprite.setScale(scale);
+}
+
+Vector2f RenderObject::getSize() {
+	return Vector2f(this->sprite.getTexture()->getSize());
 }

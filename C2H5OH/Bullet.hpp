@@ -1,5 +1,4 @@
 #pragma once
-#include "precompile.hpp"
 #include "RenderObject.hpp"
 
 class Bullet : public RenderObject {
