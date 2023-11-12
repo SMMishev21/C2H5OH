@@ -6,7 +6,7 @@ RangedEnemy::RangedEnemy() {
     this->damage = 10.f;
 }
 
-void RangedEnemy::aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enemy*>& enemies, bool& dash, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets) {
+void RangedEnemy::aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enemy*>& enemies, bool& dash, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets, std::mutex& m) {
     Vector2f distanceFromPlayer = plr->getPosition() - this->getPosition();
     float hypotenuse = sqrt(distanceFromPlayer.x * distanceFromPlayer.x + distanceFromPlayer.y * distanceFromPlayer.y);
     bool shouldMove = true;
@@ -28,7 +28,7 @@ void RangedEnemy::aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enem
         }
     }
     else {
-        shoot(plr, renderObjects, bullets);
+        shoot(plr, renderObjects, bullets, m);
     }
 
     Vector2f distanceFromOthers;
@@ -41,7 +41,7 @@ void RangedEnemy::aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enem
     }
 }
 
-void RangedEnemy::shoot(Player* plr, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets) {
+void RangedEnemy::shoot(Player* plr, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets, std::mutex& m) {
     if (shootTimer.getElapsedTime().asSeconds() >= 1.f) {
         shootTimer.restart();
 
@@ -59,8 +59,11 @@ void RangedEnemy::shoot(Player* plr, std::vector<RenderObject*>& renderObjects, 
         bullet->setOrigin(Vector2f(4, 4));
         bullet->setPosition(gunPosition);
         bullet->direction = direction;
+        bullet->speed = -600.f;
 
-        bullets.push_back(bullet);
-        renderObjects.push_back(bullet);
+        m.lock();
+            bullets.push_back(bullet);
+            renderObjects.push_back(bullet);
+        m.unlock();
     }
 }

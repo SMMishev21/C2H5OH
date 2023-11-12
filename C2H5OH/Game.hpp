@@ -11,7 +11,6 @@
 #include "RectangleHitbox.hpp"
 #include "RangedBoss.hpp"
 #include <thread>
-#include <semaphore>
 
 #define FLAGS_MULTITHREADING
 //#define FLAGS_DEBUGGING
@@ -33,6 +32,8 @@ private:
 
     std::counting_semaphore<1> drawReady{ 1 };
     std::counting_semaphore<1> updateReady{ 1 };
+
+    std::mutex m;
 
     RenderWindow window;
     Event ev;

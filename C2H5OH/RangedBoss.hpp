@@ -16,6 +16,6 @@ public:
     RangedBoss();
     void init(Texture& texture, Vector2f position, char type) override;
     void takeDamage(float damage);
-    void aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enemy*>& enemies, bool& dash, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets) override;
-    void shoot(Player* plr, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets);
+    void aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enemy*>& enemies, bool& dash, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets, std::mutex& m) override;
+    void shoot(Player* plr, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets, std::mutex& m);
 };

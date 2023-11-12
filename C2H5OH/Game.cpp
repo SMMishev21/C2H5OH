@@ -98,7 +98,9 @@ Game::Game() {
 	};
 
 	this->enemyTextureMap = {
-
+		{"ranged boss", this->rangedBossTexture},
+		{"ranged enemy", this->rangedEnemyTexture},
+		{"walker", this->walkerTexture}
 	};
 
 	this->roomCollisions = {
@@ -156,32 +158,48 @@ Game::Game() {
 	this->ak->setRangedInfo(20, 8, 1, 2500, 0.2);
 	this->ak->setTexture(this->akTexture);
 
-	this->chest = new Chest;
-	this->chest->setTexture(this->chestTexture);
-	this->chest->setOrigin(Vector2f(48, 37.5));
-	this->chest->setPosition(Vector2f(-100, 100));
+	for (int i = 0; i < 5; ++i) {
+		chest = new Chest;
+		chest->setTexture(this->chestTexture);
+		chest->setOrigin(Vector2f(48, 37.5));
+		chest->setPosition(Vector2f(-100 * i, 100));
+
+		this->chests.push_back(chest);
+		this->renderObjects.push_back(chest);
+	}
 
 	this->key = new RenderObject;
 	this->key->setTexture(this->keyTexture);
 
-	for (int i = 0; i < 1; i++) {
-		RangedBoss* enemy = new RangedBoss;
+	for (int i = 0; i < 10; i++) {
+		int e = rand() % 2;
+
+		Enemy* enemy = new Enemy;
+		switch (e) {
+		case 0:
+			enemy = new RangedBoss;
+			break;
+		case 1:
+			enemy = new RangedEnemy;
+			break;
+		case 2:
+			enemy = new Walker;
+			break;
+		}
 		enemy->hitbox = new EllipseHitbox;
 		enemy->init(this->enemyTexture, Vector2f(rand() % 300 + i + 300, rand() % 300 + i), 'e');
 		this->enemies.push_back(enemy);
 		this->renderObjects.push_back(enemy);
 	}
 
-	this->renderObjects.push_back(this->chest);
 	this->renderObjects.push_back(this->key);
 
-	this->chests.push_back(this->chest);
 
 	this->view.setCenter(this->plr->getPosition());
 	this->view.setSize(Vector2f(1280, 720));
 
 	this->renderObjects.reserve(sizeof(RenderObject*) * 10000);
-	this->bullets.reserve(sizeof(RenderObject*) * 10000);
+	this->bullets.reserve(sizeof(Bullet*) * 10000);
 
 	this->mainLoop();
 }
@@ -243,9 +261,9 @@ void Game::draw() {
 	this->window.clear(Color(45, 75, 118, 255));
 
 	for (int i = 0; i < this->renderObjects.size(); ++i) {
-		if (this->renderObjects.at(i)->shouldDraw) {
-			this->renderObjects.at(i)->draw(this->window);
-		}
+			if (this->renderObjects.at(i)->shouldDraw) {
+				this->renderObjects.at(i)->draw(this->window);
+			}
 	}
 
 #ifdef FLAGS_DEBUGGING
@@ -432,7 +450,7 @@ void Game::update() {
 				for (int i = 0; i < 20; ++i) {
 					Concurrency::parallel_for_each(std::begin(this->enemies), std::end(this->enemies), [this, clockU](Enemy* enemy) {
 						if (enemy->shouldDraw) {
-							enemy->aiMove(this->plr, this->iFrames, clockU.getElapsedTime().asSeconds(), this->enemies, this->dash, this->renderObjects, this->bullets);
+							enemy->aiMove(this->plr, this->iFrames, clockU.getElapsedTime().asSeconds(), this->enemies, this->dash, this->renderObjects, this->bullets, this->m);
 							for (RectangleHitbox* hitbox : this->roomCollisions["Boss room"]) {
 								Vector2f check = enemy->hitbox->checkOverlapRectangle(Vector2f(hitbox->getPosition().x - hitbox->getSize().x / 2, hitbox->getPosition().y - hitbox->getSize().y / 2), hitbox->getSize());
 								enemy->move(-check);
@@ -458,7 +476,7 @@ void Game::update() {
 				}
 
 				for (int i = this->bullets.size() - 1; i >= 0; i--) {
-					if (bullets[i]->shouldDraw) {
+					if (bullets.at(i)->shouldDraw) {
 						this->bullets[i]->move(this->bullets[i]->direction * this->bullets[i]->speed * clockU.getElapsedTime().asSeconds());
 						this->bullets[i]->distance += hypotf((this->bullets[i]->direction * -600.f * clockU.getElapsedTime().asSeconds()).x, (this->bullets[i]->direction * -600.f * clockU.getElapsedTime().asSeconds()).y);
 

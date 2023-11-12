@@ -1,6 +1,9 @@
 #pragma once
 #include "precompile.hpp"
 
+float clampMax(float n, float lower, float upper);
+float clampMin(float n, float lower, float upper);
+
 class RenderObject {
 protected:
 	Sprite sprite;

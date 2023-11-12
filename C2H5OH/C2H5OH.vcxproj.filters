@@ -57,12 +57,6 @@
     <ClCompile Include="EllipseHitbox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="clamp.hpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="clamp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="precompile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

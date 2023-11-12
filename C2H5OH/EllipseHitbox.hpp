@@ -1,5 +1,4 @@
 #include "precompile.hpp"
-#include "clamp.hpp"
 #include "RenderObject.hpp"
 
 class EllipseHitbox : public RenderObject {

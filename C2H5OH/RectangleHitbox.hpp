@@ -1,7 +1,6 @@
 #pragma once
 #include "precompile.hpp"
 #include "RenderObject.hpp"
-#include "clamp.hpp"
 
 class RectangleHitbox : public RenderObject {
 private:

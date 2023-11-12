@@ -1,6 +1,15 @@
 #include "precompile.hpp"
 #include "RenderObject.hpp"
 
+
+float clampMax(float n, float lower, float upper) {
+	return std::max(lower, std::min(n, upper));
+}
+
+float clampMin(float n, float lower, float upper) {
+	return std::min(upper, std::max(lower, n));
+}
+
 void RenderObject::init(Texture& texture, Vector2f position, char type) {
 	this->sprite.setTexture(texture);
 	this->sprite.setOrigin(Vector2f((float)(texture.getSize().x) / 2, (float)(texture.getSize().y) / 2));

@@ -30,7 +30,7 @@ void RangedBoss::takeDamage(float damage) {
     this->healthBar.setFillColor(ColorFromHSV(100.f * (50000 * (this->hp / 50000)) / 50000, 1, 1));
 }
 
-void RangedBoss::aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enemy*>& enemies, bool& dash, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets) {
+void RangedBoss::aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enemy*>& enemies, bool& dash, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets, std::mutex& m) {
     Vector2f distanceFromPlayer = plr->getPosition() - this->getPosition();
     float hypotenuse = sqrt(distanceFromPlayer.x * distanceFromPlayer.x + distanceFromPlayer.y * distanceFromPlayer.y);
     bool shouldMove = true;
@@ -52,7 +52,7 @@ void RangedBoss::aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enemy
         }
     }
     else {
-        shoot(plr, renderObjects, bullets);
+        shoot(plr, renderObjects, bullets, m);
     }
 
     Vector2f distanceFromOthers;
@@ -65,7 +65,7 @@ void RangedBoss::aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enemy
     }
 }
 
-void RangedBoss::shoot(Player* plr, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets) {
+void RangedBoss::shoot(Player* plr, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets, std::mutex& m) {
     if (shootTimer.getElapsedTime().asSeconds() >= this->timeBetweenShots) {
         Vector2f gunPosition = this->getPosition();
         Vector2f playerPosition = plr->getPosition();
@@ -88,8 +88,10 @@ void RangedBoss::shoot(Player* plr, std::vector<RenderObject*>& renderObjects, s
                 bullet->direction = direction / hypotf(direction.x, direction.y);
                 bullet->speed = -400.f;
 
-                bullets.push_back(bullet);
-                renderObjects.push_back(bullet);
+                m.lock();
+                    bullets.push_back(bullet);
+                    renderObjects.push_back(bullet);
+                m.unlock();
             }
         }
         else if (attack == 1) {
@@ -105,8 +107,11 @@ void RangedBoss::shoot(Player* plr, std::vector<RenderObject*>& renderObjects, s
             bullet->direction = direction / hypotf(direction.x, direction.y);
             bullet->speed = -500.f;
 
-            bullets.push_back(bullet);
-            renderObjects.push_back(bullet);
+            m.lock();
+                bullets.push_back(bullet);
+                renderObjects.push_back(bullet);
+            m.unlock();
+
             angle += 10;
 
             if (this->attackStepSize[this->attack] - 1 == this->step) {
@@ -125,8 +130,10 @@ void RangedBoss::shoot(Player* plr, std::vector<RenderObject*>& renderObjects, s
             bullet->direction = direction / hypotf(direction.x, direction.y);
             bullet->speed = -700.f;
 
-            bullets.push_back(bullet);
-            renderObjects.push_back(bullet);
+            m.lock();
+                bullets.push_back(bullet);
+                renderObjects.push_back(bullet);
+            m.unlock();
 
             if (this->attackStepSize[this->attack] - 1 == this->step) {
                 this->timeBetweenShots = 2.f;

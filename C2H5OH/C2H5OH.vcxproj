@@ -146,8 +146,6 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="C2H5OH.cpp" />
     <ClCompile Include="Chest.cpp" />
-    <ClCompile Include="clamp.cpp" />
-    <ClCompile Include="clamp.hpp" />
     <ClCompile Include="EllipseHitbox.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Game.cpp" />
