@@ -1,6 +1,37 @@
 #include "precompile.hpp"
 #include "Enemy.hpp"
 
+Color ColorFromHSV(float hue, float saturation, float value)
+{
+    Color color = { 0, 0, 0, 255 };
+
+    // Red channel
+    float k = fmodf((5.0f + hue / 60.0f), 6);
+    float t = 4.0f - k;
+    k = (t < k) ? t : k;
+    k = (k < 1) ? k : 1;
+    k = (k > 0) ? k : 0;
+    color.r = (unsigned char)((value - value * saturation * k) * 255.0f);
+
+    // Green channel
+    k = fmodf((3.0f + hue / 60.0f), 6);
+    t = 4.0f - k;
+    k = (t < k) ? t : k;
+    k = (k < 1) ? k : 1;
+    k = (k > 0) ? k : 0;
+    color.g = (unsigned char)((value - value * saturation * k) * 255.0f);
+
+    // Blue channel
+    k = fmodf((1.0f + hue / 60.0f), 6);
+    t = 4.0f - k;
+    k = (t < k) ? t : k;
+    k = (k < 1) ? k : 1;
+    k = (k > 0) ? k : 0;
+    color.b = (unsigned char)((value - value * saturation * k) * 255.0f);
+
+    return color;
+}
+
 void Enemy::init(Texture& texture, Vector2f position, char type) {
     this->sprite.setTexture(texture);
     this->sprite.setOrigin(Vector2f((float)(texture.getSize().x) / 2, (float)(texture.getSize().y) / 2));
@@ -10,8 +41,7 @@ void Enemy::init(Texture& texture, Vector2f position, char type) {
     this->hitbox->setPosition(this->getPosition());
     this->healthBar.setSize(Vector2f(100, 15));
     this->healthBar.setPosition(this->sprite.getPosition() - Vector2f(50, 40));
-    this->healthBar.setFillColor(Color::Green);
-    std::cout << this->hitbox->getRadius().x << " " << this->hitbox->getRadius().y << '\n';
+    this->healthBar.setFillColor(ColorFromHSV((100 * (this->hp * (this->hp / this->hp))) / 100, 1, 1));
 }
 
 void Enemy::move(Vector2f offset) {
@@ -33,12 +63,7 @@ void Enemy::aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enemy*>& e
 void Enemy::takeDamage(float damage) {
     this->hp -= damage;
     this->healthBar.setSize(Vector2f(this->hp, 15));
-    if (this->hp < 35) {
-        this->healthBar.setFillColor(Color::Red);
-    }
-    else if (this->hp < 75) {
-        this->healthBar.setFillColor(Color::Yellow);
-    }
+    this->healthBar.setFillColor(ColorFromHSV(100.f * (100.f * (this->hp / 100.f)) / 100.f, 1, 1));
 }
 
 float Enemy::getHp() {

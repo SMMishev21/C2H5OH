@@ -10,6 +10,6 @@ private:
     Texture bulletTexture;
 public:
     RangedEnemy();
-    void aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enemy*>& enemies, bool& dash, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets) override;
-    void shoot(Player* plr, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets);
+    virtual void aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enemy*>& enemies, bool& dash, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets) override;
+    virtual void shoot(Player* plr, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets);
 };

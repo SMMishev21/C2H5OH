@@ -3,8 +3,8 @@
 
 void Player::init(Texture& texture, Vector2f position, char type) {
 	this->hitbox = new EllipseHitbox;
-	this->hitbox->setPosition(position + Vector2f(20, 5));
 	this->hitbox->setRadius(Vector2f(124 / 2, 354 / 2));
+	this->hitbox->setPosition(position);
 	this->collisionHitbox = new EllipseHitbox;
 	this->collisionHitbox->setRadius(Vector2f(48, 22));
 	this->collisionHitbox->setOrigin(Vector2f(48/2, 0));

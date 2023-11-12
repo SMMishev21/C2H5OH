@@ -4,6 +4,8 @@
 #include "Player.hpp"
 #include "Bullet.hpp"
 
+Color ColorFromHSV(float hue, float saturation, float value);
+
 class Enemy : public RenderObject {
 protected:
     float hp{ 100 };
@@ -12,11 +14,12 @@ protected:
 
 public:
     EllipseHitbox* hitbox;
+    float damage;
 
-    void init(Texture& texture, Vector2f position, char type) override;
+    virtual void init(Texture& texture, Vector2f position, char type) override;
     void move(Vector2f offset) override;
     void draw(RenderWindow& window) override;
     virtual void aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enemy*>& enemies, bool& dash, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets);
-    void takeDamage(float damage);
+    virtual void takeDamage(float damage);
     float getHp();
 };

@@ -3,6 +3,7 @@
 
 RangedEnemy::RangedEnemy() {
     this->bulletTexture.loadFromFile("./assets/bullet.png");
+    this->damage = 10.f;
 }
 
 void RangedEnemy::aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enemy*>& enemies, bool& dash, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets) {
@@ -41,7 +42,7 @@ void RangedEnemy::aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enem
 }
 
 void RangedEnemy::shoot(Player* plr, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets) {
-    if (shootTimer.getElapsedTime().asSeconds() >= 3.0f) {
+    if (shootTimer.getElapsedTime().asSeconds() >= 1.f) {
         shootTimer.restart();
 
         Vector2f gunPosition = this->getPosition();
@@ -53,7 +54,7 @@ void RangedEnemy::shoot(Player* plr, std::vector<RenderObject*>& renderObjects, 
         direction /= length;
         std::cout << direction.x << " " << direction.y << std::endl;
 
-        Bullet* bullet = new Bullet(10, 2500, 'e');
+        Bullet* bullet = new Bullet(this->damage, 2500, 'e');
         bullet->setTexture(bulletTexture);
         bullet->setOrigin(Vector2f(4, 4));
         bullet->setPosition(gunPosition);

@@ -39,3 +39,7 @@ void RenderObject::setScale(Vector2f scale) {
 Vector2f RenderObject::getSize() {
 	return Vector2f(this->sprite.getTexture()->getSize());
 }
+
+Sprite RenderObject::getSprite() {
+	return this->sprite;
+}

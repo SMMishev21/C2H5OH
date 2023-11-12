@@ -9,6 +9,7 @@
 #include "Chest.hpp"
 #include "Item.hpp"
 #include "RectangleHitbox.hpp"
+#include "RangedBoss.hpp"
 #include <thread>
 #include <semaphore>
 
@@ -28,6 +29,7 @@ private:
     bool shouldClose;
     bool dash;
     bool lab;
+    bool dashInvincibility;
 
     std::counting_semaphore<1> drawReady{ 1 };
     std::counting_semaphore<1> updateReady{ 1 };
@@ -47,6 +49,9 @@ private:
     Texture hydrogenTexture;
     Texture nitrogenTexture;
     Texture roomTexture;
+    Texture walkerTexture;
+    Texture rangedEnemyTexture;
+    Texture rangedBossTexture;
     Texture squareHitboxTexture;
     Texture ellipseHitboxTexture;
     Texture invCarbon;
@@ -65,6 +70,7 @@ private:
     Text tren;
 
     RectangleShape square4, square1, square2, square3;
+    RectangleShape healthBar;
 
     RenderObject* room;
 
@@ -77,6 +83,7 @@ private:
     Clock iFrames;
     Clock attackCD;
     Clock labCD;
+    Clock dashIFrames;
 
     Ranged* ak;
     Player* plr;
@@ -94,6 +101,7 @@ private:
     std::vector<RectangleHitbox*> hitboxes;
 
     std::unordered_map<std::string, Texture> elementTextureMap;
+    std::unordered_map<std::string, Texture> enemyTextureMap;
     std::unordered_map<std::string, std::vector<RectangleHitbox*>> roomCollisions;
 
     friend class RangedEnemy;
@@ -108,7 +116,7 @@ private:
     void spawnElements();
     void openLab();
     void drawLab();
-    bool resolveCollisionsPlr(Bullet& bullet, float size);
+    bool resolveCollisionsPlr(Bullet& bullet, Vector2f size);
     bool resolveCollisions(RenderObject& obj, float radius);
     std::vector<int> resolveCollisionsEnemy(Bullet& bullet, float size);
     int randomLevel();

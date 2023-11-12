@@ -6,6 +6,7 @@ public:
 	Bullet(float damage, float maxDistance, char owner);
 
 	Vector2f direction;
+	float speed;
 	char owner;
 	float damage{ 0 };
 	float distance{ 0 };

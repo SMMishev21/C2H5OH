@@ -14,6 +14,7 @@ public:
 	virtual void move(Vector2f offset);
 	virtual Vector2f getPosition();
 	Vector2f getSize();
+	Sprite getSprite();
 
 	void setTexture(Texture& texture);
 

@@ -163,6 +163,7 @@
     <ClCompile Include="RenderObject.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="Walker.cpp" />
+    <ClCompile Include="RangedBoss.cpp" />
     <ClCompile Include="Weapons.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +180,7 @@
     <ClInclude Include="RenderObject.hpp" />
     <ClInclude Include="Square.hpp" />
     <ClInclude Include="Walker.hpp" />
+    <ClInclude Include="RangedBoss.hpp" />
     <ClInclude Include="Weapons.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

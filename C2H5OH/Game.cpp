@@ -62,6 +62,9 @@ Game::Game() {
 	this->roomTexture.loadFromFile("./assets/Boss room.png");
 	this->squareHitboxTexture.loadFromFile("./assets/square hitbox.png");
 	this->ellipseHitboxTexture.loadFromFile("./assets/ellipse hitbox.png");
+	this->walkerTexture.loadFromFile("./assets/walker.png");
+	this->rangedEnemyTexture.loadFromFile("./assets/rangedEnemy.png");
+	this->rangedBossTexture.loadFromFile("./assets/rangedBoss.png");
 
 	this->enemyTexture.setSmooth(true);
 	this->plrTexture.setSmooth(true);
@@ -76,6 +79,9 @@ Game::Game() {
 	this->roomTexture.setSmooth(true);
 	this->squareHitboxTexture.setSmooth(true);
 	this->ellipseHitboxTexture.setSmooth(true);
+	this->walkerTexture.setSmooth(true);
+	this->rangedEnemyTexture.setSmooth(true);
+	this->rangedBossTexture.setSmooth(true);
 
 	this->room = new RenderObject;
 	this->room->setTexture(this->roomTexture);
@@ -84,12 +90,15 @@ Game::Game() {
 
 	this->renderObjects.push_back(this->room);
 
-
 	this->elementTextureMap = {
 		{"carbon", this->carbonTexture},
 		{"hydrogen", this->oxygenTexture},
 		{"nitrogen", this->nitrogenTexture},
 		{"oxygen", this->oxygenTexture}
+	};
+
+	this->enemyTextureMap = {
+
 	};
 
 	this->roomCollisions = {
@@ -134,9 +143,14 @@ Game::Game() {
 	this->plr->init(this->plrTexture, Vector2f(100, 100), 'p');
 	this->plr->collisionHitbox->setRadius(Vector2f(25,25));
 	this->plr->collisionHitbox->setTexture(this->ellipseHitboxTexture);
-	this->plr->hitbox->setRadius(Vector2f(124/2, 354/2));
+	this->plr->hitbox->setRadius(Vector2f(124/2, 354));
 	//this->renderObjects.push_back(this->plr->collisionHitbox);
-	this->dashDistance = 1300;
+	this->dashDistance = 1360;
+	this->dashInvincibility = false;
+
+	this->healthBar.setFillColor(ColorFromHSV((100.f * (100.f * (this->plr->health / 100.f))) / 100.f, 1, 1));
+	this->healthBar.setPosition(Vector2f(1280, 720) - Vector2f(250, 50));
+	this->healthBar.setSize(Vector2f(200, 40));
 
 	this->ak = new Ranged;
 	this->ak->setRangedInfo(20, 8, 1, 2500, 0.2);
@@ -150,8 +164,8 @@ Game::Game() {
 	this->key = new RenderObject;
 	this->key->setTexture(this->keyTexture);
 
-	for (int i = 0; i < 2; i++) {
-		RangedEnemy* enemy = new RangedEnemy;
+	for (int i = 0; i < 1; i++) {
+		RangedBoss* enemy = new RangedBoss;
 		enemy->hitbox = new EllipseHitbox;
 		enemy->init(this->enemyTexture, Vector2f(rand() % 300 + i + 300, rand() % 300 + i), 'e');
 		this->enemies.push_back(enemy);
@@ -165,6 +179,9 @@ Game::Game() {
 
 	this->view.setCenter(this->plr->getPosition());
 	this->view.setSize(Vector2f(1280, 720));
+
+	this->renderObjects.reserve(sizeof(RenderObject*) * 10000);
+	this->bullets.reserve(sizeof(RenderObject*) * 10000);
 
 	this->mainLoop();
 }
@@ -238,8 +255,15 @@ void Game::draw() {
 	this->plr->collisionHitbox->draw(this->window);
 #endif
 
+	this->plr->hitbox->draw(this->window);
+
 	this->plr->draw(this->window);
 
+	this->window.setView(this->window.getDefaultView());
+
+	this->window.draw(this->healthBar);
+
+	this->window.setView(this->view);
 
 	this->window.display();
 }
@@ -252,9 +276,20 @@ void Game::handleMovement() {
 
 		if (abs(this->plrVelocity.x) < this->dashDistance && abs(this->plrVelocity.y) < this->dashDistance) {
 			this->plrVelocity *= 0.f;
-			this->dash = false;
-			this->dashDistance = 1300;
+			this->dashDistance = 1360;
 			this->dashed -= this->plr->getPosition();
+			if (!this->dashInvincibility) {
+				std::cout << "restarting\n";
+				this->dashIFrames.restart();
+				this->dashInvincibility = true;
+			}
+		}
+
+		if (this->plrVelocity == Vector2f(0, 0)) {
+			if (this->dashIFrames.getElapsedTime().asSeconds() > 0.25) {
+				this->dash = false;
+				this->dashInvincibility = false;
+			}
 		}
 	}
 
@@ -378,15 +413,8 @@ std::vector<int> Game::resolveCollisionsEnemy(Bullet& bullet, float size) {
 }
 
 // return true if bullet hit player
-bool Game::resolveCollisionsPlr(Bullet& bullet, float size) {
-	Vector2f pointOnRect;
-
-	pointOnRect.x = clampMax(bullet.getPosition().x, this->plr->getPosition().x - 32, this->plr->getPosition().x + 32);
-	pointOnRect.y = clampMax(bullet.getPosition().y, this->plr->getPosition().y - 32, this->plr->getPosition().y + 32);
-
-	float length = sqrt((pointOnRect - bullet.getPosition()).x * (pointOnRect - bullet.getPosition()).x + (pointOnRect - bullet.getPosition()).y * (pointOnRect - bullet.getPosition()).y);
-
-	if (length < size) {
+bool Game::resolveCollisionsPlr(Bullet& bullet, Vector2f size) {
+	if (this->plr->getSprite().getGlobalBounds().intersects(bullet.getSprite().getGlobalBounds())) {
 		return true;
 	}
 	return false;
@@ -409,13 +437,29 @@ void Game::update() {
 								Vector2f check = enemy->hitbox->checkOverlapRectangle(Vector2f(hitbox->getPosition().x - hitbox->getSize().x / 2, hitbox->getPosition().y - hitbox->getSize().y / 2), hitbox->getSize());
 								enemy->move(-check);
 							}
+
+							if (enemy->hitbox->checkOverlapRectangle(this->plr->getPosition() - this->plr->getSize() / 2.f - Vector2f(10,10), this->plr->getSize() + Vector2f(23, 20)) != Vector2f(0, 0)) {
+								if (this->iFrames.getElapsedTime().asSeconds() > 0.5) {
+									this->iFrames.restart();
+
+									this->plr->takeDamage(20);
+									this->healthBar.setSize(Vector2f(this->plr->health * 2, 40));
+
+									this->healthBar.setFillColor(ColorFromHSV((100.f * (100.f * (this->plr->health / 100.f))) / 100.f, 1, 1));
+
+									if (this->plr->health <= 0) {
+										this->window.close();
+										this->shouldClose = true;
+									}
+								}
+							}
 						}
 					});
-				} 
+				}
 
 				for (int i = this->bullets.size() - 1; i >= 0; i--) {
 					if (bullets[i]->shouldDraw) {
-						this->bullets[i]->move(this->bullets[i]->direction * -600.f * clockU.getElapsedTime().asSeconds());
+						this->bullets[i]->move(this->bullets[i]->direction * this->bullets[i]->speed * clockU.getElapsedTime().asSeconds());
 						this->bullets[i]->distance += hypotf((this->bullets[i]->direction * -600.f * clockU.getElapsedTime().asSeconds()).x, (this->bullets[i]->direction * -600.f * clockU.getElapsedTime().asSeconds()).y);
 
 						if (this->bullets[i]->owner == 'p') {
@@ -445,7 +489,7 @@ void Game::update() {
 							}
 						}
 						else {
-							bool hit = this->resolveCollisionsPlr(*this->bullets[i], 2);
+							bool hit = this->resolveCollisionsPlr(*this->bullets[i], Vector2f(2, 2)) && !this->dash;
 							if (hit) {
 								if (i < this->bullets.size()) {
 									this->garbage.push_back(this->bullets[i]);
@@ -459,8 +503,14 @@ void Game::update() {
 								}
 							}
 
-							if (hit) {
+							if (hit && this->iFrames.getElapsedTime().asSeconds() >= 0.5 && !this->dash) {
+								this->iFrames.restart();
+
 								this->plr->takeDamage(this->bullets[i]->damage);
+								this->healthBar.setSize(Vector2f(this->plr->health * 2, 40));
+
+								this->healthBar.setFillColor(ColorFromHSV((100.f * (100.f * (this->plr->health / 100.f))) / 100.f, 1, 1));
+
 								if (this->plr->health <= 0) {
 									this->window.close();
 									this->shouldClose = true;

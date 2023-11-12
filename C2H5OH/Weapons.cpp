@@ -33,6 +33,7 @@ void Ranged::shoot(std::vector<Bullet*>& bullets, std::vector<RenderObject*>& re
 
 		Vector2f normalized = distanceSpread / hypotf(distanceSpread.x, distanceSpread.y);
 		bullet->direction = normalized;
+		bullet->speed = -600.f;
 
 		bullets.push_back(bullet);
 		renderObjects.push_back(bullet);
