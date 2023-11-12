@@ -13,6 +13,7 @@ public:
 	virtual void setScale(Vector2f scale);
 	virtual void move(Vector2f offset);
 	virtual Vector2f getPosition();
+	Vector2f getSize();
 
 	void setTexture(Texture& texture);
 

@@ -1,3 +1,4 @@
+#include "precompile.hpp"
 #include "Weapons.hpp"
 
 void Ranged::setRangedInfo(int damage, int clipSize, float bulletSpread, float maxDistance, float cooldown){

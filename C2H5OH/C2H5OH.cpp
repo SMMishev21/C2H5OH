@@ -1,3 +1,4 @@
+#include "precompile.hpp"
 #include "Game.hpp"
 
 int main()

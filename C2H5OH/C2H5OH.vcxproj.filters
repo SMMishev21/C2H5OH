@@ -63,6 +63,9 @@
     <ClCompile Include="clamp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="precompile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.hpp">

@@ -1,3 +1,4 @@
+#include "precompile.hpp"
 #include "Game.hpp"
 #include <thread>
 #include <iostream>
@@ -149,25 +150,10 @@ Game::Game() {
 	this->key = new RenderObject;
 	this->key->setTexture(this->keyTexture);
 
-	for (int i = 0; i < 100; i++) {
-		Square* square = new Square;
-		square->init(this->squareTexture, Vector2f(64 * i, 0), 'b');
-
-
-		this->renderObjects.push_back(square);
-	}
-
-	RectangleHitbox* hitbox = new RectangleHitbox;
-	hitbox->setSize(Vector2f(6400,64));
-	hitbox->setPosition(Vector2f(0 - 32, 0));
-	hitbox->setOrigin(hitbox->getSize() / 2.f);
-	hitbox->setTexture(this->squareHitboxTexture);
-	this->hitboxes.push_back(hitbox);
-	this->renderObjects.push_back(hitbox);
-
 	for (int i = 0; i < 2; i++) {
 		RangedEnemy* enemy = new RangedEnemy;
-		enemy->init(this->enemyTexture, Vector2f(rand() % 300 + i, rand() % 300 + i), 'e');
+		enemy->hitbox = new EllipseHitbox;
+		enemy->init(this->enemyTexture, Vector2f(rand() % 300 + i + 300, rand() % 300 + i), 'e');
 		this->enemies.push_back(enemy);
 		this->renderObjects.push_back(enemy);
 	}
@@ -343,19 +329,21 @@ void Game::handleInput(float dt) {
 
 	if (Keyboard::isKeyPressed(Keyboard::E)) {
 		if (this->selected != nullptr && !this->selected->opened) {
-			std::pair<std::string, int> elementPair = this->selected->getRandomElement();
-			for (int i = 0; i < elementPair.second; ++i) {
-				float angle = rand() % 180;
-				Element* element = new Element;
-				element->shouldDraw = false;
-				element->spawnTime = float(i) / 10;
-				Vector2f direction(cos(angle * 3.14159265359 / 180), sin(angle * 3.14159265359 / 180));
-				element->direction = direction / hypotf(direction.x, direction.y);
-				element->element = elementPair.first;
-				element->setPosition(this->selected->getPosition());
-				element->setTexture(this->elementTextureMap[elementPair.first]);
-				this->elementsToSpawn.push_back(element);
-				this->renderObjects.push_back(element);
+			for (int i = 0; i < 100; ++i) {
+				std::pair<std::string, int> elementPair = this->selected->getRandomElement();
+				for (int i = 0; i < elementPair.second; ++i) {
+					float angle = rand() % 180;
+					Element* element = new Element;
+					element->shouldDraw = false;
+					element->spawnTime = float(i) / 10;
+					Vector2f direction(cos(angle * 3.14159265359 / 180), sin(angle * 3.14159265359 / 180));
+					element->direction = direction / hypotf(direction.x, direction.y);
+					element->element = elementPair.first;
+					element->setPosition(this->selected->getPosition());
+					element->setTexture(this->elementTextureMap[elementPair.first]);
+					this->elementsToSpawn.push_back(element);
+					this->renderObjects.push_back(element);
+				}
 			}
 		}
 	}
@@ -417,9 +405,13 @@ void Game::update() {
 					Concurrency::parallel_for_each(std::begin(this->enemies), std::end(this->enemies), [this, clockU](Enemy* enemy) {
 						if (enemy->shouldDraw) {
 							enemy->aiMove(this->plr, this->iFrames, clockU.getElapsedTime().asSeconds(), this->enemies, this->dash, this->renderObjects, this->bullets);
+							for (RectangleHitbox* hitbox : this->roomCollisions["Boss room"]) {
+								Vector2f check = enemy->hitbox->checkOverlapRectangle(Vector2f(hitbox->getPosition().x - hitbox->getSize().x / 2, hitbox->getPosition().y - hitbox->getSize().y / 2), hitbox->getSize());
+								enemy->move(-check);
+							}
 						}
 					});
-				}
+				} 
 
 				for (int i = this->bullets.size() - 1; i >= 0; i--) {
 					if (bullets[i]->shouldDraw) {
@@ -630,20 +622,55 @@ void Game::openLab() {
 					return;
 				}
 			}
+			else if (ev.type == Event::MouseButtonPressed) {
+				if (Mouse::getPosition(this->window).y >= this->coffee.getPosition().y + 20 && Mouse::getPosition(this->window).y <= this->coffee.getPosition().y + 50) {
+					if (this->coffee.getFillColor() == Color::Green) {
+						this->attackSpeedBuff += 0.1f;
+						this->speedBuff += 0.2f;
+						std::cout << "coffee\n";
+						this->plr->inventory["carbon"] -= 8;
+						this->plr->inventory["hydrogen"] -= 10;
+						this->plr->inventory["nitrogen"] -= 4;
+						this->plr->inventory["oxygen"] -= 2;
+						this->carbonText.setString(std::to_string(this->plr->inventory["carbon"]));
+						this->oxygenText.setString(std::to_string(this->plr->inventory["oxygen"]));
+						this->nitrogenText.setString(std::to_string(this->plr->inventory["nitrogen"]));
+						this->hydrogenText.setString(std::to_string(this->plr->inventory["hydrogen"]));
+
+					}
+				}
+				else if (Mouse::getPosition(this->window).y >= this->tren.getPosition().y + 20 && Mouse::getPosition(this->window).y <= this->coffee.getPosition().y + 50) {
+					if (this->tren.getFillColor() == Color::Green) {
+						this->speedBuff -= 0.1f;
+						this->damageBuff += 0.2f;
+						std::cout << "tren\n";
+						this->plr->inventory["carbon"] -= 20;
+						this->plr->inventory["hydrogen"] -= 24;
+						this->plr->inventory["oxygen"] -= 3;
+						this->carbonText.setString(std::to_string(this->plr->inventory["carbon"]));
+						this->oxygenText.setString(std::to_string(this->plr->inventory["oxygen"]));
+						this->nitrogenText.setString(std::to_string(this->plr->inventory["nitrogen"]));
+						this->hydrogenText.setString(std::to_string(this->plr->inventory["hydrogen"]));
+
+					}
+				}
+			}
 		}
 		// lab code here
-		if (this->plr->inventory["carbon"] >= 8 && this->plr->inventory["hydrogen"] >= 10 && this->plr->inventory["nitro"] >= 4 && this->plr->inventory["oxygen"] >= 2) {
+		
+		if (this->plr->inventory["carbon"] >= 8 && this->plr->inventory["hydrogen"] >= 10 && this->plr->inventory["nitrogen"] >= 4 && this->plr->inventory["oxygen"] >= 2) {
 			this->coffee.setFillColor(sf::Color::Green);
 		}
 		else {
 			this->coffee.setFillColor(sf::Color::Red);
 		}
-		if (this->plr->inventory["carbon"] >= 20 && this->plr->inventory["hydrogen"] >= 24 && this->plr->inventory["nitro"] >= 0 && this->plr->inventory["oxygen"] >= 3) {
+		if (this->plr->inventory["carbon"] >= 20 && this->plr->inventory["hydrogen"] >= 24 && this->plr->inventory["nitrogen"] >= 0 && this->plr->inventory["oxygen"] >= 3) {
 			this->tren.setFillColor(sf::Color::Green);
 		}
 		else {
 			this->tren.setFillColor(sf::Color::Red);
 		}
+
 		this->drawLab();
 	}
 }

@@ -1,3 +1,4 @@
+#include "precompile.hpp"
 #include "Chest.hpp"
 
 std::pair<std::string, int> Chest::getRandomElement() {

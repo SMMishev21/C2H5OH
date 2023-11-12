@@ -8,6 +8,7 @@ private:
 	Vector2f radius;
 
 public:
+
 	Vector2f getPosition();
 	void setPosition(Vector2f newPosition);
 	Vector2f getRadius();

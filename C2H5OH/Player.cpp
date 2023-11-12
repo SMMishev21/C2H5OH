@@ -1,3 +1,4 @@
+#include "precompile.hpp"
 #include "Player.hpp"
 
 void Player::init(Texture& texture, Vector2f position, char type) {

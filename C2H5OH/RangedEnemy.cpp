@@ -1,5 +1,5 @@
+#include "precompile.hpp"
 #include "RangedEnemy.hpp"
-#include <iostream>
 
 RangedEnemy::RangedEnemy() {
     this->bulletTexture.loadFromFile("./assets/bullet.png");
