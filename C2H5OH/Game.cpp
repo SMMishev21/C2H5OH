@@ -125,21 +125,21 @@ Game::Game() {
 		}
 	};
 
-	this->damageBuff = 0.f;
-	this->attackSpeedBuff = 0.f;
-	this->speedBuff = 0.f;
-	this->healthBuff = 0.f;
+	this->damageBuff = 1.f;
+	this->attackSpeedBuff = 1.f;
+	this->speedBuff = 1.f;
+	this->healthBuff = 1.f;
 
 	this->plr = new Player;
 	this->plr->init(this->plrTexture, Vector2f(100, 100), 'p');
 	this->plr->collisionHitbox->setRadius(Vector2f(25,25));
 	this->plr->collisionHitbox->setTexture(this->ellipseHitboxTexture);
 	this->plr->hitbox->setRadius(Vector2f(124/2, 354/2));
-	this->renderObjects.push_back(this->plr->collisionHitbox);
+	//this->renderObjects.push_back(this->plr->collisionHitbox);
 	this->dashDistance = 1300;
 
 	this->ak = new Ranged;
-	this->ak->setRangedInfo(20, 8, 1, 2500, 0.0001);
+	this->ak->setRangedInfo(20, 8, 1, 2500, 0.2);
 	this->ak->setTexture(this->akTexture);
 
 	this->chest = new Chest;
@@ -235,11 +235,11 @@ void Game::draw() {
 	for (int i = 0; i < this->roomCollisions["Boss room"].size(); ++i) {
 		this->roomCollisions["Boss room"].at(i)->draw(this->window);
 	}
+	this->plr->collisionHitbox->draw(this->window);
 #endif
 
 	this->plr->draw(this->window);
 
-	this->plr->collisionHitbox->draw(this->window);
 
 	this->window.display();
 }
@@ -279,11 +279,11 @@ void Game::handleMovement() {
 void Game::handleInput(float dt) {
 	for (int i = 0; i < 10; ++i) {
 		if (Keyboard::isKeyPressed(Keyboard::A)) {
-			this->plr->move(Vector2f(-200, 0) * dt / 10.f);
+			this->plr->move(Vector2f(-200, 0) * dt * this->speedBuff / 10.f);
 			this->dir.x = -1;
 		}
 		else if (Keyboard::isKeyPressed(Keyboard::D)) {
-			this->plr->move(Vector2f(200, 0) * dt / 10.f);
+			this->plr->move(Vector2f(200, 0) * dt * this->speedBuff / 10.f);
 			this->dir.x = 1;
 		}
 		else {
@@ -291,11 +291,11 @@ void Game::handleInput(float dt) {
 		}
 
 		if (Keyboard::isKeyPressed(Keyboard::W)) {
-			this->plr->move(Vector2f(0, -200) * dt / 10.f);
+			this->plr->move(Vector2f(0, -200) * dt * this->speedBuff / 10.f);
 			this->dir.y = -1;
 		}
 		else if (Keyboard::isKeyPressed(Keyboard::S)) {
-			this->plr->move(Vector2f(0, 200) * dt / 10.f);
+			this->plr->move(Vector2f(0, 200) * dt * this->speedBuff / 10.f);
 			this->dir.y = 1;
 		}
 		else {
@@ -324,7 +324,7 @@ void Game::handleInput(float dt) {
 	}
 
 	if (Mouse::isButtonPressed(Mouse::Button::Left)) {
-		this->ak->shoot(this->bullets, this->renderObjects, this->window, this->plr, this->bulletTexture, this->attackCD);
+		this->ak->shoot(this->bullets, this->renderObjects, this->window, this->plr, this->bulletTexture, this->attackCD, this->attackSpeedBuff);
 	}
 
 	if (Keyboard::isKeyPressed(Keyboard::E)) {
@@ -425,24 +425,21 @@ void Game::update() {
 								if (i < this->bullets.size()) {
 									this->garbage.push_back(this->bullets[i]);
 									this->bullets[i]->shouldDraw = false;
-									std::cout << this->garbage.size() << '\n';
 								}
 							}
 							else if (this->bullets[i]->distance > this->bullets[i]->maxDistance) {
 								if (i < this->bullets.size()) {
 									this->garbage.push_back(this->bullets[i]);
 									this->bullets[i]->shouldDraw = false;
-									std::cout << this->garbage.size() << '\n';
 								}
 							}
 
 							if (!indexes.empty()) {
 								for (int j = 0; j < indexes.size(); j++) {
-									this->enemies[indexes[j]]->takeDamage(this->bullets[i]->damage);
+									this->enemies[indexes[j]]->takeDamage(this->bullets[i]->damage * this->damageBuff);
 									if (this->enemies[indexes[j]]->getHp() <= 0) {
 										this->garbage.push_back(this->enemies[indexes[j]]);
 										this->enemies[indexes[j]]->shouldDraw = false;
-										std::cout << this->garbage.size() << '\n';
 									}
 								}
 							}
@@ -453,14 +450,12 @@ void Game::update() {
 								if (i < this->bullets.size()) {
 									this->garbage.push_back(this->bullets[i]);
 									this->bullets[i]->shouldDraw = false;
-									std::cout << this->garbage.size() << '\n';
 								}
 							}
 							else if (this->bullets[i]->distance > this->bullets[i]->maxDistance) {
 								if (i < this->bullets.size()) {
 									this->garbage.push_back(this->bullets[i]);
 									this->bullets[i]->shouldDraw = false;
-									std::cout << this->garbage.size() << '\n';
 								}
 							}
 
@@ -623,11 +618,12 @@ void Game::openLab() {
 				}
 			}
 			else if (ev.type == Event::MouseButtonPressed) {
+
+				//std::cout << Mouse::getPosition(this->window).y << " " <<  << '\n';
 				if (Mouse::getPosition(this->window).y >= this->coffee.getPosition().y + 20 && Mouse::getPosition(this->window).y <= this->coffee.getPosition().y + 50) {
 					if (this->coffee.getFillColor() == Color::Green) {
-						this->attackSpeedBuff += 0.1f;
+						this->attackSpeedBuff -= 0.1f;
 						this->speedBuff += 0.2f;
-						std::cout << "coffee\n";
 						this->plr->inventory["carbon"] -= 8;
 						this->plr->inventory["hydrogen"] -= 10;
 						this->plr->inventory["nitrogen"] -= 4;
@@ -639,11 +635,11 @@ void Game::openLab() {
 
 					}
 				}
-				else if (Mouse::getPosition(this->window).y >= this->tren.getPosition().y + 20 && Mouse::getPosition(this->window).y <= this->coffee.getPosition().y + 50) {
+				else if (Mouse::getPosition(this->window).y >= this->tren.getPosition().y + 20 && Mouse::getPosition(this->window).y <= this->tren.getPosition().y + 50) {
 					if (this->tren.getFillColor() == Color::Green) {
+						std::cout << "tren\n";
 						this->speedBuff -= 0.1f;
 						this->damageBuff += 0.2f;
-						std::cout << "tren\n";
 						this->plr->inventory["carbon"] -= 20;
 						this->plr->inventory["hydrogen"] -= 24;
 						this->plr->inventory["oxygen"] -= 3;
