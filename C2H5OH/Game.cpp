@@ -600,60 +600,97 @@ void Game::openLab() {
 	this->invHydrogen.loadFromFile("./assets/hydrogen.png");
 	this->invOxygen.loadFromFile("./assets/oxygen.png");
 	this->invNitro.loadFromFile("./assets/nitrogen.png");
+	this->trenImg.loadFromFile("./assets/tren.png");
+	this->coffeeImg.loadFromFile("./assets/coffee.png");
+	this->backgroundImage.loadFromFile("./assets/invBg.png");
+	this->invBg.setTexture(backgroundImage);
 
 	//Load Text Specification
 	this->font.loadFromFile("./assets/font.ttf");
 	this->coffee.setFont(this->font);
 	this->coffee.setCharacterSize(50);
 	this->coffee.setString("C8H10N4O2");
-	this->coffee.setPosition(50, 50);
+	this->coffee.setPosition(100, 100);
 
 	this->tren.setFont(this->font);
 	this->tren.setCharacterSize(50);
 	this->tren.setString("C20H24O3");
-	this->tren.setPosition(50, 150);
+	this->tren.setPosition(100, 200);
 
 	// Create square shapes
 	this->square4 = RectangleShape(sf::Vector2f(100, 100));
 	this->square4.setTexture(&invCarbon);
-	this->square4.setPosition(200, 400);
+	this->square4.setPosition(200, 500);
 
 	this->square1 = RectangleShape(sf::Vector2f(100, 100));
 	this->square1.setTexture(&invOxygen);
-	this->square1.setPosition(350, 400);
+	this->square1.setPosition(350, 500);
 
 	this->square2 = RectangleShape(sf::Vector2f(100, 100));
 	this->square2.setTexture(&invNitro);
-	this->square2.setPosition(475, 400);
+	this->square2.setPosition(475, 500);
 
 	this->square3 = RectangleShape(sf::Vector2f(100, 100));
 	this->square3.setTexture(&invHydrogen);
-	this->square3.setPosition(600, 400);
+	this->square3.setPosition(600, 500);
+
+	this->trenSqrt = RectangleShape(sf::Vector2f(100, 100));
+	this->trenSqrt.setTexture(&trenImg);
+	this->trenSqrt.setPosition(350, 200);
+
+	this->coffeeSqrt = RectangleShape(sf::Vector2f(100, 100));
+	this->coffeeSqrt.setTexture(&coffeeImg);
+	this->coffeeSqrt.setPosition(350, 100);
 
 	// Create text objects for each square
 	this->carbonText.setFont(font);
 	this->carbonText.setCharacterSize(20);
 	this->carbonText.setFillColor(sf::Color::Black);
 	this->carbonText.setString(std::to_string(this->plr->inventory["carbon"]));
-	this->carbonText.setPosition(250, 370);
+	this->carbonText.setPosition(250, 470);
 
 	this->oxygenText.setFont(font);
 	this->oxygenText.setCharacterSize(20);
 	this->oxygenText.setFillColor(sf::Color::Black);
 	this->oxygenText.setString(std::to_string(this->plr->inventory["oxygen"]));
-	this->oxygenText.setPosition(640, 370);
+	this->oxygenText.setPosition(640, 470);
 
 	this->nitrogenText.setFont(font);
 	this->nitrogenText.setCharacterSize(20);
 	this->nitrogenText.setFillColor(sf::Color::Black);
 	this->nitrogenText.setString(std::to_string(this->plr->inventory["nitrogen"]));
-	this->nitrogenText.setPosition(520, 370);
+	this->nitrogenText.setPosition(520, 470);
 
 	this->hydrogenText.setFont(font);
 	this->hydrogenText.setCharacterSize(20);
 	this->hydrogenText.setFillColor(sf::Color::Black);
 	this->hydrogenText.setString(std::to_string(this->plr->inventory["hydrogen"]));
-	this->hydrogenText.setPosition(400, 370);
+	this->hydrogenText.setPosition(400, 470);
+
+
+	this->carbonInfo.setFont(font);
+	this->carbonInfo.setCharacterSize(20);
+	this->carbonInfo.setFillColor(sf::Color::Black);
+	this->carbonInfo.setString("Carbon is the sixth element on the periodic table,\nserving as a foundational component of organic \ncompounds essential for life.");
+	this->carbonInfo.setPosition(600, 100);
+
+	this->oxygenInfo.setFont(font);
+	this->oxygenInfo.setCharacterSize(20);
+	this->oxygenInfo.setFillColor(sf::Color::Black);
+	this->oxygenInfo.setString("Oxygen, element 8, is crucial for life, present in \nthe atmosphere, and essential for respiration and \ncombustion.");
+	this->oxygenInfo.setPosition(600, 200);
+
+	this->nitrogenInfo.setFont(font);
+	this->nitrogenInfo.setCharacterSize(20);
+	this->nitrogenInfo.setFillColor(sf::Color::Black);
+	this->nitrogenInfo.setString("Nitrogen, element 7, is an essential component of \nthe Earth's atmosphere, playing a critical role in \nsupporting life and forming key compounds.");
+	this->nitrogenInfo.setPosition(600, 300);
+
+	this->hydrogenInfo.setFont(font);
+	this->hydrogenInfo.setCharacterSize(20);
+	this->hydrogenInfo.setFillColor(sf::Color::Black);
+	this->hydrogenInfo.setString("Hydrogen, element 1, is the lightest and most \nabundant element in the universe, crucial for the \nformation of water.");
+	this->hydrogenInfo.setPosition(600, 400);
 
 	while (this->window.isOpen()) {
 		while (this->window.pollEvent(this->ev)) {
@@ -724,7 +761,14 @@ void Game::openLab() {
 void Game::drawLab() {
 	this->window.clear(Color::White);
 	// draw lab stuff here
+	this->window.draw(this->invBg);
 	this->window.setView(this->window.getDefaultView());
+	this->window.draw(this->trenSqrt);
+	this->window.draw(this->coffeeSqrt);
+	this->window.draw(this->carbonInfo);
+	this->window.draw(this->oxygenInfo);
+	this->window.draw(this->nitrogenInfo);
+	this->window.draw(this->hydrogenInfo);
 	this->window.draw(this->coffee);
 	this->window.draw(this->tren);
 	this->window.draw(this->square1);

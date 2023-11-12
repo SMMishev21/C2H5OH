@@ -58,6 +58,11 @@ private:
     Texture invNitro;
     Texture invHydrogen;
     Texture invOxygen;
+    Texture backgroundImage;
+    Texture trenImg;
+    Texture coffeeImg;
+
+    Sprite invBg;
 
     Font font;
 
@@ -66,10 +71,15 @@ private:
     Text hydrogenText;
     Text nitrogenText;
 
+    Text carbonInfo;
+    Text oxygenInfo;
+    Text hydrogenInfo;
+    Text nitrogenInfo;
+
     Text coffee;
     Text tren;
 
-    RectangleShape square4, square1, square2, square3;
+    RectangleShape square4, square1, square2, square3, trenSqrt, coffeeSqrt;
     RectangleShape healthBar;
 
     RenderObject* room;
