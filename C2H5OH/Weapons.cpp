@@ -9,10 +9,10 @@ void Ranged::setRangedInfo(int damage, int clipSize, float bulletSpread, float m
 	this->cooldown = cooldown;
 }
 
-void Ranged::shoot(std::vector<Bullet*>& bullets, std::vector<RenderObject*>& renderObjects, RenderWindow& window, Player* plr, Texture& bulletTexture, Clock& attackCD, float speedBuff) {
+void Ranged::shoot(std::vector<Bullet*>& bullets, std::vector<RenderObject*>& renderObjects, RenderWindow& window, Player* plr, Texture& bulletTexture, Clock& attackCD, float speedBuff, int reverse) {
 	if (attackCD.getElapsedTime().asSeconds() >= this->cooldown * speedBuff) {
 		attackCD.restart();
-		Vector2f gunPosition = this->getPosition(), mousePosition = window.mapPixelToCoords(Mouse::getPosition(window)), playerPosition = plr->getPosition();
+		Vector2f gunPosition = this->getPosition() - Vector2f(-36 * reverse, 21), mousePosition = window.mapPixelToCoords(Mouse::getPosition(window)), playerPosition = plr->getPosition();
 		Vector2f mouseToGun = gunPosition - mousePosition;
 		Vector2f mouseToGunNorm = mouseToGun / hypotf(mouseToGun.x, mouseToGun.y);
 

@@ -19,6 +19,8 @@ using namespace sf;
 
 class Game {
 private:
+    int roomNumber;
+    int reverse;
     float dt;
     float dashDistance;
     float speedBuff;
@@ -29,6 +31,7 @@ private:
     bool dash;
     bool lab;
     bool dashInvincibility;
+    std::string currentRoom;
 
     std::counting_semaphore<1> drawReady{ 1 };
     std::counting_semaphore<1> updateReady{ 1 };
@@ -38,8 +41,6 @@ private:
     RenderWindow window;
     Event ev;
     
-    Texture plrTexture;
-    Texture squareTexture;
     Texture bulletTexture;
     Texture enemyTexture;
     Texture akTexture;
@@ -62,6 +63,10 @@ private:
     Texture backgroundImage;
     Texture trenImg;
     Texture coffeeImg;
+    Texture bossRoomTexture;
+    Texture plrLeftTexture;
+    Texture plrRightTexture;
+    Texture gunTexture;
 
     Sprite invBg;
 
@@ -96,7 +101,7 @@ private:
     Clock labCD;
     Clock dashIFrames;
 
-    Ranged* ak;
+    Ranged* gun;
     Player* plr;
     Chest* chest;
     RenderObject* key;
@@ -109,7 +114,6 @@ private:
     std::vector<Element*> elements;
     std::vector<Element*> elementsToSpawn;
     std::vector<RenderObject*> garbage;
-    std::vector<RectangleHitbox*> hitboxes;
 
     std::unordered_map<std::string, Texture> elementTextureMap;
     std::unordered_map<std::string, Texture> enemyTextureMap;
@@ -131,6 +135,7 @@ private:
     bool resolveCollisions(RenderObject& obj, float radius);
     std::vector<int> resolveCollisionsEnemy(Bullet& bullet, float size);
     int randomLevel();
+    void prepareRoom();
 
 public:
     Game();

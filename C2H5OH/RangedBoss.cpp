@@ -9,7 +9,7 @@ RangedBoss::RangedBoss() {
     this->attackStepSize[2] = 3;
     this->attack = rand() % 3;
     this->timeBetweenShots = 1.f;
-    this->hp = 50000;
+    this->hp = 5000;
 }
 
 void RangedBoss::init(Texture& texture, Vector2f position, char type) {
@@ -21,13 +21,13 @@ void RangedBoss::init(Texture& texture, Vector2f position, char type) {
     this->hitbox->setPosition(this->getPosition());
     this->healthBar.setSize(Vector2f(100, 15));
     this->healthBar.setPosition(this->sprite.getPosition() - Vector2f(50, 40));
-    this->healthBar.setFillColor(ColorFromHSV((100 * (this->hp * (this->hp / this->hp))) / 50000, 1, 1));
+    this->healthBar.setFillColor(ColorFromHSV((100 * (this->hp * (this->hp / this->hp))) / 5000, 1, 1));
 }
 
 void RangedBoss::takeDamage(float damage) {
     this->hp -= damage;
-    this->healthBar.setSize(Vector2f(100 * (this->hp / 50000), 15));
-    this->healthBar.setFillColor(ColorFromHSV(100.f * (50000 * (this->hp / 50000)) / 50000, 1, 1));
+    this->healthBar.setSize(Vector2f(100 * (this->hp / 5000), 15));
+    this->healthBar.setFillColor(ColorFromHSV(100.f * (5000 * (this->hp / 5000)) / 5000, 1, 1));
 }
 
 void RangedBoss::aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enemy*>& enemies, bool& dash, std::vector<RenderObject*>& renderObjects, std::vector<Bullet*>& bullets, std::mutex& m) {
@@ -89,8 +89,8 @@ void RangedBoss::shoot(Player* plr, std::vector<RenderObject*>& renderObjects, s
                 bullet->speed = -400.f;
 
                 m.lock();
-                    bullets.push_back(bullet);
-                    renderObjects.push_back(bullet);
+                bullets.push_back(bullet);
+                renderObjects.push_back(bullet);
                 m.unlock();
             }
         }
@@ -108,8 +108,8 @@ void RangedBoss::shoot(Player* plr, std::vector<RenderObject*>& renderObjects, s
             bullet->speed = -500.f;
 
             m.lock();
-                bullets.push_back(bullet);
-                renderObjects.push_back(bullet);
+            bullets.push_back(bullet);
+            renderObjects.push_back(bullet);
             m.unlock();
 
             angle += 10;
@@ -131,8 +131,8 @@ void RangedBoss::shoot(Player* plr, std::vector<RenderObject*>& renderObjects, s
             bullet->speed = -700.f;
 
             m.lock();
-                bullets.push_back(bullet);
-                renderObjects.push_back(bullet);
+            bullets.push_back(bullet);
+            renderObjects.push_back(bullet);
             m.unlock();
 
             if (this->attackStepSize[this->attack] - 1 == this->step) {

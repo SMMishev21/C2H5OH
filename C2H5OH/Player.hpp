@@ -16,6 +16,7 @@ public:
 	void setPlayerInfo(int health, float speed);
 	void takeDamage(int damage);
 	void move(Vector2f offset) override;
+	void setPosition(Vector2f newPosition) override;
 	int health{ 100 };
 	float speed;
 	Vector2f velocity;

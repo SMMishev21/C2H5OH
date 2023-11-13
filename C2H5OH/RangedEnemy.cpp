@@ -2,7 +2,7 @@
 #include "RangedEnemy.hpp"
 
 RangedEnemy::RangedEnemy() {
-    this->bulletTexture.loadFromFile("./assets/bullet.png");
+    this->bulletTexture.loadFromFile("./assets/enemyBullet.png");
     this->damage = 10.f;
 }
 
@@ -35,7 +35,7 @@ void RangedEnemy::aiMove(Player* plr, Clock& iFrames, float dt, std::vector<Enem
     for (Enemy* enemy : enemies) {
         distanceFromOthers = enemy->getPosition() - this->getPosition();
         hypotenuse = sqrt(distanceFromOthers.x * distanceFromOthers.x + distanceFromOthers.y * distanceFromOthers.y);
-        if (hypotenuse < 65) {
+        if (hypotenuse < 130) {
             this->move((distanceFromOthers * dt * -15.f) / 20.f);
         }
     }

@@ -6,7 +6,7 @@
 class Ranged : public RenderObject {
 public:
 	void setRangedInfo(int damage, int clipSize, float bulletSpread, float maxDistance, float cooldown);
-	void shoot(std::vector<Bullet*>& bullets, std::vector<RenderObject*>& renderObjects, RenderWindow& window, Player* plr, Texture& bulletTexture, Clock& attackCD, float speedBuff);
+	void shoot(std::vector<Bullet*>& bullets, std::vector<RenderObject*>& renderObjects, RenderWindow& window, Player* plr, Texture& bulletTexture, Clock& attackCD, float speedBuff, int reverse);
 private:
 	int damage;
 	int clipSize;

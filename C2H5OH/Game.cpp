@@ -24,34 +24,13 @@ void deleteObjects(std::vector<T*>& objects, std::vector<RenderObject*> garbage)
 	}
 }
 
-bool Game::resolveCollisions(RenderObject& obj, float radius) {
-	for (int i = 0; i < 10; i++) {
-		for (auto& i : this->hitboxes) {
-			Vector2f pointOnRect;
-
-			pointOnRect.x = clampMax(obj.getPosition().x, i->getPosition().x - 40, i->getPosition().x + 32);
-			pointOnRect.y = clampMax(obj.getPosition().y, i->getPosition().y - 32, i->getPosition().y + 32);
-
-			float length = sqrt((pointOnRect - obj.getPosition()).x * (pointOnRect - obj.getPosition()).x + (pointOnRect - obj.getPosition()).y * (pointOnRect - obj.getPosition()).y);
-
-			if (length < radius) {
-				obj.move(Vector2f((obj.getPosition() - pointOnRect).x / radius, (obj.getPosition() - pointOnRect).y / radius));
-				return true;
-			}
-		}
-	}
-	return false;
-}
-
 Game::Game() {
 	this->window.create(VideoMode(1280, 720), "Title");
 	this->window.setFramerateLimit(240);
 	this->shouldClose = false;
 
-	this->enemyTexture.loadFromFile("./assets/enemy.png");
-	this->plrTexture.loadFromFile("./assets/plrPistol 1.png");
-	this->squareTexture.loadFromFile("./assets/square.png");
-	this->akTexture.loadFromFile("./assets/ak.png");
+	this->plrRightTexture.loadFromFile("./assets/plrRight.png");
+	this->plrLeftTexture.loadFromFile("./assets/plrLeft.png");
 	this->bulletTexture.loadFromFile("./assets/bullet.png");
 	this->chestTexture.loadFromFile("./assets/chest.png");
 	this->keyTexture.loadFromFile("./assets/key.png");
@@ -59,16 +38,18 @@ Game::Game() {
 	this->oxygenTexture.loadFromFile("./assets/oxygen.png");
 	this->nitrogenTexture.loadFromFile("./assets/nitrogen.png");
 	this->hydrogenTexture.loadFromFile("./assets/hydrogen.png");
-	this->roomTexture.loadFromFile("./assets/Boss room.png");
+	this->roomTexture.loadFromFile("./assets/normalRoom.png");
+	this->bossRoomTexture.loadFromFile("./assets/bossRoom.png");
 	this->squareHitboxTexture.loadFromFile("./assets/square hitbox.png");
 	this->ellipseHitboxTexture.loadFromFile("./assets/ellipse hitbox.png");
 	this->walkerTexture.loadFromFile("./assets/walker.png");
 	this->rangedEnemyTexture.loadFromFile("./assets/rangedEnemy.png");
 	this->rangedBossTexture.loadFromFile("./assets/rangedBoss.png");
+	this->gunTexture.loadFromFile("./assets/gun.png");
 
 	this->enemyTexture.setSmooth(true);
-	this->plrTexture.setSmooth(true);
-	this->squareTexture.setSmooth(true);
+	this->plrRightTexture.setSmooth(true);
+	this->plrLeftTexture.setSmooth(true);
 	this->bulletTexture.setSmooth(true);
 	this->chestTexture.setSmooth(true);
 	this->keyTexture.setSmooth(true);
@@ -77,30 +58,27 @@ Game::Game() {
 	this->nitrogenTexture.setSmooth(true);
 	this->hydrogenTexture.setSmooth(true);
 	this->roomTexture.setSmooth(true);
+	this->bossRoomTexture.setSmooth(true);
 	this->squareHitboxTexture.setSmooth(true);
 	this->ellipseHitboxTexture.setSmooth(true);
 	this->walkerTexture.setSmooth(true);
 	this->rangedEnemyTexture.setSmooth(true);
 	this->rangedBossTexture.setSmooth(true);
+	this->gunTexture.setSmooth(true);
 
 	this->room = new RenderObject;
 	this->room->setTexture(this->roomTexture);
 	this->room->setOrigin(Vector2f(0, 0));
 	this->room->setPosition(Vector2f(0, 0));
 
-	this->renderObjects.push_back(this->room);
+	this->roomNumber = 0;
+	this->reverse = 1;
 
 	this->elementTextureMap = {
 		{"carbon", this->carbonTexture},
 		{"hydrogen", this->oxygenTexture},
 		{"nitrogen", this->nitrogenTexture},
 		{"oxygen", this->oxygenTexture}
-	};
-
-	this->enemyTextureMap = {
-		{"ranged boss", this->rangedBossTexture},
-		{"ranged enemy", this->rangedEnemyTexture},
-		{"walker", this->walkerTexture}
 	};
 
 	this->roomCollisions = {
@@ -142,11 +120,10 @@ Game::Game() {
 	this->healthBuff = 1.f;
 
 	this->plr = new Player;
-	this->plr->init(this->plrTexture, Vector2f(100, 100), 'p');
+	this->plr->init(this->plrRightTexture, Vector2f(100, 100), 'p');
 	this->plr->collisionHitbox->setRadius(Vector2f(25,25));
 	this->plr->collisionHitbox->setTexture(this->ellipseHitboxTexture);
 	this->plr->hitbox->setRadius(Vector2f(124/2, 354));
-	//this->renderObjects.push_back(this->plr->collisionHitbox);
 	this->dashDistance = 1360;
 	this->dashInvincibility = false;
 
@@ -154,43 +131,11 @@ Game::Game() {
 	this->healthBar.setPosition(Vector2f(1280, 720) - Vector2f(250, 50));
 	this->healthBar.setSize(Vector2f(200, 40));
 
-	this->ak = new Ranged;
-	this->ak->setRangedInfo(20, 8, 1, 2500, 0.2);
-	this->ak->setTexture(this->akTexture);
-
-	for (int i = 0; i < 5; ++i) {
-		chest = new Chest;
-		chest->setTexture(this->chestTexture);
-		chest->setOrigin(Vector2f(48, 37.5));
-		chest->setPosition(Vector2f(-100 * i, 100));
-
-		this->chests.push_back(chest);
-		this->renderObjects.push_back(chest);
-	}
+	this->gun = new Ranged;
+	this->gun->setRangedInfo(20, 8, 1, 2500, 0.2);
 
 	this->key = new RenderObject;
 	this->key->setTexture(this->keyTexture);
-
-	for (int i = 0; i < 10; i++) {
-		int e = rand() % 2;
-
-		Enemy* enemy = new Enemy;
-		switch (e) {
-		case 0:
-			enemy = new RangedBoss;
-			break;
-		case 1:
-			enemy = new RangedEnemy;
-			break;
-		case 2:
-			enemy = new Walker;
-			break;
-		}
-		enemy->hitbox = new EllipseHitbox;
-		enemy->init(this->enemyTexture, Vector2f(rand() % 300 + i + 300, rand() % 300 + i), 'e');
-		this->enemies.push_back(enemy);
-		this->renderObjects.push_back(enemy);
-	}
 
 	this->renderObjects.push_back(this->key);
 
@@ -201,6 +146,7 @@ Game::Game() {
 	this->renderObjects.reserve(sizeof(RenderObject*) * 10000);
 	this->bullets.reserve(sizeof(Bullet*) * 10000);
 
+	this->prepareRoom();
 	this->mainLoop();
 }
 
@@ -260,6 +206,12 @@ void Game::draw() {
 	this->window.setView(this->view);
 	this->window.clear(Color(45, 75, 118, 255));
 
+	this->room->draw(this->window);
+
+	for (int i = 0; i < this->chests.size(); ++i) {
+		chests.at(i)->draw(this->window);
+	}
+
 	for (int i = 0; i < this->renderObjects.size(); ++i) {
 			if (this->renderObjects.at(i)->shouldDraw) {
 				this->renderObjects.at(i)->draw(this->window);
@@ -286,6 +238,85 @@ void Game::draw() {
 	this->window.display();
 }
 
+void Game::prepareRoom() {
+	Vector2f chestLocations[4] = { Vector2f(130,96), Vector2f(468, 96), Vector2f(130, 596), Vector2f(468, 596) };
+	if (this->roomNumber == 2) {
+		this->currentRoom = "Boss room";
+		
+		this->m.lock();
+		delete this->room;
+
+		this->room = new RenderObject;
+		this->room->setTexture(this->bossRoomTexture);
+		this->room->setOrigin(Vector2f(0, 0));
+		this->room->setPosition(Vector2f(0, 0));
+
+		RangedBoss* boss = new RangedBoss;
+
+		boss->hitbox = new EllipseHitbox;
+		boss->init(this->walkerTexture, Vector2f(rand() % 300 + 700, rand() % 300 + 170), 'e');
+		boss->setScale(Vector2f(0.5, 0.5));
+
+		this->enemies.push_back(boss);
+		this->renderObjects.push_back(boss);
+
+		for (int i = 0; i < this->chests.size(); ++i) {
+			this->chests.at(i)->shouldDraw = false;
+		}
+		this->m.unlock();
+	}
+	else {
+		this->plr->setPosition(Vector2f(100, 100));
+		if (this->roomNumber == 0) {
+			this->currentRoom = "Normal room";
+			int enemiesAmount = rand() % 3 + 5;
+			for (int i = 0; i < enemiesAmount; ++i) {
+				Walker* enemy = new Walker;
+
+				enemy->hitbox = new EllipseHitbox;
+				enemy->init(this->walkerTexture, Vector2f(rand() % 300 + 700, rand() % 300 + 170), 'e');
+				enemy->setScale(Vector2f(0.4, 0.4));
+
+				this->enemies.push_back(enemy);
+				this->renderObjects.push_back(enemy);
+			}
+
+			for (int i = 0; i < 2; ++i) {
+				chest = new Chest;
+				chest->setTexture(this->chestTexture);
+				chest->setOrigin(Vector2f(48, 37.5));
+				chest->setPosition(chestLocations[rand() % 3]);
+
+				this->chests.push_back(chest);
+			}
+		}
+		else if (this->roomNumber == 1) {
+			this->currentRoom = "Normal room";
+			int enemiesAmount = rand() % 3 + 5;
+			for (int i = 0; i < enemiesAmount; ++i) {
+				RangedEnemy* enemy = new RangedEnemy;
+
+				enemy->hitbox = new EllipseHitbox;
+				enemy->init(this->rangedEnemyTexture, Vector2f(rand() % 300 + 700, rand() % 300 + 170), 'e');
+				enemy->setScale(Vector2f(0.3, 0.3));
+
+				this->enemies.push_back(enemy);
+				this->renderObjects.push_back(enemy);
+			}
+
+			this->m.lock();
+			for (int i = 0; i < 2; ++i) {
+				delete this->chests.at(i);
+				chests.at(i) = new Chest;
+				chests.at(i)->setTexture(this->chestTexture);
+				chests.at(i)->setOrigin(Vector2f(48, 37.5));
+				chests.at(i)->setPosition(chestLocations[rand() % 3]);
+			}
+			this->m.unlock();
+		}
+	}
+}
+
 void Game::handleMovement() {
 	if (this->dash) {
 		this->plr->move((this->plrVelocity * this->dt));
@@ -297,7 +328,6 @@ void Game::handleMovement() {
 			this->dashDistance = 1360;
 			this->dashed -= this->plr->getPosition();
 			if (!this->dashInvincibility) {
-				std::cout << "restarting\n";
 				this->dashIFrames.restart();
 				this->dashInvincibility = true;
 			}
@@ -332,10 +362,14 @@ void Game::handleMovement() {
 void Game::handleInput(float dt) {
 	for (int i = 0; i < 10; ++i) {
 		if (Keyboard::isKeyPressed(Keyboard::A)) {
+			this->reverse = -1;
+			this->plr->setTexture(this->plrLeftTexture);
 			this->plr->move(Vector2f(-200, 0) * dt * this->speedBuff / 10.f);
 			this->dir.x = -1;
 		}
 		else if (Keyboard::isKeyPressed(Keyboard::D)) {
+			this->reverse = 1;
+			this->plr->setTexture(this->plrRightTexture);
 			this->plr->move(Vector2f(200, 0) * dt * this->speedBuff / 10.f);
 			this->dir.x = 1;
 		}
@@ -355,15 +389,21 @@ void Game::handleInput(float dt) {
 			this->dir.y = 0;
 		}
 
-		for (RectangleHitbox* hitbox : this->roomCollisions["Boss room"]) {
+		for (RectangleHitbox* hitbox : this->roomCollisions[this->currentRoom]) {
 			for (int i = 0; i < 10; ++i) {
 				this->plr->move(-this->plr->collisionHitbox->checkOverlapRectangle(Vector2f(hitbox->getPosition().x - hitbox->getSize().x / 2, hitbox->getPosition().y - hitbox->getSize().y / 2), hitbox->getSize()) / 10.f);
 			}
 		}
 	}
 
+	if (this->roomNumber != 2) {
+		if (this->plr->getPosition().x >= 1208) {
+			this->roomNumber++;
+			this->prepareRoom();
+		}
+	}
 
-	this->ak->setPosition(this->plr->getPosition());
+	this->gun->setPosition(this->plr->getPosition());
 
 	if (Keyboard::isKeyPressed(Keyboard::LShift) && this->dashClock.getElapsedTime().asSeconds() >= 1 && !this->dash) {
 		this->dashClock.restart();
@@ -377,12 +417,12 @@ void Game::handleInput(float dt) {
 	}
 
 	if (Mouse::isButtonPressed(Mouse::Button::Left)) {
-		this->ak->shoot(this->bullets, this->renderObjects, this->window, this->plr, this->bulletTexture, this->attackCD, this->attackSpeedBuff);
+		this->gun->shoot(this->bullets, this->renderObjects, this->window, this->plr, this->bulletTexture, this->attackCD, this->attackSpeedBuff, this->reverse);
 	}
 
 	if (Keyboard::isKeyPressed(Keyboard::E)) {
 		if (this->selected != nullptr && !this->selected->opened) {
-			for (int i = 0; i < 100; ++i) {
+			for (int i = 0; i < 50; ++i) {
 				std::pair<std::string, int> elementPair = this->selected->getRandomElement();
 				for (int i = 0; i < elementPair.second; ++i) {
 					float angle = rand() % 180;

@@ -29,3 +29,9 @@ void Player::move(Vector2f offset) {
 	this->hitbox->setPosition(this->hitbox->getPosition() + offset);
 	this->collisionHitbox->setPosition(this->collisionHitbox->getPosition() + offset);
 }
+
+void Player::setPosition(Vector2f newPosition) {
+	this->sprite.setPosition(newPosition);
+	this->hitbox->setPosition(newPosition);
+	this->collisionHitbox->setPosition(newPosition + Vector2f(0, 50));
+}
