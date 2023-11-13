@@ -1,0 +1,358 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="d8/d3d/class_render_object" kind="class" language="C++" prot="public">
+    <compoundname>RenderObject</compoundname>
+    <derivedcompoundref refid="d2/dbe/class_bullet" prot="public" virt="non-virtual">Bullet</derivedcompoundref>
+    <derivedcompoundref refid="d0/d42/class_chest" prot="public" virt="non-virtual">Chest</derivedcompoundref>
+    <derivedcompoundref refid="d5/d50/class_element" prot="public" virt="non-virtual">Element</derivedcompoundref>
+    <derivedcompoundref refid="d2/d84/class_ellipse_hitbox" prot="public" virt="non-virtual">EllipseHitbox</derivedcompoundref>
+    <derivedcompoundref refid="dd/d7a/class_enemy" prot="public" virt="non-virtual">Enemy</derivedcompoundref>
+    <derivedcompoundref refid="db/da8/class_melee" prot="public" virt="non-virtual">Melee</derivedcompoundref>
+    <derivedcompoundref refid="d8/d53/class_player" prot="public" virt="non-virtual">Player</derivedcompoundref>
+    <derivedcompoundref refid="d8/d6a/class_ranged" prot="public" virt="non-virtual">Ranged</derivedcompoundref>
+    <derivedcompoundref refid="dd/d67/class_rectangle_hitbox" prot="public" virt="non-virtual">RectangleHitbox</derivedcompoundref>
+    <derivedcompoundref refid="d9/d0c/class_square" prot="public" virt="non-virtual">Square</derivedcompoundref>
+    <includes refid="d2/d59/_render_object_8hpp" local="no">RenderObject.hpp</includes>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="d8/d3d/class_render_object_1a68a180ca61609043defd4e9362f87b44" prot="protected" static="no" mutable="no">
+        <type>Sprite</type>
+        <definition>Sprite RenderObject::sprite</definition>
+        <argsstring></argsstring>
+        <name>sprite</name>
+        <qualifiedname>RenderObject::sprite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp" line="9" column="8" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp" bodystart="9" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d8/d3d/class_render_object_1a29345f8ebe01d91c928a2b77840dadbf" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char RenderObject::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>RenderObject::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp" line="24" column="6" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d3d/class_render_object_1aecc430f82613dc1e4ca7b7c9a87db891" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RenderObject::shouldDraw</definition>
+        <argsstring></argsstring>
+        <name>shouldDraw</name>
+        <qualifiedname>RenderObject::shouldDraw</qualifiedname>
+        <initializer>{ true }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp" line="25" column="6" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp" bodystart="25" bodyend="25"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d8/d3d/class_render_object_1a57ea4112279a6fa8238b831df04e9907" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void RenderObject::init</definition>
+        <argsstring>(Texture &amp;texture, Vector2f position, char type)</argsstring>
+        <name>init</name>
+        <qualifiedname>RenderObject::init</qualifiedname>
+        <reimplementedby refid="dd/d7a/class_enemy_1a2160db284c20b71c1cb1df76fc5e2636">init</reimplementedby>
+        <reimplementedby refid="d8/d53/class_player_1a12eafa4e6f433a49fa83c454252dd63e">init</reimplementedby>
+        <reimplementedby refid="d8/d12/class_ranged_boss_1aa1f20a3f8eea5e841562ebb9ae8cb37c">init</reimplementedby>
+        <param>
+          <type>Texture &amp;</type>
+          <declname>texture</declname>
+        </param>
+        <param>
+          <type>Vector2f</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp" line="12" column="14" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.cpp" bodystart="13" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d3d/class_render_object_1a610e8015f78f4028be442da1b73257a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void RenderObject::setPosition</definition>
+        <argsstring>(Vector2f position)</argsstring>
+        <name>setPosition</name>
+        <qualifiedname>RenderObject::setPosition</qualifiedname>
+        <reimplementedby refid="d2/d84/class_ellipse_hitbox_1ad283334fb22d4b3f4fd0ef071eb882f7">setPosition</reimplementedby>
+        <reimplementedby refid="dd/d67/class_rectangle_hitbox_1a5a7661a11e48a7a06ec7534f736c3c3b">setPosition</reimplementedby>
+        <reimplementedby refid="d8/d53/class_player_1a917b4bde604f3238ced6f026108226b2">setPosition</reimplementedby>
+        <param>
+          <type>Vector2f</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp" line="13" column="14" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.cpp" bodystart="32" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d3d/class_render_object_1a8305c2fbd72a10a13a3a875bd4a87933" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void RenderObject::setOrigin</definition>
+        <argsstring>(Vector2f origin)</argsstring>
+        <name>setOrigin</name>
+        <qualifiedname>RenderObject::setOrigin</qualifiedname>
+        <param>
+          <type>Vector2f</type>
+          <declname>origin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp" line="14" column="14" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.cpp" bodystart="28" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d3d/class_render_object_1ae74e7cc67685a9f47eba43fa7afe63a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void RenderObject::draw</definition>
+        <argsstring>(RenderWindow &amp;window)</argsstring>
+        <name>draw</name>
+        <qualifiedname>RenderObject::draw</qualifiedname>
+        <reimplementedby refid="dd/d7a/class_enemy_1a582d09158d692070f4becf68220bf6b6">draw</reimplementedby>
+        <reimplementedby refid="dd/d67/class_rectangle_hitbox_1a996a55abeb71a304061d6c0f9c51bf41">draw</reimplementedby>
+        <param>
+          <type>RenderWindow &amp;</type>
+          <declname>window</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp" line="15" column="14" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.cpp" bodystart="24" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d3d/class_render_object_1a448ffcd3998836202f845073e2e906a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void RenderObject::setScale</definition>
+        <argsstring>(Vector2f scale)</argsstring>
+        <name>setScale</name>
+        <qualifiedname>RenderObject::setScale</qualifiedname>
+        <param>
+          <type>Vector2f</type>
+          <declname>scale</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp" line="16" column="14" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.cpp" bodystart="44" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d3d/class_render_object_1aa66db6e5382da7932a8480e5bcc70776" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void RenderObject::move</definition>
+        <argsstring>(Vector2f offset)</argsstring>
+        <name>move</name>
+        <qualifiedname>RenderObject::move</qualifiedname>
+        <reimplementedby refid="dd/d7a/class_enemy_1aa1e20b304c769713c6f15a95eb4724bb">move</reimplementedby>
+        <reimplementedby refid="d8/d53/class_player_1a69c18b28cd4bab86be4158d1b66d835c">move</reimplementedby>
+        <param>
+          <type>Vector2f</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp" line="17" column="14" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.cpp" bodystart="20" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d3d/class_render_object_1a1d1f93bce3161eb284a37c7581625bb7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Vector2f</type>
+        <definition>Vector2f RenderObject::getPosition</definition>
+        <argsstring>()</argsstring>
+        <name>getPosition</name>
+        <qualifiedname>RenderObject::getPosition</qualifiedname>
+        <reimplementedby refid="d2/d84/class_ellipse_hitbox_1a3eaadd3c631550c41b9ac1a31a553500">getPosition</reimplementedby>
+        <reimplementedby refid="dd/d67/class_rectangle_hitbox_1aaf7577df1d572bff07d634ef2bcec7b2">getPosition</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp" line="18" column="18" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.cpp" bodystart="36" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d3d/class_render_object_1a82e4d119e2fc84a7a7b609ab854ba89a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Vector2f</type>
+        <definition>Vector2f RenderObject::getSize</definition>
+        <argsstring>()</argsstring>
+        <name>getSize</name>
+        <qualifiedname>RenderObject::getSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp" line="19" column="10" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.cpp" bodystart="48" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d3d/class_render_object_1a84d185d9a2d3963d0de8eda80cb2bc9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Sprite</type>
+        <definition>Sprite RenderObject::getSprite</definition>
+        <argsstring>()</argsstring>
+        <name>getSprite</name>
+        <qualifiedname>RenderObject::getSprite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp" line="20" column="8" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.cpp" bodystart="52" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d3d/class_render_object_1ad6a393d95fec7397d41647eaf18b4677" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RenderObject::setTexture</definition>
+        <argsstring>(Texture &amp;texture)</argsstring>
+        <name>setTexture</name>
+        <qualifiedname>RenderObject::setTexture</qualifiedname>
+        <param>
+          <type>Texture &amp;</type>
+          <declname>texture</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp" line="22" column="6" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.cpp" bodystart="40" bodyend="42"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Bullet</label>
+        <link refid="d2/dbe/class_bullet"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Chest</label>
+        <link refid="d0/d42/class_chest"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Element</label>
+        <link refid="d5/d50/class_element"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>EllipseHitbox</label>
+        <link refid="d2/d84/class_ellipse_hitbox"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Enemy</label>
+        <link refid="dd/d7a/class_enemy"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Melee</label>
+        <link refid="db/da8/class_melee"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Player</label>
+        <link refid="d8/d53/class_player"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Ranged</label>
+        <link refid="d8/d6a/class_ranged"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>RangedBoss</label>
+        <link refid="d8/d12/class_ranged_boss"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>RangedEnemy</label>
+        <link refid="d7/d5f/class_ranged_enemy"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>RectangleHitbox</label>
+        <link refid="dd/d67/class_rectangle_hitbox"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>RenderObject</label>
+        <link refid="d8/d3d/class_render_object"/>
+      </node>
+      <node id="14">
+        <label>Square</label>
+        <link refid="d9/d0c/class_square"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Walker</label>
+        <link refid="d1/d49/class_walker"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp" line="7" column="1" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp" bodystart="7" bodyend="26"/>
+    <listofallmembers>
+      <member refid="d8/d3d/class_render_object_1ae74e7cc67685a9f47eba43fa7afe63a4" prot="public" virt="virtual"><scope>RenderObject</scope><name>draw</name></member>
+      <member refid="d8/d3d/class_render_object_1a1d1f93bce3161eb284a37c7581625bb7" prot="public" virt="virtual"><scope>RenderObject</scope><name>getPosition</name></member>
+      <member refid="d8/d3d/class_render_object_1a82e4d119e2fc84a7a7b609ab854ba89a" prot="public" virt="non-virtual"><scope>RenderObject</scope><name>getSize</name></member>
+      <member refid="d8/d3d/class_render_object_1a84d185d9a2d3963d0de8eda80cb2bc9d" prot="public" virt="non-virtual"><scope>RenderObject</scope><name>getSprite</name></member>
+      <member refid="d8/d3d/class_render_object_1a57ea4112279a6fa8238b831df04e9907" prot="public" virt="virtual"><scope>RenderObject</scope><name>init</name></member>
+      <member refid="d8/d3d/class_render_object_1aa66db6e5382da7932a8480e5bcc70776" prot="public" virt="virtual"><scope>RenderObject</scope><name>move</name></member>
+      <member refid="d8/d3d/class_render_object_1a8305c2fbd72a10a13a3a875bd4a87933" prot="public" virt="virtual"><scope>RenderObject</scope><name>setOrigin</name></member>
+      <member refid="d8/d3d/class_render_object_1a610e8015f78f4028be442da1b73257a3" prot="public" virt="virtual"><scope>RenderObject</scope><name>setPosition</name></member>
+      <member refid="d8/d3d/class_render_object_1a448ffcd3998836202f845073e2e906a4" prot="public" virt="virtual"><scope>RenderObject</scope><name>setScale</name></member>
+      <member refid="d8/d3d/class_render_object_1ad6a393d95fec7397d41647eaf18b4677" prot="public" virt="non-virtual"><scope>RenderObject</scope><name>setTexture</name></member>
+      <member refid="d8/d3d/class_render_object_1aecc430f82613dc1e4ca7b7c9a87db891" prot="public" virt="non-virtual"><scope>RenderObject</scope><name>shouldDraw</name></member>
+      <member refid="d8/d3d/class_render_object_1a68a180ca61609043defd4e9362f87b44" prot="protected" virt="non-virtual"><scope>RenderObject</scope><name>sprite</name></member>
+      <member refid="d8/d3d/class_render_object_1a29345f8ebe01d91c928a2b77840dadbf" prot="public" virt="non-virtual"><scope>RenderObject</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,358 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="d8/d12/class_ranged_boss" kind="class" language="C++" prot="public">
+    <compoundname>RangedBoss</compoundname>
+    <basecompoundref refid="d7/d5f/class_ranged_enemy" prot="public" virt="non-virtual">RangedEnemy</basecompoundref>
+    <includes refid="d4/dce/_ranged_boss_8hpp" local="no">RangedBoss.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d8/d12/class_ranged_boss_1aec2ddc7843f0ea5777012fe2f9ebd4f4" prot="private" static="no" mutable="no">
+        <type>Clock</type>
+        <definition>Clock RangedBoss::shootTimer</definition>
+        <argsstring></argsstring>
+        <name>shootTimer</name>
+        <qualifiedname>RangedBoss::shootTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" line="6" column="11" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d12/class_ranged_boss_1a8187cbcbf5d7fb13ee71041e85e5063c" prot="private" static="no" mutable="no">
+        <type>Texture</type>
+        <definition>Texture RangedBoss::bulletTexture</definition>
+        <argsstring></argsstring>
+        <name>bulletTexture</name>
+        <qualifiedname>RangedBoss::bulletTexture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" line="7" column="13" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d12/class_ranged_boss_1ac79c3fc4c82c67a3db7fd3a8302a3fb4" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RangedBoss::lastAttack</definition>
+        <argsstring></argsstring>
+        <name>lastAttack</name>
+        <qualifiedname>RangedBoss::lastAttack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" line="9" column="9" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d12/class_ranged_boss_1a04fc13c6cc1ed12ec28425dfaeee47e4" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RangedBoss::step</definition>
+        <argsstring></argsstring>
+        <name>step</name>
+        <qualifiedname>RangedBoss::step</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" line="10" column="9" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d12/class_ranged_boss_1adb4c33fc4b4ddb7463f99b5dd37d846a" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RangedBoss::attackStepSize[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>attackStepSize</name>
+        <qualifiedname>RangedBoss::attackStepSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" line="11" column="9" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d12/class_ranged_boss_1af281c9e8bb0cb5b0aeafd53c36e813ff" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RangedBoss::attack</definition>
+        <argsstring></argsstring>
+        <name>attack</name>
+        <qualifiedname>RangedBoss::attack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" line="12" column="9" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d12/class_ranged_boss_1a744a1e79d23b39b73a375632c0666f95" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RangedBoss::timeBetweenShots</definition>
+        <argsstring></argsstring>
+        <name>timeBetweenShots</name>
+        <qualifiedname>RangedBoss::timeBetweenShots</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" line="13" column="11" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d12/class_ranged_boss_1a64372d328fe01bef5e815c7e3edeb93b" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RangedBoss::angle</definition>
+        <argsstring></argsstring>
+        <name>angle</name>
+        <qualifiedname>RangedBoss::angle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" line="14" column="11" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d8/d12/class_ranged_boss_1a11a8f66fdb7265ac18f38e8db96b3827" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RangedBoss::RangedBoss</definition>
+        <argsstring>()</argsstring>
+        <name>RangedBoss</name>
+        <qualifiedname>RangedBoss::RangedBoss</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" line="16" column="5" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.cpp" bodystart="4" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d12/class_ranged_boss_1aa1f20a3f8eea5e841562ebb9ae8cb37c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void RangedBoss::init</definition>
+        <argsstring>(Texture &amp;texture, Vector2f position, char type) override</argsstring>
+        <name>init</name>
+        <qualifiedname>RangedBoss::init</qualifiedname>
+        <reimplements refid="dd/d7a/class_enemy_1a2160db284c20b71c1cb1df76fc5e2636">init</reimplements>
+        <param>
+          <type>Texture &amp;</type>
+          <declname>texture</declname>
+        </param>
+        <param>
+          <type>Vector2f</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" line="17" column="10" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.cpp" bodystart="15" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d12/class_ranged_boss_1a1cfc7b09aaac9c61979c00f9f2a35bc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void RangedBoss::takeDamage</definition>
+        <argsstring>(float damage)</argsstring>
+        <name>takeDamage</name>
+        <qualifiedname>RangedBoss::takeDamage</qualifiedname>
+        <reimplements refid="dd/d7a/class_enemy_1ae89eefd8e9478d7e4512bc24ca52a4b1">takeDamage</reimplements>
+        <param>
+          <type>float</type>
+          <declname>damage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" line="18" column="10" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.cpp" bodystart="27" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d12/class_ranged_boss_1afb50d47d302b512c37fef7167ceb0b43" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void RangedBoss::aiMove</definition>
+        <argsstring>(Player *plr, Clock &amp;iFrames, float dt, std::vector&lt; Enemy * &gt; &amp;enemies, bool &amp;dash, std::vector&lt; RenderObject * &gt; &amp;renderObjects, std::vector&lt; Bullet * &gt; &amp;bullets, std::mutex &amp;m) override</argsstring>
+        <name>aiMove</name>
+        <qualifiedname>RangedBoss::aiMove</qualifiedname>
+        <reimplements refid="d7/d5f/class_ranged_enemy_1acd2c4ce4c05b3d357e7919dc67ddc593">aiMove</reimplements>
+        <param>
+          <type><ref refid="d8/d53/class_player" kindref="compound">Player</ref> *</type>
+          <declname>plr</declname>
+        </param>
+        <param>
+          <type>Clock &amp;</type>
+          <declname>iFrames</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dt</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="dd/d7a/class_enemy" kindref="compound">Enemy</ref> * &gt; &amp;</type>
+          <declname>enemies</declname>
+        </param>
+        <param>
+          <type>bool &amp;</type>
+          <declname>dash</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="d8/d3d/class_render_object" kindref="compound">RenderObject</ref> * &gt; &amp;</type>
+          <declname>renderObjects</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="d2/dbe/class_bullet" kindref="compound">Bullet</ref> * &gt; &amp;</type>
+          <declname>bullets</declname>
+        </param>
+        <param>
+          <type>std::mutex &amp;</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" line="19" column="10" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.cpp" bodystart="33" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d12/class_ranged_boss_1ae4e40578d9babf4a141294a0470a70f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void RangedBoss::shoot</definition>
+        <argsstring>(Player *plr, std::vector&lt; RenderObject * &gt; &amp;renderObjects, std::vector&lt; Bullet * &gt; &amp;bullets, std::mutex &amp;m)</argsstring>
+        <name>shoot</name>
+        <qualifiedname>RangedBoss::shoot</qualifiedname>
+        <reimplements refid="d7/d5f/class_ranged_enemy_1a9082a51a21cb05314e1fbb4acdcbfdcb">shoot</reimplements>
+        <param>
+          <type><ref refid="d8/d53/class_player" kindref="compound">Player</ref> *</type>
+          <declname>plr</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="d8/d3d/class_render_object" kindref="compound">RenderObject</ref> * &gt; &amp;</type>
+          <declname>renderObjects</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="d2/dbe/class_bullet" kindref="compound">Bullet</ref> * &gt; &amp;</type>
+          <declname>bullets</declname>
+        </param>
+        <param>
+          <type>std::mutex &amp;</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" line="20" column="10" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.cpp" bodystart="68" bodyend="145"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Enemy</label>
+        <link refid="dd/d7a/class_enemy"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>RangedBoss</label>
+        <link refid="d8/d12/class_ranged_boss"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RangedEnemy</label>
+        <link refid="d7/d5f/class_ranged_enemy"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>RenderObject</label>
+        <link refid="d8/d3d/class_render_object"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>EllipseHitbox</label>
+        <link refid="d2/d84/class_ellipse_hitbox"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Enemy</label>
+        <link refid="dd/d7a/class_enemy"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>hitbox</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>RangedBoss</label>
+        <link refid="d8/d12/class_ranged_boss"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RangedEnemy</label>
+        <link refid="d7/d5f/class_ranged_enemy"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>RenderObject</label>
+        <link refid="d8/d3d/class_render_object"/>
+      </node>
+    </collaborationgraph>
+    <location file="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" line="4" column="1" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp" bodystart="4" bodyend="21"/>
+    <listofallmembers>
+      <member refid="d8/d12/class_ranged_boss_1afb50d47d302b512c37fef7167ceb0b43" prot="public" virt="virtual"><scope>RangedBoss</scope><name>aiMove</name></member>
+      <member refid="d8/d12/class_ranged_boss_1a64372d328fe01bef5e815c7e3edeb93b" prot="private" virt="non-virtual"><scope>RangedBoss</scope><name>angle</name></member>
+      <member refid="d8/d12/class_ranged_boss_1af281c9e8bb0cb5b0aeafd53c36e813ff" prot="private" virt="non-virtual"><scope>RangedBoss</scope><name>attack</name></member>
+      <member refid="d8/d12/class_ranged_boss_1adb4c33fc4b4ddb7463f99b5dd37d846a" prot="private" virt="non-virtual"><scope>RangedBoss</scope><name>attackStepSize</name></member>
+      <member refid="d8/d12/class_ranged_boss_1a8187cbcbf5d7fb13ee71041e85e5063c" prot="private" virt="non-virtual"><scope>RangedBoss</scope><name>bulletTexture</name></member>
+      <member refid="dd/d7a/class_enemy_1a5d5917c222119c1d8eb3183c27c7adb7" prot="public" virt="non-virtual"><scope>RangedBoss</scope><name>damage</name></member>
+      <member refid="dd/d7a/class_enemy_1a582d09158d692070f4becf68220bf6b6" prot="public" virt="virtual"><scope>RangedBoss</scope><name>draw</name></member>
+      <member refid="dd/d7a/class_enemy_1a02b52b5c3d1effad96047ae788cc5507" prot="public" virt="non-virtual"><scope>RangedBoss</scope><name>getHp</name></member>
+      <member refid="d8/d3d/class_render_object_1a1d1f93bce3161eb284a37c7581625bb7" prot="public" virt="virtual"><scope>RangedBoss</scope><name>getPosition</name></member>
+      <member refid="d8/d3d/class_render_object_1a82e4d119e2fc84a7a7b609ab854ba89a" prot="public" virt="non-virtual"><scope>RangedBoss</scope><name>getSize</name></member>
+      <member refid="d8/d3d/class_render_object_1a84d185d9a2d3963d0de8eda80cb2bc9d" prot="public" virt="non-virtual"><scope>RangedBoss</scope><name>getSprite</name></member>
+      <member refid="dd/d7a/class_enemy_1ac0db47c80f9801160bd27458a25018a4" prot="protected" virt="non-virtual"><scope>RangedBoss</scope><name>healthBar</name></member>
+      <member refid="dd/d7a/class_enemy_1a58106633fc5b501764611ebd16b9fcc1" prot="public" virt="non-virtual"><scope>RangedBoss</scope><name>hitbox</name></member>
+      <member refid="dd/d7a/class_enemy_1a64049230ae39663dd5ccfd0a27b25474" prot="protected" virt="non-virtual"><scope>RangedBoss</scope><name>hp</name></member>
+      <member refid="d8/d12/class_ranged_boss_1aa1f20a3f8eea5e841562ebb9ae8cb37c" prot="public" virt="virtual"><scope>RangedBoss</scope><name>init</name></member>
+      <member refid="d8/d12/class_ranged_boss_1ac79c3fc4c82c67a3db7fd3a8302a3fb4" prot="private" virt="non-virtual"><scope>RangedBoss</scope><name>lastAttack</name></member>
+      <member refid="dd/d7a/class_enemy_1aa1e20b304c769713c6f15a95eb4724bb" prot="public" virt="virtual"><scope>RangedBoss</scope><name>move</name></member>
+      <member refid="dd/d7a/class_enemy_1a1d50ff4dff13f15ffc608703f16f8575" prot="protected" virt="non-virtual"><scope>RangedBoss</scope><name>pos</name></member>
+      <member refid="d8/d12/class_ranged_boss_1a11a8f66fdb7265ac18f38e8db96b3827" prot="public" virt="non-virtual"><scope>RangedBoss</scope><name>RangedBoss</name></member>
+      <member refid="d7/d5f/class_ranged_enemy_1ad3ef88fd54dfba53f6c8ccac3dc9a37a" prot="public" virt="non-virtual"><scope>RangedBoss</scope><name>RangedEnemy</name></member>
+      <member refid="d8/d3d/class_render_object_1a8305c2fbd72a10a13a3a875bd4a87933" prot="public" virt="virtual"><scope>RangedBoss</scope><name>setOrigin</name></member>
+      <member refid="d8/d3d/class_render_object_1a610e8015f78f4028be442da1b73257a3" prot="public" virt="virtual"><scope>RangedBoss</scope><name>setPosition</name></member>
+      <member refid="d8/d3d/class_render_object_1a448ffcd3998836202f845073e2e906a4" prot="public" virt="virtual"><scope>RangedBoss</scope><name>setScale</name></member>
+      <member refid="d8/d3d/class_render_object_1ad6a393d95fec7397d41647eaf18b4677" prot="public" virt="non-virtual"><scope>RangedBoss</scope><name>setTexture</name></member>
+      <member refid="d8/d12/class_ranged_boss_1ae4e40578d9babf4a141294a0470a70f9" prot="public" virt="virtual"><scope>RangedBoss</scope><name>shoot</name></member>
+      <member refid="d8/d12/class_ranged_boss_1aec2ddc7843f0ea5777012fe2f9ebd4f4" prot="private" virt="non-virtual"><scope>RangedBoss</scope><name>shootTimer</name></member>
+      <member refid="d8/d3d/class_render_object_1aecc430f82613dc1e4ca7b7c9a87db891" prot="public" virt="non-virtual"><scope>RangedBoss</scope><name>shouldDraw</name></member>
+      <member refid="d8/d3d/class_render_object_1a68a180ca61609043defd4e9362f87b44" prot="protected" virt="non-virtual"><scope>RangedBoss</scope><name>sprite</name></member>
+      <member refid="d8/d12/class_ranged_boss_1a04fc13c6cc1ed12ec28425dfaeee47e4" prot="private" virt="non-virtual"><scope>RangedBoss</scope><name>step</name></member>
+      <member refid="d8/d12/class_ranged_boss_1a1cfc7b09aaac9c61979c00f9f2a35bc6" prot="public" virt="virtual"><scope>RangedBoss</scope><name>takeDamage</name></member>
+      <member refid="d8/d12/class_ranged_boss_1a744a1e79d23b39b73a375632c0666f95" prot="private" virt="non-virtual"><scope>RangedBoss</scope><name>timeBetweenShots</name></member>
+      <member refid="d8/d3d/class_render_object_1a29345f8ebe01d91c928a2b77840dadbf" prot="public" virt="non-virtual"><scope>RangedBoss</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

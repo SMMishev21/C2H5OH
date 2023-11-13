@@ -1,0 +1,190 @@
+.TH "RangedBoss" 3 "C2H5OH" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RangedBoss
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <RangedBoss\&.hpp>\fP
+.PP
+Inherits \fBRangedEnemy\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRangedBoss\fP ()"
+.br
+.ti -1c
+.RI "void \fBinit\fP (Texture &texture, Vector2f position, char \fBtype\fP) override"
+.br
+.ti -1c
+.RI "void \fBtakeDamage\fP (float \fBdamage\fP)"
+.br
+.ti -1c
+.RI "void \fBaiMove\fP (\fBPlayer\fP *plr, Clock &iFrames, float dt, std::vector< \fBEnemy\fP * > &enemies, bool &dash, std::vector< \fBRenderObject\fP * > &renderObjects, std::vector< \fBBullet\fP * > &bullets, std::mutex &m) override"
+.br
+.ti -1c
+.RI "void \fBshoot\fP (\fBPlayer\fP *plr, std::vector< \fBRenderObject\fP * > &renderObjects, std::vector< \fBBullet\fP * > &bullets, std::mutex &m)"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBRangedEnemy\fP
+.in +1c
+.ti -1c
+.RI "\fBRangedEnemy\fP ()"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBEnemy\fP
+.in +1c
+.ti -1c
+.RI "void \fBmove\fP (Vector2f offset) override"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (RenderWindow &window) override"
+.br
+.ti -1c
+.RI "float \fBgetHp\fP ()"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "virtual void \fBsetPosition\fP (Vector2f position)"
+.br
+.ti -1c
+.RI "virtual void \fBsetOrigin\fP (Vector2f origin)"
+.br
+.ti -1c
+.RI "virtual void \fBsetScale\fP (Vector2f scale)"
+.br
+.ti -1c
+.RI "virtual Vector2f \fBgetPosition\fP ()"
+.br
+.ti -1c
+.RI "Vector2f \fBgetSize\fP ()"
+.br
+.ti -1c
+.RI "Sprite \fBgetSprite\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetTexture\fP (Texture &texture)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "Clock \fBshootTimer\fP"
+.br
+.ti -1c
+.RI "Texture \fBbulletTexture\fP"
+.br
+.ti -1c
+.RI "int \fBlastAttack\fP"
+.br
+.ti -1c
+.RI "int \fBstep\fP"
+.br
+.ti -1c
+.RI "int \fBattackStepSize\fP [3]"
+.br
+.ti -1c
+.RI "int \fBattack\fP"
+.br
+.ti -1c
+.RI "float \fBtimeBetweenShots\fP"
+.br
+.ti -1c
+.RI "float \fBangle\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Public Attributes inherited from \fBEnemy\fP
+.in +1c
+.ti -1c
+.RI "\fBEllipseHitbox\fP * \fBhitbox\fP"
+.br
+.ti -1c
+.RI "float \fBdamage\fP"
+.br
+.in -1c
+
+Public Attributes inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "char \fBtype\fP"
+.br
+.ti -1c
+.RI "bool \fBshouldDraw\fP { true }"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBEnemy\fP
+.in +1c
+.ti -1c
+.RI "float \fBhp\fP { 100 }"
+.br
+.ti -1c
+.RI "RectangleShape \fBhealthBar\fP"
+.br
+.ti -1c
+.RI "Vector2f \fBpos\fP"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "Sprite \fBsprite\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "RangedBoss::RangedBoss ()"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void RangedBoss::aiMove (\fBPlayer\fP * plr, Clock & iFrames, float dt, std::vector< \fBEnemy\fP * > & enemies, bool & dash, std::vector< \fBRenderObject\fP * > & renderObjects, std::vector< \fBBullet\fP * > & bullets, std::mutex & m)\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBRangedEnemy\fP\&.
+.SS "void RangedBoss::init (Texture & texture, Vector2f position, char type)\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBEnemy\fP\&.
+.SS "void RangedBoss::shoot (\fBPlayer\fP * plr, std::vector< \fBRenderObject\fP * > & renderObjects, std::vector< \fBBullet\fP * > & bullets, std::mutex & m)\fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBRangedEnemy\fP\&.
+.SS "void RangedBoss::takeDamage (float damage)\fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBEnemy\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "float RangedBoss::angle\fC [private]\fP"
+
+.SS "int RangedBoss::attack\fC [private]\fP"
+
+.SS "int RangedBoss::attackStepSize[3]\fC [private]\fP"
+
+.SS "Texture RangedBoss::bulletTexture\fC [private]\fP"
+
+.SS "int RangedBoss::lastAttack\fC [private]\fP"
+
+.SS "Clock RangedBoss::shootTimer\fC [private]\fP"
+
+.SS "int RangedBoss::step\fC [private]\fP"
+
+.SS "float RangedBoss::timeBetweenShots\fC [private]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for C2H5OH from the source code\&.

@@ -1,0 +1,264 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="d8/d53/class_player" kind="class" language="C++" prot="public">
+    <compoundname>Player</compoundname>
+    <basecompoundref refid="d8/d3d/class_render_object" prot="public" virt="non-virtual">RenderObject</basecompoundref>
+    <includes refid="d0/d16/_player_8hpp" local="no">Player.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d8/d53/class_player_1a0308cdee5f6c00288c9750c3b13bd97d" prot="public" static="no" mutable="no">
+        <type><ref refid="d2/d84/class_ellipse_hitbox" kindref="compound">EllipseHitbox</ref> *</type>
+        <definition>EllipseHitbox* Player::hitbox</definition>
+        <argsstring></argsstring>
+        <name>hitbox</name>
+        <qualifiedname>Player::hitbox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Player.hpp" line="12" column="15" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Player.hpp" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d53/class_player_1a9f08ebba835bfb8408cbf92bffea441e" prot="public" static="no" mutable="no">
+        <type><ref refid="d2/d84/class_ellipse_hitbox" kindref="compound">EllipseHitbox</ref> *</type>
+        <definition>EllipseHitbox* Player::collisionHitbox</definition>
+        <argsstring></argsstring>
+        <name>collisionHitbox</name>
+        <qualifiedname>Player::collisionHitbox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Player.hpp" line="13" column="15" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Player.hpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d53/class_player_1aad33b52bfe73c4c978a3135172f286a0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Player::health</definition>
+        <argsstring></argsstring>
+        <name>health</name>
+        <qualifiedname>Player::health</qualifiedname>
+        <initializer>{ 100 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Player.hpp" line="20" column="5" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Player.hpp" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d53/class_player_1a770942101eff683b030edde9f730d537" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Player::speed</definition>
+        <argsstring></argsstring>
+        <name>speed</name>
+        <qualifiedname>Player::speed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Player.hpp" line="21" column="7" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Player.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d53/class_player_1ae2dc69f671894d144c344f046ca8cf9b" prot="public" static="no" mutable="no">
+        <type>Vector2f</type>
+        <definition>Vector2f Player::velocity</definition>
+        <argsstring></argsstring>
+        <name>velocity</name>
+        <qualifiedname>Player::velocity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Player.hpp" line="22" column="10" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Player.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d53/class_player_1a86da08ebb8ae7fd1fac0b931e2375159" prot="public" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, int &gt;</type>
+        <definition>std::unordered_map&lt;std::string, int&gt; Player::inventory</definition>
+        <argsstring></argsstring>
+        <name>inventory</name>
+        <qualifiedname>Player::inventory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Player.hpp" line="23" column="20" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Player.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d8/d53/class_player_1a12eafa4e6f433a49fa83c454252dd63e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Player::init</definition>
+        <argsstring>(Texture &amp;texture, Vector2f position, char type) override</argsstring>
+        <name>init</name>
+        <qualifiedname>Player::init</qualifiedname>
+        <reimplements refid="d8/d3d/class_render_object_1a57ea4112279a6fa8238b831df04e9907">init</reimplements>
+        <param>
+          <type>Texture &amp;</type>
+          <declname>texture</declname>
+        </param>
+        <param>
+          <type>Vector2f</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Player.hpp" line="15" column="6" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Player.cpp" bodystart="4" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d53/class_player_1ac4413e178e18d0255fe7e38cf7dfdb2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::setPlayerInfo</definition>
+        <argsstring>(int health, float speed)</argsstring>
+        <name>setPlayerInfo</name>
+        <qualifiedname>Player::setPlayerInfo</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>health</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>speed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Player.hpp" line="16" column="6" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Player.cpp" bodystart="18" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d53/class_player_1af97f9b32912f28fdcdad1785d515cd2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::takeDamage</definition>
+        <argsstring>(int damage)</argsstring>
+        <name>takeDamage</name>
+        <qualifiedname>Player::takeDamage</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>damage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Player.hpp" line="17" column="6" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Player.cpp" bodystart="23" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d53/class_player_1a69c18b28cd4bab86be4158d1b66d835c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Player::move</definition>
+        <argsstring>(Vector2f offset) override</argsstring>
+        <name>move</name>
+        <qualifiedname>Player::move</qualifiedname>
+        <reimplements refid="d8/d3d/class_render_object_1aa66db6e5382da7932a8480e5bcc70776">move</reimplements>
+        <param>
+          <type>Vector2f</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Player.hpp" line="18" column="6" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Player.cpp" bodystart="27" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d53/class_player_1a917b4bde604f3238ced6f026108226b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Player::setPosition</definition>
+        <argsstring>(Vector2f newPosition) override</argsstring>
+        <name>setPosition</name>
+        <qualifiedname>Player::setPosition</qualifiedname>
+        <reimplements refid="d8/d3d/class_render_object_1a610e8015f78f4028be442da1b73257a3">setPosition</reimplements>
+        <param>
+          <type>Vector2f</type>
+          <declname>newPosition</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Player.hpp" line="19" column="6" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Player.cpp" bodystart="33" bodyend="37"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Player</label>
+        <link refid="d8/d53/class_player"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RenderObject</label>
+        <link refid="d8/d3d/class_render_object"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>EllipseHitbox</label>
+        <link refid="d2/d84/class_ellipse_hitbox"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Player</label>
+        <link refid="d8/d53/class_player"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>collisionHitbox</edgelabel>
+          <edgelabel>hitbox</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RenderObject</label>
+        <link refid="d8/d3d/class_render_object"/>
+      </node>
+    </collaborationgraph>
+    <location file="D:/projects/coding/C2H5OH/C2H5OH/Player.hpp" line="8" column="1" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Player.hpp" bodystart="8" bodyend="24"/>
+    <listofallmembers>
+      <member refid="d8/d53/class_player_1a9f08ebba835bfb8408cbf92bffea441e" prot="public" virt="non-virtual"><scope>Player</scope><name>collisionHitbox</name></member>
+      <member refid="d8/d3d/class_render_object_1ae74e7cc67685a9f47eba43fa7afe63a4" prot="public" virt="virtual"><scope>Player</scope><name>draw</name></member>
+      <member refid="d8/d3d/class_render_object_1a1d1f93bce3161eb284a37c7581625bb7" prot="public" virt="virtual"><scope>Player</scope><name>getPosition</name></member>
+      <member refid="d8/d3d/class_render_object_1a82e4d119e2fc84a7a7b609ab854ba89a" prot="public" virt="non-virtual"><scope>Player</scope><name>getSize</name></member>
+      <member refid="d8/d3d/class_render_object_1a84d185d9a2d3963d0de8eda80cb2bc9d" prot="public" virt="non-virtual"><scope>Player</scope><name>getSprite</name></member>
+      <member refid="d8/d53/class_player_1aad33b52bfe73c4c978a3135172f286a0" prot="public" virt="non-virtual"><scope>Player</scope><name>health</name></member>
+      <member refid="d8/d53/class_player_1a0308cdee5f6c00288c9750c3b13bd97d" prot="public" virt="non-virtual"><scope>Player</scope><name>hitbox</name></member>
+      <member refid="d8/d53/class_player_1a12eafa4e6f433a49fa83c454252dd63e" prot="public" virt="virtual"><scope>Player</scope><name>init</name></member>
+      <member refid="d8/d53/class_player_1a86da08ebb8ae7fd1fac0b931e2375159" prot="public" virt="non-virtual"><scope>Player</scope><name>inventory</name></member>
+      <member refid="d8/d53/class_player_1a69c18b28cd4bab86be4158d1b66d835c" prot="public" virt="virtual"><scope>Player</scope><name>move</name></member>
+      <member refid="d8/d3d/class_render_object_1a8305c2fbd72a10a13a3a875bd4a87933" prot="public" virt="virtual"><scope>Player</scope><name>setOrigin</name></member>
+      <member refid="d8/d53/class_player_1ac4413e178e18d0255fe7e38cf7dfdb2c" prot="public" virt="non-virtual"><scope>Player</scope><name>setPlayerInfo</name></member>
+      <member refid="d8/d53/class_player_1a917b4bde604f3238ced6f026108226b2" prot="public" virt="virtual"><scope>Player</scope><name>setPosition</name></member>
+      <member refid="d8/d3d/class_render_object_1a448ffcd3998836202f845073e2e906a4" prot="public" virt="virtual"><scope>Player</scope><name>setScale</name></member>
+      <member refid="d8/d3d/class_render_object_1ad6a393d95fec7397d41647eaf18b4677" prot="public" virt="non-virtual"><scope>Player</scope><name>setTexture</name></member>
+      <member refid="d8/d3d/class_render_object_1aecc430f82613dc1e4ca7b7c9a87db891" prot="public" virt="non-virtual"><scope>Player</scope><name>shouldDraw</name></member>
+      <member refid="d8/d53/class_player_1a770942101eff683b030edde9f730d537" prot="public" virt="non-virtual"><scope>Player</scope><name>speed</name></member>
+      <member refid="d8/d3d/class_render_object_1a68a180ca61609043defd4e9362f87b44" prot="protected" virt="non-virtual"><scope>Player</scope><name>sprite</name></member>
+      <member refid="d8/d53/class_player_1af97f9b32912f28fdcdad1785d515cd2d" prot="public" virt="non-virtual"><scope>Player</scope><name>takeDamage</name></member>
+      <member refid="d8/d3d/class_render_object_1a29345f8ebe01d91c928a2b77840dadbf" prot="public" virt="non-virtual"><scope>Player</scope><name>type</name></member>
+      <member refid="d8/d53/class_player_1ae2dc69f671894d144c344f046ca8cf9b" prot="public" virt="non-virtual"><scope>Player</scope><name>velocity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

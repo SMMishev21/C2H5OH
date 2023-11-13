@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="d1/d49/class_walker" kind="class" language="C++" prot="public">
+    <compoundname>Walker</compoundname>
+    <basecompoundref refid="dd/d7a/class_enemy" prot="public" virt="non-virtual">Enemy</basecompoundref>
+    <includes refid="d2/dd6/_walker_8hpp" local="no">Walker.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d1/d49/class_walker_1a8e2addd081ebbd0f8049961c1123f828" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Walker::damage</definition>
+        <argsstring></argsstring>
+        <name>damage</name>
+        <qualifiedname>Walker::damage</qualifiedname>
+        <initializer>{20.f}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Walker.hpp" line="7" column="11" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Walker.hpp" bodystart="7" bodyend="7"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d1/d49/class_walker_1a34ab3fea1f452a602c496fe50d52ac96" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Walker::aiMove</definition>
+        <argsstring>(Player *plr, Clock &amp;iFrames, float dt, std::vector&lt; Enemy * &gt; &amp;enemies, bool &amp;dash, std::vector&lt; RenderObject * &gt; &amp;renderObjects, std::vector&lt; Bullet * &gt; &amp;bullets, std::mutex &amp;m) override</argsstring>
+        <name>aiMove</name>
+        <qualifiedname>Walker::aiMove</qualifiedname>
+        <reimplements refid="dd/d7a/class_enemy_1abff01ca5670b8c406fd36dcae43f6ea3">aiMove</reimplements>
+        <param>
+          <type><ref refid="d8/d53/class_player" kindref="compound">Player</ref> *</type>
+          <declname>plr</declname>
+        </param>
+        <param>
+          <type>Clock &amp;</type>
+          <declname>iFrames</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dt</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="dd/d7a/class_enemy" kindref="compound">Enemy</ref> * &gt; &amp;</type>
+          <declname>enemies</declname>
+        </param>
+        <param>
+          <type>bool &amp;</type>
+          <declname>dash</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="d8/d3d/class_render_object" kindref="compound">RenderObject</ref> * &gt; &amp;</type>
+          <declname>renderObjects</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="d2/dbe/class_bullet" kindref="compound">Bullet</ref> * &gt; &amp;</type>
+          <declname>bullets</declname>
+        </param>
+        <param>
+          <type>std::mutex &amp;</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Walker.hpp" line="8" column="10" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Walker.cpp" bodystart="4" bodyend="35"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Enemy</label>
+        <link refid="dd/d7a/class_enemy"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>RenderObject</label>
+        <link refid="d8/d3d/class_render_object"/>
+      </node>
+      <node id="1">
+        <label>Walker</label>
+        <link refid="d1/d49/class_walker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>EllipseHitbox</label>
+        <link refid="d2/d84/class_ellipse_hitbox"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Enemy</label>
+        <link refid="dd/d7a/class_enemy"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>hitbox</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>RenderObject</label>
+        <link refid="d8/d3d/class_render_object"/>
+      </node>
+      <node id="1">
+        <label>Walker</label>
+        <link refid="d1/d49/class_walker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/projects/coding/C2H5OH/C2H5OH/Walker.hpp" line="5" column="1" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Walker.hpp" bodystart="5" bodyend="9"/>
+    <listofallmembers>
+      <member refid="d1/d49/class_walker_1a34ab3fea1f452a602c496fe50d52ac96" prot="public" virt="virtual"><scope>Walker</scope><name>aiMove</name></member>
+      <member refid="d1/d49/class_walker_1a8e2addd081ebbd0f8049961c1123f828" prot="public" virt="non-virtual"><scope>Walker</scope><name>damage</name></member>
+      <member refid="dd/d7a/class_enemy_1a582d09158d692070f4becf68220bf6b6" prot="public" virt="virtual"><scope>Walker</scope><name>draw</name></member>
+      <member refid="dd/d7a/class_enemy_1a02b52b5c3d1effad96047ae788cc5507" prot="public" virt="non-virtual"><scope>Walker</scope><name>getHp</name></member>
+      <member refid="d8/d3d/class_render_object_1a1d1f93bce3161eb284a37c7581625bb7" prot="public" virt="virtual"><scope>Walker</scope><name>getPosition</name></member>
+      <member refid="d8/d3d/class_render_object_1a82e4d119e2fc84a7a7b609ab854ba89a" prot="public" virt="non-virtual"><scope>Walker</scope><name>getSize</name></member>
+      <member refid="d8/d3d/class_render_object_1a84d185d9a2d3963d0de8eda80cb2bc9d" prot="public" virt="non-virtual"><scope>Walker</scope><name>getSprite</name></member>
+      <member refid="dd/d7a/class_enemy_1ac0db47c80f9801160bd27458a25018a4" prot="protected" virt="non-virtual"><scope>Walker</scope><name>healthBar</name></member>
+      <member refid="dd/d7a/class_enemy_1a58106633fc5b501764611ebd16b9fcc1" prot="public" virt="non-virtual"><scope>Walker</scope><name>hitbox</name></member>
+      <member refid="dd/d7a/class_enemy_1a64049230ae39663dd5ccfd0a27b25474" prot="protected" virt="non-virtual"><scope>Walker</scope><name>hp</name></member>
+      <member refid="dd/d7a/class_enemy_1a2160db284c20b71c1cb1df76fc5e2636" prot="public" virt="virtual"><scope>Walker</scope><name>init</name></member>
+      <member refid="dd/d7a/class_enemy_1aa1e20b304c769713c6f15a95eb4724bb" prot="public" virt="virtual"><scope>Walker</scope><name>move</name></member>
+      <member refid="dd/d7a/class_enemy_1a1d50ff4dff13f15ffc608703f16f8575" prot="protected" virt="non-virtual"><scope>Walker</scope><name>pos</name></member>
+      <member refid="d8/d3d/class_render_object_1a8305c2fbd72a10a13a3a875bd4a87933" prot="public" virt="virtual"><scope>Walker</scope><name>setOrigin</name></member>
+      <member refid="d8/d3d/class_render_object_1a610e8015f78f4028be442da1b73257a3" prot="public" virt="virtual"><scope>Walker</scope><name>setPosition</name></member>
+      <member refid="d8/d3d/class_render_object_1a448ffcd3998836202f845073e2e906a4" prot="public" virt="virtual"><scope>Walker</scope><name>setScale</name></member>
+      <member refid="d8/d3d/class_render_object_1ad6a393d95fec7397d41647eaf18b4677" prot="public" virt="non-virtual"><scope>Walker</scope><name>setTexture</name></member>
+      <member refid="d8/d3d/class_render_object_1aecc430f82613dc1e4ca7b7c9a87db891" prot="public" virt="non-virtual"><scope>Walker</scope><name>shouldDraw</name></member>
+      <member refid="d8/d3d/class_render_object_1a68a180ca61609043defd4e9362f87b44" prot="protected" virt="non-virtual"><scope>Walker</scope><name>sprite</name></member>
+      <member refid="dd/d7a/class_enemy_1ae89eefd8e9478d7e4512bc24ca52a4b1" prot="public" virt="virtual"><scope>Walker</scope><name>takeDamage</name></member>
+      <member refid="d8/d3d/class_render_object_1a29345f8ebe01d91c928a2b77840dadbf" prot="public" virt="non-virtual"><scope>Walker</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

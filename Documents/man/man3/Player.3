@@ -1,0 +1,133 @@
+.TH "Player" 3 "C2H5OH" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Player
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Player\&.hpp>\fP
+.PP
+Inherits \fBRenderObject\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinit\fP (Texture &texture, Vector2f position, char \fBtype\fP) override"
+.br
+.ti -1c
+.RI "void \fBsetPlayerInfo\fP (int \fBhealth\fP, float \fBspeed\fP)"
+.br
+.ti -1c
+.RI "void \fBtakeDamage\fP (int damage)"
+.br
+.ti -1c
+.RI "void \fBmove\fP (Vector2f offset) override"
+.br
+.ti -1c
+.RI "void \fBsetPosition\fP (Vector2f newPosition) override"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "virtual void \fBsetOrigin\fP (Vector2f origin)"
+.br
+.ti -1c
+.RI "virtual void \fBdraw\fP (RenderWindow &window)"
+.br
+.ti -1c
+.RI "virtual void \fBsetScale\fP (Vector2f scale)"
+.br
+.ti -1c
+.RI "virtual Vector2f \fBgetPosition\fP ()"
+.br
+.ti -1c
+.RI "Vector2f \fBgetSize\fP ()"
+.br
+.ti -1c
+.RI "Sprite \fBgetSprite\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetTexture\fP (Texture &texture)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBEllipseHitbox\fP * \fBhitbox\fP"
+.br
+.ti -1c
+.RI "\fBEllipseHitbox\fP * \fBcollisionHitbox\fP"
+.br
+.ti -1c
+.RI "int \fBhealth\fP { 100 }"
+.br
+.ti -1c
+.RI "float \fBspeed\fP"
+.br
+.ti -1c
+.RI "Vector2f \fBvelocity\fP"
+.br
+.ti -1c
+.RI "std::unordered_map< std::string, int > \fBinventory\fP"
+.br
+.in -1c
+
+Public Attributes inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "char \fBtype\fP"
+.br
+.ti -1c
+.RI "bool \fBshouldDraw\fP { true }"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Attributes inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "Sprite \fBsprite\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "void Player::init (Texture & texture, Vector2f position, char type)\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBRenderObject\fP\&.
+.SS "void Player::move (Vector2f offset)\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBRenderObject\fP\&.
+.SS "void Player::setPlayerInfo (int health, float speed)"
+
+.SS "void Player::setPosition (Vector2f newPosition)\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBRenderObject\fP\&.
+.SS "void Player::takeDamage (int damage)"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBEllipseHitbox\fP* Player::collisionHitbox"
+
+.SS "int Player::health { 100 }"
+
+.SS "\fBEllipseHitbox\fP* Player::hitbox"
+
+.SS "std::unordered_map<std::string, int> Player::inventory"
+
+.SS "float Player::speed"
+
+.SS "Vector2f Player::velocity"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for C2H5OH from the source code\&.

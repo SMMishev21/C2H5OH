@@ -1,0 +1,30 @@
+\doxysection{Player.\+hpp}
+\hypertarget{_player_8hpp_source}{}\label{_player_8hpp_source}\index{D:/projects/coding/C2H5OH/C2H5OH/Player.hpp@{D:/projects/coding/C2H5OH/C2H5OH/Player.hpp}}
+\mbox{\hyperlink{_player_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{precompile_8hpp}{"{}precompile.hpp"{}}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{_render_object_8hpp}{"{}RenderObject.hpp"{}}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{_ellipse_hitbox_8hpp}{"{}EllipseHitbox.hpp"{}}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{_rectangle_hitbox_8hpp}{"{}RectangleHitbox.hpp"{}}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{unordered\_map}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class}\ \mbox{\hyperlink{class_player}{Player}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_render_object}{RenderObject}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_ellipse_hitbox}{EllipseHitbox}}*\ \mbox{\hyperlink{class_player_a0308cdee5f6c00288c9750c3b13bd97d}{hitbox}};}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_ellipse_hitbox}{EllipseHitbox}}*\ \mbox{\hyperlink{class_player_a9f08ebba835bfb8408cbf92bffea441e}{collisionHitbox}};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a12eafa4e6f433a49fa83c454252dd63e}{init}}(Texture\&\ texture,\ Vector2f\ position,\ \textcolor{keywordtype}{char}\ type)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_ac4413e178e18d0255fe7e38cf7dfdb2c}{setPlayerInfo}}(\textcolor{keywordtype}{int}\ health,\ \textcolor{keywordtype}{float}\ speed);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_af97f9b32912f28fdcdad1785d515cd2d}{takeDamage}}(\textcolor{keywordtype}{int}\ damage);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a69c18b28cd4bab86be4158d1b66d835c}{move}}(Vector2f\ offset)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a917b4bde604f3238ced6f026108226b2}{setPosition}}(Vector2f\ newPosition)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_player_aad33b52bfe73c4c978a3135172f286a0}{health}}\{\ 100\ \};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_player_a770942101eff683b030edde9f730d537}{speed}};}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_player_ae2dc69f671894d144c344f046ca8cf9b}{Vector2f}}\ \mbox{\hyperlink{class_player_ae2dc69f671894d144c344f046ca8cf9b}{velocity}};}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_player_a86da08ebb8ae7fd1fac0b931e2375159}{std}}::\mbox{\hyperlink{class_player_a86da08ebb8ae7fd1fac0b931e2375159}{unordered\_map}}<\mbox{\hyperlink{class_player_a86da08ebb8ae7fd1fac0b931e2375159}{std}}::\mbox{\hyperlink{class_player_a86da08ebb8ae7fd1fac0b931e2375159}{string}},\ \textcolor{keywordtype}{int}>\ \mbox{\hyperlink{class_player_a86da08ebb8ae7fd1fac0b931e2375159}{inventory}};}
+\DoxyCodeLine{00024\ \};}
+
+\end{DoxyCode}

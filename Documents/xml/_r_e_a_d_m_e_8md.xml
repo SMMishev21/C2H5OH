@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">&lt;p<sp/>align<sp/>=<sp/>&quot;center&quot;&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/>&lt;img<sp/>src<sp/>=<sp/>&quot;C2H5OH/assets/proekt.logo.png&quot;<sp/>alt<sp/>=<sp/>&quot;logo&quot;&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/>&lt;br&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;h1&gt;📖<sp/>Description<sp/>&lt;/h1&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>C2H5OH<sp/>is<sp/>our<sp/>team<sp/>name.<sp/>Our<sp/>goal<sp/>is<sp/>to<sp/>create<sp/>a<sp/>game<sp/>about<sp/>Chemistry<sp/>and<sp/>Biology</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;h1&gt;👥<sp/>Our<sp/>Team<sp/>&lt;/h1&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;p&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">1.<sp/>**Stiliyan<sp/>Mishev**<sp/>-<sp/>**Scrum<sp/>trainer**<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>&gt;<sp/>***GitHub<sp/>profile***:<sp/>[***SMMishev21***](https://github.com/SMMishev21)<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">2.<sp/>**Ivailo<sp/>Bachvarov**<sp/>-<sp/>**Backend<sp/>Developer**<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>&gt;<sp/>***GitHub<sp/>profile***:<sp/>[***ISBachvarov21***](https://github.com/ISBachvarov21)<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">3.<sp/>**Martin<sp/>Velkov**<sp/>-<sp/>**Backend<sp/>Developer**<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>&gt;<sp/>***GitHub<sp/>profile***:<sp/>[***MVVelkov21***](https://github.com/MVVelkov21)<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">4.<sp/>**Nikola<sp/>Paskov**<sp/>-<sp/>**Designer**<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>&gt;<sp/>***GitHub<sp/>profile***:<sp/>[***NTPaskov21***](https://github.com/NTPaskov21)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;/p&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;h1&gt;🌐💻<sp/>Used<sp/>technologies&lt;/h1&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;p<sp/>align=&quot;left&quot;&gt;<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;a&gt;<sp/>&lt;img<sp/>src=&quot;https://img.icons8.com/fluency/48/000000/visual-studio.png&quot;/&gt;<sp/>&lt;/a&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;a&gt;<sp/>&lt;img<sp/>src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/SFML2.svg/1280px-SFML2.svg.png&quot;<sp/>width=&quot;50&quot;<sp/>&lt;/a&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;a&gt;<sp/>&lt;img<sp/>src=&quot;https://img.icons8.com/color/48/000000/microsoft-teams.png&quot;/&gt;<sp/>&lt;/a&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>&lt;a&gt;<sp/>&lt;img<sp/>src=&quot;https://img.icons8.com/color/48/000000/microsoft-teams.png&quot;/&gt;<sp/>&lt;/a&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;a&gt;<sp/>&lt;img<sp/>src=&quot;https://img.icons8.com/color/48/000000/microsoft-word-2019--v2.png&quot;/&gt;<sp/><sp/>&lt;/a&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;a&gt;<sp/>&lt;img<sp/>src=&quot;https://img.icons8.com/color/48/000000/microsoft-powerpoint-2019--v1.png&quot;/&gt;<sp/><sp/>&lt;/a&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;a&gt;<sp/>&lt;img<sp/>src=&quot;https://img.icons8.com/color/48/000000/microsoft-excel-2019--v1.png&quot;&gt;&lt;/a&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;/p&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>&lt;h1&gt;📋<sp/>Documents&lt;/h1&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;p&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/>&lt;h2&gt;<sp/>&lt;a<sp/>href<sp/>=&quot;https://github.com/SMMishev21/C2H5OH/blob/main/Documents/Documentation.C2H5OH.docx&quot;<sp/>&gt;📜<sp/>Documentation&lt;/h2&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/>&lt;h2&gt;<sp/>&lt;a<sp/>href<sp/>=&quot;https://github.com/SMMishev21/C2H5OH/blob/main/Documents/Presentation.C2H5OH.pptx&quot;<sp/>&gt;📰<sp/>Presentation&lt;/h2&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;/p&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;p<sp/>align=&quot;center&quot;&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>***If<sp/>you<sp/>like<sp/>our<sp/>game<sp/>you<sp/>can<sp/>give<sp/>us<sp/>a<sp/>🥇***</highlight></codeline>
+    </programlisting>
+    <location file="D:/projects/coding/C2H5OH/README.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,107 @@
+.TH "RenderObject" 3 "C2H5OH" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RenderObject
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <RenderObject\&.hpp>\fP
+.PP
+Inherited by \fBBullet\fP, \fBChest\fP, \fBElement\fP, \fBEllipseHitbox\fP, \fBEnemy\fP, \fBMelee\fP, \fBPlayer\fP, \fBRanged\fP, \fBRectangleHitbox\fP, and \fBSquare\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual void \fBinit\fP (Texture &texture, Vector2f position, char \fBtype\fP)"
+.br
+.ti -1c
+.RI "virtual void \fBsetPosition\fP (Vector2f position)"
+.br
+.ti -1c
+.RI "virtual void \fBsetOrigin\fP (Vector2f origin)"
+.br
+.ti -1c
+.RI "virtual void \fBdraw\fP (RenderWindow &window)"
+.br
+.ti -1c
+.RI "virtual void \fBsetScale\fP (Vector2f scale)"
+.br
+.ti -1c
+.RI "virtual void \fBmove\fP (Vector2f offset)"
+.br
+.ti -1c
+.RI "virtual Vector2f \fBgetPosition\fP ()"
+.br
+.ti -1c
+.RI "Vector2f \fBgetSize\fP ()"
+.br
+.ti -1c
+.RI "Sprite \fBgetSprite\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetTexture\fP (Texture &texture)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "char \fBtype\fP"
+.br
+.ti -1c
+.RI "bool \fBshouldDraw\fP { true }"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "Sprite \fBsprite\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "void RenderObject::draw (RenderWindow & window)\fC [virtual]\fP"
+
+.PP
+Reimplemented in \fBEnemy\fP, and \fBRectangleHitbox\fP\&.
+.SS "Vector2f RenderObject::getPosition ()\fC [virtual]\fP"
+
+.PP
+Reimplemented in \fBEllipseHitbox\fP, and \fBRectangleHitbox\fP\&.
+.SS "Vector2f RenderObject::getSize ()"
+
+.SS "Sprite RenderObject::getSprite ()"
+
+.SS "void RenderObject::init (Texture & texture, Vector2f position, char type)\fC [virtual]\fP"
+
+.PP
+Reimplemented in \fBEnemy\fP, \fBPlayer\fP, and \fBRangedBoss\fP\&.
+.SS "void RenderObject::move (Vector2f offset)\fC [virtual]\fP"
+
+.PP
+Reimplemented in \fBEnemy\fP, and \fBPlayer\fP\&.
+.SS "void RenderObject::setOrigin (Vector2f origin)\fC [virtual]\fP"
+
+.SS "void RenderObject::setPosition (Vector2f position)\fC [virtual]\fP"
+
+.PP
+Reimplemented in \fBEllipseHitbox\fP, \fBRectangleHitbox\fP, and \fBPlayer\fP\&.
+.SS "void RenderObject::setScale (Vector2f scale)\fC [virtual]\fP"
+
+.SS "void RenderObject::setTexture (Texture & texture)"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "bool RenderObject::shouldDraw { true }"
+
+.SS "Sprite RenderObject::sprite\fC [protected]\fP"
+
+.SS "char RenderObject::type"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for C2H5OH from the source code\&.

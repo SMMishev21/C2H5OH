@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="d2/dec/precompile_8cpp" kind="file" language="C++">
+    <compoundname>precompile.cpp</compoundname>
+    <includes refid="d9/d98/precompile_8hpp" local="yes">precompile.hpp</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/precompile.cpp</label>
+        <link refid="d2/dec/precompile_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>precompile.hpp</label>
+        <link refid="d9/d98/precompile_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+      <node id="3">
+        <label>iostream</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d9/d98/precompile_8hpp" kindref="compound">precompile.hpp</ref>&quot;</highlight></codeline>
+    </programlisting>
+    <location file="D:/projects/coding/C2H5OH/C2H5OH/precompile.cpp"/>
+  </compounddef>
+</doxygen>

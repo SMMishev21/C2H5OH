@@ -1,0 +1,109 @@
+.TH "Chest" 3 "C2H5OH" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Chest
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Chest\&.hpp>\fP
+.PP
+Inherits \fBRenderObject\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "std::pair< std::string, int > \fBgetRandomElement\fP ()"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "virtual void \fBinit\fP (Texture &texture, Vector2f position, char \fBtype\fP)"
+.br
+.ti -1c
+.RI "virtual void \fBsetPosition\fP (Vector2f position)"
+.br
+.ti -1c
+.RI "virtual void \fBsetOrigin\fP (Vector2f origin)"
+.br
+.ti -1c
+.RI "virtual void \fBdraw\fP (RenderWindow &window)"
+.br
+.ti -1c
+.RI "virtual void \fBsetScale\fP (Vector2f scale)"
+.br
+.ti -1c
+.RI "virtual void \fBmove\fP (Vector2f offset)"
+.br
+.ti -1c
+.RI "virtual Vector2f \fBgetPosition\fP ()"
+.br
+.ti -1c
+.RI "Vector2f \fBgetSize\fP ()"
+.br
+.ti -1c
+.RI "Sprite \fBgetSprite\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetTexture\fP (Texture &texture)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBopened\fP { false }"
+.br
+.in -1c
+
+Public Attributes inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "char \fBtype\fP"
+.br
+.ti -1c
+.RI "bool \fBshouldDraw\fP { true }"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::vector< std::string > \fBelements\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Attributes inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "Sprite \fBsprite\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "std::pair< std::string, int > Chest::getRandomElement ()"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "std::vector<std::string> Chest::elements\fC [private]\fP"
+\fBInitial value:\fP.PP
+.nf
+= {
+        "carbon",
+        "hydrogen",
+        "nitrogen",
+        "oxygen"
+    }
+.fi
+
+.SS "bool Chest::opened { false }"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for C2H5OH from the source code\&.

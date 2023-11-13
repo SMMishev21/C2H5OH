@@ -1,0 +1,116 @@
+.TH "Bullet" 3 "C2H5OH" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Bullet
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Bullet\&.hpp>\fP
+.PP
+Inherits \fBRenderObject\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBullet\fP (float \fBdamage\fP, float \fBmaxDistance\fP, char \fBowner\fP)"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "virtual void \fBinit\fP (Texture &texture, Vector2f position, char \fBtype\fP)"
+.br
+.ti -1c
+.RI "virtual void \fBsetPosition\fP (Vector2f position)"
+.br
+.ti -1c
+.RI "virtual void \fBsetOrigin\fP (Vector2f origin)"
+.br
+.ti -1c
+.RI "virtual void \fBdraw\fP (RenderWindow &window)"
+.br
+.ti -1c
+.RI "virtual void \fBsetScale\fP (Vector2f scale)"
+.br
+.ti -1c
+.RI "virtual void \fBmove\fP (Vector2f offset)"
+.br
+.ti -1c
+.RI "virtual Vector2f \fBgetPosition\fP ()"
+.br
+.ti -1c
+.RI "Vector2f \fBgetSize\fP ()"
+.br
+.ti -1c
+.RI "Sprite \fBgetSprite\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetTexture\fP (Texture &texture)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "Vector2f \fBdirection\fP"
+.br
+.ti -1c
+.RI "float \fBspeed\fP"
+.br
+.ti -1c
+.RI "char \fBowner\fP"
+.br
+.ti -1c
+.RI "float \fBdamage\fP { 0 }"
+.br
+.ti -1c
+.RI "float \fBdistance\fP { 0 }"
+.br
+.ti -1c
+.RI "float \fBmaxDistance\fP { 0 }"
+.br
+.in -1c
+
+Public Attributes inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "char \fBtype\fP"
+.br
+.ti -1c
+.RI "bool \fBshouldDraw\fP { true }"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Attributes inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "Sprite \fBsprite\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Bullet::Bullet (float damage, float maxDistance, char owner)"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "float Bullet::damage { 0 }"
+
+.SS "Vector2f Bullet::direction"
+
+.SS "float Bullet::distance { 0 }"
+
+.SS "float Bullet::maxDistance { 0 }"
+
+.SS "char Bullet::owner"
+
+.SS "float Bullet::speed"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for C2H5OH from the source code\&.

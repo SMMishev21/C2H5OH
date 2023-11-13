@@ -1,0 +1,32 @@
+\doxysection{Render\+Object.\+hpp}
+\hypertarget{_render_object_8hpp_source}{}\label{_render_object_8hpp_source}\index{D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp@{D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp}}
+\mbox{\hyperlink{_render_object_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{precompile_8hpp}{"{}precompile.hpp"{}}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_render_object_8hpp_aa885125ce6d51e2f3df0a0b625d797e1}{clampMax}}(\textcolor{keywordtype}{float}\ n,\ \textcolor{keywordtype}{float}\ lower,\ \textcolor{keywordtype}{float}\ upper);}
+\DoxyCodeLine{00005\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_render_object_8hpp_a15e8fbb1ec8884a941603755e95e634f}{clampMin}}(\textcolor{keywordtype}{float}\ n,\ \textcolor{keywordtype}{float}\ lower,\ \textcolor{keywordtype}{float}\ upper);}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class}\ \mbox{\hyperlink{class_render_object}{RenderObject}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_render_object_a68a180ca61609043defd4e9362f87b44}{Sprite}}\ \mbox{\hyperlink{class_render_object_a68a180ca61609043defd4e9362f87b44}{sprite}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_object_a57ea4112279a6fa8238b831df04e9907}{init}}(Texture\&\ texture,\ Vector2f\ position,\ \textcolor{keywordtype}{char}\ type);}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_object_a610e8015f78f4028be442da1b73257a3}{setPosition}}(Vector2f\ position);}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_object_a8305c2fbd72a10a13a3a875bd4a87933}{setOrigin}}(Vector2f\ origin);}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_object_ae74e7cc67685a9f47eba43fa7afe63a4}{draw}}(RenderWindow\&\ window);}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_object_a448ffcd3998836202f845073e2e906a4}{setScale}}(Vector2f\ scale);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_object_aa66db6e5382da7932a8480e5bcc70776}{move}}(Vector2f\ offset);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_render_object_a1d1f93bce3161eb284a37c7581625bb7}{Vector2f}}\ \mbox{\hyperlink{class_render_object_a1d1f93bce3161eb284a37c7581625bb7}{getPosition}}();}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_render_object_a82e4d119e2fc84a7a7b609ab854ba89a}{Vector2f}}\ \mbox{\hyperlink{class_render_object_a82e4d119e2fc84a7a7b609ab854ba89a}{getSize}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_render_object_a84d185d9a2d3963d0de8eda80cb2bc9d}{Sprite}}\ \mbox{\hyperlink{class_render_object_a84d185d9a2d3963d0de8eda80cb2bc9d}{getSprite}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_object_ad6a393d95fec7397d41647eaf18b4677}{setTexture}}(Texture\&\ texture);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}{type}};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_render_object_aecc430f82613dc1e4ca7b7c9a87db891}{shouldDraw}}\{\ \textcolor{keyword}{true}\ \};}
+\DoxyCodeLine{00026\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,163 @@
+\doxysection{Rectangle\+Hitbox Class Reference}
+\hypertarget{class_rectangle_hitbox}{}\label{class_rectangle_hitbox}\index{RectangleHitbox@{RectangleHitbox}}
+
+
+{\ttfamily \#include $<$Rectangle\+Hitbox.\+hpp$>$}
+
+Inheritance diagram for Rectangle\+Hitbox\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dd/d67/class_rectangle_hitbox}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_rectangle_hitbox_a745c2a17c8c9f0e418ff79f7a695dd4c}{Rectangle\+Hitbox}} ()
+\item 
+\mbox{\hyperlink{class_rectangle_hitbox_a2148aaecb74cfa8ddc5e5f523d2579a2}{Rectangle\+Hitbox}} (Vector2f \mbox{\hyperlink{class_rectangle_hitbox_a29b1517748630e761d00ab4ddb9cba10}{position}}, Vector2f \mbox{\hyperlink{class_rectangle_hitbox_a6ce7825157aa4f7dac0844439c261651}{size}})
+\item 
+void \mbox{\hyperlink{class_rectangle_hitbox_a5a7661a11e48a7a06ec7534f736c3c3b}{set\+Position}} (Vector2f new\+Position)
+\item 
+Vector2f \mbox{\hyperlink{class_rectangle_hitbox_aaf7577df1d572bff07d634ef2bcec7b2}{get\+Position}} ()
+\item 
+void \mbox{\hyperlink{class_rectangle_hitbox_a9992ab985aa066e56fa499587424facf}{set\+Size}} (Vector2f new\+Size)
+\item 
+Vector2f \mbox{\hyperlink{class_rectangle_hitbox_a54fbb8f9de53c165e721f4659c7b2d2e}{get\+Size}} ()
+\item 
+Vector2f \mbox{\hyperlink{class_rectangle_hitbox_ac98e04b16665187969615762f81716c8}{check\+Overlap\+Rectangle}} (Vector2f rectangle\+Position, Vector2f rectangle\+Size)
+\item 
+void \mbox{\hyperlink{class_rectangle_hitbox_a996a55abeb71a304061d6c0f9c51bf41}{draw}} (Render\+Window \&window) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a57ea4112279a6fa8238b831df04e9907}{init}} (Texture \&texture, Vector2f position, char \mbox{\hyperlink{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}{type}})
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a8305c2fbd72a10a13a3a875bd4a87933}{set\+Origin}} (Vector2f origin)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a448ffcd3998836202f845073e2e906a4}{set\+Scale}} (Vector2f scale)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_aa66db6e5382da7932a8480e5bcc70776}{move}} (Vector2f offset)
+\item 
+Vector2f \mbox{\hyperlink{class_render_object_a82e4d119e2fc84a7a7b609ab854ba89a}{get\+Size}} ()
+\item 
+Sprite \mbox{\hyperlink{class_render_object_a84d185d9a2d3963d0de8eda80cb2bc9d}{get\+Sprite}} ()
+\item 
+void \mbox{\hyperlink{class_render_object_ad6a393d95fec7397d41647eaf18b4677}{set\+Texture}} (Texture \&texture)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Vector2f \mbox{\hyperlink{class_rectangle_hitbox_a29b1517748630e761d00ab4ddb9cba10}{position}}
+\item 
+Vector2f \mbox{\hyperlink{class_rectangle_hitbox_a6ce7825157aa4f7dac0844439c261651}{size}}
+\item 
+Rectangle\+Shape \mbox{\hyperlink{class_rectangle_hitbox_ae4f45d76e3857b92cc3ebaf185ff81e3}{wire\+Mesh}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}{type}}
+\item 
+bool \mbox{\hyperlink{class_render_object_aecc430f82613dc1e4ca7b7c9a87db891}{should\+Draw}} \{ true \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+Sprite \mbox{\hyperlink{class_render_object_a68a180ca61609043defd4e9362f87b44}{sprite}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_rectangle_hitbox_a745c2a17c8c9f0e418ff79f7a695dd4c}\label{class_rectangle_hitbox_a745c2a17c8c9f0e418ff79f7a695dd4c} 
+\index{RectangleHitbox@{RectangleHitbox}!RectangleHitbox@{RectangleHitbox}}
+\index{RectangleHitbox@{RectangleHitbox}!RectangleHitbox@{RectangleHitbox}}
+\doxysubsubsection{\texorpdfstring{RectangleHitbox()}{RectangleHitbox()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Rectangle\+Hitbox\+::\+Rectangle\+Hitbox (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_rectangle_hitbox_a2148aaecb74cfa8ddc5e5f523d2579a2}\label{class_rectangle_hitbox_a2148aaecb74cfa8ddc5e5f523d2579a2} 
+\index{RectangleHitbox@{RectangleHitbox}!RectangleHitbox@{RectangleHitbox}}
+\index{RectangleHitbox@{RectangleHitbox}!RectangleHitbox@{RectangleHitbox}}
+\doxysubsubsection{\texorpdfstring{RectangleHitbox()}{RectangleHitbox()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Rectangle\+Hitbox\+::\+Rectangle\+Hitbox (\begin{DoxyParamCaption}\item[{Vector2f}]{position,  }\item[{Vector2f}]{size }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_rectangle_hitbox_ac98e04b16665187969615762f81716c8}\label{class_rectangle_hitbox_ac98e04b16665187969615762f81716c8} 
+\index{RectangleHitbox@{RectangleHitbox}!checkOverlapRectangle@{checkOverlapRectangle}}
+\index{checkOverlapRectangle@{checkOverlapRectangle}!RectangleHitbox@{RectangleHitbox}}
+\doxysubsubsection{\texorpdfstring{checkOverlapRectangle()}{checkOverlapRectangle()}}
+{\footnotesize\ttfamily Vector2f Rectangle\+Hitbox\+::check\+Overlap\+Rectangle (\begin{DoxyParamCaption}\item[{Vector2f}]{rectangle\+Position,  }\item[{Vector2f}]{rectangle\+Size }\end{DoxyParamCaption})}
+
+\Hypertarget{class_rectangle_hitbox_a996a55abeb71a304061d6c0f9c51bf41}\label{class_rectangle_hitbox_a996a55abeb71a304061d6c0f9c51bf41} 
+\index{RectangleHitbox@{RectangleHitbox}!draw@{draw}}
+\index{draw@{draw}!RectangleHitbox@{RectangleHitbox}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Rectangle\+Hitbox\+::draw (\begin{DoxyParamCaption}\item[{Render\+Window \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_render_object_ae74e7cc67685a9f47eba43fa7afe63a4}{Render\+Object}}.
+
+\Hypertarget{class_rectangle_hitbox_aaf7577df1d572bff07d634ef2bcec7b2}\label{class_rectangle_hitbox_aaf7577df1d572bff07d634ef2bcec7b2} 
+\index{RectangleHitbox@{RectangleHitbox}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!RectangleHitbox@{RectangleHitbox}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily Vector2f Rectangle\+Hitbox\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_render_object_a1d1f93bce3161eb284a37c7581625bb7}{Render\+Object}}.
+
+\Hypertarget{class_rectangle_hitbox_a54fbb8f9de53c165e721f4659c7b2d2e}\label{class_rectangle_hitbox_a54fbb8f9de53c165e721f4659c7b2d2e} 
+\index{RectangleHitbox@{RectangleHitbox}!getSize@{getSize}}
+\index{getSize@{getSize}!RectangleHitbox@{RectangleHitbox}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily Vector2f Rectangle\+Hitbox\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_rectangle_hitbox_a5a7661a11e48a7a06ec7534f736c3c3b}\label{class_rectangle_hitbox_a5a7661a11e48a7a06ec7534f736c3c3b} 
+\index{RectangleHitbox@{RectangleHitbox}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!RectangleHitbox@{RectangleHitbox}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void Rectangle\+Hitbox\+::set\+Position (\begin{DoxyParamCaption}\item[{Vector2f}]{new\+Position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_render_object_a610e8015f78f4028be442da1b73257a3}{Render\+Object}}.
+
+\Hypertarget{class_rectangle_hitbox_a9992ab985aa066e56fa499587424facf}\label{class_rectangle_hitbox_a9992ab985aa066e56fa499587424facf} 
+\index{RectangleHitbox@{RectangleHitbox}!setSize@{setSize}}
+\index{setSize@{setSize}!RectangleHitbox@{RectangleHitbox}}
+\doxysubsubsection{\texorpdfstring{setSize()}{setSize()}}
+{\footnotesize\ttfamily void Rectangle\+Hitbox\+::set\+Size (\begin{DoxyParamCaption}\item[{Vector2f}]{new\+Size }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_rectangle_hitbox_a29b1517748630e761d00ab4ddb9cba10}\label{class_rectangle_hitbox_a29b1517748630e761d00ab4ddb9cba10} 
+\index{RectangleHitbox@{RectangleHitbox}!position@{position}}
+\index{position@{position}!RectangleHitbox@{RectangleHitbox}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily Vector2f Rectangle\+Hitbox\+::position\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_rectangle_hitbox_a6ce7825157aa4f7dac0844439c261651}\label{class_rectangle_hitbox_a6ce7825157aa4f7dac0844439c261651} 
+\index{RectangleHitbox@{RectangleHitbox}!size@{size}}
+\index{size@{size}!RectangleHitbox@{RectangleHitbox}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily Vector2f Rectangle\+Hitbox\+::size\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_rectangle_hitbox_ae4f45d76e3857b92cc3ebaf185ff81e3}\label{class_rectangle_hitbox_ae4f45d76e3857b92cc3ebaf185ff81e3} 
+\index{RectangleHitbox@{RectangleHitbox}!wireMesh@{wireMesh}}
+\index{wireMesh@{wireMesh}!RectangleHitbox@{RectangleHitbox}}
+\doxysubsubsection{\texorpdfstring{wireMesh}{wireMesh}}
+{\footnotesize\ttfamily Rectangle\+Shape Rectangle\+Hitbox\+::wire\+Mesh\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/projects/coding/\+C2\+H5\+OH/\+C2\+H5\+OH/\mbox{\hyperlink{_rectangle_hitbox_8hpp}{Rectangle\+Hitbox.\+hpp}}\item 
+D\+:/projects/coding/\+C2\+H5\+OH/\+C2\+H5\+OH/\mbox{\hyperlink{_rectangle_hitbox_8cpp}{Rectangle\+Hitbox.\+cpp}}\end{DoxyCompactItemize}

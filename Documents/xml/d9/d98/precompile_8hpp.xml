@@ -1,0 +1,342 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="d9/d98/precompile_8hpp" kind="file" language="C++">
+    <compoundname>precompile.hpp</compoundname>
+    <includes local="no">iostream</includes>
+    <includes local="no">SFML/Graphics.hpp</includes>
+    <includes local="no">string</includes>
+    <includedby refid="d7/dcd/_bullet_8cpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/Bullet.cpp</includedby>
+    <includedby refid="dd/d51/_c2_h5_o_h_8cpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/C2H5OH.cpp</includedby>
+    <includedby refid="d8/d67/_chest_8cpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/Chest.cpp</includedby>
+    <includedby refid="d7/d24/_chest_8hpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/Chest.hpp</includedby>
+    <includedby refid="d7/d5b/_ellipse_hitbox_8cpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/EllipseHitbox.cpp</includedby>
+    <includedby refid="d6/dde/_ellipse_hitbox_8hpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/EllipseHitbox.hpp</includedby>
+    <includedby refid="de/d34/_enemy_8cpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/Enemy.cpp</includedby>
+    <includedby refid="da/dda/_enemy_8hpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/Enemy.hpp</includedby>
+    <includedby refid="d7/db5/_game_8cpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/Game.cpp</includedby>
+    <includedby refid="d2/d07/_game_8hpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/Game.hpp</includedby>
+    <includedby refid="db/d54/_item_8cpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/Item.cpp</includedby>
+    <includedby refid="dd/daa/_item_8hpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/Item.hpp</includedby>
+    <includedby refid="d2/d82/_player_8cpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/Player.cpp</includedby>
+    <includedby refid="d0/d16/_player_8hpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/Player.hpp</includedby>
+    <includedby refid="d5/d7e/_ranged_boss_8cpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.cpp</includedby>
+    <includedby refid="d4/dce/_ranged_boss_8hpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp</includedby>
+    <includedby refid="d5/df0/_ranged_enemy_8cpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/RangedEnemy.cpp</includedby>
+    <includedby refid="db/da4/_ranged_enemy_8hpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/RangedEnemy.hpp</includedby>
+    <includedby refid="d8/d5a/_rectangle_hitbox_8cpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/RectangleHitbox.cpp</includedby>
+    <includedby refid="d8/d8a/_rectangle_hitbox_8hpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/RectangleHitbox.hpp</includedby>
+    <includedby refid="df/dd4/_render_object_8cpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/RenderObject.cpp</includedby>
+    <includedby refid="d2/d59/_render_object_8hpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp</includedby>
+    <includedby refid="da/dbe/_square_8cpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/Square.cpp</includedby>
+    <includedby refid="d3/da9/_square_8hpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/Square.hpp</includedby>
+    <includedby refid="d3/d11/_walker_8cpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/Walker.cpp</includedby>
+    <includedby refid="d2/dd6/_walker_8hpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/Walker.hpp</includedby>
+    <includedby refid="db/d43/_weapons_8cpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/Weapons.cpp</includedby>
+    <includedby refid="d7/daf/_weapons_8hpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp</includedby>
+    <includedby refid="d2/dec/precompile_8cpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/precompile.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/precompile.hpp</label>
+        <link refid="d9/d98/precompile_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+      <node id="2">
+        <label>iostream</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Bullet.cpp</label>
+        <link refid="d7/dcd/_bullet_8cpp"/>
+      </node>
+      <node id="28">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Bullet.hpp</label>
+        <link refid="d6/d65/_bullet_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/C2H5OH.cpp</label>
+        <link refid="dd/d51/_c2_h5_o_h_8cpp"/>
+      </node>
+      <node id="4">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Chest.cpp</label>
+        <link refid="d8/d67/_chest_8cpp"/>
+      </node>
+      <node id="5">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Chest.hpp</label>
+        <link refid="d7/d24/_chest_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/EllipseHitbox.cpp</label>
+        <link refid="d7/d5b/_ellipse_hitbox_8cpp"/>
+      </node>
+      <node id="9">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/EllipseHitbox.hpp</label>
+        <link refid="d6/dde/_ellipse_hitbox_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Enemy.cpp</label>
+        <link refid="de/d34/_enemy_8cpp"/>
+      </node>
+      <node id="11">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Enemy.hpp</label>
+        <link refid="da/dda/_enemy_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Game.cpp</label>
+        <link refid="d7/db5/_game_8cpp"/>
+      </node>
+      <node id="6">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Game.hpp</label>
+        <link refid="d2/d07/_game_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Item.cpp</label>
+        <link refid="db/d54/_item_8cpp"/>
+      </node>
+      <node id="23">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Item.hpp</label>
+        <link refid="dd/daa/_item_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Player.cpp</label>
+        <link refid="d2/d82/_player_8cpp"/>
+      </node>
+      <node id="10">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Player.hpp</label>
+        <link refid="d0/d16/_player_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.cpp</label>
+        <link refid="d5/d7e/_ranged_boss_8cpp"/>
+      </node>
+      <node id="14">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp</label>
+        <link refid="d4/dce/_ranged_boss_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/RangedEnemy.cpp</label>
+        <link refid="d5/df0/_ranged_enemy_8cpp"/>
+      </node>
+      <node id="13">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/RangedEnemy.hpp</label>
+        <link refid="db/da4/_ranged_enemy_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/RectangleHitbox.cpp</label>
+        <link refid="d8/d5a/_rectangle_hitbox_8cpp"/>
+      </node>
+      <node id="25">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/RectangleHitbox.hpp</label>
+        <link refid="d8/d8a/_rectangle_hitbox_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/RenderObject.cpp</label>
+        <link refid="df/dd4/_render_object_8cpp"/>
+      </node>
+      <node id="27">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/RenderObject.hpp</label>
+        <link refid="d2/d59/_render_object_8hpp"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Square.cpp</label>
+        <link refid="da/dbe/_square_8cpp"/>
+      </node>
+      <node id="29">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Square.hpp</label>
+        <link refid="d3/da9/_square_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Walker.cpp</label>
+        <link refid="d3/d11/_walker_8cpp"/>
+      </node>
+      <node id="17">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Walker.hpp</label>
+        <link refid="d2/dd6/_walker_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Weapons.cpp</label>
+        <link refid="db/d43/_weapons_8cpp"/>
+      </node>
+      <node id="20">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp</label>
+        <link refid="d7/daf/_weapons_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/precompile.cpp</label>
+        <link refid="d2/dec/precompile_8cpp"/>
+      </node>
+      <node id="1">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/precompile.hpp</label>
+        <link refid="d9/d98/precompile_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="d4/dd0/namespacesf">sf</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SFML/Graphics.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">sf;</highlight></codeline>
+    </programlisting>
+    <location file="D:/projects/coding/C2H5OH/C2H5OH/precompile.hpp"/>
+  </compounddef>
+</doxygen>

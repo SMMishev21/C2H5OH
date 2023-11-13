@@ -1,0 +1,122 @@
+\doxysection{Bullet Class Reference}
+\hypertarget{class_bullet}{}\label{class_bullet}\index{Bullet@{Bullet}}
+
+
+{\ttfamily \#include $<$Bullet.\+hpp$>$}
+
+Inheritance diagram for Bullet\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d2/dbe/class_bullet}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_bullet_af9ed2312e5e41bbdeb0cf5648bb3f752}{Bullet}} (float \mbox{\hyperlink{class_bullet_a1cad8c80e63d13da57b563b8e8e3f79e}{damage}}, float \mbox{\hyperlink{class_bullet_a386146f8d19b6852f39a7a2348330160}{max\+Distance}}, char \mbox{\hyperlink{class_bullet_aad62bb7b3d2488adfebeb37fb9cb4e35}{owner}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a57ea4112279a6fa8238b831df04e9907}{init}} (Texture \&texture, Vector2f position, char \mbox{\hyperlink{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}{type}})
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a610e8015f78f4028be442da1b73257a3}{set\+Position}} (Vector2f position)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a8305c2fbd72a10a13a3a875bd4a87933}{set\+Origin}} (Vector2f origin)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_ae74e7cc67685a9f47eba43fa7afe63a4}{draw}} (Render\+Window \&window)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a448ffcd3998836202f845073e2e906a4}{set\+Scale}} (Vector2f scale)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_aa66db6e5382da7932a8480e5bcc70776}{move}} (Vector2f offset)
+\item 
+virtual Vector2f \mbox{\hyperlink{class_render_object_a1d1f93bce3161eb284a37c7581625bb7}{get\+Position}} ()
+\item 
+Vector2f \mbox{\hyperlink{class_render_object_a82e4d119e2fc84a7a7b609ab854ba89a}{get\+Size}} ()
+\item 
+Sprite \mbox{\hyperlink{class_render_object_a84d185d9a2d3963d0de8eda80cb2bc9d}{get\+Sprite}} ()
+\item 
+void \mbox{\hyperlink{class_render_object_ad6a393d95fec7397d41647eaf18b4677}{set\+Texture}} (Texture \&texture)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Vector2f \mbox{\hyperlink{class_bullet_a8ba4ee5eab7025899fc58ef3c84c06d6}{direction}}
+\item 
+float \mbox{\hyperlink{class_bullet_a5fbd5204eec00c8285686abeb4547f16}{speed}}
+\item 
+char \mbox{\hyperlink{class_bullet_aad62bb7b3d2488adfebeb37fb9cb4e35}{owner}}
+\item 
+float \mbox{\hyperlink{class_bullet_a1cad8c80e63d13da57b563b8e8e3f79e}{damage}} \{ 0 \}
+\item 
+float \mbox{\hyperlink{class_bullet_aa192b1cc34b098a940ccaa024e66d5c0}{distance}} \{ 0 \}
+\item 
+float \mbox{\hyperlink{class_bullet_a386146f8d19b6852f39a7a2348330160}{max\+Distance}} \{ 0 \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}{type}}
+\item 
+bool \mbox{\hyperlink{class_render_object_aecc430f82613dc1e4ca7b7c9a87db891}{should\+Draw}} \{ true \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+Sprite \mbox{\hyperlink{class_render_object_a68a180ca61609043defd4e9362f87b44}{sprite}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_bullet_af9ed2312e5e41bbdeb0cf5648bb3f752}\label{class_bullet_af9ed2312e5e41bbdeb0cf5648bb3f752} 
+\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{Bullet()}{Bullet()}}
+{\footnotesize\ttfamily Bullet\+::\+Bullet (\begin{DoxyParamCaption}\item[{float}]{damage,  }\item[{float}]{max\+Distance,  }\item[{char}]{owner }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_bullet_a1cad8c80e63d13da57b563b8e8e3f79e}\label{class_bullet_a1cad8c80e63d13da57b563b8e8e3f79e} 
+\index{Bullet@{Bullet}!damage@{damage}}
+\index{damage@{damage}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{damage}{damage}}
+{\footnotesize\ttfamily float Bullet\+::damage \{ 0 \}}
+
+\Hypertarget{class_bullet_a8ba4ee5eab7025899fc58ef3c84c06d6}\label{class_bullet_a8ba4ee5eab7025899fc58ef3c84c06d6} 
+\index{Bullet@{Bullet}!direction@{direction}}
+\index{direction@{direction}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{direction}{direction}}
+{\footnotesize\ttfamily Vector2f Bullet\+::direction}
+
+\Hypertarget{class_bullet_aa192b1cc34b098a940ccaa024e66d5c0}\label{class_bullet_aa192b1cc34b098a940ccaa024e66d5c0} 
+\index{Bullet@{Bullet}!distance@{distance}}
+\index{distance@{distance}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{distance}{distance}}
+{\footnotesize\ttfamily float Bullet\+::distance \{ 0 \}}
+
+\Hypertarget{class_bullet_a386146f8d19b6852f39a7a2348330160}\label{class_bullet_a386146f8d19b6852f39a7a2348330160} 
+\index{Bullet@{Bullet}!maxDistance@{maxDistance}}
+\index{maxDistance@{maxDistance}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{maxDistance}{maxDistance}}
+{\footnotesize\ttfamily float Bullet\+::max\+Distance \{ 0 \}}
+
+\Hypertarget{class_bullet_aad62bb7b3d2488adfebeb37fb9cb4e35}\label{class_bullet_aad62bb7b3d2488adfebeb37fb9cb4e35} 
+\index{Bullet@{Bullet}!owner@{owner}}
+\index{owner@{owner}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{owner}{owner}}
+{\footnotesize\ttfamily char Bullet\+::owner}
+
+\Hypertarget{class_bullet_a5fbd5204eec00c8285686abeb4547f16}\label{class_bullet_a5fbd5204eec00c8285686abeb4547f16} 
+\index{Bullet@{Bullet}!speed@{speed}}
+\index{speed@{speed}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{speed}{speed}}
+{\footnotesize\ttfamily float Bullet\+::speed}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/projects/coding/\+C2\+H5\+OH/\+C2\+H5\+OH/\mbox{\hyperlink{_bullet_8hpp}{Bullet.\+hpp}}\item 
+D\+:/projects/coding/\+C2\+H5\+OH/\+C2\+H5\+OH/\mbox{\hyperlink{_bullet_8cpp}{Bullet.\+cpp}}\end{DoxyCompactItemize}

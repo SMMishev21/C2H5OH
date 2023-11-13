@@ -1,0 +1,213 @@
+\doxysection{Ranged\+Boss Class Reference}
+\hypertarget{class_ranged_boss}{}\label{class_ranged_boss}\index{RangedBoss@{RangedBoss}}
+
+
+{\ttfamily \#include $<$Ranged\+Boss.\+hpp$>$}
+
+Inheritance diagram for Ranged\+Boss\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{d8/d12/class_ranged_boss}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ranged_boss_a11a8f66fdb7265ac18f38e8db96b3827}{Ranged\+Boss}} ()
+\item 
+void \mbox{\hyperlink{class_ranged_boss_aa1f20a3f8eea5e841562ebb9ae8cb37c}{init}} (Texture \&texture, Vector2f position, char \mbox{\hyperlink{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}{type}}) override
+\item 
+void \mbox{\hyperlink{class_ranged_boss_a1cfc7b09aaac9c61979c00f9f2a35bc6}{take\+Damage}} (float \mbox{\hyperlink{class_enemy_a5d5917c222119c1d8eb3183c27c7adb7}{damage}})
+\item 
+void \mbox{\hyperlink{class_ranged_boss_afb50d47d302b512c37fef7167ceb0b43}{ai\+Move}} (\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}plr, Clock \&i\+Frames, float dt, std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&enemies, bool \&dash, std\+::vector$<$ \mbox{\hyperlink{class_render_object}{Render\+Object}} \texorpdfstring{$\ast$}{*} $>$ \&render\+Objects, std\+::vector$<$ \mbox{\hyperlink{class_bullet}{Bullet}} \texorpdfstring{$\ast$}{*} $>$ \&bullets, std\+::mutex \&m) override
+\item 
+void \mbox{\hyperlink{class_ranged_boss_ae4e40578d9babf4a141294a0470a70f9}{shoot}} (\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}plr, std\+::vector$<$ \mbox{\hyperlink{class_render_object}{Render\+Object}} \texorpdfstring{$\ast$}{*} $>$ \&render\+Objects, std\+::vector$<$ \mbox{\hyperlink{class_bullet}{Bullet}} \texorpdfstring{$\ast$}{*} $>$ \&bullets, std\+::mutex \&m)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_ranged_enemy}{Ranged\+Enemy}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ranged_enemy_ad3ef88fd54dfba53f6c8ccac3dc9a37a}{Ranged\+Enemy}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_enemy}{Enemy}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_enemy_aa1e20b304c769713c6f15a95eb4724bb}{move}} (Vector2f offset) override
+\item 
+void \mbox{\hyperlink{class_enemy_a582d09158d692070f4becf68220bf6b6}{draw}} (Render\+Window \&window) override
+\item 
+float \mbox{\hyperlink{class_enemy_a02b52b5c3d1effad96047ae788cc5507}{get\+Hp}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a610e8015f78f4028be442da1b73257a3}{set\+Position}} (Vector2f position)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a8305c2fbd72a10a13a3a875bd4a87933}{set\+Origin}} (Vector2f origin)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a448ffcd3998836202f845073e2e906a4}{set\+Scale}} (Vector2f scale)
+\item 
+virtual Vector2f \mbox{\hyperlink{class_render_object_a1d1f93bce3161eb284a37c7581625bb7}{get\+Position}} ()
+\item 
+Vector2f \mbox{\hyperlink{class_render_object_a82e4d119e2fc84a7a7b609ab854ba89a}{get\+Size}} ()
+\item 
+Sprite \mbox{\hyperlink{class_render_object_a84d185d9a2d3963d0de8eda80cb2bc9d}{get\+Sprite}} ()
+\item 
+void \mbox{\hyperlink{class_render_object_ad6a393d95fec7397d41647eaf18b4677}{set\+Texture}} (Texture \&texture)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Clock \mbox{\hyperlink{class_ranged_boss_aec2ddc7843f0ea5777012fe2f9ebd4f4}{shoot\+Timer}}
+\item 
+Texture \mbox{\hyperlink{class_ranged_boss_a8187cbcbf5d7fb13ee71041e85e5063c}{bullet\+Texture}}
+\item 
+int \mbox{\hyperlink{class_ranged_boss_ac79c3fc4c82c67a3db7fd3a8302a3fb4}{last\+Attack}}
+\item 
+int \mbox{\hyperlink{class_ranged_boss_a04fc13c6cc1ed12ec28425dfaeee47e4}{step}}
+\item 
+int \mbox{\hyperlink{class_ranged_boss_adb4c33fc4b4ddb7463f99b5dd37d846a}{attack\+Step\+Size}} \mbox{[}3\mbox{]}
+\item 
+int \mbox{\hyperlink{class_ranged_boss_af281c9e8bb0cb5b0aeafd53c36e813ff}{attack}}
+\item 
+float \mbox{\hyperlink{class_ranged_boss_a744a1e79d23b39b73a375632c0666f95}{time\+Between\+Shots}}
+\item 
+float \mbox{\hyperlink{class_ranged_boss_a64372d328fe01bef5e815c7e3edeb93b}{angle}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_enemy}{Enemy}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ellipse_hitbox}{Ellipse\+Hitbox}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_enemy_a58106633fc5b501764611ebd16b9fcc1}{hitbox}}
+\item 
+float \mbox{\hyperlink{class_enemy_a5d5917c222119c1d8eb3183c27c7adb7}{damage}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}{type}}
+\item 
+bool \mbox{\hyperlink{class_render_object_aecc430f82613dc1e4ca7b7c9a87db891}{should\+Draw}} \{ true \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_enemy}{Enemy}}}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_enemy_a64049230ae39663dd5ccfd0a27b25474}{hp}} \{ 100 \}
+\item 
+Rectangle\+Shape \mbox{\hyperlink{class_enemy_ac0db47c80f9801160bd27458a25018a4}{health\+Bar}}
+\item 
+Vector2f \mbox{\hyperlink{class_enemy_a1d50ff4dff13f15ffc608703f16f8575}{pos}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+Sprite \mbox{\hyperlink{class_render_object_a68a180ca61609043defd4e9362f87b44}{sprite}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_ranged_boss_a11a8f66fdb7265ac18f38e8db96b3827}\label{class_ranged_boss_a11a8f66fdb7265ac18f38e8db96b3827} 
+\index{RangedBoss@{RangedBoss}!RangedBoss@{RangedBoss}}
+\index{RangedBoss@{RangedBoss}!RangedBoss@{RangedBoss}}
+\doxysubsubsection{\texorpdfstring{RangedBoss()}{RangedBoss()}}
+{\footnotesize\ttfamily Ranged\+Boss\+::\+Ranged\+Boss (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_ranged_boss_afb50d47d302b512c37fef7167ceb0b43}\label{class_ranged_boss_afb50d47d302b512c37fef7167ceb0b43} 
+\index{RangedBoss@{RangedBoss}!aiMove@{aiMove}}
+\index{aiMove@{aiMove}!RangedBoss@{RangedBoss}}
+\doxysubsubsection{\texorpdfstring{aiMove()}{aiMove()}}
+{\footnotesize\ttfamily void Ranged\+Boss\+::ai\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}}]{plr,  }\item[{Clock \&}]{i\+Frames,  }\item[{float}]{dt,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{enemies,  }\item[{bool \&}]{dash,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_render_object}{Render\+Object}} \texorpdfstring{$\ast$}{*} $>$ \&}]{render\+Objects,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_bullet}{Bullet}} \texorpdfstring{$\ast$}{*} $>$ \&}]{bullets,  }\item[{std\+::mutex \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_ranged_enemy_acd2c4ce4c05b3d357e7919dc67ddc593}{Ranged\+Enemy}}.
+
+\Hypertarget{class_ranged_boss_aa1f20a3f8eea5e841562ebb9ae8cb37c}\label{class_ranged_boss_aa1f20a3f8eea5e841562ebb9ae8cb37c} 
+\index{RangedBoss@{RangedBoss}!init@{init}}
+\index{init@{init}!RangedBoss@{RangedBoss}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Ranged\+Boss\+::init (\begin{DoxyParamCaption}\item[{Texture \&}]{texture,  }\item[{Vector2f}]{position,  }\item[{char}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_enemy_a2160db284c20b71c1cb1df76fc5e2636}{Enemy}}.
+
+\Hypertarget{class_ranged_boss_ae4e40578d9babf4a141294a0470a70f9}\label{class_ranged_boss_ae4e40578d9babf4a141294a0470a70f9} 
+\index{RangedBoss@{RangedBoss}!shoot@{shoot}}
+\index{shoot@{shoot}!RangedBoss@{RangedBoss}}
+\doxysubsubsection{\texorpdfstring{shoot()}{shoot()}}
+{\footnotesize\ttfamily void Ranged\+Boss\+::shoot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}}]{plr,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_render_object}{Render\+Object}} \texorpdfstring{$\ast$}{*} $>$ \&}]{render\+Objects,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_bullet}{Bullet}} \texorpdfstring{$\ast$}{*} $>$ \&}]{bullets,  }\item[{std\+::mutex \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_ranged_enemy_a9082a51a21cb05314e1fbb4acdcbfdcb}{Ranged\+Enemy}}.
+
+\Hypertarget{class_ranged_boss_a1cfc7b09aaac9c61979c00f9f2a35bc6}\label{class_ranged_boss_a1cfc7b09aaac9c61979c00f9f2a35bc6} 
+\index{RangedBoss@{RangedBoss}!takeDamage@{takeDamage}}
+\index{takeDamage@{takeDamage}!RangedBoss@{RangedBoss}}
+\doxysubsubsection{\texorpdfstring{takeDamage()}{takeDamage()}}
+{\footnotesize\ttfamily void Ranged\+Boss\+::take\+Damage (\begin{DoxyParamCaption}\item[{float}]{damage }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_enemy_ae89eefd8e9478d7e4512bc24ca52a4b1}{Enemy}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_ranged_boss_a64372d328fe01bef5e815c7e3edeb93b}\label{class_ranged_boss_a64372d328fe01bef5e815c7e3edeb93b} 
+\index{RangedBoss@{RangedBoss}!angle@{angle}}
+\index{angle@{angle}!RangedBoss@{RangedBoss}}
+\doxysubsubsection{\texorpdfstring{angle}{angle}}
+{\footnotesize\ttfamily float Ranged\+Boss\+::angle\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_ranged_boss_af281c9e8bb0cb5b0aeafd53c36e813ff}\label{class_ranged_boss_af281c9e8bb0cb5b0aeafd53c36e813ff} 
+\index{RangedBoss@{RangedBoss}!attack@{attack}}
+\index{attack@{attack}!RangedBoss@{RangedBoss}}
+\doxysubsubsection{\texorpdfstring{attack}{attack}}
+{\footnotesize\ttfamily int Ranged\+Boss\+::attack\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_ranged_boss_adb4c33fc4b4ddb7463f99b5dd37d846a}\label{class_ranged_boss_adb4c33fc4b4ddb7463f99b5dd37d846a} 
+\index{RangedBoss@{RangedBoss}!attackStepSize@{attackStepSize}}
+\index{attackStepSize@{attackStepSize}!RangedBoss@{RangedBoss}}
+\doxysubsubsection{\texorpdfstring{attackStepSize}{attackStepSize}}
+{\footnotesize\ttfamily int Ranged\+Boss\+::attack\+Step\+Size\mbox{[}3\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_ranged_boss_a8187cbcbf5d7fb13ee71041e85e5063c}\label{class_ranged_boss_a8187cbcbf5d7fb13ee71041e85e5063c} 
+\index{RangedBoss@{RangedBoss}!bulletTexture@{bulletTexture}}
+\index{bulletTexture@{bulletTexture}!RangedBoss@{RangedBoss}}
+\doxysubsubsection{\texorpdfstring{bulletTexture}{bulletTexture}}
+{\footnotesize\ttfamily Texture Ranged\+Boss\+::bullet\+Texture\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_ranged_boss_ac79c3fc4c82c67a3db7fd3a8302a3fb4}\label{class_ranged_boss_ac79c3fc4c82c67a3db7fd3a8302a3fb4} 
+\index{RangedBoss@{RangedBoss}!lastAttack@{lastAttack}}
+\index{lastAttack@{lastAttack}!RangedBoss@{RangedBoss}}
+\doxysubsubsection{\texorpdfstring{lastAttack}{lastAttack}}
+{\footnotesize\ttfamily int Ranged\+Boss\+::last\+Attack\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_ranged_boss_aec2ddc7843f0ea5777012fe2f9ebd4f4}\label{class_ranged_boss_aec2ddc7843f0ea5777012fe2f9ebd4f4} 
+\index{RangedBoss@{RangedBoss}!shootTimer@{shootTimer}}
+\index{shootTimer@{shootTimer}!RangedBoss@{RangedBoss}}
+\doxysubsubsection{\texorpdfstring{shootTimer}{shootTimer}}
+{\footnotesize\ttfamily Clock Ranged\+Boss\+::shoot\+Timer\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_ranged_boss_a04fc13c6cc1ed12ec28425dfaeee47e4}\label{class_ranged_boss_a04fc13c6cc1ed12ec28425dfaeee47e4} 
+\index{RangedBoss@{RangedBoss}!step@{step}}
+\index{step@{step}!RangedBoss@{RangedBoss}}
+\doxysubsubsection{\texorpdfstring{step}{step}}
+{\footnotesize\ttfamily int Ranged\+Boss\+::step\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_ranged_boss_a744a1e79d23b39b73a375632c0666f95}\label{class_ranged_boss_a744a1e79d23b39b73a375632c0666f95} 
+\index{RangedBoss@{RangedBoss}!timeBetweenShots@{timeBetweenShots}}
+\index{timeBetweenShots@{timeBetweenShots}!RangedBoss@{RangedBoss}}
+\doxysubsubsection{\texorpdfstring{timeBetweenShots}{timeBetweenShots}}
+{\footnotesize\ttfamily float Ranged\+Boss\+::time\+Between\+Shots\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/projects/coding/\+C2\+H5\+OH/\+C2\+H5\+OH/\mbox{\hyperlink{_ranged_boss_8hpp}{Ranged\+Boss.\+hpp}}\item 
+D\+:/projects/coding/\+C2\+H5\+OH/\+C2\+H5\+OH/\mbox{\hyperlink{_ranged_boss_8cpp}{Ranged\+Boss.\+cpp}}\end{DoxyCompactItemize}

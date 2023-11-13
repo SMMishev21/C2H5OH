@@ -52,7 +52,6 @@ void RangedEnemy::shoot(Player* plr, std::vector<RenderObject*>& renderObjects, 
         float length = sqrt(direction.x * direction.x + direction.y * direction.y);
 
         direction /= length;
-        std::cout << direction.x << " " << direction.y << std::endl;
 
         Bullet* bullet = new Bullet(this->damage, 2500, 'e');
         bullet->setTexture(bulletTexture);

@@ -1,0 +1,573 @@
+.TH "Game" 3 "C2H5OH" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Game
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Game\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGame\fP ()"
+.br
+.ti -1c
+.RI "\fB~Game\fP ()"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBmainLoop\fP ()"
+.br
+.ti -1c
+.RI "void \fBhandleInput\fP (float \fBdt\fP)"
+.br
+.ti -1c
+.RI "void \fBdraw\fP ()"
+.br
+.ti -1c
+.RI "void \fBhandleMovement\fP ()"
+.br
+.ti -1c
+.RI "void \fBhandleEnemies\fP ()"
+.br
+.ti -1c
+.RI "void \fBcollectGarbage\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "void \fBspawnElements\fP ()"
+.br
+.ti -1c
+.RI "void \fBopenLab\fP ()"
+.br
+.ti -1c
+.RI "void \fBdrawLab\fP ()"
+.br
+.ti -1c
+.RI "bool \fBresolveCollisionsPlr\fP (\fBBullet\fP &bullet, Vector2f size)"
+.br
+.ti -1c
+.RI "bool \fBresolveCollisions\fP (\fBRenderObject\fP &obj, float radius)"
+.br
+.ti -1c
+.RI "std::vector< int > \fBresolveCollisionsEnemy\fP (\fBBullet\fP &bullet, float size)"
+.br
+.ti -1c
+.RI "int \fBrandomLevel\fP ()"
+.br
+.ti -1c
+.RI "void \fBprepareRoom\fP ()"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBroomNumber\fP"
+.br
+.ti -1c
+.RI "int \fBreverse\fP"
+.br
+.ti -1c
+.RI "float \fBdt\fP"
+.br
+.ti -1c
+.RI "float \fBdashDistance\fP"
+.br
+.ti -1c
+.RI "float \fBspeedBuff\fP"
+.br
+.ti -1c
+.RI "float \fBattackSpeedBuff\fP"
+.br
+.ti -1c
+.RI "float \fBhealthBuff\fP"
+.br
+.ti -1c
+.RI "float \fBdamageBuff\fP"
+.br
+.ti -1c
+.RI "bool \fBshouldClose\fP"
+.br
+.ti -1c
+.RI "bool \fBdash\fP"
+.br
+.ti -1c
+.RI "bool \fBlab\fP"
+.br
+.ti -1c
+.RI "bool \fBdashInvincibility\fP"
+.br
+.ti -1c
+.RI "std::string \fBcurrentRoom\fP"
+.br
+.ti -1c
+.RI "std::counting_semaphore< 1 > \fBdrawReady\fP { 1 }"
+.br
+.ti -1c
+.RI "std::counting_semaphore< 1 > \fBupdateReady\fP { 1 }"
+.br
+.ti -1c
+.RI "std::mutex \fBm\fP"
+.br
+.ti -1c
+.RI "RenderWindow \fBwindow\fP"
+.br
+.ti -1c
+.RI "Event \fBev\fP"
+.br
+.ti -1c
+.RI "Texture \fBbulletTexture\fP"
+.br
+.ti -1c
+.RI "Texture \fBenemyTexture\fP"
+.br
+.ti -1c
+.RI "Texture \fBakTexture\fP"
+.br
+.ti -1c
+.RI "Texture \fBchestTexture\fP"
+.br
+.ti -1c
+.RI "Texture \fBkeyTexture\fP"
+.br
+.ti -1c
+.RI "Texture \fBcarbonTexture\fP"
+.br
+.ti -1c
+.RI "Texture \fBoxygenTexture\fP"
+.br
+.ti -1c
+.RI "Texture \fBhydrogenTexture\fP"
+.br
+.ti -1c
+.RI "Texture \fBnitrogenTexture\fP"
+.br
+.ti -1c
+.RI "Texture \fBroomTexture\fP"
+.br
+.ti -1c
+.RI "Texture \fBwalkerTexture\fP"
+.br
+.ti -1c
+.RI "Texture \fBrangedEnemyTexture\fP"
+.br
+.ti -1c
+.RI "Texture \fBrangedBossTexture\fP"
+.br
+.ti -1c
+.RI "Texture \fBsquareHitboxTexture\fP"
+.br
+.ti -1c
+.RI "Texture \fBellipseHitboxTexture\fP"
+.br
+.ti -1c
+.RI "Texture \fBinvCarbon\fP"
+.br
+.ti -1c
+.RI "Texture \fBinvNitro\fP"
+.br
+.ti -1c
+.RI "Texture \fBinvHydrogen\fP"
+.br
+.ti -1c
+.RI "Texture \fBinvOxygen\fP"
+.br
+.ti -1c
+.RI "Texture \fBbackgroundImage\fP"
+.br
+.ti -1c
+.RI "Texture \fBtrenImg\fP"
+.br
+.ti -1c
+.RI "Texture \fBcoffeeImg\fP"
+.br
+.ti -1c
+.RI "Texture \fBbossRoomTexture\fP"
+.br
+.ti -1c
+.RI "Texture \fBplrLeftTexture\fP"
+.br
+.ti -1c
+.RI "Texture \fBplrRightTexture\fP"
+.br
+.ti -1c
+.RI "Texture \fBgunTexture\fP"
+.br
+.ti -1c
+.RI "Sprite \fBinvBg\fP"
+.br
+.ti -1c
+.RI "Font \fBfont\fP"
+.br
+.ti -1c
+.RI "Text \fBcarbonText\fP"
+.br
+.ti -1c
+.RI "Text \fBoxygenText\fP"
+.br
+.ti -1c
+.RI "Text \fBhydrogenText\fP"
+.br
+.ti -1c
+.RI "Text \fBnitrogenText\fP"
+.br
+.ti -1c
+.RI "Text \fBcarbonInfo\fP"
+.br
+.ti -1c
+.RI "Text \fBoxygenInfo\fP"
+.br
+.ti -1c
+.RI "Text \fBhydrogenInfo\fP"
+.br
+.ti -1c
+.RI "Text \fBnitrogenInfo\fP"
+.br
+.ti -1c
+.RI "Text \fBcoffee\fP"
+.br
+.ti -1c
+.RI "Text \fBtren\fP"
+.br
+.ti -1c
+.RI "RectangleShape \fBsquare4\fP"
+.br
+.ti -1c
+.RI "RectangleShape \fBsquare1\fP"
+.br
+.ti -1c
+.RI "RectangleShape \fBsquare2\fP"
+.br
+.ti -1c
+.RI "RectangleShape \fBsquare3\fP"
+.br
+.ti -1c
+.RI "RectangleShape \fBtrenSqrt\fP"
+.br
+.ti -1c
+.RI "RectangleShape \fBcoffeeSqrt\fP"
+.br
+.ti -1c
+.RI "RectangleShape \fBhealthBar\fP"
+.br
+.ti -1c
+.RI "\fBRenderObject\fP * \fBroom\fP"
+.br
+.ti -1c
+.RI "View \fBview\fP"
+.br
+.ti -1c
+.RI "Clock \fBclock\fP"
+.br
+.ti -1c
+.RI "Vector2f \fBplrVelocity\fP"
+.br
+.ti -1c
+.RI "Vector2f \fBdir\fP"
+.br
+.ti -1c
+.RI "Vector2f \fBdashed\fP"
+.br
+.ti -1c
+.RI "Clock \fBdashClock\fP"
+.br
+.ti -1c
+.RI "Clock \fBiFrames\fP"
+.br
+.ti -1c
+.RI "Clock \fBattackCD\fP"
+.br
+.ti -1c
+.RI "Clock \fBlabCD\fP"
+.br
+.ti -1c
+.RI "Clock \fBdashIFrames\fP"
+.br
+.ti -1c
+.RI "\fBRanged\fP * \fBgun\fP"
+.br
+.ti -1c
+.RI "\fBPlayer\fP * \fBplr\fP"
+.br
+.ti -1c
+.RI "\fBChest\fP * \fBchest\fP"
+.br
+.ti -1c
+.RI "\fBRenderObject\fP * \fBkey\fP"
+.br
+.ti -1c
+.RI "\fBChest\fP * \fBselected\fP"
+.br
+.ti -1c
+.RI "std::vector< \fBBullet\fP * > \fBbullets\fP"
+.br
+.ti -1c
+.RI "std::vector< \fBEnemy\fP * > \fBenemies\fP"
+.br
+.ti -1c
+.RI "std::vector< \fBRenderObject\fP * > \fBrenderObjects\fP"
+.br
+.ti -1c
+.RI "std::vector< \fBChest\fP * > \fBchests\fP"
+.br
+.ti -1c
+.RI "std::vector< \fBElement\fP * > \fBelements\fP"
+.br
+.ti -1c
+.RI "std::vector< \fBElement\fP * > \fBelementsToSpawn\fP"
+.br
+.ti -1c
+.RI "std::vector< \fBRenderObject\fP * > \fBgarbage\fP"
+.br
+.ti -1c
+.RI "std::unordered_map< std::string, Texture > \fBelementTextureMap\fP"
+.br
+.ti -1c
+.RI "std::unordered_map< std::string, Texture > \fBenemyTextureMap\fP"
+.br
+.ti -1c
+.RI "std::unordered_map< std::string, std::vector< \fBRectangleHitbox\fP * > > \fBroomCollisions\fP"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBRangedEnemy\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Game::Game ()"
+
+.SS "Game::~Game ()"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Game::collectGarbage ()\fC [private]\fP"
+
+.SS "void Game::draw ()\fC [private]\fP"
+
+.SS "void Game::drawLab ()\fC [private]\fP"
+
+.SS "void Game::handleEnemies ()\fC [private]\fP"
+
+.SS "void Game::handleInput (float dt)\fC [private]\fP"
+
+.SS "void Game::handleMovement ()\fC [private]\fP"
+
+.SS "void Game::mainLoop ()\fC [private]\fP"
+
+.SS "void Game::openLab ()\fC [private]\fP"
+
+.SS "void Game::prepareRoom ()\fC [private]\fP"
+
+.SS "int Game::randomLevel ()\fC [private]\fP"
+
+.SS "bool Game::resolveCollisions (\fBRenderObject\fP & obj, float radius)\fC [private]\fP"
+
+.SS "std::vector< int > Game::resolveCollisionsEnemy (\fBBullet\fP & bullet, float size)\fC [private]\fP"
+
+.SS "bool Game::resolveCollisionsPlr (\fBBullet\fP & bullet, Vector2f size)\fC [private]\fP"
+
+.SS "void Game::spawnElements ()\fC [private]\fP"
+
+.SS "void Game::update ()\fC [private]\fP"
+
+.SH "Friends And Related Symbol Documentation"
+.PP 
+.SS "friend class \fBRangedEnemy\fP\fC [friend]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "Texture Game::akTexture\fC [private]\fP"
+
+.SS "Clock Game::attackCD\fC [private]\fP"
+
+.SS "float Game::attackSpeedBuff\fC [private]\fP"
+
+.SS "Texture Game::backgroundImage\fC [private]\fP"
+
+.SS "Texture Game::bossRoomTexture\fC [private]\fP"
+
+.SS "std::vector<\fBBullet\fP*> Game::bullets\fC [private]\fP"
+
+.SS "Texture Game::bulletTexture\fC [private]\fP"
+
+.SS "Text Game::carbonInfo\fC [private]\fP"
+
+.SS "Text Game::carbonText\fC [private]\fP"
+
+.SS "Texture Game::carbonTexture\fC [private]\fP"
+
+.SS "\fBChest\fP* Game::chest\fC [private]\fP"
+
+.SS "std::vector<\fBChest\fP*> Game::chests\fC [private]\fP"
+
+.SS "Texture Game::chestTexture\fC [private]\fP"
+
+.SS "Clock Game::clock\fC [private]\fP"
+
+.SS "Text Game::coffee\fC [private]\fP"
+
+.SS "Texture Game::coffeeImg\fC [private]\fP"
+
+.SS "RectangleShape Game::coffeeSqrt\fC [private]\fP"
+
+.SS "std::string Game::currentRoom\fC [private]\fP"
+
+.SS "float Game::damageBuff\fC [private]\fP"
+
+.SS "bool Game::dash\fC [private]\fP"
+
+.SS "Clock Game::dashClock\fC [private]\fP"
+
+.SS "float Game::dashDistance\fC [private]\fP"
+
+.SS "Vector2f Game::dashed\fC [private]\fP"
+
+.SS "Clock Game::dashIFrames\fC [private]\fP"
+
+.SS "bool Game::dashInvincibility\fC [private]\fP"
+
+.SS "Vector2f Game::dir\fC [private]\fP"
+
+.SS "std::counting_semaphore<1> Game::drawReady { 1 }\fC [private]\fP"
+
+.SS "float Game::dt\fC [private]\fP"
+
+.SS "std::vector<\fBElement\fP*> Game::elements\fC [private]\fP"
+
+.SS "std::vector<\fBElement\fP*> Game::elementsToSpawn\fC [private]\fP"
+
+.SS "std::unordered_map<std::string, Texture> Game::elementTextureMap\fC [private]\fP"
+
+.SS "Texture Game::ellipseHitboxTexture\fC [private]\fP"
+
+.SS "std::vector<\fBEnemy\fP*> Game::enemies\fC [private]\fP"
+
+.SS "Texture Game::enemyTexture\fC [private]\fP"
+
+.SS "std::unordered_map<std::string, Texture> Game::enemyTextureMap\fC [private]\fP"
+
+.SS "Event Game::ev\fC [private]\fP"
+
+.SS "Font Game::font\fC [private]\fP"
+
+.SS "std::vector<\fBRenderObject\fP*> Game::garbage\fC [private]\fP"
+
+.SS "\fBRanged\fP* Game::gun\fC [private]\fP"
+
+.SS "Texture Game::gunTexture\fC [private]\fP"
+
+.SS "RectangleShape Game::healthBar\fC [private]\fP"
+
+.SS "float Game::healthBuff\fC [private]\fP"
+
+.SS "Text Game::hydrogenInfo\fC [private]\fP"
+
+.SS "Text Game::hydrogenText\fC [private]\fP"
+
+.SS "Texture Game::hydrogenTexture\fC [private]\fP"
+
+.SS "Clock Game::iFrames\fC [private]\fP"
+
+.SS "Sprite Game::invBg\fC [private]\fP"
+
+.SS "Texture Game::invCarbon\fC [private]\fP"
+
+.SS "Texture Game::invHydrogen\fC [private]\fP"
+
+.SS "Texture Game::invNitro\fC [private]\fP"
+
+.SS "Texture Game::invOxygen\fC [private]\fP"
+
+.SS "\fBRenderObject\fP* Game::key\fC [private]\fP"
+
+.SS "Texture Game::keyTexture\fC [private]\fP"
+
+.SS "bool Game::lab\fC [private]\fP"
+
+.SS "Clock Game::labCD\fC [private]\fP"
+
+.SS "std::mutex Game::m\fC [private]\fP"
+
+.SS "Text Game::nitrogenInfo\fC [private]\fP"
+
+.SS "Text Game::nitrogenText\fC [private]\fP"
+
+.SS "Texture Game::nitrogenTexture\fC [private]\fP"
+
+.SS "Text Game::oxygenInfo\fC [private]\fP"
+
+.SS "Text Game::oxygenText\fC [private]\fP"
+
+.SS "Texture Game::oxygenTexture\fC [private]\fP"
+
+.SS "\fBPlayer\fP* Game::plr\fC [private]\fP"
+
+.SS "Texture Game::plrLeftTexture\fC [private]\fP"
+
+.SS "Texture Game::plrRightTexture\fC [private]\fP"
+
+.SS "Vector2f Game::plrVelocity\fC [private]\fP"
+
+.SS "Texture Game::rangedBossTexture\fC [private]\fP"
+
+.SS "Texture Game::rangedEnemyTexture\fC [private]\fP"
+
+.SS "std::vector<\fBRenderObject\fP*> Game::renderObjects\fC [private]\fP"
+
+.SS "int Game::reverse\fC [private]\fP"
+
+.SS "\fBRenderObject\fP* Game::room\fC [private]\fP"
+
+.SS "std::unordered_map<std::string, std::vector<\fBRectangleHitbox\fP*> > Game::roomCollisions\fC [private]\fP"
+
+.SS "int Game::roomNumber\fC [private]\fP"
+
+.SS "Texture Game::roomTexture\fC [private]\fP"
+
+.SS "\fBChest\fP* Game::selected\fC [private]\fP"
+
+.SS "bool Game::shouldClose\fC [private]\fP"
+
+.SS "float Game::speedBuff\fC [private]\fP"
+
+.SS "RectangleShape Game::square1\fC [private]\fP"
+
+.SS "RectangleShape Game::square2\fC [private]\fP"
+
+.SS "RectangleShape Game::square3\fC [private]\fP"
+
+.SS "RectangleShape Game::square4\fC [private]\fP"
+
+.SS "Texture Game::squareHitboxTexture\fC [private]\fP"
+
+.SS "Text Game::tren\fC [private]\fP"
+
+.SS "Texture Game::trenImg\fC [private]\fP"
+
+.SS "RectangleShape Game::trenSqrt\fC [private]\fP"
+
+.SS "std::counting_semaphore<1> Game::updateReady { 1 }\fC [private]\fP"
+
+.SS "View Game::view\fC [private]\fP"
+
+.SS "Texture Game::walkerTexture\fC [private]\fP"
+
+.SS "RenderWindow Game::window\fC [private]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for C2H5OH from the source code\&.

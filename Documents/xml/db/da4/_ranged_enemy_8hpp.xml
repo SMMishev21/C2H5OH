@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="db/da4/_ranged_enemy_8hpp" kind="file" language="C++">
+    <compoundname>RangedEnemy.hpp</compoundname>
+    <includes refid="d9/d98/precompile_8hpp" local="yes">precompile.hpp</includes>
+    <includes refid="da/dda/_enemy_8hpp" local="yes">Enemy.hpp</includes>
+    <includes refid="d6/d65/_bullet_8hpp" local="yes">Bullet.hpp</includes>
+    <includedby refid="d2/d07/_game_8hpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/Game.hpp</includedby>
+    <includedby refid="d4/dce/_ranged_boss_8hpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp</includedby>
+    <includedby refid="d5/df0/_ranged_enemy_8cpp" local="yes">D:/projects/coding/C2H5OH/C2H5OH/RangedEnemy.cpp</includedby>
+    <incdepgraph>
+      <node id="12">
+        <label>Bullet.hpp</label>
+        <link refid="d6/d65/_bullet_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>EllipseHitbox.hpp</label>
+        <link refid="d6/dde/_ellipse_hitbox_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Enemy.hpp</label>
+        <link refid="da/dda/_enemy_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Player.hpp</label>
+        <link refid="d0/d16/_player_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/RangedEnemy.hpp</label>
+        <link refid="db/da4/_ranged_enemy_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>RectangleHitbox.hpp</label>
+        <link refid="d8/d8a/_rectangle_hitbox_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>RenderObject.hpp</label>
+        <link refid="d2/d59/_render_object_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>precompile.hpp</label>
+        <link refid="d9/d98/precompile_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+      <node id="3">
+        <label>iostream</label>
+      </node>
+      <node id="14">
+        <label>mutex</label>
+      </node>
+      <node id="13">
+        <label>semaphore</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="11">
+        <label>unordered_map</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/C2H5OH.cpp</label>
+        <link refid="dd/d51/_c2_h5_o_h_8cpp"/>
+      </node>
+      <node id="4">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Game.cpp</label>
+        <link refid="d7/db5/_game_8cpp"/>
+      </node>
+      <node id="2">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Game.hpp</label>
+        <link refid="d2/d07/_game_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.cpp</label>
+        <link refid="d5/d7e/_ranged_boss_8cpp"/>
+      </node>
+      <node id="5">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/RangedBoss.hpp</label>
+        <link refid="d4/dce/_ranged_boss_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/RangedEnemy.cpp</label>
+        <link refid="d5/df0/_ranged_enemy_8cpp"/>
+      </node>
+      <node id="1">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/RangedEnemy.hpp</label>
+        <link refid="db/da4/_ranged_enemy_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="d7/d5f/class_ranged_enemy" prot="public">RangedEnemy</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d9/d98/precompile_8hpp" kindref="compound">precompile.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="da/dda/_enemy_8hpp" kindref="compound">Enemy.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d6/d65/_bullet_8hpp" kindref="compound">Bullet.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="d7/d5f/class_ranged_enemy" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d7/d5f/class_ranged_enemy" kindref="compound">RangedEnemy</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dd/d7a/class_enemy" kindref="compound">Enemy</ref><sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="9" refid="d7/d5f/class_ranged_enemy_1aaf0285524a4a183bcfdc25f8c100b842" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Clock<sp/><ref refid="d7/d5f/class_ranged_enemy_1aaf0285524a4a183bcfdc25f8c100b842" kindref="member">shootTimer</ref>;</highlight></codeline>
+<codeline lineno="10" refid="d7/d5f/class_ranged_enemy_1a57d732f5ad35a8ed553b9cd109fda4bc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture<sp/><ref refid="d7/d5f/class_ranged_enemy_1a57d732f5ad35a8ed553b9cd109fda4bc" kindref="member">bulletTexture</ref>;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d7/d5f/class_ranged_enemy_1ad3ef88fd54dfba53f6c8ccac3dc9a37a" kindref="member">RangedEnemy</ref>();</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d5f/class_ranged_enemy_1acd2c4ce4c05b3d357e7919dc67ddc593" kindref="member">aiMove</ref>(<ref refid="d8/d53/class_player" kindref="compound">Player</ref>*<sp/>plr,<sp/>Clock&amp;<sp/>iFrames,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>dt,<sp/>std::vector&lt;Enemy*&gt;&amp;<sp/>enemies,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">&amp;<sp/>dash,<sp/>std::vector&lt;RenderObject*&gt;&amp;<sp/>renderObjects,<sp/>std::vector&lt;Bullet*&gt;&amp;<sp/>bullets,<sp/>std::mutex&amp;<sp/>m)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d5f/class_ranged_enemy_1a9082a51a21cb05314e1fbb4acdcbfdcb" kindref="member">shoot</ref>(<ref refid="d8/d53/class_player" kindref="compound">Player</ref>*<sp/>plr,<sp/>std::vector&lt;RenderObject*&gt;&amp;<sp/>renderObjects,<sp/>std::vector&lt;Bullet*&gt;&amp;<sp/>bullets,<sp/>std::mutex&amp;<sp/>m);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="D:/projects/coding/C2H5OH/C2H5OH/RangedEnemy.hpp"/>
+  </compounddef>
+</doxygen>

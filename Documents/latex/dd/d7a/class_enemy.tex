@@ -1,0 +1,174 @@
+\doxysection{Enemy Class Reference}
+\hypertarget{class_enemy}{}\label{class_enemy}\index{Enemy@{Enemy}}
+
+
+{\ttfamily \#include $<$Enemy.\+hpp$>$}
+
+Inheritance diagram for Enemy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{dd/d7a/class_enemy}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_enemy_a2160db284c20b71c1cb1df76fc5e2636}{init}} (Texture \&texture, Vector2f position, char \mbox{\hyperlink{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}{type}}) override
+\item 
+void \mbox{\hyperlink{class_enemy_aa1e20b304c769713c6f15a95eb4724bb}{move}} (Vector2f offset) override
+\item 
+void \mbox{\hyperlink{class_enemy_a582d09158d692070f4becf68220bf6b6}{draw}} (Render\+Window \&window) override
+\item 
+virtual void \mbox{\hyperlink{class_enemy_abff01ca5670b8c406fd36dcae43f6ea3}{ai\+Move}} (\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}plr, Clock \&i\+Frames, float dt, std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&enemies, bool \&dash, std\+::vector$<$ \mbox{\hyperlink{class_render_object}{Render\+Object}} \texorpdfstring{$\ast$}{*} $>$ \&render\+Objects, std\+::vector$<$ \mbox{\hyperlink{class_bullet}{Bullet}} \texorpdfstring{$\ast$}{*} $>$ \&bullets, std\+::mutex \&m)
+\item 
+virtual void \mbox{\hyperlink{class_enemy_ae89eefd8e9478d7e4512bc24ca52a4b1}{take\+Damage}} (float \mbox{\hyperlink{class_enemy_a5d5917c222119c1d8eb3183c27c7adb7}{damage}})
+\item 
+float \mbox{\hyperlink{class_enemy_a02b52b5c3d1effad96047ae788cc5507}{get\+Hp}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a610e8015f78f4028be442da1b73257a3}{set\+Position}} (Vector2f position)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a8305c2fbd72a10a13a3a875bd4a87933}{set\+Origin}} (Vector2f origin)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a448ffcd3998836202f845073e2e906a4}{set\+Scale}} (Vector2f scale)
+\item 
+virtual Vector2f \mbox{\hyperlink{class_render_object_a1d1f93bce3161eb284a37c7581625bb7}{get\+Position}} ()
+\item 
+Vector2f \mbox{\hyperlink{class_render_object_a82e4d119e2fc84a7a7b609ab854ba89a}{get\+Size}} ()
+\item 
+Sprite \mbox{\hyperlink{class_render_object_a84d185d9a2d3963d0de8eda80cb2bc9d}{get\+Sprite}} ()
+\item 
+void \mbox{\hyperlink{class_render_object_ad6a393d95fec7397d41647eaf18b4677}{set\+Texture}} (Texture \&texture)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ellipse_hitbox}{Ellipse\+Hitbox}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_enemy_a58106633fc5b501764611ebd16b9fcc1}{hitbox}}
+\item 
+float \mbox{\hyperlink{class_enemy_a5d5917c222119c1d8eb3183c27c7adb7}{damage}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}{type}}
+\item 
+bool \mbox{\hyperlink{class_render_object_aecc430f82613dc1e4ca7b7c9a87db891}{should\+Draw}} \{ true \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_enemy_a64049230ae39663dd5ccfd0a27b25474}{hp}} \{ 100 \}
+\item 
+Rectangle\+Shape \mbox{\hyperlink{class_enemy_ac0db47c80f9801160bd27458a25018a4}{health\+Bar}}
+\item 
+Vector2f \mbox{\hyperlink{class_enemy_a1d50ff4dff13f15ffc608703f16f8575}{pos}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+Sprite \mbox{\hyperlink{class_render_object_a68a180ca61609043defd4e9362f87b44}{sprite}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_enemy_abff01ca5670b8c406fd36dcae43f6ea3}\label{class_enemy_abff01ca5670b8c406fd36dcae43f6ea3} 
+\index{Enemy@{Enemy}!aiMove@{aiMove}}
+\index{aiMove@{aiMove}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{aiMove()}{aiMove()}}
+{\footnotesize\ttfamily void Enemy\+::ai\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}}]{plr,  }\item[{Clock \&}]{i\+Frames,  }\item[{float}]{dt,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{enemies,  }\item[{bool \&}]{dash,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_render_object}{Render\+Object}} \texorpdfstring{$\ast$}{*} $>$ \&}]{render\+Objects,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_bullet}{Bullet}} \texorpdfstring{$\ast$}{*} $>$ \&}]{bullets,  }\item[{std\+::mutex \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_ranged_boss_afb50d47d302b512c37fef7167ceb0b43}{Ranged\+Boss}}, \mbox{\hyperlink{class_ranged_enemy_acd2c4ce4c05b3d357e7919dc67ddc593}{Ranged\+Enemy}}, and \mbox{\hyperlink{class_walker_a34ab3fea1f452a602c496fe50d52ac96}{Walker}}.
+
+\Hypertarget{class_enemy_a582d09158d692070f4becf68220bf6b6}\label{class_enemy_a582d09158d692070f4becf68220bf6b6} 
+\index{Enemy@{Enemy}!draw@{draw}}
+\index{draw@{draw}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Enemy\+::draw (\begin{DoxyParamCaption}\item[{Render\+Window \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_render_object_ae74e7cc67685a9f47eba43fa7afe63a4}{Render\+Object}}.
+
+\Hypertarget{class_enemy_a02b52b5c3d1effad96047ae788cc5507}\label{class_enemy_a02b52b5c3d1effad96047ae788cc5507} 
+\index{Enemy@{Enemy}!getHp@{getHp}}
+\index{getHp@{getHp}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{getHp()}{getHp()}}
+{\footnotesize\ttfamily float Enemy\+::get\+Hp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_enemy_a2160db284c20b71c1cb1df76fc5e2636}\label{class_enemy_a2160db284c20b71c1cb1df76fc5e2636} 
+\index{Enemy@{Enemy}!init@{init}}
+\index{init@{init}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Enemy\+::init (\begin{DoxyParamCaption}\item[{Texture \&}]{texture,  }\item[{Vector2f}]{position,  }\item[{char}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_render_object_a57ea4112279a6fa8238b831df04e9907}{Render\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_ranged_boss_aa1f20a3f8eea5e841562ebb9ae8cb37c}{Ranged\+Boss}}.
+
+\Hypertarget{class_enemy_aa1e20b304c769713c6f15a95eb4724bb}\label{class_enemy_aa1e20b304c769713c6f15a95eb4724bb} 
+\index{Enemy@{Enemy}!move@{move}}
+\index{move@{move}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Enemy\+::move (\begin{DoxyParamCaption}\item[{Vector2f}]{offset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_render_object_aa66db6e5382da7932a8480e5bcc70776}{Render\+Object}}.
+
+\Hypertarget{class_enemy_ae89eefd8e9478d7e4512bc24ca52a4b1}\label{class_enemy_ae89eefd8e9478d7e4512bc24ca52a4b1} 
+\index{Enemy@{Enemy}!takeDamage@{takeDamage}}
+\index{takeDamage@{takeDamage}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{takeDamage()}{takeDamage()}}
+{\footnotesize\ttfamily void Enemy\+::take\+Damage (\begin{DoxyParamCaption}\item[{float}]{damage }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_ranged_boss_a1cfc7b09aaac9c61979c00f9f2a35bc6}{Ranged\+Boss}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_enemy_a5d5917c222119c1d8eb3183c27c7adb7}\label{class_enemy_a5d5917c222119c1d8eb3183c27c7adb7} 
+\index{Enemy@{Enemy}!damage@{damage}}
+\index{damage@{damage}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{damage}{damage}}
+{\footnotesize\ttfamily float Enemy\+::damage}
+
+\Hypertarget{class_enemy_ac0db47c80f9801160bd27458a25018a4}\label{class_enemy_ac0db47c80f9801160bd27458a25018a4} 
+\index{Enemy@{Enemy}!healthBar@{healthBar}}
+\index{healthBar@{healthBar}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{healthBar}{healthBar}}
+{\footnotesize\ttfamily Rectangle\+Shape Enemy\+::health\+Bar\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_enemy_a58106633fc5b501764611ebd16b9fcc1}\label{class_enemy_a58106633fc5b501764611ebd16b9fcc1} 
+\index{Enemy@{Enemy}!hitbox@{hitbox}}
+\index{hitbox@{hitbox}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{hitbox}{hitbox}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_ellipse_hitbox}{Ellipse\+Hitbox}}\texorpdfstring{$\ast$}{*} Enemy\+::hitbox}
+
+\Hypertarget{class_enemy_a64049230ae39663dd5ccfd0a27b25474}\label{class_enemy_a64049230ae39663dd5ccfd0a27b25474} 
+\index{Enemy@{Enemy}!hp@{hp}}
+\index{hp@{hp}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{hp}{hp}}
+{\footnotesize\ttfamily float Enemy\+::hp \{ 100 \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_enemy_a1d50ff4dff13f15ffc608703f16f8575}\label{class_enemy_a1d50ff4dff13f15ffc608703f16f8575} 
+\index{Enemy@{Enemy}!pos@{pos}}
+\index{pos@{pos}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{pos}{pos}}
+{\footnotesize\ttfamily Vector2f Enemy\+::pos\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/projects/coding/\+C2\+H5\+OH/\+C2\+H5\+OH/\mbox{\hyperlink{_enemy_8hpp}{Enemy.\+hpp}}\item 
+D\+:/projects/coding/\+C2\+H5\+OH/\+C2\+H5\+OH/\mbox{\hyperlink{_enemy_8cpp}{Enemy.\+cpp}}\end{DoxyCompactItemize}

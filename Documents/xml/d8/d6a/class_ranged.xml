@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="d8/d6a/class_ranged" kind="class" language="C++" prot="public">
+    <compoundname>Ranged</compoundname>
+    <basecompoundref refid="d8/d3d/class_render_object" prot="public" virt="non-virtual">RenderObject</basecompoundref>
+    <includes refid="d7/daf/_weapons_8hpp" local="no">Weapons.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d8/d6a/class_ranged_1a10d37be74bc3902c21389c5b41c23473" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Ranged::damage</definition>
+        <argsstring></argsstring>
+        <name>damage</name>
+        <qualifiedname>Ranged::damage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" line="11" column="5" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d6a/class_ranged_1ae92ce153be720b641858109db6b5f08f" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Ranged::clipSize</definition>
+        <argsstring></argsstring>
+        <name>clipSize</name>
+        <qualifiedname>Ranged::clipSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" line="12" column="5" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d6a/class_ranged_1a0c037ff33d632ae61b39f801681df94e" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Ranged::bulletSpread</definition>
+        <argsstring></argsstring>
+        <name>bulletSpread</name>
+        <qualifiedname>Ranged::bulletSpread</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" line="13" column="7" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d6a/class_ranged_1abdb7eaf5a1c9848dd393efb6faba46dd" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Ranged::maxDistance</definition>
+        <argsstring></argsstring>
+        <name>maxDistance</name>
+        <qualifiedname>Ranged::maxDistance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" line="14" column="7" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d6a/class_ranged_1afc861c4a8cd58cc1514c2ec1b1b014e3" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Ranged::cooldown</definition>
+        <argsstring></argsstring>
+        <name>cooldown</name>
+        <qualifiedname>Ranged::cooldown</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" line="15" column="7" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d8/d6a/class_ranged_1a1410b31f46a2887337a1b10f020e20b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Ranged::setRangedInfo</definition>
+        <argsstring>(int damage, int clipSize, float bulletSpread, float maxDistance, float cooldown)</argsstring>
+        <name>setRangedInfo</name>
+        <qualifiedname>Ranged::setRangedInfo</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>damage</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>clipSize</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>bulletSpread</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>maxDistance</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>cooldown</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" line="8" column="6" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Weapons.cpp" bodystart="4" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6a/class_ranged_1acd68efdc2073baec306aa54f99f2ca7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Ranged::shoot</definition>
+        <argsstring>(std::vector&lt; Bullet * &gt; &amp;bullets, std::vector&lt; RenderObject * &gt; &amp;renderObjects, RenderWindow &amp;window, Player *plr, Texture &amp;bulletTexture, Clock &amp;attackCD, float speedBuff, int reverse)</argsstring>
+        <name>shoot</name>
+        <qualifiedname>Ranged::shoot</qualifiedname>
+        <param>
+          <type>std::vector&lt; <ref refid="d2/dbe/class_bullet" kindref="compound">Bullet</ref> * &gt; &amp;</type>
+          <declname>bullets</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="d8/d3d/class_render_object" kindref="compound">RenderObject</ref> * &gt; &amp;</type>
+          <declname>renderObjects</declname>
+        </param>
+        <param>
+          <type>RenderWindow &amp;</type>
+          <declname>window</declname>
+        </param>
+        <param>
+          <type><ref refid="d8/d53/class_player" kindref="compound">Player</ref> *</type>
+          <declname>plr</declname>
+        </param>
+        <param>
+          <type>Texture &amp;</type>
+          <declname>bulletTexture</declname>
+        </param>
+        <param>
+          <type>Clock &amp;</type>
+          <declname>attackCD</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>speedBuff</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>reverse</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" line="9" column="6" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Weapons.cpp" bodystart="12" bodyend="41"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Ranged</label>
+        <link refid="d8/d6a/class_ranged"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RenderObject</label>
+        <link refid="d8/d3d/class_render_object"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Ranged</label>
+        <link refid="d8/d6a/class_ranged"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RenderObject</label>
+        <link refid="d8/d3d/class_render_object"/>
+      </node>
+    </collaborationgraph>
+    <location file="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" line="6" column="1" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" bodystart="6" bodyend="16"/>
+    <listofallmembers>
+      <member refid="d8/d6a/class_ranged_1a0c037ff33d632ae61b39f801681df94e" prot="private" virt="non-virtual"><scope>Ranged</scope><name>bulletSpread</name></member>
+      <member refid="d8/d6a/class_ranged_1ae92ce153be720b641858109db6b5f08f" prot="private" virt="non-virtual"><scope>Ranged</scope><name>clipSize</name></member>
+      <member refid="d8/d6a/class_ranged_1afc861c4a8cd58cc1514c2ec1b1b014e3" prot="private" virt="non-virtual"><scope>Ranged</scope><name>cooldown</name></member>
+      <member refid="d8/d6a/class_ranged_1a10d37be74bc3902c21389c5b41c23473" prot="private" virt="non-virtual"><scope>Ranged</scope><name>damage</name></member>
+      <member refid="d8/d3d/class_render_object_1ae74e7cc67685a9f47eba43fa7afe63a4" prot="public" virt="virtual"><scope>Ranged</scope><name>draw</name></member>
+      <member refid="d8/d3d/class_render_object_1a1d1f93bce3161eb284a37c7581625bb7" prot="public" virt="virtual"><scope>Ranged</scope><name>getPosition</name></member>
+      <member refid="d8/d3d/class_render_object_1a82e4d119e2fc84a7a7b609ab854ba89a" prot="public" virt="non-virtual"><scope>Ranged</scope><name>getSize</name></member>
+      <member refid="d8/d3d/class_render_object_1a84d185d9a2d3963d0de8eda80cb2bc9d" prot="public" virt="non-virtual"><scope>Ranged</scope><name>getSprite</name></member>
+      <member refid="d8/d3d/class_render_object_1a57ea4112279a6fa8238b831df04e9907" prot="public" virt="virtual"><scope>Ranged</scope><name>init</name></member>
+      <member refid="d8/d6a/class_ranged_1abdb7eaf5a1c9848dd393efb6faba46dd" prot="private" virt="non-virtual"><scope>Ranged</scope><name>maxDistance</name></member>
+      <member refid="d8/d3d/class_render_object_1aa66db6e5382da7932a8480e5bcc70776" prot="public" virt="virtual"><scope>Ranged</scope><name>move</name></member>
+      <member refid="d8/d3d/class_render_object_1a8305c2fbd72a10a13a3a875bd4a87933" prot="public" virt="virtual"><scope>Ranged</scope><name>setOrigin</name></member>
+      <member refid="d8/d3d/class_render_object_1a610e8015f78f4028be442da1b73257a3" prot="public" virt="virtual"><scope>Ranged</scope><name>setPosition</name></member>
+      <member refid="d8/d6a/class_ranged_1a1410b31f46a2887337a1b10f020e20b9" prot="public" virt="non-virtual"><scope>Ranged</scope><name>setRangedInfo</name></member>
+      <member refid="d8/d3d/class_render_object_1a448ffcd3998836202f845073e2e906a4" prot="public" virt="virtual"><scope>Ranged</scope><name>setScale</name></member>
+      <member refid="d8/d3d/class_render_object_1ad6a393d95fec7397d41647eaf18b4677" prot="public" virt="non-virtual"><scope>Ranged</scope><name>setTexture</name></member>
+      <member refid="d8/d6a/class_ranged_1acd68efdc2073baec306aa54f99f2ca7d" prot="public" virt="non-virtual"><scope>Ranged</scope><name>shoot</name></member>
+      <member refid="d8/d3d/class_render_object_1aecc430f82613dc1e4ca7b7c9a87db891" prot="public" virt="non-virtual"><scope>Ranged</scope><name>shouldDraw</name></member>
+      <member refid="d8/d3d/class_render_object_1a68a180ca61609043defd4e9362f87b44" prot="protected" virt="non-virtual"><scope>Ranged</scope><name>sprite</name></member>
+      <member refid="d8/d3d/class_render_object_1a29345f8ebe01d91c928a2b77840dadbf" prot="public" virt="non-virtual"><scope>Ranged</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

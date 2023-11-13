@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="db/d43/_weapons_8cpp" kind="file" language="C++">
+    <compoundname>Weapons.cpp</compoundname>
+    <includes refid="d9/d98/precompile_8hpp" local="yes">precompile.hpp</includes>
+    <includes refid="d7/daf/_weapons_8hpp" local="yes">Weapons.hpp</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>Bullet.hpp</label>
+        <link refid="d6/d65/_bullet_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>EllipseHitbox.hpp</label>
+        <link refid="d6/dde/_ellipse_hitbox_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Player.hpp</label>
+        <link refid="d0/d16/_player_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>RectangleHitbox.hpp</label>
+        <link refid="d8/d8a/_rectangle_hitbox_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>RenderObject.hpp</label>
+        <link refid="d2/d59/_render_object_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>D:/projects/coding/C2H5OH/C2H5OH/Weapons.cpp</label>
+        <link refid="db/d43/_weapons_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Weapons.hpp</label>
+        <link refid="d7/daf/_weapons_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>precompile.hpp</label>
+        <link refid="d9/d98/precompile_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+      <node id="3">
+        <label>iostream</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="12">
+        <label>unordered_map</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d9/d98/precompile_8hpp" kindref="compound">precompile.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d7/daf/_weapons_8hpp" kindref="compound">Weapons.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/d6a/class_ranged_1a1410b31f46a2887337a1b10f020e20b9" kindref="member">Ranged::setRangedInfo</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>damage,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>clipSize,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>bulletSpread,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>maxDistance,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>cooldown){</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;damage<sp/>=<sp/><ref refid="d8/d6a/class_ranged_1a10d37be74bc3902c21389c5b41c23473" kindref="member">damage</ref>;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;clipSize<sp/>=<sp/><ref refid="d8/d6a/class_ranged_1ae92ce153be720b641858109db6b5f08f" kindref="member">clipSize</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;bulletSpread<sp/>=<sp/><ref refid="d8/d6a/class_ranged_1a0c037ff33d632ae61b39f801681df94e" kindref="member">bulletSpread</ref>;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;maxDistance<sp/>=<sp/><ref refid="d8/d6a/class_ranged_1abdb7eaf5a1c9848dd393efb6faba46dd" kindref="member">maxDistance</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;cooldown<sp/>=<sp/><ref refid="d8/d6a/class_ranged_1afc861c4a8cd58cc1514c2ec1b1b014e3" kindref="member">cooldown</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/d6a/class_ranged_1acd68efdc2073baec306aa54f99f2ca7d" kindref="member">Ranged::shoot</ref>(std::vector&lt;Bullet*&gt;&amp;<sp/>bullets,<sp/>std::vector&lt;RenderObject*&gt;&amp;<sp/>renderObjects,<sp/>RenderWindow&amp;<sp/>window,<sp/><ref refid="d8/d53/class_player" kindref="compound">Player</ref>*<sp/>plr,<sp/>Texture&amp;<sp/>bulletTexture,<sp/>Clock&amp;<sp/>attackCD,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>speedBuff,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>reverse)<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(attackCD.getElapsedTime().asSeconds()<sp/>&gt;=<sp/>this-&gt;cooldown<sp/>*<sp/>speedBuff)<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>attackCD.restart();</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector2f<sp/>gunPosition<sp/>=<sp/>this-&gt;<ref refid="d8/d3d/class_render_object_1a1d1f93bce3161eb284a37c7581625bb7" kindref="member">getPosition</ref>()<sp/>-<sp/>Vector2f(-36<sp/>*<sp/>reverse,<sp/>21),<sp/>mousePosition<sp/>=<sp/>window.mapPixelToCoords(Mouse::getPosition(window)),<sp/>playerPosition<sp/>=<sp/>plr-&gt;<ref refid="d8/d3d/class_render_object_1a1d1f93bce3161eb284a37c7581625bb7" kindref="member">getPosition</ref>();</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector2f<sp/>mouseToGun<sp/>=<sp/>gunPosition<sp/>-<sp/>mousePosition;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector2f<sp/>mouseToGunNorm<sp/>=<sp/>mouseToGun<sp/>/<sp/>hypotf(mouseToGun.x,<sp/>mouseToGun.y);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/dbe/class_bullet" kindref="compound">Bullet</ref>*<sp/>bullet<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d2/dbe/class_bullet" kindref="compound">Bullet</ref>(this-&gt;<ref refid="d8/d6a/class_ranged_1a10d37be74bc3902c21389c5b41c23473" kindref="member">damage</ref>,<sp/>this-&gt;<ref refid="d8/d6a/class_ranged_1abdb7eaf5a1c9848dd393efb6faba46dd" kindref="member">maxDistance</ref>,<sp/></highlight><highlight class="charliteral">&apos;p&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bullet-&gt;<ref refid="d8/d3d/class_render_object_1ad6a393d95fec7397d41647eaf18b4677" kindref="member">setTexture</ref>(bulletTexture);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bullet-&gt;<ref refid="d8/d3d/class_render_object_1a8305c2fbd72a10a13a3a875bd4a87933" kindref="member">setOrigin</ref>(Vector2f(4,<sp/>4));</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bullet-&gt;<ref refid="d8/d3d/class_render_object_1a610e8015f78f4028be442da1b73257a3" kindref="member">setPosition</ref>(gunPosition);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector2f<sp/>distance<sp/>=<sp/>playerPosition<sp/>-<sp/>mousePosition;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>angle<sp/>=<sp/>atan2(distance.y,<sp/>distance.x);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector2f<sp/>start(playerPosition.x<sp/>-<sp/>500<sp/>*<sp/>cos(angle<sp/>-<sp/>this-&gt;<ref refid="d8/d6a/class_ranged_1a0c037ff33d632ae61b39f801681df94e" kindref="member">bulletSpread</ref><sp/>*<sp/>3.14159265359<sp/>/<sp/>180),<sp/>playerPosition.y<sp/>-<sp/>500<sp/>*<sp/>sin(angle<sp/>-<sp/>this-&gt;<ref refid="d8/d6a/class_ranged_1a0c037ff33d632ae61b39f801681df94e" kindref="member">bulletSpread</ref><sp/>*<sp/>3.14159265359<sp/>/<sp/>180));</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector2f<sp/>end(playerPosition.x<sp/>-<sp/>500<sp/>*<sp/>cos(angle<sp/>+<sp/>this-&gt;<ref refid="d8/d6a/class_ranged_1a0c037ff33d632ae61b39f801681df94e" kindref="member">bulletSpread</ref><sp/>*<sp/>3.14159265359<sp/>/<sp/>180),<sp/>playerPosition.y<sp/>-<sp/>500<sp/>*<sp/>sin(angle<sp/>+<sp/>this-&gt;<ref refid="d8/d6a/class_ranged_1a0c037ff33d632ae61b39f801681df94e" kindref="member">bulletSpread</ref><sp/>*<sp/>3.14159265359<sp/>/<sp/>180));</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>percentage<sp/>=<sp/>(float)rand()<sp/>/<sp/>RAND_MAX;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector2f<sp/>spred(start.x<sp/>*<sp/>(1.0f<sp/>-<sp/>percentage)<sp/>+<sp/>end.x<sp/>*<sp/>percentage,<sp/>start.y<sp/>*<sp/>(1.0f<sp/>-<sp/>percentage)<sp/>+<sp/>end.y<sp/>*<sp/>percentage);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector2f<sp/>distanceSpread<sp/>=<sp/>playerPosition<sp/>-<sp/>spred;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector2f<sp/>normalized<sp/>=<sp/>distanceSpread<sp/>/<sp/>hypotf(distanceSpread.x,<sp/>distanceSpread.y);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bullet-&gt;<ref refid="d2/dbe/class_bullet_1a8ba4ee5eab7025899fc58ef3c84c06d6" kindref="member">direction</ref><sp/>=<sp/>normalized;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bullet-&gt;<ref refid="d2/dbe/class_bullet_1a5fbd5204eec00c8285686abeb4547f16" kindref="member">speed</ref><sp/>=<sp/>-600.f;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bullets.push_back(bullet);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>renderObjects.push_back(bullet);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="db/da8/class_melee_1ab2edf2c49e424e850934faab775b09e9" kindref="member">Melee::setMeleeInfo</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>damage,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>range,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>cooldown){</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;damage<sp/>=<sp/><ref refid="db/da8/class_melee_1a15c663537b34542abb8997ef50089471" kindref="member">damage</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;range<sp/>=<sp/><ref refid="db/da8/class_melee_1a73fb221a3ea6633d9e937735d67d527c" kindref="member">range</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;cooldown<sp/>=<sp/><ref refid="db/da8/class_melee_1a527f280fddeac5265c6cde897dd83648" kindref="member">cooldown</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="D:/projects/coding/C2H5OH/C2H5OH/Weapons.cpp"/>
+  </compounddef>
+</doxygen>

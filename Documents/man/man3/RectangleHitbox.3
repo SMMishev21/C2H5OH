@@ -1,0 +1,135 @@
+.TH "RectangleHitbox" 3 "C2H5OH" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RectangleHitbox
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <RectangleHitbox\&.hpp>\fP
+.PP
+Inherits \fBRenderObject\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRectangleHitbox\fP ()"
+.br
+.ti -1c
+.RI "\fBRectangleHitbox\fP (Vector2f \fBposition\fP, Vector2f \fBsize\fP)"
+.br
+.ti -1c
+.RI "void \fBsetPosition\fP (Vector2f newPosition)"
+.br
+.ti -1c
+.RI "Vector2f \fBgetPosition\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSize\fP (Vector2f newSize)"
+.br
+.ti -1c
+.RI "Vector2f \fBgetSize\fP ()"
+.br
+.ti -1c
+.RI "Vector2f \fBcheckOverlapRectangle\fP (Vector2f rectanglePosition, Vector2f rectangleSize)"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (RenderWindow &window) override"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "virtual void \fBinit\fP (Texture &texture, Vector2f position, char \fBtype\fP)"
+.br
+.ti -1c
+.RI "virtual void \fBsetOrigin\fP (Vector2f origin)"
+.br
+.ti -1c
+.RI "virtual void \fBsetScale\fP (Vector2f scale)"
+.br
+.ti -1c
+.RI "virtual void \fBmove\fP (Vector2f offset)"
+.br
+.ti -1c
+.RI "Vector2f \fBgetSize\fP ()"
+.br
+.ti -1c
+.RI "Sprite \fBgetSprite\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetTexture\fP (Texture &texture)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "Vector2f \fBposition\fP"
+.br
+.ti -1c
+.RI "Vector2f \fBsize\fP"
+.br
+.ti -1c
+.RI "RectangleShape \fBwireMesh\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Public Attributes inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "char \fBtype\fP"
+.br
+.ti -1c
+.RI "bool \fBshouldDraw\fP { true }"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "Sprite \fBsprite\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "RectangleHitbox::RectangleHitbox ()"
+
+.SS "RectangleHitbox::RectangleHitbox (Vector2f position, Vector2f size)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "Vector2f RectangleHitbox::checkOverlapRectangle (Vector2f rectanglePosition, Vector2f rectangleSize)"
+
+.SS "void RectangleHitbox::draw (RenderWindow & window)\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBRenderObject\fP\&.
+.SS "Vector2f RectangleHitbox::getPosition ()\fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBRenderObject\fP\&.
+.SS "Vector2f RectangleHitbox::getSize ()"
+
+.SS "void RectangleHitbox::setPosition (Vector2f newPosition)\fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBRenderObject\fP\&.
+.SS "void RectangleHitbox::setSize (Vector2f newSize)"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "Vector2f RectangleHitbox::position\fC [private]\fP"
+
+.SS "Vector2f RectangleHitbox::size\fC [private]\fP"
+
+.SS "RectangleShape RectangleHitbox::wireMesh\fC [private]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for C2H5OH from the source code\&.

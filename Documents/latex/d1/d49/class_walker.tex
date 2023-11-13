@@ -1,0 +1,109 @@
+\doxysection{Walker Class Reference}
+\hypertarget{class_walker}{}\label{class_walker}\index{Walker@{Walker}}
+
+
+{\ttfamily \#include $<$Walker.\+hpp$>$}
+
+Inheritance diagram for Walker\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{d1/d49/class_walker}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_walker_a34ab3fea1f452a602c496fe50d52ac96}{ai\+Move}} (\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}plr, Clock \&i\+Frames, float dt, std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&enemies, bool \&dash, std\+::vector$<$ \mbox{\hyperlink{class_render_object}{Render\+Object}} \texorpdfstring{$\ast$}{*} $>$ \&render\+Objects, std\+::vector$<$ \mbox{\hyperlink{class_bullet}{Bullet}} \texorpdfstring{$\ast$}{*} $>$ \&bullets, std\+::mutex \&m) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_enemy}{Enemy}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_enemy_a2160db284c20b71c1cb1df76fc5e2636}{init}} (Texture \&texture, Vector2f position, char \mbox{\hyperlink{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}{type}}) override
+\item 
+void \mbox{\hyperlink{class_enemy_aa1e20b304c769713c6f15a95eb4724bb}{move}} (Vector2f offset) override
+\item 
+void \mbox{\hyperlink{class_enemy_a582d09158d692070f4becf68220bf6b6}{draw}} (Render\+Window \&window) override
+\item 
+virtual void \mbox{\hyperlink{class_enemy_ae89eefd8e9478d7e4512bc24ca52a4b1}{take\+Damage}} (float \mbox{\hyperlink{class_enemy_a5d5917c222119c1d8eb3183c27c7adb7}{damage}})
+\item 
+float \mbox{\hyperlink{class_enemy_a02b52b5c3d1effad96047ae788cc5507}{get\+Hp}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a610e8015f78f4028be442da1b73257a3}{set\+Position}} (Vector2f position)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a8305c2fbd72a10a13a3a875bd4a87933}{set\+Origin}} (Vector2f origin)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a448ffcd3998836202f845073e2e906a4}{set\+Scale}} (Vector2f scale)
+\item 
+virtual Vector2f \mbox{\hyperlink{class_render_object_a1d1f93bce3161eb284a37c7581625bb7}{get\+Position}} ()
+\item 
+Vector2f \mbox{\hyperlink{class_render_object_a82e4d119e2fc84a7a7b609ab854ba89a}{get\+Size}} ()
+\item 
+Sprite \mbox{\hyperlink{class_render_object_a84d185d9a2d3963d0de8eda80cb2bc9d}{get\+Sprite}} ()
+\item 
+void \mbox{\hyperlink{class_render_object_ad6a393d95fec7397d41647eaf18b4677}{set\+Texture}} (Texture \&texture)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_walker_a8e2addd081ebbd0f8049961c1123f828}{damage}} \{20.f\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_enemy}{Enemy}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ellipse_hitbox}{Ellipse\+Hitbox}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_enemy_a58106633fc5b501764611ebd16b9fcc1}{hitbox}}
+\item 
+float \mbox{\hyperlink{class_enemy_a5d5917c222119c1d8eb3183c27c7adb7}{damage}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}{type}}
+\item 
+bool \mbox{\hyperlink{class_render_object_aecc430f82613dc1e4ca7b7c9a87db891}{should\+Draw}} \{ true \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_enemy}{Enemy}}}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_enemy_a64049230ae39663dd5ccfd0a27b25474}{hp}} \{ 100 \}
+\item 
+Rectangle\+Shape \mbox{\hyperlink{class_enemy_ac0db47c80f9801160bd27458a25018a4}{health\+Bar}}
+\item 
+Vector2f \mbox{\hyperlink{class_enemy_a1d50ff4dff13f15ffc608703f16f8575}{pos}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+Sprite \mbox{\hyperlink{class_render_object_a68a180ca61609043defd4e9362f87b44}{sprite}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_walker_a34ab3fea1f452a602c496fe50d52ac96}\label{class_walker_a34ab3fea1f452a602c496fe50d52ac96} 
+\index{Walker@{Walker}!aiMove@{aiMove}}
+\index{aiMove@{aiMove}!Walker@{Walker}}
+\doxysubsubsection{\texorpdfstring{aiMove()}{aiMove()}}
+{\footnotesize\ttfamily void Walker\+::ai\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}}]{plr,  }\item[{Clock \&}]{i\+Frames,  }\item[{float}]{dt,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{enemies,  }\item[{bool \&}]{dash,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_render_object}{Render\+Object}} \texorpdfstring{$\ast$}{*} $>$ \&}]{render\+Objects,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_bullet}{Bullet}} \texorpdfstring{$\ast$}{*} $>$ \&}]{bullets,  }\item[{std\+::mutex \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_enemy_abff01ca5670b8c406fd36dcae43f6ea3}{Enemy}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_walker_a8e2addd081ebbd0f8049961c1123f828}\label{class_walker_a8e2addd081ebbd0f8049961c1123f828} 
+\index{Walker@{Walker}!damage@{damage}}
+\index{damage@{damage}!Walker@{Walker}}
+\doxysubsubsection{\texorpdfstring{damage}{damage}}
+{\footnotesize\ttfamily float Walker\+::damage \{20.f\}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/projects/coding/\+C2\+H5\+OH/\+C2\+H5\+OH/\mbox{\hyperlink{_walker_8hpp}{Walker.\+hpp}}\item 
+D\+:/projects/coding/\+C2\+H5\+OH/\+C2\+H5\+OH/\mbox{\hyperlink{_walker_8cpp}{Walker.\+cpp}}\end{DoxyCompactItemize}

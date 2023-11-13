@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="d5/d50/class_element" kind="class" language="C++" prot="public">
+    <compoundname>Element</compoundname>
+    <basecompoundref refid="d8/d3d/class_render_object" prot="public" virt="non-virtual">RenderObject</basecompoundref>
+    <includes refid="dd/daa/_item_8hpp" local="no">Item.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d5/d50/class_element_1acf76ec296a0d43b42549ce4742f7cf31" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Element::spawnTime</definition>
+        <argsstring></argsstring>
+        <name>spawnTime</name>
+        <qualifiedname>Element::spawnTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Item.hpp" line="7" column="7" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Item.hpp" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d5/d50/class_element_1a05b403d689cc499cf47bd2538b8fb6b4" prot="public" static="no" mutable="no">
+        <type>Vector2f</type>
+        <definition>Vector2f Element::direction</definition>
+        <argsstring></argsstring>
+        <name>direction</name>
+        <qualifiedname>Element::direction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Item.hpp" line="8" column="10" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Item.hpp" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d5/d50/class_element_1af2c8edbd17e3c2b6d00e7a4d9ef5ff95" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Element::element</definition>
+        <argsstring></argsstring>
+        <name>element</name>
+        <qualifiedname>Element::element</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Item.hpp" line="9" column="13" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Item.hpp" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d5/d50/class_element_1a889fc814686712201be1bf0526501834" prot="public" static="no" mutable="no">
+        <type>Clock</type>
+        <definition>Clock Element::timeAlive</definition>
+        <argsstring></argsstring>
+        <name>timeAlive</name>
+        <qualifiedname>Element::timeAlive</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Item.hpp" line="10" column="7" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Item.hpp" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d5/d50/class_element_1ada4df218b43144d480949fa91b5d70b2" prot="public" static="no" mutable="no">
+        <type>Clock</type>
+        <definition>Clock Element::spawnClock</definition>
+        <argsstring></argsstring>
+        <name>spawnClock</name>
+        <qualifiedname>Element::spawnClock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Item.hpp" line="11" column="7" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Item.hpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Element</label>
+        <link refid="d5/d50/class_element"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RenderObject</label>
+        <link refid="d8/d3d/class_render_object"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Element</label>
+        <link refid="d5/d50/class_element"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RenderObject</label>
+        <link refid="d8/d3d/class_render_object"/>
+      </node>
+    </collaborationgraph>
+    <location file="D:/projects/coding/C2H5OH/C2H5OH/Item.hpp" line="5" column="1" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Item.hpp" bodystart="5" bodyend="12"/>
+    <listofallmembers>
+      <member refid="d5/d50/class_element_1a05b403d689cc499cf47bd2538b8fb6b4" prot="public" virt="non-virtual"><scope>Element</scope><name>direction</name></member>
+      <member refid="d8/d3d/class_render_object_1ae74e7cc67685a9f47eba43fa7afe63a4" prot="public" virt="virtual"><scope>Element</scope><name>draw</name></member>
+      <member refid="d5/d50/class_element_1af2c8edbd17e3c2b6d00e7a4d9ef5ff95" prot="public" virt="non-virtual"><scope>Element</scope><name>element</name></member>
+      <member refid="d8/d3d/class_render_object_1a1d1f93bce3161eb284a37c7581625bb7" prot="public" virt="virtual"><scope>Element</scope><name>getPosition</name></member>
+      <member refid="d8/d3d/class_render_object_1a82e4d119e2fc84a7a7b609ab854ba89a" prot="public" virt="non-virtual"><scope>Element</scope><name>getSize</name></member>
+      <member refid="d8/d3d/class_render_object_1a84d185d9a2d3963d0de8eda80cb2bc9d" prot="public" virt="non-virtual"><scope>Element</scope><name>getSprite</name></member>
+      <member refid="d8/d3d/class_render_object_1a57ea4112279a6fa8238b831df04e9907" prot="public" virt="virtual"><scope>Element</scope><name>init</name></member>
+      <member refid="d8/d3d/class_render_object_1aa66db6e5382da7932a8480e5bcc70776" prot="public" virt="virtual"><scope>Element</scope><name>move</name></member>
+      <member refid="d8/d3d/class_render_object_1a8305c2fbd72a10a13a3a875bd4a87933" prot="public" virt="virtual"><scope>Element</scope><name>setOrigin</name></member>
+      <member refid="d8/d3d/class_render_object_1a610e8015f78f4028be442da1b73257a3" prot="public" virt="virtual"><scope>Element</scope><name>setPosition</name></member>
+      <member refid="d8/d3d/class_render_object_1a448ffcd3998836202f845073e2e906a4" prot="public" virt="virtual"><scope>Element</scope><name>setScale</name></member>
+      <member refid="d8/d3d/class_render_object_1ad6a393d95fec7397d41647eaf18b4677" prot="public" virt="non-virtual"><scope>Element</scope><name>setTexture</name></member>
+      <member refid="d8/d3d/class_render_object_1aecc430f82613dc1e4ca7b7c9a87db891" prot="public" virt="non-virtual"><scope>Element</scope><name>shouldDraw</name></member>
+      <member refid="d5/d50/class_element_1ada4df218b43144d480949fa91b5d70b2" prot="public" virt="non-virtual"><scope>Element</scope><name>spawnClock</name></member>
+      <member refid="d5/d50/class_element_1acf76ec296a0d43b42549ce4742f7cf31" prot="public" virt="non-virtual"><scope>Element</scope><name>spawnTime</name></member>
+      <member refid="d8/d3d/class_render_object_1a68a180ca61609043defd4e9362f87b44" prot="protected" virt="non-virtual"><scope>Element</scope><name>sprite</name></member>
+      <member refid="d5/d50/class_element_1a889fc814686712201be1bf0526501834" prot="public" virt="non-virtual"><scope>Element</scope><name>timeAlive</name></member>
+      <member refid="d8/d3d/class_render_object_1a29345f8ebe01d91c928a2b77840dadbf" prot="public" virt="non-virtual"><scope>Element</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

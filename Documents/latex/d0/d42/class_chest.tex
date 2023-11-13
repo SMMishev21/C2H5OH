@@ -1,0 +1,103 @@
+\doxysection{Chest Class Reference}
+\hypertarget{class_chest}{}\label{class_chest}\index{Chest@{Chest}}
+
+
+{\ttfamily \#include $<$Chest.\+hpp$>$}
+
+Inheritance diagram for Chest\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d0/d42/class_chest}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ std\+::string, int $>$ \mbox{\hyperlink{class_chest_ab8ca47b826f6c841e1bdc0471e9af904}{get\+Random\+Element}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a57ea4112279a6fa8238b831df04e9907}{init}} (Texture \&texture, Vector2f position, char \mbox{\hyperlink{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}{type}})
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a610e8015f78f4028be442da1b73257a3}{set\+Position}} (Vector2f position)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a8305c2fbd72a10a13a3a875bd4a87933}{set\+Origin}} (Vector2f origin)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_ae74e7cc67685a9f47eba43fa7afe63a4}{draw}} (Render\+Window \&window)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a448ffcd3998836202f845073e2e906a4}{set\+Scale}} (Vector2f scale)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_aa66db6e5382da7932a8480e5bcc70776}{move}} (Vector2f offset)
+\item 
+virtual Vector2f \mbox{\hyperlink{class_render_object_a1d1f93bce3161eb284a37c7581625bb7}{get\+Position}} ()
+\item 
+Vector2f \mbox{\hyperlink{class_render_object_a82e4d119e2fc84a7a7b609ab854ba89a}{get\+Size}} ()
+\item 
+Sprite \mbox{\hyperlink{class_render_object_a84d185d9a2d3963d0de8eda80cb2bc9d}{get\+Sprite}} ()
+\item 
+void \mbox{\hyperlink{class_render_object_ad6a393d95fec7397d41647eaf18b4677}{set\+Texture}} (Texture \&texture)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_chest_aaa9abdfe7b030f22220ec4e2e74ffab0}{opened}} \{ false \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}{type}}
+\item 
+bool \mbox{\hyperlink{class_render_object_aecc430f82613dc1e4ca7b7c9a87db891}{should\+Draw}} \{ true \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_chest_a1f7e2e28d56dd1a666f2f5a71f51c037}{elements}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+Sprite \mbox{\hyperlink{class_render_object_a68a180ca61609043defd4e9362f87b44}{sprite}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_chest_ab8ca47b826f6c841e1bdc0471e9af904}\label{class_chest_ab8ca47b826f6c841e1bdc0471e9af904} 
+\index{Chest@{Chest}!getRandomElement@{getRandomElement}}
+\index{getRandomElement@{getRandomElement}!Chest@{Chest}}
+\doxysubsubsection{\texorpdfstring{getRandomElement()}{getRandomElement()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::string, int $>$ Chest\+::get\+Random\+Element (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_chest_a1f7e2e28d56dd1a666f2f5a71f51c037}\label{class_chest_a1f7e2e28d56dd1a666f2f5a71f51c037} 
+\index{Chest@{Chest}!elements@{elements}}
+\index{elements@{elements}!Chest@{Chest}}
+\doxysubsubsection{\texorpdfstring{elements}{elements}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Chest\+::elements\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}carbon"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}hydrogen"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}nitrogen"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}oxygen"{}}}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_chest_aaa9abdfe7b030f22220ec4e2e74ffab0}\label{class_chest_aaa9abdfe7b030f22220ec4e2e74ffab0} 
+\index{Chest@{Chest}!opened@{opened}}
+\index{opened@{opened}!Chest@{Chest}}
+\doxysubsubsection{\texorpdfstring{opened}{opened}}
+{\footnotesize\ttfamily bool Chest\+::opened \{ false \}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/projects/coding/\+C2\+H5\+OH/\+C2\+H5\+OH/\mbox{\hyperlink{_chest_8hpp}{Chest.\+hpp}}\item 
+D\+:/projects/coding/\+C2\+H5\+OH/\+C2\+H5\+OH/\mbox{\hyperlink{_chest_8cpp}{Chest.\+cpp}}\end{DoxyCompactItemize}

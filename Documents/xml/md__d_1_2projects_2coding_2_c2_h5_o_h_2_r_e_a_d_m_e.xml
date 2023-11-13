@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="md__d_1_2projects_2coding_2_c2_h5_o_h_2_r_e_a_d_m_e" kind="page">
+    <compoundname>md__d_1_2projects_2coding_2_c2_h5_o_h_2_r_e_a_d_m_e</compoundname>
+    <title>README</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para></para>
+<para><image type="html" name="C2H5OH/assets/proekt.logo.png" alt="logo" inline="yes"></image>
+ <linebreak/>
+ <heading level="1">📖 Description </heading>
+</para>
+<para>C2H5OH is our team name. Our goal is to create a game about Chemistry and Biology <heading level="1">👥 Our Team </heading>
+</para>
+<para><orderedlist>
+<listitem><para><bold>Stiliyan Mishev</bold> - <bold>Scrum trainer</bold> <linebreak/>
+ <blockquote><para><zwj/><emphasis><bold>GitHub profile</bold></emphasis>: <ulink url="https://github.com/SMMishev21"><emphasis><bold>SMMishev21</bold></emphasis></ulink> <linebreak/>
+ </para>
+</blockquote></para>
+</listitem><listitem><para><bold>Ivailo Bachvarov</bold> - <bold>Backend Developer</bold> <blockquote><para><zwj/><emphasis><bold>GitHub profile</bold></emphasis>: <ulink url="https://github.com/ISBachvarov21"><emphasis><bold>ISBachvarov21</bold></emphasis></ulink> <linebreak/>
+ </para>
+</blockquote></para>
+</listitem><listitem><para><bold>Martin Velkov</bold> - <bold>Backend Developer</bold> <blockquote><para><zwj/><emphasis><bold>GitHub profile</bold></emphasis>: <ulink url="https://github.com/MVVelkov21"><emphasis><bold>MVVelkov21</bold></emphasis></ulink> <linebreak/>
+ </para>
+</blockquote></para>
+</listitem><listitem><para><bold>Nikola Paskov</bold> - <bold>Designer</bold> <blockquote><para><zwj/><emphasis><bold>GitHub profile</bold></emphasis>: <ulink url="https://github.com/NTPaskov21"><emphasis><bold>NTPaskov21</bold></emphasis></ulink> </para>
+</blockquote></para>
+</listitem></orderedlist>
+</para>
+<para><heading level="1">🌐💻 Used technologies</heading>
+</para>
+<para></para>
+<para><image type="html" name="https://img.icons8.com/fluency/48/000000/visual-studio.png" inline="yes"></image>
+   &lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/SFML2.svg/1280px-SFML2.svg.png&quot; width=&quot;50&quot;   <image type="html" name="https://img.icons8.com/color/48/000000/microsoft-teams.png" inline="yes"></image>
+   <image type="html" name="https://img.icons8.com/color/48/000000/microsoft-teams.png" inline="yes"></image>
+   <image type="html" name="https://img.icons8.com/color/48/000000/microsoft-word-2019--v2.png" inline="yes"></image>
+   <image type="html" name="https://img.icons8.com/color/48/000000/microsoft-powerpoint-2019--v1.png" inline="yes"></image>
+   <image type="html" name="https://img.icons8.com/color/48/000000/microsoft-excel-2019--v1.png" inline="yes"></image>
+</para>
+<para><heading level="1">📋 Documents</heading>
+</para>
+<para><heading level="2"><ulink url="https://github.com/SMMishev21/C2H5OH/blob/main/Documents/Documentation.C2H5OH.docx">📜 Documentation  📰 Presentation   @subsection autotoc_md0 <emphasis><bold>If you like our game you can give us a 🥇</bold></emphasis> </ulink></heading>
+</para>
+    </detaileddescription>
+    <location file="D:/projects/coding/C2H5OH/README.md"/>
+  </compounddef>
+</doxygen>

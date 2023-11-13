@@ -1,0 +1,323 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="d2/dbe/class_bullet" kind="class"><name>Bullet</name>
+    <member refid="d2/dbe/class_bullet_1a8ba4ee5eab7025899fc58ef3c84c06d6" kind="variable"><name>direction</name></member>
+    <member refid="d2/dbe/class_bullet_1a5fbd5204eec00c8285686abeb4547f16" kind="variable"><name>speed</name></member>
+    <member refid="d2/dbe/class_bullet_1aad62bb7b3d2488adfebeb37fb9cb4e35" kind="variable"><name>owner</name></member>
+    <member refid="d2/dbe/class_bullet_1a1cad8c80e63d13da57b563b8e8e3f79e" kind="variable"><name>damage</name></member>
+    <member refid="d2/dbe/class_bullet_1aa192b1cc34b098a940ccaa024e66d5c0" kind="variable"><name>distance</name></member>
+    <member refid="d2/dbe/class_bullet_1a386146f8d19b6852f39a7a2348330160" kind="variable"><name>maxDistance</name></member>
+    <member refid="d2/dbe/class_bullet_1af9ed2312e5e41bbdeb0cf5648bb3f752" kind="function"><name>Bullet</name></member>
+  </compound>
+  <compound refid="d0/d42/class_chest" kind="class"><name>Chest</name>
+    <member refid="d0/d42/class_chest_1aaa9abdfe7b030f22220ec4e2e74ffab0" kind="variable"><name>opened</name></member>
+    <member refid="d0/d42/class_chest_1a1f7e2e28d56dd1a666f2f5a71f51c037" kind="variable"><name>elements</name></member>
+    <member refid="d0/d42/class_chest_1ab8ca47b826f6c841e1bdc0471e9af904" kind="function"><name>getRandomElement</name></member>
+  </compound>
+  <compound refid="d5/d50/class_element" kind="class"><name>Element</name>
+    <member refid="d5/d50/class_element_1acf76ec296a0d43b42549ce4742f7cf31" kind="variable"><name>spawnTime</name></member>
+    <member refid="d5/d50/class_element_1a05b403d689cc499cf47bd2538b8fb6b4" kind="variable"><name>direction</name></member>
+    <member refid="d5/d50/class_element_1af2c8edbd17e3c2b6d00e7a4d9ef5ff95" kind="variable"><name>element</name></member>
+    <member refid="d5/d50/class_element_1a889fc814686712201be1bf0526501834" kind="variable"><name>timeAlive</name></member>
+    <member refid="d5/d50/class_element_1ada4df218b43144d480949fa91b5d70b2" kind="variable"><name>spawnClock</name></member>
+  </compound>
+  <compound refid="d2/d84/class_ellipse_hitbox" kind="class"><name>EllipseHitbox</name>
+    <member refid="d2/d84/class_ellipse_hitbox_1a9c902d351b7813c5076e0f45b96a8aea" kind="variable"><name>position</name></member>
+    <member refid="d2/d84/class_ellipse_hitbox_1a6157456843345d2a2c9bf132c67d54c2" kind="variable"><name>radius</name></member>
+    <member refid="d2/d84/class_ellipse_hitbox_1a3eaadd3c631550c41b9ac1a31a553500" kind="function"><name>getPosition</name></member>
+    <member refid="d2/d84/class_ellipse_hitbox_1ad283334fb22d4b3f4fd0ef071eb882f7" kind="function"><name>setPosition</name></member>
+    <member refid="d2/d84/class_ellipse_hitbox_1a847d51ac94c187b3fdb95451659d97c6" kind="function"><name>getRadius</name></member>
+    <member refid="d2/d84/class_ellipse_hitbox_1a0619fd415e215de77ca6dbd45495b7a1" kind="function"><name>setRadius</name></member>
+    <member refid="d2/d84/class_ellipse_hitbox_1afe088c4b4a7e689f3153124352800914" kind="function"><name>checkOverlapRectangle</name></member>
+  </compound>
+  <compound refid="dd/d7a/class_enemy" kind="class"><name>Enemy</name>
+    <member refid="dd/d7a/class_enemy_1a64049230ae39663dd5ccfd0a27b25474" kind="variable"><name>hp</name></member>
+    <member refid="dd/d7a/class_enemy_1ac0db47c80f9801160bd27458a25018a4" kind="variable"><name>healthBar</name></member>
+    <member refid="dd/d7a/class_enemy_1a1d50ff4dff13f15ffc608703f16f8575" kind="variable"><name>pos</name></member>
+    <member refid="dd/d7a/class_enemy_1a58106633fc5b501764611ebd16b9fcc1" kind="variable"><name>hitbox</name></member>
+    <member refid="dd/d7a/class_enemy_1a5d5917c222119c1d8eb3183c27c7adb7" kind="variable"><name>damage</name></member>
+    <member refid="dd/d7a/class_enemy_1a2160db284c20b71c1cb1df76fc5e2636" kind="function"><name>init</name></member>
+    <member refid="dd/d7a/class_enemy_1aa1e20b304c769713c6f15a95eb4724bb" kind="function"><name>move</name></member>
+    <member refid="dd/d7a/class_enemy_1a582d09158d692070f4becf68220bf6b6" kind="function"><name>draw</name></member>
+    <member refid="dd/d7a/class_enemy_1abff01ca5670b8c406fd36dcae43f6ea3" kind="function"><name>aiMove</name></member>
+    <member refid="dd/d7a/class_enemy_1ae89eefd8e9478d7e4512bc24ca52a4b1" kind="function"><name>takeDamage</name></member>
+    <member refid="dd/d7a/class_enemy_1a02b52b5c3d1effad96047ae788cc5507" kind="function"><name>getHp</name></member>
+  </compound>
+  <compound refid="dd/d1f/class_game" kind="class"><name>Game</name>
+    <member refid="dd/d1f/class_game_1a092a7ddf062f507682f3f630859eea52" kind="variable"><name>roomNumber</name></member>
+    <member refid="dd/d1f/class_game_1af3cf272c9da9fd719bb3b872b87eb8e5" kind="variable"><name>reverse</name></member>
+    <member refid="dd/d1f/class_game_1a5184b0439c5cefb45050d0bfaca9ac97" kind="variable"><name>dt</name></member>
+    <member refid="dd/d1f/class_game_1afd929b751855ee1c0fa2ccec6be24914" kind="variable"><name>dashDistance</name></member>
+    <member refid="dd/d1f/class_game_1a9c108365a0b3387e4ac4fab6712b1895" kind="variable"><name>speedBuff</name></member>
+    <member refid="dd/d1f/class_game_1ab9d5e4da9d6d53689cd9ead45dfe5023" kind="variable"><name>attackSpeedBuff</name></member>
+    <member refid="dd/d1f/class_game_1a2caa2c31a574d0c61802a9885460f605" kind="variable"><name>healthBuff</name></member>
+    <member refid="dd/d1f/class_game_1a6d4916356d6dc58d2e8b59a2a653d009" kind="variable"><name>damageBuff</name></member>
+    <member refid="dd/d1f/class_game_1aa9a585e6d38297c00607c2b53075b60c" kind="variable"><name>shouldClose</name></member>
+    <member refid="dd/d1f/class_game_1aab8975c335124cf0908b6f6b662ada29" kind="variable"><name>dash</name></member>
+    <member refid="dd/d1f/class_game_1af566493febdee715c5c8e3a92d0d373a" kind="variable"><name>lab</name></member>
+    <member refid="dd/d1f/class_game_1a599d9e860a26528c972290e0339ec1ed" kind="variable"><name>dashInvincibility</name></member>
+    <member refid="dd/d1f/class_game_1aa1dc131bb82d06ecdc37a208116afebf" kind="variable"><name>currentRoom</name></member>
+    <member refid="dd/d1f/class_game_1aa25aee70d9b1fc00de5efe0525dcb132" kind="variable"><name>drawReady</name></member>
+    <member refid="dd/d1f/class_game_1a792946a26160a42bc1323ce7e424d445" kind="variable"><name>updateReady</name></member>
+    <member refid="dd/d1f/class_game_1ada7afb86c7e0ef3f239365acb7d6456e" kind="variable"><name>m</name></member>
+    <member refid="dd/d1f/class_game_1a8773f0f2562575ce000b0a6abb6c87ed" kind="variable"><name>window</name></member>
+    <member refid="dd/d1f/class_game_1a79434573ff64e9e9b1326d54f8d2e3c3" kind="variable"><name>ev</name></member>
+    <member refid="dd/d1f/class_game_1a961ba0de2d2bf63cc020e616a65b60ea" kind="variable"><name>bulletTexture</name></member>
+    <member refid="dd/d1f/class_game_1ade37f1d0755d85ec22952faa0924cd31" kind="variable"><name>enemyTexture</name></member>
+    <member refid="dd/d1f/class_game_1af572a4dfd111d2715ee51e7c7d623d4e" kind="variable"><name>akTexture</name></member>
+    <member refid="dd/d1f/class_game_1a0e47880867087deb0daeaa4643547655" kind="variable"><name>chestTexture</name></member>
+    <member refid="dd/d1f/class_game_1aee413cdeae5a238fc931c09dc8326cdd" kind="variable"><name>keyTexture</name></member>
+    <member refid="dd/d1f/class_game_1a1b39e96967088d7142b8790c3b12d4c4" kind="variable"><name>carbonTexture</name></member>
+    <member refid="dd/d1f/class_game_1a79a01f4b7479caa4937fea8a555ea28d" kind="variable"><name>oxygenTexture</name></member>
+    <member refid="dd/d1f/class_game_1ab63d7f399e4a02bb8e8ab5726e63dae7" kind="variable"><name>hydrogenTexture</name></member>
+    <member refid="dd/d1f/class_game_1a292514d5fcef62078d2c049e5e65ec33" kind="variable"><name>nitrogenTexture</name></member>
+    <member refid="dd/d1f/class_game_1a3c194ef8f22c5cedf762fbea00023284" kind="variable"><name>roomTexture</name></member>
+    <member refid="dd/d1f/class_game_1a70f4f1086c75b4245c5bf54d36a5c53b" kind="variable"><name>walkerTexture</name></member>
+    <member refid="dd/d1f/class_game_1a139b75b6aa5393d805e1d49f9412d3fc" kind="variable"><name>rangedEnemyTexture</name></member>
+    <member refid="dd/d1f/class_game_1ad6876bf683a2209f1e0b164443f0f1bc" kind="variable"><name>rangedBossTexture</name></member>
+    <member refid="dd/d1f/class_game_1a02243e30a4b4bd093c80643d1f93113b" kind="variable"><name>squareHitboxTexture</name></member>
+    <member refid="dd/d1f/class_game_1ac531eb0339e60e6d9b1d14408d13a0d8" kind="variable"><name>ellipseHitboxTexture</name></member>
+    <member refid="dd/d1f/class_game_1a993f41644b9dbcce001cc930a2fde9ef" kind="variable"><name>invCarbon</name></member>
+    <member refid="dd/d1f/class_game_1a035eed6b0a33f5771a369229215e1480" kind="variable"><name>invNitro</name></member>
+    <member refid="dd/d1f/class_game_1a9a7fe4bbf80b8cff640ef9fb72864724" kind="variable"><name>invHydrogen</name></member>
+    <member refid="dd/d1f/class_game_1aa1819d19a2a496f1f9a8db3ce49fae29" kind="variable"><name>invOxygen</name></member>
+    <member refid="dd/d1f/class_game_1a5a87a0126f7be86ef91b77e46816662a" kind="variable"><name>backgroundImage</name></member>
+    <member refid="dd/d1f/class_game_1aca171a8c32f73c4c9dd75046c44a5ba0" kind="variable"><name>trenImg</name></member>
+    <member refid="dd/d1f/class_game_1a662749ccc7cbb8066c306bf0185cd9a1" kind="variable"><name>coffeeImg</name></member>
+    <member refid="dd/d1f/class_game_1ae6c81f87f8c7db044f193ef8d45ce6cb" kind="variable"><name>bossRoomTexture</name></member>
+    <member refid="dd/d1f/class_game_1a9bc79dba1d439bc4dc1de70ca7bbbbcf" kind="variable"><name>plrLeftTexture</name></member>
+    <member refid="dd/d1f/class_game_1a704f1cfdc45cab366009e1bca29adbd0" kind="variable"><name>plrRightTexture</name></member>
+    <member refid="dd/d1f/class_game_1a29031accafd1448b5e311b7973de117d" kind="variable"><name>gunTexture</name></member>
+    <member refid="dd/d1f/class_game_1a09fcd6cbefca015cc5d16bed2749564a" kind="variable"><name>invBg</name></member>
+    <member refid="dd/d1f/class_game_1aa9c5aff719d0bde89121da263e9c1b1c" kind="variable"><name>font</name></member>
+    <member refid="dd/d1f/class_game_1a386d050f9df50a2a44cd57bd7c2ec661" kind="variable"><name>carbonText</name></member>
+    <member refid="dd/d1f/class_game_1a9e2d853e07a9e44dd7605d193bb17b11" kind="variable"><name>oxygenText</name></member>
+    <member refid="dd/d1f/class_game_1ab50921e49b56f59335c22b6612b4802a" kind="variable"><name>hydrogenText</name></member>
+    <member refid="dd/d1f/class_game_1afa244b5d76b1c2ea6481e0750e093724" kind="variable"><name>nitrogenText</name></member>
+    <member refid="dd/d1f/class_game_1a27792f08f3286858fd01c3a19de0607e" kind="variable"><name>carbonInfo</name></member>
+    <member refid="dd/d1f/class_game_1a2cdb393ec79a98dbdea41d02e6fae360" kind="variable"><name>oxygenInfo</name></member>
+    <member refid="dd/d1f/class_game_1a35fdf147c3c89ebea50aa4b11de60ae5" kind="variable"><name>hydrogenInfo</name></member>
+    <member refid="dd/d1f/class_game_1af16b9c894176f9cd299c41cf094618dc" kind="variable"><name>nitrogenInfo</name></member>
+    <member refid="dd/d1f/class_game_1a2c3afe17df70fcaf73a871fb38bd1d6d" kind="variable"><name>coffee</name></member>
+    <member refid="dd/d1f/class_game_1a63aac7b2ba7d8cc36901a1cd967bcb9f" kind="variable"><name>tren</name></member>
+    <member refid="dd/d1f/class_game_1ac35540f2f787b271d8127d16ea41775c" kind="variable"><name>square4</name></member>
+    <member refid="dd/d1f/class_game_1a33a701aea9d17882451a07e0b249f697" kind="variable"><name>square1</name></member>
+    <member refid="dd/d1f/class_game_1aac45d016551559795ab22a6fbb4cd45b" kind="variable"><name>square2</name></member>
+    <member refid="dd/d1f/class_game_1a452b45b755ce487a76ccd61c48ce9507" kind="variable"><name>square3</name></member>
+    <member refid="dd/d1f/class_game_1a4c001ebecb5031843788474d49f5b504" kind="variable"><name>trenSqrt</name></member>
+    <member refid="dd/d1f/class_game_1abfdacb0241a043d3ad5b78c32bccf75b" kind="variable"><name>coffeeSqrt</name></member>
+    <member refid="dd/d1f/class_game_1a4efeaa92387978796a242e66a7c0c2ac" kind="variable"><name>healthBar</name></member>
+    <member refid="dd/d1f/class_game_1acaabcfe2517730f7148c8c48e08b4364" kind="variable"><name>room</name></member>
+    <member refid="dd/d1f/class_game_1a1d678c453e15653e04f2008d113ba973" kind="variable"><name>view</name></member>
+    <member refid="dd/d1f/class_game_1a1aa6c3caa0b8a22ff3d32d17eba371b5" kind="variable"><name>clock</name></member>
+    <member refid="dd/d1f/class_game_1a5e922ab845818e808b59631968601d09" kind="variable"><name>plrVelocity</name></member>
+    <member refid="dd/d1f/class_game_1a70756834528dbbd16cc9fdfb3f647bdd" kind="variable"><name>dir</name></member>
+    <member refid="dd/d1f/class_game_1aea4095c8fbb30337fb9177c2e900932b" kind="variable"><name>dashed</name></member>
+    <member refid="dd/d1f/class_game_1a2d8bb6927fcac8718761a384de0ef671" kind="variable"><name>dashClock</name></member>
+    <member refid="dd/d1f/class_game_1aacf279eaf5e63cc636c7d522f8101e2c" kind="variable"><name>iFrames</name></member>
+    <member refid="dd/d1f/class_game_1a4849db5951e62354db3a89e601a02dc6" kind="variable"><name>attackCD</name></member>
+    <member refid="dd/d1f/class_game_1ad185687a8b765b66a42861ffbefe2ed5" kind="variable"><name>labCD</name></member>
+    <member refid="dd/d1f/class_game_1abadd671b47112ba404793ac77fa4e224" kind="variable"><name>dashIFrames</name></member>
+    <member refid="dd/d1f/class_game_1aa7d3ff08ef2c0e266365f8953d2b80d9" kind="variable"><name>gun</name></member>
+    <member refid="dd/d1f/class_game_1a34fed2817caea3b765390f3b70bda9f2" kind="variable"><name>plr</name></member>
+    <member refid="dd/d1f/class_game_1a5548e7d84fb0d75ab8dd68b5ffbf867d" kind="variable"><name>chest</name></member>
+    <member refid="dd/d1f/class_game_1aab8e2eed0ded29aead4baedb25c82eaa" kind="variable"><name>key</name></member>
+    <member refid="dd/d1f/class_game_1a4ed8135ea2cfb0bb81382a731ef2dccb" kind="variable"><name>selected</name></member>
+    <member refid="dd/d1f/class_game_1a8d7c407ef0a7e7634faded3ecebd48c1" kind="variable"><name>bullets</name></member>
+    <member refid="dd/d1f/class_game_1a29e5e11978d28aac90748d484ddd1219" kind="variable"><name>enemies</name></member>
+    <member refid="dd/d1f/class_game_1ad127e7f44c120e3a06b6dc1b561e3a00" kind="variable"><name>renderObjects</name></member>
+    <member refid="dd/d1f/class_game_1a0f6c8b77f1b9fd5d07b8ad1f94a83768" kind="variable"><name>chests</name></member>
+    <member refid="dd/d1f/class_game_1a2b62077c59f7c3a3a60913f141088ac5" kind="variable"><name>elements</name></member>
+    <member refid="dd/d1f/class_game_1a71f6cef024176cb9b30eb270fcea6ab4" kind="variable"><name>elementsToSpawn</name></member>
+    <member refid="dd/d1f/class_game_1ad6df0ef33a44d3d8f6030f03c2b27fcf" kind="variable"><name>garbage</name></member>
+    <member refid="dd/d1f/class_game_1a1c421392827dc36dd227759d2450c15d" kind="variable"><name>elementTextureMap</name></member>
+    <member refid="dd/d1f/class_game_1a885fd34ae577a01650e07308a102b608" kind="variable"><name>enemyTextureMap</name></member>
+    <member refid="dd/d1f/class_game_1aba5d8857e7f33ed356615d03013ab06a" kind="variable"><name>roomCollisions</name></member>
+    <member refid="dd/d1f/class_game_1a031dafc4a486016252ae1a0e708db8e2" kind="friend"><name>RangedEnemy</name></member>
+    <member refid="dd/d1f/class_game_1ae89e277761b7dc5bc7a23fd1b4c6f17d" kind="function"><name>mainLoop</name></member>
+    <member refid="dd/d1f/class_game_1a033ef9a1d38bf8b1dce97672290686c3" kind="function"><name>handleInput</name></member>
+    <member refid="dd/d1f/class_game_1a6d54497ce3a66f6dd45eacfdccc8d0bd" kind="function"><name>draw</name></member>
+    <member refid="dd/d1f/class_game_1a375ddc12a2afac47e54e4665b77e2cf3" kind="function"><name>handleMovement</name></member>
+    <member refid="dd/d1f/class_game_1a14753444a9131fdd5985443584b05b08" kind="function"><name>handleEnemies</name></member>
+    <member refid="dd/d1f/class_game_1ad429f8985a9cd58ff0a09a3495c08b9b" kind="function"><name>collectGarbage</name></member>
+    <member refid="dd/d1f/class_game_1a79df6376b332d63c9eca0dcee30305c3" kind="function"><name>update</name></member>
+    <member refid="dd/d1f/class_game_1a22531aaf99fceb24ce20b692ea52290b" kind="function"><name>spawnElements</name></member>
+    <member refid="dd/d1f/class_game_1ae9450016ede7a07fee15fa6e37700ad9" kind="function"><name>openLab</name></member>
+    <member refid="dd/d1f/class_game_1ae529749e6edeccabf373750a88782a03" kind="function"><name>drawLab</name></member>
+    <member refid="dd/d1f/class_game_1a8b7e7bbc7ce4936e660282075ee26b04" kind="function"><name>resolveCollisionsPlr</name></member>
+    <member refid="dd/d1f/class_game_1ac4cdf2765f438ba9181bfe9e447f1621" kind="function"><name>resolveCollisions</name></member>
+    <member refid="dd/d1f/class_game_1a0910418ab61c200a748428bb7549ca56" kind="function"><name>resolveCollisionsEnemy</name></member>
+    <member refid="dd/d1f/class_game_1a711a9ce0b054a4d1c6b08df1a2c7b412" kind="function"><name>randomLevel</name></member>
+    <member refid="dd/d1f/class_game_1aabced6dfa994659edb93dbcf9474f256" kind="function"><name>prepareRoom</name></member>
+    <member refid="dd/d1f/class_game_1ad59df6562a58a614fda24622d3715b65" kind="function"><name>Game</name></member>
+    <member refid="dd/d1f/class_game_1ae3d112ca6e0e55150d2fdbc704474530" kind="function"><name>~Game</name></member>
+  </compound>
+  <compound refid="db/da8/class_melee" kind="class"><name>Melee</name>
+    <member refid="db/da8/class_melee_1a15c663537b34542abb8997ef50089471" kind="variable"><name>damage</name></member>
+    <member refid="db/da8/class_melee_1a73fb221a3ea6633d9e937735d67d527c" kind="variable"><name>range</name></member>
+    <member refid="db/da8/class_melee_1a527f280fddeac5265c6cde897dd83648" kind="variable"><name>cooldown</name></member>
+    <member refid="db/da8/class_melee_1ab2edf2c49e424e850934faab775b09e9" kind="function"><name>setMeleeInfo</name></member>
+    <member refid="db/da8/class_melee_1ae3fbf5e803a8608ef62b04294a2b8583" kind="function"><name>swing</name></member>
+  </compound>
+  <compound refid="d8/d53/class_player" kind="class"><name>Player</name>
+    <member refid="d8/d53/class_player_1a0308cdee5f6c00288c9750c3b13bd97d" kind="variable"><name>hitbox</name></member>
+    <member refid="d8/d53/class_player_1a9f08ebba835bfb8408cbf92bffea441e" kind="variable"><name>collisionHitbox</name></member>
+    <member refid="d8/d53/class_player_1aad33b52bfe73c4c978a3135172f286a0" kind="variable"><name>health</name></member>
+    <member refid="d8/d53/class_player_1a770942101eff683b030edde9f730d537" kind="variable"><name>speed</name></member>
+    <member refid="d8/d53/class_player_1ae2dc69f671894d144c344f046ca8cf9b" kind="variable"><name>velocity</name></member>
+    <member refid="d8/d53/class_player_1a86da08ebb8ae7fd1fac0b931e2375159" kind="variable"><name>inventory</name></member>
+    <member refid="d8/d53/class_player_1a12eafa4e6f433a49fa83c454252dd63e" kind="function"><name>init</name></member>
+    <member refid="d8/d53/class_player_1ac4413e178e18d0255fe7e38cf7dfdb2c" kind="function"><name>setPlayerInfo</name></member>
+    <member refid="d8/d53/class_player_1af97f9b32912f28fdcdad1785d515cd2d" kind="function"><name>takeDamage</name></member>
+    <member refid="d8/d53/class_player_1a69c18b28cd4bab86be4158d1b66d835c" kind="function"><name>move</name></member>
+    <member refid="d8/d53/class_player_1a917b4bde604f3238ced6f026108226b2" kind="function"><name>setPosition</name></member>
+  </compound>
+  <compound refid="d8/d6a/class_ranged" kind="class"><name>Ranged</name>
+    <member refid="d8/d6a/class_ranged_1a10d37be74bc3902c21389c5b41c23473" kind="variable"><name>damage</name></member>
+    <member refid="d8/d6a/class_ranged_1ae92ce153be720b641858109db6b5f08f" kind="variable"><name>clipSize</name></member>
+    <member refid="d8/d6a/class_ranged_1a0c037ff33d632ae61b39f801681df94e" kind="variable"><name>bulletSpread</name></member>
+    <member refid="d8/d6a/class_ranged_1abdb7eaf5a1c9848dd393efb6faba46dd" kind="variable"><name>maxDistance</name></member>
+    <member refid="d8/d6a/class_ranged_1afc861c4a8cd58cc1514c2ec1b1b014e3" kind="variable"><name>cooldown</name></member>
+    <member refid="d8/d6a/class_ranged_1a1410b31f46a2887337a1b10f020e20b9" kind="function"><name>setRangedInfo</name></member>
+    <member refid="d8/d6a/class_ranged_1acd68efdc2073baec306aa54f99f2ca7d" kind="function"><name>shoot</name></member>
+  </compound>
+  <compound refid="d8/d12/class_ranged_boss" kind="class"><name>RangedBoss</name>
+    <member refid="d8/d12/class_ranged_boss_1aec2ddc7843f0ea5777012fe2f9ebd4f4" kind="variable"><name>shootTimer</name></member>
+    <member refid="d8/d12/class_ranged_boss_1a8187cbcbf5d7fb13ee71041e85e5063c" kind="variable"><name>bulletTexture</name></member>
+    <member refid="d8/d12/class_ranged_boss_1ac79c3fc4c82c67a3db7fd3a8302a3fb4" kind="variable"><name>lastAttack</name></member>
+    <member refid="d8/d12/class_ranged_boss_1a04fc13c6cc1ed12ec28425dfaeee47e4" kind="variable"><name>step</name></member>
+    <member refid="d8/d12/class_ranged_boss_1adb4c33fc4b4ddb7463f99b5dd37d846a" kind="variable"><name>attackStepSize</name></member>
+    <member refid="d8/d12/class_ranged_boss_1af281c9e8bb0cb5b0aeafd53c36e813ff" kind="variable"><name>attack</name></member>
+    <member refid="d8/d12/class_ranged_boss_1a744a1e79d23b39b73a375632c0666f95" kind="variable"><name>timeBetweenShots</name></member>
+    <member refid="d8/d12/class_ranged_boss_1a64372d328fe01bef5e815c7e3edeb93b" kind="variable"><name>angle</name></member>
+    <member refid="d8/d12/class_ranged_boss_1a11a8f66fdb7265ac18f38e8db96b3827" kind="function"><name>RangedBoss</name></member>
+    <member refid="d8/d12/class_ranged_boss_1aa1f20a3f8eea5e841562ebb9ae8cb37c" kind="function"><name>init</name></member>
+    <member refid="d8/d12/class_ranged_boss_1a1cfc7b09aaac9c61979c00f9f2a35bc6" kind="function"><name>takeDamage</name></member>
+    <member refid="d8/d12/class_ranged_boss_1afb50d47d302b512c37fef7167ceb0b43" kind="function"><name>aiMove</name></member>
+    <member refid="d8/d12/class_ranged_boss_1ae4e40578d9babf4a141294a0470a70f9" kind="function"><name>shoot</name></member>
+  </compound>
+  <compound refid="d7/d5f/class_ranged_enemy" kind="class"><name>RangedEnemy</name>
+    <member refid="d7/d5f/class_ranged_enemy_1aaf0285524a4a183bcfdc25f8c100b842" kind="variable"><name>shootTimer</name></member>
+    <member refid="d7/d5f/class_ranged_enemy_1a57d732f5ad35a8ed553b9cd109fda4bc" kind="variable"><name>bulletTexture</name></member>
+    <member refid="d7/d5f/class_ranged_enemy_1ad3ef88fd54dfba53f6c8ccac3dc9a37a" kind="function"><name>RangedEnemy</name></member>
+    <member refid="d7/d5f/class_ranged_enemy_1acd2c4ce4c05b3d357e7919dc67ddc593" kind="function"><name>aiMove</name></member>
+    <member refid="d7/d5f/class_ranged_enemy_1a9082a51a21cb05314e1fbb4acdcbfdcb" kind="function"><name>shoot</name></member>
+  </compound>
+  <compound refid="dd/d67/class_rectangle_hitbox" kind="class"><name>RectangleHitbox</name>
+    <member refid="dd/d67/class_rectangle_hitbox_1a29b1517748630e761d00ab4ddb9cba10" kind="variable"><name>position</name></member>
+    <member refid="dd/d67/class_rectangle_hitbox_1a6ce7825157aa4f7dac0844439c261651" kind="variable"><name>size</name></member>
+    <member refid="dd/d67/class_rectangle_hitbox_1ae4f45d76e3857b92cc3ebaf185ff81e3" kind="variable"><name>wireMesh</name></member>
+    <member refid="dd/d67/class_rectangle_hitbox_1a745c2a17c8c9f0e418ff79f7a695dd4c" kind="function"><name>RectangleHitbox</name></member>
+    <member refid="dd/d67/class_rectangle_hitbox_1a2148aaecb74cfa8ddc5e5f523d2579a2" kind="function"><name>RectangleHitbox</name></member>
+    <member refid="dd/d67/class_rectangle_hitbox_1a5a7661a11e48a7a06ec7534f736c3c3b" kind="function"><name>setPosition</name></member>
+    <member refid="dd/d67/class_rectangle_hitbox_1aaf7577df1d572bff07d634ef2bcec7b2" kind="function"><name>getPosition</name></member>
+    <member refid="dd/d67/class_rectangle_hitbox_1a9992ab985aa066e56fa499587424facf" kind="function"><name>setSize</name></member>
+    <member refid="dd/d67/class_rectangle_hitbox_1a54fbb8f9de53c165e721f4659c7b2d2e" kind="function"><name>getSize</name></member>
+    <member refid="dd/d67/class_rectangle_hitbox_1ac98e04b16665187969615762f81716c8" kind="function"><name>checkOverlapRectangle</name></member>
+    <member refid="dd/d67/class_rectangle_hitbox_1a996a55abeb71a304061d6c0f9c51bf41" kind="function"><name>draw</name></member>
+  </compound>
+  <compound refid="d8/d3d/class_render_object" kind="class"><name>RenderObject</name>
+    <member refid="d8/d3d/class_render_object_1a68a180ca61609043defd4e9362f87b44" kind="variable"><name>sprite</name></member>
+    <member refid="d8/d3d/class_render_object_1a29345f8ebe01d91c928a2b77840dadbf" kind="variable"><name>type</name></member>
+    <member refid="d8/d3d/class_render_object_1aecc430f82613dc1e4ca7b7c9a87db891" kind="variable"><name>shouldDraw</name></member>
+    <member refid="d8/d3d/class_render_object_1a57ea4112279a6fa8238b831df04e9907" kind="function"><name>init</name></member>
+    <member refid="d8/d3d/class_render_object_1a610e8015f78f4028be442da1b73257a3" kind="function"><name>setPosition</name></member>
+    <member refid="d8/d3d/class_render_object_1a8305c2fbd72a10a13a3a875bd4a87933" kind="function"><name>setOrigin</name></member>
+    <member refid="d8/d3d/class_render_object_1ae74e7cc67685a9f47eba43fa7afe63a4" kind="function"><name>draw</name></member>
+    <member refid="d8/d3d/class_render_object_1a448ffcd3998836202f845073e2e906a4" kind="function"><name>setScale</name></member>
+    <member refid="d8/d3d/class_render_object_1aa66db6e5382da7932a8480e5bcc70776" kind="function"><name>move</name></member>
+    <member refid="d8/d3d/class_render_object_1a1d1f93bce3161eb284a37c7581625bb7" kind="function"><name>getPosition</name></member>
+    <member refid="d8/d3d/class_render_object_1a82e4d119e2fc84a7a7b609ab854ba89a" kind="function"><name>getSize</name></member>
+    <member refid="d8/d3d/class_render_object_1a84d185d9a2d3963d0de8eda80cb2bc9d" kind="function"><name>getSprite</name></member>
+    <member refid="d8/d3d/class_render_object_1ad6a393d95fec7397d41647eaf18b4677" kind="function"><name>setTexture</name></member>
+  </compound>
+  <compound refid="d9/d0c/class_square" kind="class"><name>Square</name>
+  </compound>
+  <compound refid="d1/d49/class_walker" kind="class"><name>Walker</name>
+    <member refid="d1/d49/class_walker_1a8e2addd081ebbd0f8049961c1123f828" kind="variable"><name>damage</name></member>
+    <member refid="d1/d49/class_walker_1a34ab3fea1f452a602c496fe50d52ac96" kind="function"><name>aiMove</name></member>
+  </compound>
+  <compound refid="d4/dd0/namespacesf" kind="namespace"><name>sf</name>
+  </compound>
+  <compound refid="d7/dcd/_bullet_8cpp" kind="file"><name>Bullet.cpp</name>
+  </compound>
+  <compound refid="d6/d65/_bullet_8hpp" kind="file"><name>Bullet.hpp</name>
+  </compound>
+  <compound refid="dd/d51/_c2_h5_o_h_8cpp" kind="file"><name>C2H5OH.cpp</name>
+    <member refid="dd/d51/_c2_h5_o_h_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="d8/d67/_chest_8cpp" kind="file"><name>Chest.cpp</name>
+  </compound>
+  <compound refid="d7/d24/_chest_8hpp" kind="file"><name>Chest.hpp</name>
+  </compound>
+  <compound refid="d7/d5b/_ellipse_hitbox_8cpp" kind="file"><name>EllipseHitbox.cpp</name>
+  </compound>
+  <compound refid="d6/dde/_ellipse_hitbox_8hpp" kind="file"><name>EllipseHitbox.hpp</name>
+  </compound>
+  <compound refid="de/d34/_enemy_8cpp" kind="file"><name>Enemy.cpp</name>
+    <member refid="de/d34/_enemy_8cpp_1a29ecd1259f4126646b464a2a72484c0e" kind="function"><name>ColorFromHSV</name></member>
+  </compound>
+  <compound refid="da/dda/_enemy_8hpp" kind="file"><name>Enemy.hpp</name>
+    <member refid="da/dda/_enemy_8hpp_1a29ecd1259f4126646b464a2a72484c0e" kind="function"><name>ColorFromHSV</name></member>
+  </compound>
+  <compound refid="d7/db5/_game_8cpp" kind="file"><name>Game.cpp</name>
+    <member refid="d7/db5/_game_8cpp_1a706956639cb6a3149fe118f87f2daf4a" kind="function"><name>deleteObjects</name></member>
+  </compound>
+  <compound refid="d2/d07/_game_8hpp" kind="file"><name>Game.hpp</name>
+    <member refid="d2/d07/_game_8hpp_1af5d6d66985e574652c1e623276b34b65" kind="define"><name>FLAGS_MULTITHREADING</name></member>
+  </compound>
+  <compound refid="db/d54/_item_8cpp" kind="file"><name>Item.cpp</name>
+  </compound>
+  <compound refid="dd/daa/_item_8hpp" kind="file"><name>Item.hpp</name>
+  </compound>
+  <compound refid="d2/d82/_player_8cpp" kind="file"><name>Player.cpp</name>
+  </compound>
+  <compound refid="d0/d16/_player_8hpp" kind="file"><name>Player.hpp</name>
+  </compound>
+  <compound refid="d2/dec/precompile_8cpp" kind="file"><name>precompile.cpp</name>
+  </compound>
+  <compound refid="d9/d98/precompile_8hpp" kind="file"><name>precompile.hpp</name>
+  </compound>
+  <compound refid="d5/d7e/_ranged_boss_8cpp" kind="file"><name>RangedBoss.cpp</name>
+  </compound>
+  <compound refid="d4/dce/_ranged_boss_8hpp" kind="file"><name>RangedBoss.hpp</name>
+  </compound>
+  <compound refid="d5/df0/_ranged_enemy_8cpp" kind="file"><name>RangedEnemy.cpp</name>
+  </compound>
+  <compound refid="db/da4/_ranged_enemy_8hpp" kind="file"><name>RangedEnemy.hpp</name>
+  </compound>
+  <compound refid="d8/d5a/_rectangle_hitbox_8cpp" kind="file"><name>RectangleHitbox.cpp</name>
+  </compound>
+  <compound refid="d8/d8a/_rectangle_hitbox_8hpp" kind="file"><name>RectangleHitbox.hpp</name>
+  </compound>
+  <compound refid="df/dd4/_render_object_8cpp" kind="file"><name>RenderObject.cpp</name>
+    <member refid="df/dd4/_render_object_8cpp_1aa885125ce6d51e2f3df0a0b625d797e1" kind="function"><name>clampMax</name></member>
+    <member refid="df/dd4/_render_object_8cpp_1a15e8fbb1ec8884a941603755e95e634f" kind="function"><name>clampMin</name></member>
+  </compound>
+  <compound refid="d2/d59/_render_object_8hpp" kind="file"><name>RenderObject.hpp</name>
+    <member refid="d2/d59/_render_object_8hpp_1aa885125ce6d51e2f3df0a0b625d797e1" kind="function"><name>clampMax</name></member>
+    <member refid="d2/d59/_render_object_8hpp_1a15e8fbb1ec8884a941603755e95e634f" kind="function"><name>clampMin</name></member>
+  </compound>
+  <compound refid="da/dbe/_square_8cpp" kind="file"><name>Square.cpp</name>
+  </compound>
+  <compound refid="d3/da9/_square_8hpp" kind="file"><name>Square.hpp</name>
+  </compound>
+  <compound refid="d3/d11/_walker_8cpp" kind="file"><name>Walker.cpp</name>
+  </compound>
+  <compound refid="d2/dd6/_walker_8hpp" kind="file"><name>Walker.hpp</name>
+  </compound>
+  <compound refid="db/d43/_weapons_8cpp" kind="file"><name>Weapons.cpp</name>
+  </compound>
+  <compound refid="d7/daf/_weapons_8hpp" kind="file"><name>Weapons.hpp</name>
+  </compound>
+  <compound refid="dir_06a68903bde838a73214a24b41c1e946" kind="dir"><name>D:/projects/coding/C2H5OH</name>
+  </compound>
+  <compound refid="dir_0356c743584b479d657e90e745db3c75" kind="dir"><name>D:/projects/coding/C2H5OH/C2H5OH</name>
+  </compound>
+  <compound refid="dir_098daf3a0db20f93ed460dc16c0a9b10" kind="dir"><name>D:/projects/coding</name>
+  </compound>
+  <compound refid="dir_275089585c7fc1b5fd5d7d42c69cb1da" kind="dir"><name>D:</name>
+  </compound>
+  <compound refid="dir_ceb13f94d04445b61b5f02fd853b89bb" kind="dir"><name>D:/projects</name>
+  </compound>
+</doxygenindex>

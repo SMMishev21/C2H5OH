@@ -1,0 +1,15 @@
+\doxysection{Walker.\+hpp}
+\hypertarget{_walker_8hpp_source}{}\label{_walker_8hpp_source}\index{D:/projects/coding/C2H5OH/C2H5OH/Walker.hpp@{D:/projects/coding/C2H5OH/C2H5OH/Walker.hpp}}
+\mbox{\hyperlink{_walker_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{precompile_8hpp}{"{}precompile.hpp"{}}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{_enemy_8hpp}{"{}Enemy.hpp"{}}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class}\ \mbox{\hyperlink{class_walker}{Walker}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_enemy}{Enemy}}\ \{}
+\DoxyCodeLine{00006\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_walker_a8e2addd081ebbd0f8049961c1123f828}{damage}}\{20.f\};}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_walker_a34ab3fea1f452a602c496fe50d52ac96}{aiMove}}(\mbox{\hyperlink{class_player}{Player}}*\ plr,\ Clock\&\ iFrames,\ \textcolor{keywordtype}{float}\ dt,\ std::vector<Enemy*>\&\ enemies,\ \textcolor{keywordtype}{bool}\&\ dash,\ std::vector<RenderObject*>\&\ renderObjects,\ std::vector<Bullet*>\&\ bullets,\ std::mutex\&\ m)\textcolor{keyword}{override};}
+\DoxyCodeLine{00009\ \};}
+
+\end{DoxyCode}

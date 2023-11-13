@@ -1,0 +1,33 @@
+\doxysection{Enemy.\+hpp}
+\hypertarget{_enemy_8hpp_source}{}\label{_enemy_8hpp_source}\index{D:/projects/coding/C2H5OH/C2H5OH/Enemy.hpp@{D:/projects/coding/C2H5OH/C2H5OH/Enemy.hpp}}
+\mbox{\hyperlink{_enemy_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{precompile_8hpp}{"{}precompile.hpp"{}}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{_render_object_8hpp}{"{}RenderObject.hpp"{}}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{_player_8hpp}{"{}Player.hpp"{}}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{_bullet_8hpp}{"{}Bullet.hpp"{}}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{semaphore}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{mutex}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \mbox{\hyperlink{_enemy_8cpp_a29ecd1259f4126646b464a2a72484c0e}{Color}}\ \mbox{\hyperlink{_enemy_8cpp_a29ecd1259f4126646b464a2a72484c0e}{ColorFromHSV}}(\textcolor{keywordtype}{float}\ \mbox{\hyperlink{_enemy_8cpp_a29ecd1259f4126646b464a2a72484c0e}{hue}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_enemy_8cpp_a29ecd1259f4126646b464a2a72484c0e}{saturation}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_enemy_8cpp_a29ecd1259f4126646b464a2a72484c0e}{value}});}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class}\ \mbox{\hyperlink{class_enemy}{Enemy}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_render_object}{RenderObject}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_enemy_a64049230ae39663dd5ccfd0a27b25474}{hp}}\{\ 100\ \};}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_enemy_ac0db47c80f9801160bd27458a25018a4}{RectangleShape}}\ \mbox{\hyperlink{class_enemy_ac0db47c80f9801160bd27458a25018a4}{healthBar}};}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_enemy_a1d50ff4dff13f15ffc608703f16f8575}{Vector2f}}\ \mbox{\hyperlink{class_enemy_a1d50ff4dff13f15ffc608703f16f8575}{pos}};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_ellipse_hitbox}{EllipseHitbox}}*\ \mbox{\hyperlink{class_enemy_a58106633fc5b501764611ebd16b9fcc1}{hitbox}};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_enemy_a5d5917c222119c1d8eb3183c27c7adb7}{damage}};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_enemy_a2160db284c20b71c1cb1df76fc5e2636}{init}}(Texture\&\ texture,\ Vector2f\ position,\ \textcolor{keywordtype}{char}\ type)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_enemy_aa1e20b304c769713c6f15a95eb4724bb}{move}}(Vector2f\ offset)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_enemy_a582d09158d692070f4becf68220bf6b6}{draw}}(RenderWindow\&\ window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_enemy_abff01ca5670b8c406fd36dcae43f6ea3}{aiMove}}(\mbox{\hyperlink{class_player}{Player}}*\ plr,\ Clock\&\ iFrames,\ \textcolor{keywordtype}{float}\ dt,\ std::vector<Enemy*>\&\ enemies,\ \textcolor{keywordtype}{bool}\&\ dash,\ std::vector<RenderObject*>\&\ renderObjects,\ std::vector<Bullet*>\&\ bullets,\ std::mutex\&\ m);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_enemy_ae89eefd8e9478d7e4512bc24ca52a4b1}{takeDamage}}(\textcolor{keywordtype}{float}\ damage);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_enemy_a02b52b5c3d1effad96047ae788cc5507}{getHp}}();}
+\DoxyCodeLine{00027\ \};}
+
+\end{DoxyCode}

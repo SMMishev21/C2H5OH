@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="db/da8/class_melee" kind="class" language="C++" prot="public">
+    <compoundname>Melee</compoundname>
+    <basecompoundref refid="d8/d3d/class_render_object" prot="public" virt="non-virtual">RenderObject</basecompoundref>
+    <includes refid="d7/daf/_weapons_8hpp" local="no">Weapons.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="db/da8/class_melee_1a15c663537b34542abb8997ef50089471" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Melee::damage</definition>
+        <argsstring></argsstring>
+        <name>damage</name>
+        <qualifiedname>Melee::damage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" line="23" column="5" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/da8/class_melee_1a73fb221a3ea6633d9e937735d67d527c" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Melee::range</definition>
+        <argsstring></argsstring>
+        <name>range</name>
+        <qualifiedname>Melee::range</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" line="24" column="7" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/da8/class_melee_1a527f280fddeac5265c6cde897dd83648" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Melee::cooldown</definition>
+        <argsstring></argsstring>
+        <name>cooldown</name>
+        <qualifiedname>Melee::cooldown</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" line="25" column="7" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="db/da8/class_melee_1ab2edf2c49e424e850934faab775b09e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Melee::setMeleeInfo</definition>
+        <argsstring>(int damage, float range, float cooldown)</argsstring>
+        <name>setMeleeInfo</name>
+        <qualifiedname>Melee::setMeleeInfo</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>damage</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>range</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>cooldown</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" line="20" column="6" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Weapons.cpp" bodystart="43" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="db/da8/class_melee_1ae3fbf5e803a8608ef62b04294a2b8583" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Melee::swing</definition>
+        <argsstring>()</argsstring>
+        <name>swing</name>
+        <qualifiedname>Melee::swing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" line="21" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Melee</label>
+        <link refid="db/da8/class_melee"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RenderObject</label>
+        <link refid="d8/d3d/class_render_object"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Melee</label>
+        <link refid="db/da8/class_melee"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RenderObject</label>
+        <link refid="d8/d3d/class_render_object"/>
+      </node>
+    </collaborationgraph>
+    <location file="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" line="18" column="1" bodyfile="D:/projects/coding/C2H5OH/C2H5OH/Weapons.hpp" bodystart="18" bodyend="26"/>
+    <listofallmembers>
+      <member refid="db/da8/class_melee_1a527f280fddeac5265c6cde897dd83648" prot="private" virt="non-virtual"><scope>Melee</scope><name>cooldown</name></member>
+      <member refid="db/da8/class_melee_1a15c663537b34542abb8997ef50089471" prot="private" virt="non-virtual"><scope>Melee</scope><name>damage</name></member>
+      <member refid="d8/d3d/class_render_object_1ae74e7cc67685a9f47eba43fa7afe63a4" prot="public" virt="virtual"><scope>Melee</scope><name>draw</name></member>
+      <member refid="d8/d3d/class_render_object_1a1d1f93bce3161eb284a37c7581625bb7" prot="public" virt="virtual"><scope>Melee</scope><name>getPosition</name></member>
+      <member refid="d8/d3d/class_render_object_1a82e4d119e2fc84a7a7b609ab854ba89a" prot="public" virt="non-virtual"><scope>Melee</scope><name>getSize</name></member>
+      <member refid="d8/d3d/class_render_object_1a84d185d9a2d3963d0de8eda80cb2bc9d" prot="public" virt="non-virtual"><scope>Melee</scope><name>getSprite</name></member>
+      <member refid="d8/d3d/class_render_object_1a57ea4112279a6fa8238b831df04e9907" prot="public" virt="virtual"><scope>Melee</scope><name>init</name></member>
+      <member refid="d8/d3d/class_render_object_1aa66db6e5382da7932a8480e5bcc70776" prot="public" virt="virtual"><scope>Melee</scope><name>move</name></member>
+      <member refid="db/da8/class_melee_1a73fb221a3ea6633d9e937735d67d527c" prot="private" virt="non-virtual"><scope>Melee</scope><name>range</name></member>
+      <member refid="db/da8/class_melee_1ab2edf2c49e424e850934faab775b09e9" prot="public" virt="non-virtual"><scope>Melee</scope><name>setMeleeInfo</name></member>
+      <member refid="d8/d3d/class_render_object_1a8305c2fbd72a10a13a3a875bd4a87933" prot="public" virt="virtual"><scope>Melee</scope><name>setOrigin</name></member>
+      <member refid="d8/d3d/class_render_object_1a610e8015f78f4028be442da1b73257a3" prot="public" virt="virtual"><scope>Melee</scope><name>setPosition</name></member>
+      <member refid="d8/d3d/class_render_object_1a448ffcd3998836202f845073e2e906a4" prot="public" virt="virtual"><scope>Melee</scope><name>setScale</name></member>
+      <member refid="d8/d3d/class_render_object_1ad6a393d95fec7397d41647eaf18b4677" prot="public" virt="non-virtual"><scope>Melee</scope><name>setTexture</name></member>
+      <member refid="d8/d3d/class_render_object_1aecc430f82613dc1e4ca7b7c9a87db891" prot="public" virt="non-virtual"><scope>Melee</scope><name>shouldDraw</name></member>
+      <member refid="d8/d3d/class_render_object_1a68a180ca61609043defd4e9362f87b44" prot="protected" virt="non-virtual"><scope>Melee</scope><name>sprite</name></member>
+      <member refid="db/da8/class_melee_1ae3fbf5e803a8608ef62b04294a2b8583" prot="public" virt="non-virtual"><scope>Melee</scope><name>swing</name></member>
+      <member refid="d8/d3d/class_render_object_1a29345f8ebe01d91c928a2b77840dadbf" prot="public" virt="non-virtual"><scope>Melee</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

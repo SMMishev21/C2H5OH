@@ -1,0 +1,21 @@
+\doxysection{Ranged\+Enemy.\+hpp}
+\hypertarget{_ranged_enemy_8hpp_source}{}\label{_ranged_enemy_8hpp_source}\index{D:/projects/coding/C2H5OH/C2H5OH/RangedEnemy.hpp@{D:/projects/coding/C2H5OH/C2H5OH/RangedEnemy.hpp}}
+\mbox{\hyperlink{_ranged_enemy_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{precompile_8hpp}{"{}precompile.hpp"{}}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{_enemy_8hpp}{"{}Enemy.hpp"{}}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{_bullet_8hpp}{"{}Bullet.hpp"{}}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class}\ \mbox{\hyperlink{class_ranged_enemy}{RangedEnemy}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_enemy}{Enemy}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_ranged_enemy_aaf0285524a4a183bcfdc25f8c100b842}{Clock}}\ \mbox{\hyperlink{class_ranged_enemy_aaf0285524a4a183bcfdc25f8c100b842}{shootTimer}};}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{class_ranged_enemy_a57d732f5ad35a8ed553b9cd109fda4bc}{Texture}}\ \mbox{\hyperlink{class_ranged_enemy_a57d732f5ad35a8ed553b9cd109fda4bc}{bulletTexture}};}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_ranged_enemy_ad3ef88fd54dfba53f6c8ccac3dc9a37a}{RangedEnemy}}();}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_ranged_enemy_acd2c4ce4c05b3d357e7919dc67ddc593}{aiMove}}(\mbox{\hyperlink{class_player}{Player}}*\ plr,\ Clock\&\ iFrames,\ \textcolor{keywordtype}{float}\ dt,\ std::vector<Enemy*>\&\ enemies,\ \textcolor{keywordtype}{bool}\&\ dash,\ std::vector<RenderObject*>\&\ renderObjects,\ std::vector<Bullet*>\&\ bullets,\ std::mutex\&\ m)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_ranged_enemy_a9082a51a21cb05314e1fbb4acdcbfdcb}{shoot}}(\mbox{\hyperlink{class_player}{Player}}*\ plr,\ std::vector<RenderObject*>\&\ renderObjects,\ std::vector<Bullet*>\&\ bullets,\ std::mutex\&\ m);}
+\DoxyCodeLine{00015\ \};}
+
+\end{DoxyCode}

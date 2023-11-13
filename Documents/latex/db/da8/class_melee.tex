@@ -1,0 +1,106 @@
+\doxysection{Melee Class Reference}
+\hypertarget{class_melee}{}\label{class_melee}\index{Melee@{Melee}}
+
+
+{\ttfamily \#include $<$Weapons.\+hpp$>$}
+
+Inheritance diagram for Melee\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{db/da8/class_melee}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_melee_ab2edf2c49e424e850934faab775b09e9}{set\+Melee\+Info}} (int \mbox{\hyperlink{class_melee_a15c663537b34542abb8997ef50089471}{damage}}, float \mbox{\hyperlink{class_melee_a73fb221a3ea6633d9e937735d67d527c}{range}}, float \mbox{\hyperlink{class_melee_a527f280fddeac5265c6cde897dd83648}{cooldown}})
+\item 
+void \mbox{\hyperlink{class_melee_ae3fbf5e803a8608ef62b04294a2b8583}{swing}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a57ea4112279a6fa8238b831df04e9907}{init}} (Texture \&texture, Vector2f position, char \mbox{\hyperlink{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}{type}})
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a610e8015f78f4028be442da1b73257a3}{set\+Position}} (Vector2f position)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a8305c2fbd72a10a13a3a875bd4a87933}{set\+Origin}} (Vector2f origin)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_ae74e7cc67685a9f47eba43fa7afe63a4}{draw}} (Render\+Window \&window)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a448ffcd3998836202f845073e2e906a4}{set\+Scale}} (Vector2f scale)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_aa66db6e5382da7932a8480e5bcc70776}{move}} (Vector2f offset)
+\item 
+virtual Vector2f \mbox{\hyperlink{class_render_object_a1d1f93bce3161eb284a37c7581625bb7}{get\+Position}} ()
+\item 
+Vector2f \mbox{\hyperlink{class_render_object_a82e4d119e2fc84a7a7b609ab854ba89a}{get\+Size}} ()
+\item 
+Sprite \mbox{\hyperlink{class_render_object_a84d185d9a2d3963d0de8eda80cb2bc9d}{get\+Sprite}} ()
+\item 
+void \mbox{\hyperlink{class_render_object_ad6a393d95fec7397d41647eaf18b4677}{set\+Texture}} (Texture \&texture)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_melee_a15c663537b34542abb8997ef50089471}{damage}}
+\item 
+float \mbox{\hyperlink{class_melee_a73fb221a3ea6633d9e937735d67d527c}{range}}
+\item 
+float \mbox{\hyperlink{class_melee_a527f280fddeac5265c6cde897dd83648}{cooldown}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}{type}}
+\item 
+bool \mbox{\hyperlink{class_render_object_aecc430f82613dc1e4ca7b7c9a87db891}{should\+Draw}} \{ true \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+Sprite \mbox{\hyperlink{class_render_object_a68a180ca61609043defd4e9362f87b44}{sprite}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_melee_ab2edf2c49e424e850934faab775b09e9}\label{class_melee_ab2edf2c49e424e850934faab775b09e9} 
+\index{Melee@{Melee}!setMeleeInfo@{setMeleeInfo}}
+\index{setMeleeInfo@{setMeleeInfo}!Melee@{Melee}}
+\doxysubsubsection{\texorpdfstring{setMeleeInfo()}{setMeleeInfo()}}
+{\footnotesize\ttfamily void Melee\+::set\+Melee\+Info (\begin{DoxyParamCaption}\item[{int}]{damage,  }\item[{float}]{range,  }\item[{float}]{cooldown }\end{DoxyParamCaption})}
+
+\Hypertarget{class_melee_ae3fbf5e803a8608ef62b04294a2b8583}\label{class_melee_ae3fbf5e803a8608ef62b04294a2b8583} 
+\index{Melee@{Melee}!swing@{swing}}
+\index{swing@{swing}!Melee@{Melee}}
+\doxysubsubsection{\texorpdfstring{swing()}{swing()}}
+{\footnotesize\ttfamily void Melee\+::swing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_melee_a527f280fddeac5265c6cde897dd83648}\label{class_melee_a527f280fddeac5265c6cde897dd83648} 
+\index{Melee@{Melee}!cooldown@{cooldown}}
+\index{cooldown@{cooldown}!Melee@{Melee}}
+\doxysubsubsection{\texorpdfstring{cooldown}{cooldown}}
+{\footnotesize\ttfamily float Melee\+::cooldown\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_melee_a15c663537b34542abb8997ef50089471}\label{class_melee_a15c663537b34542abb8997ef50089471} 
+\index{Melee@{Melee}!damage@{damage}}
+\index{damage@{damage}!Melee@{Melee}}
+\doxysubsubsection{\texorpdfstring{damage}{damage}}
+{\footnotesize\ttfamily int Melee\+::damage\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_melee_a73fb221a3ea6633d9e937735d67d527c}\label{class_melee_a73fb221a3ea6633d9e937735d67d527c} 
+\index{Melee@{Melee}!range@{range}}
+\index{range@{range}!Melee@{Melee}}
+\doxysubsubsection{\texorpdfstring{range}{range}}
+{\footnotesize\ttfamily float Melee\+::range\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/projects/coding/\+C2\+H5\+OH/\+C2\+H5\+OH/\mbox{\hyperlink{_weapons_8hpp}{Weapons.\+hpp}}\item 
+D\+:/projects/coding/\+C2\+H5\+OH/\+C2\+H5\+OH/\mbox{\hyperlink{_weapons_8cpp}{Weapons.\+cpp}}\end{DoxyCompactItemize}

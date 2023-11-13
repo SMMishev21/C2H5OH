@@ -1,0 +1,116 @@
+.TH "Ranged" 3 "C2H5OH" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Ranged
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Weapons\&.hpp>\fP
+.PP
+Inherits \fBRenderObject\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetRangedInfo\fP (int \fBdamage\fP, int \fBclipSize\fP, float \fBbulletSpread\fP, float \fBmaxDistance\fP, float \fBcooldown\fP)"
+.br
+.ti -1c
+.RI "void \fBshoot\fP (std::vector< \fBBullet\fP * > &bullets, std::vector< \fBRenderObject\fP * > &renderObjects, RenderWindow &window, \fBPlayer\fP *plr, Texture &bulletTexture, Clock &attackCD, float speedBuff, int reverse)"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "virtual void \fBinit\fP (Texture &texture, Vector2f position, char \fBtype\fP)"
+.br
+.ti -1c
+.RI "virtual void \fBsetPosition\fP (Vector2f position)"
+.br
+.ti -1c
+.RI "virtual void \fBsetOrigin\fP (Vector2f origin)"
+.br
+.ti -1c
+.RI "virtual void \fBdraw\fP (RenderWindow &window)"
+.br
+.ti -1c
+.RI "virtual void \fBsetScale\fP (Vector2f scale)"
+.br
+.ti -1c
+.RI "virtual void \fBmove\fP (Vector2f offset)"
+.br
+.ti -1c
+.RI "virtual Vector2f \fBgetPosition\fP ()"
+.br
+.ti -1c
+.RI "Vector2f \fBgetSize\fP ()"
+.br
+.ti -1c
+.RI "Sprite \fBgetSprite\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetTexture\fP (Texture &texture)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBdamage\fP"
+.br
+.ti -1c
+.RI "int \fBclipSize\fP"
+.br
+.ti -1c
+.RI "float \fBbulletSpread\fP"
+.br
+.ti -1c
+.RI "float \fBmaxDistance\fP"
+.br
+.ti -1c
+.RI "float \fBcooldown\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Public Attributes inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "char \fBtype\fP"
+.br
+.ti -1c
+.RI "bool \fBshouldDraw\fP { true }"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "Sprite \fBsprite\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "void Ranged::setRangedInfo (int damage, int clipSize, float bulletSpread, float maxDistance, float cooldown)"
+
+.SS "void Ranged::shoot (std::vector< \fBBullet\fP * > & bullets, std::vector< \fBRenderObject\fP * > & renderObjects, RenderWindow & window, \fBPlayer\fP * plr, Texture & bulletTexture, Clock & attackCD, float speedBuff, int reverse)"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "float Ranged::bulletSpread\fC [private]\fP"
+
+.SS "int Ranged::clipSize\fC [private]\fP"
+
+.SS "float Ranged::cooldown\fC [private]\fP"
+
+.SS "int Ranged::damage\fC [private]\fP"
+
+.SS "float Ranged::maxDistance\fC [private]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for C2H5OH from the source code\&.

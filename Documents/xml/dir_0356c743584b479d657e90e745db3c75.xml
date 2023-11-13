@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_0356c743584b479d657e90e745db3c75" kind="dir">
+    <compoundname>D:/projects/coding/C2H5OH/C2H5OH</compoundname>
+    <innerfile refid="d7/dcd/_bullet_8cpp">Bullet.cpp</innerfile>
+    <innerfile refid="d6/d65/_bullet_8hpp">Bullet.hpp</innerfile>
+    <innerfile refid="dd/d51/_c2_h5_o_h_8cpp">C2H5OH.cpp</innerfile>
+    <innerfile refid="d8/d67/_chest_8cpp">Chest.cpp</innerfile>
+    <innerfile refid="d7/d24/_chest_8hpp">Chest.hpp</innerfile>
+    <innerfile refid="d7/d5b/_ellipse_hitbox_8cpp">EllipseHitbox.cpp</innerfile>
+    <innerfile refid="d6/dde/_ellipse_hitbox_8hpp">EllipseHitbox.hpp</innerfile>
+    <innerfile refid="de/d34/_enemy_8cpp">Enemy.cpp</innerfile>
+    <innerfile refid="da/dda/_enemy_8hpp">Enemy.hpp</innerfile>
+    <innerfile refid="d7/db5/_game_8cpp">Game.cpp</innerfile>
+    <innerfile refid="d2/d07/_game_8hpp">Game.hpp</innerfile>
+    <innerfile refid="db/d54/_item_8cpp">Item.cpp</innerfile>
+    <innerfile refid="dd/daa/_item_8hpp">Item.hpp</innerfile>
+    <innerfile refid="d2/d82/_player_8cpp">Player.cpp</innerfile>
+    <innerfile refid="d0/d16/_player_8hpp">Player.hpp</innerfile>
+    <innerfile refid="d2/dec/precompile_8cpp">precompile.cpp</innerfile>
+    <innerfile refid="d9/d98/precompile_8hpp">precompile.hpp</innerfile>
+    <innerfile refid="d5/d7e/_ranged_boss_8cpp">RangedBoss.cpp</innerfile>
+    <innerfile refid="d4/dce/_ranged_boss_8hpp">RangedBoss.hpp</innerfile>
+    <innerfile refid="d5/df0/_ranged_enemy_8cpp">RangedEnemy.cpp</innerfile>
+    <innerfile refid="db/da4/_ranged_enemy_8hpp">RangedEnemy.hpp</innerfile>
+    <innerfile refid="d8/d5a/_rectangle_hitbox_8cpp">RectangleHitbox.cpp</innerfile>
+    <innerfile refid="d8/d8a/_rectangle_hitbox_8hpp">RectangleHitbox.hpp</innerfile>
+    <innerfile refid="df/dd4/_render_object_8cpp">RenderObject.cpp</innerfile>
+    <innerfile refid="d2/d59/_render_object_8hpp">RenderObject.hpp</innerfile>
+    <innerfile refid="da/dbe/_square_8cpp">Square.cpp</innerfile>
+    <innerfile refid="d3/da9/_square_8hpp">Square.hpp</innerfile>
+    <innerfile refid="d3/d11/_walker_8cpp">Walker.cpp</innerfile>
+    <innerfile refid="d2/dd6/_walker_8hpp">Walker.hpp</innerfile>
+    <innerfile refid="db/d43/_weapons_8cpp">Weapons.cpp</innerfile>
+    <innerfile refid="d7/daf/_weapons_8hpp">Weapons.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/projects/coding/C2H5OH/C2H5OH/"/>
+  </compounddef>
+</doxygen>

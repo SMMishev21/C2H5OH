@@ -1,0 +1,100 @@
+.TH "Element" 3 "C2H5OH" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Element
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Item\&.hpp>\fP
+.PP
+Inherits \fBRenderObject\fP\&.
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "float \fBspawnTime\fP"
+.br
+.ti -1c
+.RI "Vector2f \fBdirection\fP"
+.br
+.ti -1c
+.RI "std::string \fBelement\fP"
+.br
+.ti -1c
+.RI "Clock \fBtimeAlive\fP"
+.br
+.ti -1c
+.RI "Clock \fBspawnClock\fP"
+.br
+.in -1c
+
+Public Attributes inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "char \fBtype\fP"
+.br
+.ti -1c
+.RI "bool \fBshouldDraw\fP { true }"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Public Member Functions inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "virtual void \fBinit\fP (Texture &texture, Vector2f position, char \fBtype\fP)"
+.br
+.ti -1c
+.RI "virtual void \fBsetPosition\fP (Vector2f position)"
+.br
+.ti -1c
+.RI "virtual void \fBsetOrigin\fP (Vector2f origin)"
+.br
+.ti -1c
+.RI "virtual void \fBdraw\fP (RenderWindow &window)"
+.br
+.ti -1c
+.RI "virtual void \fBsetScale\fP (Vector2f scale)"
+.br
+.ti -1c
+.RI "virtual void \fBmove\fP (Vector2f offset)"
+.br
+.ti -1c
+.RI "virtual Vector2f \fBgetPosition\fP ()"
+.br
+.ti -1c
+.RI "Vector2f \fBgetSize\fP ()"
+.br
+.ti -1c
+.RI "Sprite \fBgetSprite\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetTexture\fP (Texture &texture)"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBRenderObject\fP
+.in +1c
+.ti -1c
+.RI "Sprite \fBsprite\fP"
+.br
+.in -1c
+.SH "Member Data Documentation"
+.PP 
+.SS "Vector2f Element::direction"
+
+.SS "std::string Element::element"
+
+.SS "Clock Element::spawnClock"
+
+.SS "float Element::spawnTime"
+
+.SS "Clock Element::timeAlive"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for C2H5OH from the source code\&.

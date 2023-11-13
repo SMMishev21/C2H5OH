@@ -1,0 +1,157 @@
+\doxysection{Render\+Object Class Reference}
+\hypertarget{class_render_object}{}\label{class_render_object}\index{RenderObject@{RenderObject}}
+
+
+{\ttfamily \#include $<$Render\+Object.\+hpp$>$}
+
+Inheritance diagram for Render\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=11.000000cm]{d8/d3d/class_render_object}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a57ea4112279a6fa8238b831df04e9907}{init}} (Texture \&texture, Vector2f position, char \mbox{\hyperlink{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}{type}})
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a610e8015f78f4028be442da1b73257a3}{set\+Position}} (Vector2f position)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a8305c2fbd72a10a13a3a875bd4a87933}{set\+Origin}} (Vector2f origin)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_ae74e7cc67685a9f47eba43fa7afe63a4}{draw}} (Render\+Window \&window)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a448ffcd3998836202f845073e2e906a4}{set\+Scale}} (Vector2f scale)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_aa66db6e5382da7932a8480e5bcc70776}{move}} (Vector2f offset)
+\item 
+virtual Vector2f \mbox{\hyperlink{class_render_object_a1d1f93bce3161eb284a37c7581625bb7}{get\+Position}} ()
+\item 
+Vector2f \mbox{\hyperlink{class_render_object_a82e4d119e2fc84a7a7b609ab854ba89a}{get\+Size}} ()
+\item 
+Sprite \mbox{\hyperlink{class_render_object_a84d185d9a2d3963d0de8eda80cb2bc9d}{get\+Sprite}} ()
+\item 
+void \mbox{\hyperlink{class_render_object_ad6a393d95fec7397d41647eaf18b4677}{set\+Texture}} (Texture \&texture)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}{type}}
+\item 
+bool \mbox{\hyperlink{class_render_object_aecc430f82613dc1e4ca7b7c9a87db891}{should\+Draw}} \{ true \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Sprite \mbox{\hyperlink{class_render_object_a68a180ca61609043defd4e9362f87b44}{sprite}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_render_object_ae74e7cc67685a9f47eba43fa7afe63a4}\label{class_render_object_ae74e7cc67685a9f47eba43fa7afe63a4} 
+\index{RenderObject@{RenderObject}!draw@{draw}}
+\index{draw@{draw}!RenderObject@{RenderObject}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Render\+Object\+::draw (\begin{DoxyParamCaption}\item[{Render\+Window \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_enemy_a582d09158d692070f4becf68220bf6b6}{Enemy}}, and \mbox{\hyperlink{class_rectangle_hitbox_a996a55abeb71a304061d6c0f9c51bf41}{Rectangle\+Hitbox}}.
+
+\Hypertarget{class_render_object_a1d1f93bce3161eb284a37c7581625bb7}\label{class_render_object_a1d1f93bce3161eb284a37c7581625bb7} 
+\index{RenderObject@{RenderObject}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!RenderObject@{RenderObject}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily Vector2f Render\+Object\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_ellipse_hitbox_a3eaadd3c631550c41b9ac1a31a553500}{Ellipse\+Hitbox}}, and \mbox{\hyperlink{class_rectangle_hitbox_aaf7577df1d572bff07d634ef2bcec7b2}{Rectangle\+Hitbox}}.
+
+\Hypertarget{class_render_object_a82e4d119e2fc84a7a7b609ab854ba89a}\label{class_render_object_a82e4d119e2fc84a7a7b609ab854ba89a} 
+\index{RenderObject@{RenderObject}!getSize@{getSize}}
+\index{getSize@{getSize}!RenderObject@{RenderObject}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily Vector2f Render\+Object\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_render_object_a84d185d9a2d3963d0de8eda80cb2bc9d}\label{class_render_object_a84d185d9a2d3963d0de8eda80cb2bc9d} 
+\index{RenderObject@{RenderObject}!getSprite@{getSprite}}
+\index{getSprite@{getSprite}!RenderObject@{RenderObject}}
+\doxysubsubsection{\texorpdfstring{getSprite()}{getSprite()}}
+{\footnotesize\ttfamily Sprite Render\+Object\+::get\+Sprite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_render_object_a57ea4112279a6fa8238b831df04e9907}\label{class_render_object_a57ea4112279a6fa8238b831df04e9907} 
+\index{RenderObject@{RenderObject}!init@{init}}
+\index{init@{init}!RenderObject@{RenderObject}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Render\+Object\+::init (\begin{DoxyParamCaption}\item[{Texture \&}]{texture,  }\item[{Vector2f}]{position,  }\item[{char}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_enemy_a2160db284c20b71c1cb1df76fc5e2636}{Enemy}}, \mbox{\hyperlink{class_player_a12eafa4e6f433a49fa83c454252dd63e}{Player}}, and \mbox{\hyperlink{class_ranged_boss_aa1f20a3f8eea5e841562ebb9ae8cb37c}{Ranged\+Boss}}.
+
+\Hypertarget{class_render_object_aa66db6e5382da7932a8480e5bcc70776}\label{class_render_object_aa66db6e5382da7932a8480e5bcc70776} 
+\index{RenderObject@{RenderObject}!move@{move}}
+\index{move@{move}!RenderObject@{RenderObject}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Render\+Object\+::move (\begin{DoxyParamCaption}\item[{Vector2f}]{offset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_enemy_aa1e20b304c769713c6f15a95eb4724bb}{Enemy}}, and \mbox{\hyperlink{class_player_a69c18b28cd4bab86be4158d1b66d835c}{Player}}.
+
+\Hypertarget{class_render_object_a8305c2fbd72a10a13a3a875bd4a87933}\label{class_render_object_a8305c2fbd72a10a13a3a875bd4a87933} 
+\index{RenderObject@{RenderObject}!setOrigin@{setOrigin}}
+\index{setOrigin@{setOrigin}!RenderObject@{RenderObject}}
+\doxysubsubsection{\texorpdfstring{setOrigin()}{setOrigin()}}
+{\footnotesize\ttfamily void Render\+Object\+::set\+Origin (\begin{DoxyParamCaption}\item[{Vector2f}]{origin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_render_object_a610e8015f78f4028be442da1b73257a3}\label{class_render_object_a610e8015f78f4028be442da1b73257a3} 
+\index{RenderObject@{RenderObject}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!RenderObject@{RenderObject}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void Render\+Object\+::set\+Position (\begin{DoxyParamCaption}\item[{Vector2f}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_ellipse_hitbox_ad283334fb22d4b3f4fd0ef071eb882f7}{Ellipse\+Hitbox}}, \mbox{\hyperlink{class_rectangle_hitbox_a5a7661a11e48a7a06ec7534f736c3c3b}{Rectangle\+Hitbox}}, and \mbox{\hyperlink{class_player_a917b4bde604f3238ced6f026108226b2}{Player}}.
+
+\Hypertarget{class_render_object_a448ffcd3998836202f845073e2e906a4}\label{class_render_object_a448ffcd3998836202f845073e2e906a4} 
+\index{RenderObject@{RenderObject}!setScale@{setScale}}
+\index{setScale@{setScale}!RenderObject@{RenderObject}}
+\doxysubsubsection{\texorpdfstring{setScale()}{setScale()}}
+{\footnotesize\ttfamily void Render\+Object\+::set\+Scale (\begin{DoxyParamCaption}\item[{Vector2f}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_render_object_ad6a393d95fec7397d41647eaf18b4677}\label{class_render_object_ad6a393d95fec7397d41647eaf18b4677} 
+\index{RenderObject@{RenderObject}!setTexture@{setTexture}}
+\index{setTexture@{setTexture}!RenderObject@{RenderObject}}
+\doxysubsubsection{\texorpdfstring{setTexture()}{setTexture()}}
+{\footnotesize\ttfamily void Render\+Object\+::set\+Texture (\begin{DoxyParamCaption}\item[{Texture \&}]{texture }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_render_object_aecc430f82613dc1e4ca7b7c9a87db891}\label{class_render_object_aecc430f82613dc1e4ca7b7c9a87db891} 
+\index{RenderObject@{RenderObject}!shouldDraw@{shouldDraw}}
+\index{shouldDraw@{shouldDraw}!RenderObject@{RenderObject}}
+\doxysubsubsection{\texorpdfstring{shouldDraw}{shouldDraw}}
+{\footnotesize\ttfamily bool Render\+Object\+::should\+Draw \{ true \}}
+
+\Hypertarget{class_render_object_a68a180ca61609043defd4e9362f87b44}\label{class_render_object_a68a180ca61609043defd4e9362f87b44} 
+\index{RenderObject@{RenderObject}!sprite@{sprite}}
+\index{sprite@{sprite}!RenderObject@{RenderObject}}
+\doxysubsubsection{\texorpdfstring{sprite}{sprite}}
+{\footnotesize\ttfamily Sprite Render\+Object\+::sprite\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}\label{class_render_object_a29345f8ebe01d91c928a2b77840dadbf} 
+\index{RenderObject@{RenderObject}!type@{type}}
+\index{type@{type}!RenderObject@{RenderObject}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily char Render\+Object\+::type}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/projects/coding/\+C2\+H5\+OH/\+C2\+H5\+OH/\mbox{\hyperlink{_render_object_8hpp}{Render\+Object.\+hpp}}\item 
+D\+:/projects/coding/\+C2\+H5\+OH/\+C2\+H5\+OH/\mbox{\hyperlink{_render_object_8cpp}{Render\+Object.\+cpp}}\end{DoxyCompactItemize}

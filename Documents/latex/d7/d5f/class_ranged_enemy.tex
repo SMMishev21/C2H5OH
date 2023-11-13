@@ -1,0 +1,144 @@
+\doxysection{Ranged\+Enemy Class Reference}
+\hypertarget{class_ranged_enemy}{}\label{class_ranged_enemy}\index{RangedEnemy@{RangedEnemy}}
+
+
+{\ttfamily \#include $<$Ranged\+Enemy.\+hpp$>$}
+
+Inheritance diagram for Ranged\+Enemy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{d7/d5f/class_ranged_enemy}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ranged_enemy_ad3ef88fd54dfba53f6c8ccac3dc9a37a}{Ranged\+Enemy}} ()
+\item 
+virtual void \mbox{\hyperlink{class_ranged_enemy_acd2c4ce4c05b3d357e7919dc67ddc593}{ai\+Move}} (\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}plr, Clock \&i\+Frames, float dt, std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&enemies, bool \&dash, std\+::vector$<$ \mbox{\hyperlink{class_render_object}{Render\+Object}} \texorpdfstring{$\ast$}{*} $>$ \&render\+Objects, std\+::vector$<$ \mbox{\hyperlink{class_bullet}{Bullet}} \texorpdfstring{$\ast$}{*} $>$ \&bullets, std\+::mutex \&m) override
+\item 
+virtual void \mbox{\hyperlink{class_ranged_enemy_a9082a51a21cb05314e1fbb4acdcbfdcb}{shoot}} (\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}plr, std\+::vector$<$ \mbox{\hyperlink{class_render_object}{Render\+Object}} \texorpdfstring{$\ast$}{*} $>$ \&render\+Objects, std\+::vector$<$ \mbox{\hyperlink{class_bullet}{Bullet}} \texorpdfstring{$\ast$}{*} $>$ \&bullets, std\+::mutex \&m)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_enemy}{Enemy}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_enemy_a2160db284c20b71c1cb1df76fc5e2636}{init}} (Texture \&texture, Vector2f position, char \mbox{\hyperlink{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}{type}}) override
+\item 
+void \mbox{\hyperlink{class_enemy_aa1e20b304c769713c6f15a95eb4724bb}{move}} (Vector2f offset) override
+\item 
+void \mbox{\hyperlink{class_enemy_a582d09158d692070f4becf68220bf6b6}{draw}} (Render\+Window \&window) override
+\item 
+virtual void \mbox{\hyperlink{class_enemy_ae89eefd8e9478d7e4512bc24ca52a4b1}{take\+Damage}} (float \mbox{\hyperlink{class_enemy_a5d5917c222119c1d8eb3183c27c7adb7}{damage}})
+\item 
+float \mbox{\hyperlink{class_enemy_a02b52b5c3d1effad96047ae788cc5507}{get\+Hp}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a610e8015f78f4028be442da1b73257a3}{set\+Position}} (Vector2f position)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a8305c2fbd72a10a13a3a875bd4a87933}{set\+Origin}} (Vector2f origin)
+\item 
+virtual void \mbox{\hyperlink{class_render_object_a448ffcd3998836202f845073e2e906a4}{set\+Scale}} (Vector2f scale)
+\item 
+virtual Vector2f \mbox{\hyperlink{class_render_object_a1d1f93bce3161eb284a37c7581625bb7}{get\+Position}} ()
+\item 
+Vector2f \mbox{\hyperlink{class_render_object_a82e4d119e2fc84a7a7b609ab854ba89a}{get\+Size}} ()
+\item 
+Sprite \mbox{\hyperlink{class_render_object_a84d185d9a2d3963d0de8eda80cb2bc9d}{get\+Sprite}} ()
+\item 
+void \mbox{\hyperlink{class_render_object_ad6a393d95fec7397d41647eaf18b4677}{set\+Texture}} (Texture \&texture)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Clock \mbox{\hyperlink{class_ranged_enemy_aaf0285524a4a183bcfdc25f8c100b842}{shoot\+Timer}}
+\item 
+Texture \mbox{\hyperlink{class_ranged_enemy_a57d732f5ad35a8ed553b9cd109fda4bc}{bullet\+Texture}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_enemy}{Enemy}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ellipse_hitbox}{Ellipse\+Hitbox}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_enemy_a58106633fc5b501764611ebd16b9fcc1}{hitbox}}
+\item 
+float \mbox{\hyperlink{class_enemy_a5d5917c222119c1d8eb3183c27c7adb7}{damage}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{class_render_object_a29345f8ebe01d91c928a2b77840dadbf}{type}}
+\item 
+bool \mbox{\hyperlink{class_render_object_aecc430f82613dc1e4ca7b7c9a87db891}{should\+Draw}} \{ true \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_enemy}{Enemy}}}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_enemy_a64049230ae39663dd5ccfd0a27b25474}{hp}} \{ 100 \}
+\item 
+Rectangle\+Shape \mbox{\hyperlink{class_enemy_ac0db47c80f9801160bd27458a25018a4}{health\+Bar}}
+\item 
+Vector2f \mbox{\hyperlink{class_enemy_a1d50ff4dff13f15ffc608703f16f8575}{pos}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_render_object}{Render\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+Sprite \mbox{\hyperlink{class_render_object_a68a180ca61609043defd4e9362f87b44}{sprite}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_ranged_enemy_ad3ef88fd54dfba53f6c8ccac3dc9a37a}\label{class_ranged_enemy_ad3ef88fd54dfba53f6c8ccac3dc9a37a} 
+\index{RangedEnemy@{RangedEnemy}!RangedEnemy@{RangedEnemy}}
+\index{RangedEnemy@{RangedEnemy}!RangedEnemy@{RangedEnemy}}
+\doxysubsubsection{\texorpdfstring{RangedEnemy()}{RangedEnemy()}}
+{\footnotesize\ttfamily Ranged\+Enemy\+::\+Ranged\+Enemy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_ranged_enemy_acd2c4ce4c05b3d357e7919dc67ddc593}\label{class_ranged_enemy_acd2c4ce4c05b3d357e7919dc67ddc593} 
+\index{RangedEnemy@{RangedEnemy}!aiMove@{aiMove}}
+\index{aiMove@{aiMove}!RangedEnemy@{RangedEnemy}}
+\doxysubsubsection{\texorpdfstring{aiMove()}{aiMove()}}
+{\footnotesize\ttfamily void Ranged\+Enemy\+::ai\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}}]{plr,  }\item[{Clock \&}]{i\+Frames,  }\item[{float}]{dt,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{enemies,  }\item[{bool \&}]{dash,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_render_object}{Render\+Object}} \texorpdfstring{$\ast$}{*} $>$ \&}]{render\+Objects,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_bullet}{Bullet}} \texorpdfstring{$\ast$}{*} $>$ \&}]{bullets,  }\item[{std\+::mutex \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_enemy_abff01ca5670b8c406fd36dcae43f6ea3}{Enemy}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_ranged_boss_afb50d47d302b512c37fef7167ceb0b43}{Ranged\+Boss}}.
+
+\Hypertarget{class_ranged_enemy_a9082a51a21cb05314e1fbb4acdcbfdcb}\label{class_ranged_enemy_a9082a51a21cb05314e1fbb4acdcbfdcb} 
+\index{RangedEnemy@{RangedEnemy}!shoot@{shoot}}
+\index{shoot@{shoot}!RangedEnemy@{RangedEnemy}}
+\doxysubsubsection{\texorpdfstring{shoot()}{shoot()}}
+{\footnotesize\ttfamily void Ranged\+Enemy\+::shoot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}}]{plr,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_render_object}{Render\+Object}} \texorpdfstring{$\ast$}{*} $>$ \&}]{render\+Objects,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_bullet}{Bullet}} \texorpdfstring{$\ast$}{*} $>$ \&}]{bullets,  }\item[{std\+::mutex \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_ranged_boss_ae4e40578d9babf4a141294a0470a70f9}{Ranged\+Boss}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_ranged_enemy_a57d732f5ad35a8ed553b9cd109fda4bc}\label{class_ranged_enemy_a57d732f5ad35a8ed553b9cd109fda4bc} 
+\index{RangedEnemy@{RangedEnemy}!bulletTexture@{bulletTexture}}
+\index{bulletTexture@{bulletTexture}!RangedEnemy@{RangedEnemy}}
+\doxysubsubsection{\texorpdfstring{bulletTexture}{bulletTexture}}
+{\footnotesize\ttfamily Texture Ranged\+Enemy\+::bullet\+Texture\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_ranged_enemy_aaf0285524a4a183bcfdc25f8c100b842}\label{class_ranged_enemy_aaf0285524a4a183bcfdc25f8c100b842} 
+\index{RangedEnemy@{RangedEnemy}!shootTimer@{shootTimer}}
+\index{shootTimer@{shootTimer}!RangedEnemy@{RangedEnemy}}
+\doxysubsubsection{\texorpdfstring{shootTimer}{shootTimer}}
+{\footnotesize\ttfamily Clock Ranged\+Enemy\+::shoot\+Timer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/projects/coding/\+C2\+H5\+OH/\+C2\+H5\+OH/\mbox{\hyperlink{_ranged_enemy_8hpp}{Ranged\+Enemy.\+hpp}}\item 
+D\+:/projects/coding/\+C2\+H5\+OH/\+C2\+H5\+OH/\mbox{\hyperlink{_ranged_enemy_8cpp}{Ranged\+Enemy.\+cpp}}\end{DoxyCompactItemize}
